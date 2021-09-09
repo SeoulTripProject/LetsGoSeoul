@@ -23,7 +23,15 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="about.html">Attractions</a></li>
+                                            <li><a href="../attraction/attraction_main.do">Attractions</a>
+                                            	<ul class="submenu">
+                                                    <li><a href="blog.html">Landmark</a></li>
+                                                    <li><a href="blog.html">Palace</a></li>
+                                                    <li><a href="blog.html">historic Place</a></li>
+                                                    <li><a href="blog.html">Old Store</a></li>
+                                                    <li><a href="blog.html">Museum</a></li>
+                                                </ul>
+                                            </li>
                                             <li><a href="catagori.html">Nature</a></li>
                                             <li><a href="listing.jsp">Culture</a>
                                                 <ul class="submenu">
