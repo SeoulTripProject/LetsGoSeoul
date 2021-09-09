@@ -15,7 +15,7 @@ public class FoodDAO {
 	{
 		try
 		{
-			Context init=new InitialContext(); // 저장된 위치에 접근
+			Context init=new InitialContext(); 
 			Context c=(Context)init.lookup("java://comp//env");
 			DataSource ds=(DataSource)c.lookup("jdbc/oracle");
 			conn=ds.getConnection();
