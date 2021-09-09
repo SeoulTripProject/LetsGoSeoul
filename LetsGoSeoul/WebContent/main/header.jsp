@@ -30,10 +30,10 @@
                                                     <li><a href="blog.html">Exhibition</a></li>
                                                     <li><a href="blog.html">Play</a></li>
                                                 </ul>
-                                            </li><li><a href="#">Stay</a>
+                                            </li><li><a href="../stay/stay_main.do">Stay</a>
                                                 <ul class="submenu">
-                                                    <li><a href="blog.html">Hotel</a></li>
-                                                    <li><a href="blog.html">GuestHouse</a></li>
+                                                    <li><a href="../stay/hotel.do">Hotel</a></li>
+                                                    <li><a href="../stay/ghouse.do">GuestHouse</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Restaurants</a>
