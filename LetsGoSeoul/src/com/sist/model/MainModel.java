@@ -11,6 +11,7 @@ public class MainModel {
 	@RequestMapping("main/main.do")
 	public String main_main(HttpServletRequest request,HttpServletResponse response)
 	{
+		request.setAttribute("main_jsp", "../main/home.jsp");
 		return "../main/main.jsp";
 	}
 }
