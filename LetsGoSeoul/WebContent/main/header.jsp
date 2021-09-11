@@ -46,7 +46,7 @@
                                             </li>
                                             <li><a href="../food/food_main.do">Restaurants</a>
                                                 <ul class="submenu">
-                                                    <li><a href="../food/food_main.do">Restaurant List</a></li>
+                                                    <li><a href="../food/food_list.do">Restaurant List</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Board</a>
