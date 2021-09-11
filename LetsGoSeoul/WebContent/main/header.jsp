@@ -33,7 +33,7 @@
                                                 </ul>
                                             </li>
                                             <li><a href="catagori.html">Nature</a></li>
-                                            <li><a href="listing.jsp">Culture</a>
+                                            <li><a href="../culture/culture_main.do">Culture</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Exhibition</a></li>
                                                     <li><a href="blog.html">Play</a></li>

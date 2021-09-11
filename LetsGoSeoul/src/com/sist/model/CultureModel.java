@@ -7,12 +7,11 @@ import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 
 @Controller
-public class PlayModel {
-	@RequestMapping("play/play.do")
+public class CultureModel {
+	@RequestMapping("culture/culture_main.do")
 	public String main_main(HttpServletRequest request,HttpServletResponse response)
 	{
-		
-		request.setAttribute("main_jsp","../play/play_main.jsp");
+		request.setAttribute("main_jsp", "../culture/culture_main.jsp");
 		return "../main/main.jsp";
 	}
 }
