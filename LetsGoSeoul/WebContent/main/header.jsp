@@ -86,9 +86,11 @@ $(function(){
                                             </c:if>
                                             <c:if test="${sessionScope.id!=null }"> <%-- 로그인이 된 상태 --%>
 										      <li class="login">
-										        <i class="ti-user"></i>
-										           ${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반유저" })
-										          	 로그인 중입니다!!
+										        <i class="ti-user"></i><a>
+										           ${sessionScope.name } ( ${sessionScope.admin=='y'?"ADMIN":"USER" } ) 
+										          	 is now logging in!!
+										        </a>
+										        </li>
 										          <li class="join">
 										            <input type=button id="logoutBtn" value="logout" class="btn btn-sm btn-danger">
 										       </li>
