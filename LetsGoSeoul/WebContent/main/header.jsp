@@ -44,7 +44,7 @@
                                                     <li><a href="../stay/ghouse.do">GuestHouse</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#">Restaurants</a>
+                                            <li><a href="../food/food_main.do">Restaurants</a>
                                                 <ul class="submenu">
                                                     <li><a href="../food/food_main.do">Restaurant List</a></li>
                                                 </ul>
