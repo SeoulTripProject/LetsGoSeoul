@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center mb-80">
-                            <h2>Popular Hotel</h2>
+                            <h2>Hotel</h2>
                         </div>
                     </div>
                 </div>
@@ -58,6 +58,30 @@
                     </div>
                   </c:forEach>
                 </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center mb-80">
+                            <h2>GuestHouse</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                   <c:forEach var="gvo" items="${list2 }">
+                    <div class="col-4">
+                        <div class="single-location mb-30 inline">
+                            <div class="location-img inline">
+                                <img src="${gvo.poster }" style="width:360px;height:286px">
+                            </div>
+                            <div class="location-details">
+                                <p>${gvo.sname }</p>
+                                <a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
+                            </div>
+                        </div>
+                    </div>
+                  </c:forEach>
+                </div>
+                
             </div>
         </div>
 </body>

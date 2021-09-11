@@ -18,8 +18,9 @@ public class StayModel {
 		//DAO
 		StayDAO dao=StayDAO.newInstance(); 
 		List<StayVO> list=dao.stayMainData();
-
+		List<StayVO> list2=dao.stayMainData2();
 		request.setAttribute("list", list);
+		request.setAttribute("list2", list2);
 
 		request.setAttribute("main_jsp","../stay/stay_main.jsp");
 		return "../main/main.jsp";
