@@ -1,8 +1,27 @@
 package com.sist.vo;
-
+/*
+ *  NO       NOT NULL NUMBER         
+	SNO               NUMBER         
+	SCORE             NUMBER(2,1)    
+	SNAME             VARCHAR2(1000) 
+	TIME              VARCHAR2(2000) 
+	POSTER            VARCHAR2(4000) 
+	IMAGES            VARCHAR2(4000) 
+	TEL               VARCHAR2(1000) 
+	EMAIL             VARCHAR2(1000) 
+	LINK              VARCHAR2(1000) 
+	WEBLINK           VARCHAR2(1000) 
+	ADDR              VARCHAR2(1000) 
+	LANGU             VARCHAR2(1000) 
+	INFO              VARCHAR2(4000) 
+	ROOMINFO          CLOB           
+	OPT               VARCHAR2(1000) 
+	BUS               VARCHAR2(1000) 
+ */
 public class StayVO {
 	private int no,sno;
-	private String sname,openHour,poster,info,tel,email,link,webLink,addr,langu,roomInfo,opt,bus;
+	private double score;
+	private String sname,time,poster,images,tel,email,link,webLink,addr,langu,info,roomInfo,opt,bus;
 	
 	public int getNo() {
 		return no;
@@ -16,17 +35,23 @@ public class StayVO {
 	public void setSno(int sno) {
 		this.sno = sno;
 	}
+	public double getScore() {
+		return score;
+	}
+	public void setScore(double score) {
+		this.score = score;
+	}
 	public String getSname() {
 		return sname;
 	}
 	public void setSname(String sname) {
 		this.sname = sname;
 	}
-	public String getOpenHour() {
-		return openHour;
+	public String getTime() {
+		return time;
 	}
-	public void setOpenHour(String openHour) {
-		this.openHour = openHour;
+	public void setTime(String time) {
+		this.time = time;
 	}
 	public String getPoster() {
 		return poster;
@@ -34,11 +59,11 @@ public class StayVO {
 	public void setPoster(String poster) {
 		this.poster = poster;
 	}
-	public String getInfo() {
-		return info;
+	public String getImages() {
+		return images;
 	}
-	public void setInfo(String info) {
-		this.info = info;
+	public void setImages(String images) {
+		this.images = images;
 	}
 	public String getTel() {
 		return tel;
@@ -76,6 +101,12 @@ public class StayVO {
 	public void setLangu(String langu) {
 		this.langu = langu;
 	}
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
 	public String getRoomInfo() {
 		return roomInfo;
 	}
@@ -94,6 +125,11 @@ public class StayVO {
 	public void setBus(String bus) {
 		this.bus = bus;
 	}
+	
+	
+	
+	
+	
 	
 	
 }
