@@ -5,9 +5,101 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../shadow/css/shadowbox.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+Shadowbox.init({
+	players:['iframe']
+});
+$(function(){
+	$('#idBtn').click(function(){
+		 Shadowbox.open({
+			content:'../member/idcheck.jsp',
+			player:'iframe',
+			title:'아이디 중복체크',
+			width:340,
+			height:200
+		}); 
+	});
+	// id,class(javascript/css) ,name(java에 값을 보낸다) 
+	$('#postBtn').click(function(){
+		 Shadowbox.open({
+			content:'../member/postfind.jsp',
+			player:'iframe',
+			title:'우편번호 찾기',
+			width:530,
+			height:350
+		}); 
+	});
+	$('#sendBtn').click(function(){
+		// NOT NULL => 강제 입력 (오라클에서 오류 방지 => 유효성 검사)
+		//alert("click");
+		/* let id=$('#id').val();
+		if(id.trim()=="")
+		{
+			$('#id').focus();
+			return;
+		} */
+		
+		let pwd=$('#pwd').val();
+		if(pwd.trim()=="")
+		{
+			$('#pwd').focus();
+			return;
+		}
+		let pwd1=$('#pwd1').val();
+		if(pwd!=pwd1)
+		{
+			$('#pwd1').focus();
+			return;
+		}
+		
+		// 이름 
+		let name=$('#name').val();
+		if(name.trim()=="")
+		{
+			$('#name').focus();
+			return;
+		}
+		// 생년월일
+		let birth=$('#birthday').val();
+		if(birth.trim()=="")
+		{
+			$('#birthday').focus();
+			return;
+		}
+		// 이메일
+		let email=$('#email').val();
+		if(email.trim()=="")
+		{
+			$('#email').focus();
+			return;
+		}
+		// 주소 
+		/* let addr1=$('#addr1').val();
+		if(addr1.trim()=="")
+		{
+			$('#addr1').focus();
+			return;
+		} */
+		
+		// 전화번호
+		let tel2=$('#tel2').val();
+		if(tel2.trim()=="")
+		{
+			$('#tel2').focus();
+			return;
+		}
+		
+		// 정상수행 
+		$('#joinFrm').submit();
+	})
+})
+</script>
 <style type="text/css"> 
 form {
   width: 60%;
@@ -103,10 +195,14 @@ button:hover {
 			</div>
 		</div>
 		<!--Hero End -->
-		<form>
+		<form method="post" action="../member/join_ok.do" id="joinFrm" name="joinFrm">
 		  <label>
 		    <p class="label-txt">ID</p>
-		    <input type="text" class="input">
+		    <br>
+		    <input type="text" class="input" name=id size=20 readonly id=id>
+		    <input type=button value="중복체크" id=idBtn class="btn btn-sm btn-danger">
+		    <br>
+		    <br>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -163,7 +259,7 @@ button:hover {
 		  <label>
 		    <p class="label-txt">POSTCODE</p>
 		    <br>
-  	        <input type="text" name=post1 size=7 class="input" readonly id="post1">-<input type=text id="post2" class="input" name=post2 size=7 readonly>
+  	        <input type="text" name=post1 size=7 class="input inline" readonly id="post1">-<input type=text id="post2" class="input inline" name=post2 size=7 readonly>
   	      	<input type=button value="우편번호검색" class="btn btn-sm btn-primary" id=postBtn>
   	      	<br>
   	      	<br>
@@ -203,7 +299,7 @@ button:hover {
 		    </div>
 		  </label>
 		  
-		  <button type="submit">JOIN</button>
+		  <button type="submit" id=sendBtn>JOIN</button>
 		</form>
 		  	      
   	   
