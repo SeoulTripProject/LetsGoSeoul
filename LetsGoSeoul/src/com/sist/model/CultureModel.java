@@ -14,4 +14,16 @@ public class CultureModel {
 		request.setAttribute("main_jsp", "../culture/culture_main.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("culture/exhibition.do")
+	public String culture_exhibition(HttpServletRequest request,HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../culture/exhibition.jsp");
+		return "../main/main.jsp";
+	}
+	@RequestMapping("culture/play.do")
+	public String culutre_play(HttpServletRequest request,HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../culture/play.jsp");
+		return "../main/main.jsp";
+	}
 }
