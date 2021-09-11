@@ -56,7 +56,7 @@ public class MemberModel {
 	  @RequestMapping("member/join_ok.do")
 	  public String member_join_ok(HttpServletRequest request,HttpServletResponse response)
 	  {
-		  System.out.println("회원 데이터 전송완료");
+		  System.out.println("OK");
 
 		  try
 		  {

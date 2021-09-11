@@ -76,6 +76,70 @@ public class CultureDAO {
 		  }
 		  return list;
 	  }
+	public ExbitVO exbitListData(int no)
+	{
+		ExbitVO vo=new ExbitVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,poster,title,period "
+					  +"FROM trip_E"
+					  +"WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setPoster(rs.getString(2));
+			vo.setTitle(rs.getString(3));
+			vo.setPeriod(rs.getString(4));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
+	public ExbitVO exbitDetailData(int no)
+	{
+		ExbitVO vo=new ExbitVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,images,detail,period,tel,time,day,price,addr,trans,tag "
+					  +"FROM trip_E "
+					  +"WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setImages(rs.getString(2));
+			vo.setDetail(rs.getString(3));
+			vo.setPeriod(rs.getString(4));
+			vo.setTel(rs.getString(5));
+			vo.setTime(rs.getString(6));
+			vo.setDay(rs.getString(7));
+			vo.setPrice(rs.getString(8));
+			vo.setAddr(rs.getString(9));
+			vo.setTrans(rs.getString(10));
+			vo.setTag(rs.getString(11));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
+	
 	public List<CultureVO> playData()
 	  {
 		  List<CultureVO> list=new ArrayList<CultureVO>();
@@ -107,6 +171,61 @@ public class CultureDAO {
 		  }
 		  return list;
 	  }
-
-
+	public CultureVO playListData(int no)
+	{
+		CultureVO vo=new CultureVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,poster,title,period "
+					  +"FROM trip_C";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setPoster(rs.getString(2));
+			vo.setTitle(rs.getString(3));
+			vo.setPeriod(rs.getString(4));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
+	public CultureVO playDetailData(int no)
+	{
+		CultureVO vo=new CultureVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,title,poster,period,story,addr,tel "
+					  +"FROM trip_C "
+					  +"WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setTitle(rs.getString(2));
+			vo.setPoster(rs.getString(3));
+			vo.setPeriod(rs.getString(4));
+			vo.setStory(rs.getString(5));
+			vo.setAddr(rs.getString(6));
+			vo.setTel(rs.getString(7));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
 }

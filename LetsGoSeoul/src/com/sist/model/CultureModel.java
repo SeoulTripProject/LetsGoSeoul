@@ -27,6 +27,15 @@ public class CultureModel {
 		request.setAttribute("main_jsp", "../culture/exhibition.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("culture/exhibition_detail.do")
+	public String exhibition_detail(HttpServletRequest request,HttpServletResponse response)
+	{
+		String no=request.getParameter("no");
+		CultureDAO dao=CultureDAO.newInstance();
+		ExbitVO vo=dao.exbitDetailData(Integer.parseInt(no));
+		
+		return "../main/main.jsp";
+	}
 	@RequestMapping("culture/play.do")
 	public String culutre_play(HttpServletRequest request,HttpServletResponse response)
 	{
