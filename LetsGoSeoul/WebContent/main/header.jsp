@@ -30,7 +30,7 @@ $(function(){
                             </div>
                             <div class="col-xl-11 col-lg-11 col-md-8">
                                 <!-- Main-menu -->
-                                <div class="main-menu f-left d-none d-lg-block">
+                                <div class="main-menu f-right d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">                                                                                                                                     
                                             <li><a href="../attraction/attraction_main.do">Attractions</a>
