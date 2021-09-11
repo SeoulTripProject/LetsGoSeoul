@@ -127,11 +127,11 @@ label {
   transition: ease .3s;
 }
 .input {
-  width: 100%;
   padding: 10px;
   background: transparent;
   border: none;
   outline: none;
+  display: inline;
 }
 
 .line-box {
@@ -199,7 +199,7 @@ button:hover {
 		  <label>
 		    <p class="label-txt">ID</p>
 		    <br>
-		    <input type="text" class="input" name=id size=20 readonly id=id>
+		    <input type="text" class="input" name=id size=20 readonly id=id width=30%>
 		    <input type=button value="중복체크" id=idBtn class="btn btn-sm btn-danger">
 		    <br>
 		    <br>
@@ -209,21 +209,21 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">PASSWORD</p>
-		    <input type="password" class="input">
+		    <input type="password" class="input" width=100%>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
 		    <p class="label-txt">CHECK PASSWORD</p>
-		    <input type="password" class="input">
+		    <input type="password" class="input" width=100%>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
 		    <p class="label-txt">NAME</p>
-		    <input type="text" class="input">
+		    <input type="text" class="input" width=100%>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -251,7 +251,7 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">EMAIL</p>
-		    <input type="text" class="input">
+		    <input type="text" class="input" width=100%>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -269,7 +269,7 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">ADDRESS</p>
-		    <input type="text" class="input" name=addr1 size=55 id=addr1 readonly>
+		    <input type="text" class="input" name=addr1 size=55 id=addr1 readonly width=100%>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -283,6 +283,7 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">TEL</p>
+		    <br>
 		    <select name=tel1 class="input">
   	      		<option>010</option>
   	      	</select>
@@ -293,7 +294,10 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">PREFERENCE</p>
+		    <br>
 		    <input type="checkbox" name="preference" id="type" class="input">
+		    <br>
+		    <br>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
