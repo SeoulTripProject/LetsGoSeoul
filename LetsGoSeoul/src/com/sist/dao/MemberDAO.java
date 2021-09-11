@@ -49,7 +49,7 @@ public class MemberDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT COUNT(*) FROM project_member "
+			String sql="SELECT COUNT(*) FROM trip_member "
 					+ "WHERE id=?";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, id);
@@ -141,8 +141,8 @@ public class MemberDAO {
 		ADDR1    NOT NULL VARCHAR2(300)  
 		ADDR2             VARCHAR2(300)  
 		TEL      NOT NULL VARCHAR2(20)   
-		ADMIN             CHAR(1)        
 		TYPE              VARCHAR2(4000) 
+		ADMIN             CHAR(1)        
 	 */
 	
 	public void memberJoinInsert(MemberVO vo)
@@ -150,7 +150,7 @@ public class MemberDAO {
 		try
 		{
 			getConnection();
-			String sql="INSERT INTO project_member VALUES(?,?,?,?,?,"
+			String sql="INSERT INTO trip_member VALUES(?,?,?,?,?,"
 					+ "?,?,?,?,?,?,'n')"; 
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, vo.getId());
@@ -185,7 +185,7 @@ public class MemberDAO {
 		{
 			getConnection();
 			String sql="SELECT COUNT(*) "
-					+ "FROM project_member "
+					+ "FROM trip_member "
 					+ "WHERE id=?";
 			ps=conn.prepareStatement(sql); 
 			ps.setString(1, id);
@@ -200,7 +200,7 @@ public class MemberDAO {
 			}
 			else 
 			{
-				sql="SELECT pwd, name, admin FROM project_member "
+				sql="SELECT pwd, name, admin FROM trip_member "
 						+ "WHERE id=?";
 				ps=conn.prepareStatement(sql);
 				ps.setString(1, id);

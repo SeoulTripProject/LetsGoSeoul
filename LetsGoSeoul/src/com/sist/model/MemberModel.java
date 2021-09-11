@@ -100,8 +100,8 @@ public class MemberModel {
 		  request.setAttribute("main_jsp", "../member/login.jsp");
 		  return "../main/main.jsp";
 	  }
-	  @RequestMapping("member/login_ok.do")
-	  public String member_login_ok(HttpServletRequest request,HttpServletResponse response)
+	  @RequestMapping("member/login_result.do")
+	  public String member_login_result(HttpServletRequest request,HttpServletResponse response)
 	  {
 
 		  String id=request.getParameter("id");
