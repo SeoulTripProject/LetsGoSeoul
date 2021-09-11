@@ -2,24 +2,38 @@ package com.sist.vo;
 /*
  *  TNO     NOT NULL NUMBER         
 	NO               NUMBER         
-	TITLE   NOT NULL VARCHAR2(500)  
-	POSTER           VARCHAR2(400)  
-	TEL              VARCHAR2(100)  
-	WEBSITE          VARCHAR2(200)  
-	TIME             VARCHAR2(400)  
-	HOLIDAY          VARCHAR2(200)  
-	OPEN             VARCHAR2(300)  
-	PRICE            VARCHAR2(200)  
-	HANDI            VARCHAR2(500)  
+	TITLE   NOT NULL VARCHAR2(1000) 
+	POSTER           VARCHAR2(1000) 
+	IMAGE            VARCHAR2(4000) 
+	INTRO            VARCHAR2(1000) 
+	TEL              VARCHAR2(1000) 
+	WEBSITE          VARCHAR2(1000) 
+	TIME             VARCHAR2(1000) 
+	HOLIDAY          VARCHAR2(1000) 
+	OPEN             VARCHAR2(1000) 
+	PRICE            VARCHAR2(1000) 
+	HANDI            VARCHAR2(1000) 
 	CAUTION          VARCHAR2(1000) 
-	ADDR             VARCHAR2(400)  
-	TRAFFIC          VARCHAR2(500)  
+	ADDR             VARCHAR2(1000) 
+	TRAFFIC          VARCHAR2(1000)  
 ); 
  */
 public class AttraVO {
 	private int tno,no;
-	private String title,poster,tel,website,time,holiday,open,price,
+	private String title,poster,image,intro,tel,website,time,holiday,open,price,
 	               handi,caution,addr,traffic;
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getIntro() {
+		return intro;
+	}
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
 	public int getTno() {
 		return tno;
 	}
