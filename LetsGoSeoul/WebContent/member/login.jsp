@@ -11,7 +11,7 @@
 <style type="text/css">
 body {
   background: #efefef;
-  padding: 10px;
+  /* padding: 10px; */
   font-family: 'Varela Round';
 }
 /*=== 2. Anchor Link ===*/
@@ -292,7 +292,7 @@ label:hover:before {
 		</div>
 		<!--Hero End -->
 		<div class="text-center" style="padding:50px 0">
-	<div class="logo">login</div>
+	<div class="logo">Login</div>
 	<!-- Main Form -->
 	<div class="login-form-1">
 		<form id="login-form" class="text-left">
@@ -309,14 +309,14 @@ label:hover:before {
 					</div>
 					<div class="form-group login-group-checkbox">
 						<input type="checkbox" id="lg_remember" name="lg_remember">
-						<label for="lg_remember">remember</label>
+						<label for="lg_remember">ID remember</label>
 					</div>
 				</div>
 				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
 			</div>
 			<div class="etc-login-form">
 				<p>forgot your password? <a href="#">click here</a></p>
-				<p>new user? <a href="#">create new account</a></p>
+				<p>new user? <a href="../member/join.do">create new account</a></p>
 			</div>
 		</form>
 	</div>

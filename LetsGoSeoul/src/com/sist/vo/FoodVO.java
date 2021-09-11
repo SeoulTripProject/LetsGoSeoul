@@ -1,5 +1,22 @@
 package com.sist.vo;
-
+/*
+ * 	NO       NOT NULL NUMBER         
+	RNO               NUMBER         
+	POSTER            VARCHAR2(4000) 
+	RNAME    NOT NULL VARCHAR2(300)  
+	SCORE             NUMBER(2,1)    
+	ADDR              VARCHAR2(1000) 
+	TEL               VARCHAR2(20)   
+	RTYPE    NOT NULL VARCHAR2(100)  
+	PRICE             VARCHAR2(100)  
+	PARKING           VARCHAR2(100)  
+	OPENHOUR          VARCHAR2(500)  
+	MENU              VARCHAR2(4000) 
+	GOOD              NUMBER         
+	SOSO              NUMBER         
+	BAD               NUMBER         
+	RTAG              VARCHAR2(1000) 
+ */
 public class FoodVO {
 	private int no, rno, good, soso, bad;
 	private double score;
