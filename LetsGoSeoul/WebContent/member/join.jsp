@@ -55,7 +55,7 @@ label {
   top: 0px;
   left: 50%;
   transform: translateX(-50%);
-  background: #8BC34A;
+  background: #131154;
   transition: ease .6s;
 }
 
