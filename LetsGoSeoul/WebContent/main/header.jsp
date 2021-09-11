@@ -53,7 +53,7 @@
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Notice</a></li>
                                                     <li><a href="blog.html">FreeBoard</a></li>
-                                                    <li><a href="blog.html">Weather</a></li>
+                                                    <li><a href="../board/weather.do">Weather</a></li>
                                                     <li><a href="blog.html">Q&A</a></li>
                                                 </ul>
                                             </li>
