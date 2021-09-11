@@ -34,15 +34,15 @@ public class MemberDAO {
 		}catch(Exception ex) {}
 	}
 	
-	//싱글턴
+	
 	public static MemberDAO newInstance()
 	{
-		if(dao==null) // 미생성시에는
+		if(dao==null) 
 			dao=new MemberDAO();
-		return dao; // 이미 만들어진 dao객체를 사용한다
+		return dao; 
 	}
 	
-	// 회원 기능 1. 아이디 중복 체크
+	
 	public int memberidCheck(String id)
 	{
 		int count=0;
@@ -51,10 +51,9 @@ public class MemberDAO {
 			getConnection();
 			String sql="SELECT COUNT(*) FROM project_member "
 					+ "WHERE id=?";
-			// count=0 : 사용가능한 ID / count=1 : 이미 사용중인 ID
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, id);
-			ResultSet rs=ps.executeQuery(); // 데이터 얻어오기
+			ResultSet rs=ps.executeQuery(); 
 			rs.next();
 			count=rs.getInt(1);
 			rs.close();
@@ -69,8 +68,7 @@ public class MemberDAO {
 		return count;
 	}
 	
-	// 회원 기능 2. 우편번호 검색
-	// 실제 데이터 가져온다
+
 	public List<ZipcodeVO> postfind(String dong)
 	{
 		List<ZipcodeVO> list=new ArrayList<ZipcodeVO>();
@@ -105,7 +103,7 @@ public class MemberDAO {
 		return list;
 	}
 	
-	// 총 갯수 확인
+	
 	public int postfindCount(String dong)
 	{
 		int count=0;
@@ -132,14 +130,28 @@ public class MemberDAO {
 		return count;
 	}
 	
-	// 회원 기능 3. 실제 회원가입
+	/*
+	 *  ID       NOT NULL VARCHAR2(20)   
+		PWD      NOT NULL VARCHAR2(10)   
+		NAME     NOT NULL VARCHAR2(34)   
+		SEX               VARCHAR2(10)   
+		BIRTHDAY NOT NULL VARCHAR2(20)   
+		EMAIL    NOT NULL VARCHAR2(100)  
+		POST     NOT NULL VARCHAR2(7)    
+		ADDR1    NOT NULL VARCHAR2(300)  
+		ADDR2             VARCHAR2(300)  
+		TEL      NOT NULL VARCHAR2(20)   
+		ADMIN             CHAR(1)        
+		TYPE              VARCHAR2(4000) 
+	 */
+	
 	public void memberJoinInsert(MemberVO vo)
 	{
 		try
 		{
 			getConnection();
 			String sql="INSERT INTO project_member VALUES(?,?,?,?,?,"
-					+ "?,?,?,?,?,'n')"; // admin (n=일반, y=관리자)
+					+ "?,?,?,?,?,?,'n')"; 
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, vo.getId());
 			ps.setString(2, vo.getPwd());
@@ -152,6 +164,7 @@ public class MemberDAO {
 			ps.setString(8, vo.getAddr1());
 			ps.setString(9, vo.getAddr2());
 			ps.setString(10, vo.getTel());
+			ps.setString(11, vo.getType());
 			
 			ps.executeUpdate();
 		}catch(Exception ex)	
@@ -164,7 +177,7 @@ public class MemberDAO {
 		}
 	}
 	
-	// 회원 기능 4. 로그인
+	
 	public String isLogin(String id, String pwd)
 	{
 		String result="";
@@ -174,18 +187,18 @@ public class MemberDAO {
 			String sql="SELECT COUNT(*) "
 					+ "FROM project_member "
 					+ "WHERE id=?";
-			ps=conn.prepareStatement(sql); // id가 존재하는지 먼저 체크
+			ps=conn.prepareStatement(sql); 
 			ps.setString(1, id);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
 			int count=rs.getInt(1);
 			rs.close();
 			
-			if(count==0)// ID가 없는 상태
+			if(count==0)
 			{
 				result="NOID";
 			}
-			else // ID가 있는 상태
+			else 
 			{
 				sql="SELECT pwd, name, admin FROM project_member "
 						+ "WHERE id=?";
@@ -198,8 +211,8 @@ public class MemberDAO {
 				String admin=rs.getString(3);
 				rs.close();
 				
-				// 비밀번호 확인
-				if(db_pwd.equals(pwd)) // 로그인
+				
+				if(db_pwd.equals(pwd))
 				{
 					result=name+"|"+admin;
 				}
