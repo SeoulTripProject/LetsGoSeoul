@@ -103,14 +103,14 @@ button:hover {
 		<!--Hero End -->
 		<form>
 		  <label>
-		    <p class="label-txt">ENTER YOUR ID</p>
+		    <p class="label-txt">ID</p>
 		    <input type="text" class="input">
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
-		    <p class="label-txt">ENTER YOUR PASSWORD</p>
+		    <p class="label-txt">PASSWORD</p>
 		    <input type="password" class="input">
 		    <div class="line-box">
 		      <div class="line"></div>
@@ -124,36 +124,36 @@ button:hover {
 		    </div>
 		  </label>
 		  <label>
-		    <p class="label-txt">ENTER YOUR NAME</p>
+		    <p class="label-txt">NAME</p>
 		    <input type="text" class="input">
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
-		    <p class="label-txt">ENTER YOUR GENDER</p>
-  	        <input type="radio" value="남자" name=sex checked>남자
-  	        <input type="radio" value="여자" name=sex>여자
+		    <p class="label-txt">GENDER</p>
+  	        <input type="radio" value="MAN" name=sex checked>MAN
+  	        <input type="radio" value="WOMAN" name=sex>WOMAN
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
-		    <p class="label-txt">ENTER YOUR BirthDate</p>
+		    <p class="label-txt">BIRTHDAY</p>
 		    <input type="date" size=30 name=birthday id=birthday>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
-		    <p class="label-txt">ENTER YOUR EMAIL</p>
+		    <p class="label-txt">EMAIL</p>
 		    <input type="text" class="input">
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
-		    <p class="label-txt">ENTER YOUR POSTCODE</p>
+		    <p class="label-txt">POSTCODE</p>
   	        <input type="text" name=post1 size=7 class="input" readonly id="post1">-<input type=text id="post2" class="input" name=post2 size=7 readonly>
   	      	<input type=button value="우편번호검색" class="btn btn-sm btn-primary" id=postBtn>
 		    <div class="line-box">
@@ -168,14 +168,14 @@ button:hover {
 		    </div>
 		  </label>
 		  <label>
-		    <p class="label-txt">ENTER YOUR DETAILADDRESS</p>
+		    <p class="label-txt">DETAILADDRESS</p>
 		    <input type="text" class="input" name=addr2 size=55 class="input-sm">
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
-		    <p class="label-txt">ENTER YOUR TEL</p>
+		    <p class="label-txt">TEL</p>
 		    <select name=tel1 class="input">
   	      		<option>010</option>
   	      	</select>
@@ -185,7 +185,7 @@ button:hover {
 		    </div>
 		  </label>
 		  <label>
-		    <p class="label-txt">ENTER YOUR PREFERENCE</p>
+		    <p class="label-txt">PREFERENCE</p>
 		    <input type="checkbox" name="preference" id="type" class="input">
 		    <div class="line-box">
 		      <div class="line"></div>
