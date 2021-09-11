@@ -249,8 +249,8 @@ button:hover {
 		  <label>
 		    <p class="label-txt">GENDER</p>
 		    <br>
-  	        <input type="radio" value="MAN" name=sex checked>MAN
-  	        <input type="radio" value="WOMAN" name=sex>WOMAN
+  	        <input type="radio" value="남자" name=sex checked>MAN
+  	        <input type="radio" value="여자" name=sex>WOMAN
   	        <br>
   	        <br>
 		    <div class="line-box">
