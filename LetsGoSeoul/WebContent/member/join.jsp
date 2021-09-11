@@ -22,6 +22,7 @@ label {
   display: block;
   position: relative;
   margin: 40px 0px;
+  text-align: left;
 }
 .label-txt {
   position: absolute;
@@ -85,6 +86,7 @@ button:hover {
   color: #ffffff;
 }
 
+
 </style>
 </head>
 <body>
@@ -132,15 +134,21 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">GENDER</p>
+		    <br>
   	        <input type="radio" value="MAN" name=sex checked>MAN
   	        <input type="radio" value="WOMAN" name=sex>WOMAN
+  	        <br>
+  	        <br>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
 		    <p class="label-txt">BIRTHDAY</p>
+		    <br>
 		    <input type="date" size=30 name=birthday id=birthday>
+		    <br>
+		    <br>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -154,8 +162,11 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">POSTCODE</p>
+		    <br>
   	        <input type="text" name=post1 size=7 class="input" readonly id="post1">-<input type=text id="post2" class="input" name=post2 size=7 readonly>
   	      	<input type=button value="우편번호검색" class="btn btn-sm btn-primary" id=postBtn>
+  	      	<br>
+  	      	<br>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
