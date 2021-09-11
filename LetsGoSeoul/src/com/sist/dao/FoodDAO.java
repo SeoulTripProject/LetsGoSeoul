@@ -3,7 +3,7 @@ import java.util.*;
 import java.sql.*;
 import javax.sql.*;
 
-import com.sist.vo.FoodVO;
+import com.sist.vo.*;
 
 import javax.naming.*;
 public class FoodDAO {
@@ -75,4 +75,103 @@ public class FoodDAO {
 			disConnection();
 		}
 	}
+	
+	// 기능 => 테이블 단위로 넘어가는 상태
+		public List<FoodVO> foodCategoryData()
+		{
+			List<FoodVO> list=new ArrayList<FoodVO>();
+			try
+			{
+				getConnection();
+				String sql="SELECT rno, rname, poster "
+						+ "FROM trip_R";
+				ps=conn.prepareStatement(sql);
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					FoodVO vo=new FoodVO();
+					vo.setRno(rs.getInt(1));
+					vo.setRname(rs.getString(2));
+					vo.setPoster(rs.getString(3));
+					list.add(vo);
+				}
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return list;
+		}
+		
+		// 카테고리별 목록 읽기
+		public List<FoodVO> foodCategoryListData(int rno)
+		{
+			List<FoodVO> list=new ArrayList<FoodVO>();
+			try
+			{
+				getConnection();
+				String sql="SELECT no, poster, rname, tel, addr, rtype, score "
+						+ "FROM trip_R "
+						+ "WHERE rno=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, rno);
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					FoodVO vo=new FoodVO();
+					vo.setNo(rs.getInt(1));
+					String poster=rs.getString(2); // 이미지 5개를 묶어서 저장 (1개만 가지고 온다)
+					poster=poster.substring(0, poster.indexOf("^")); // 첫번째 그림 하나를 달라
+					poster=poster.replace("#", "&");
+					vo.setPoster(poster);
+					vo.setRname(rs.getString(3));
+					vo.setTel(rs.getString(4));
+					String addr=rs.getString(5);
+					addr=addr.substring(0,addr.lastIndexOf("지")); // 길/ 지번 => 길만 가지고 온다 
+					vo.setAddress(addr);
+					vo.setRtype(rs.getString(6));
+					vo.setScore(rs.getDouble(7));
+					list.add(vo);
+				}
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return list;
+		}
+		
+		// 카테고리별 제목 읽기
+		public FoodVO foodCategoryInfoData(int rno)
+		{
+			FoodVO vo=new FoodVO();
+			try
+			{
+				getConnection();
+				String sql="SELECT title FROM trip_R "
+						+ "WHERE rno=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, rno);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				vo.setRname(rs.getString(1));
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return vo;
+		}
 }
