@@ -7,10 +7,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../shadow/css/shadowbox.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
 <script type="text/javascript">
 Shadowbox.init({
 	players:['iframe']
@@ -51,6 +49,7 @@ $(function(){
 			$('#pwd').focus();
 			return;
 		}
+		
 		let pwd1=$('#pwd1').val();
 		if(pwd!=pwd1)
 		{
@@ -226,7 +225,7 @@ button:hover {
 		  <label>
 		    <p class="label-txt">PASSWORD</p>
 		    <br>
-		    <input type="password" class="input" width=100% id=pwd>
+		    <input type="password" class="input" width=100% id=pwd  name=pwd>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -234,7 +233,7 @@ button:hover {
 		  <label>
 		    <p class="label-txt">CHECK PASSWORD</p>
 		    <br>
-		    <input type="password" class="input" width=100% id=pwd1 placeholder="재입력">
+		    <input type="password" class="input" width=100% id=pwd1 placeholder="재입력" name=pwd1>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -242,7 +241,7 @@ button:hover {
 		  <label>
 		    <p class="label-txt">NAME</p>
 		    <br>
-		    <input type="text" class="input" width=100% id=name>
+		    <input type="text" class="input" width=100% id=name name=name>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -271,7 +270,7 @@ button:hover {
 		  <label>
 		    <p class="label-txt">EMAIL</p>
 		    <br>
-		    <input type="text" class="input" width=100% id=email>
+		    <input type="text" class="input" width=100% id=email name=email>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -335,7 +334,7 @@ button:hover {
 		    </div>
 		  </label>
 		  
-		  <button type="submit" id=sendBtn>JOIN</button>
+		  <input type="button" id=sendBtn value="JOIN"></button>
 		</form>
 		  	      
   	   

@@ -56,7 +56,7 @@ public class MemberModel {
 	  @RequestMapping("member/join_ok.do")
 	  public String member_join_ok(HttpServletRequest request,HttpServletResponse response)
 	  {
-		  System.out.println("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿Ï·ï¿½");
+		  System.out.println("È¸¿ø µ¥ÀÌÅÍ Àü¼Û¿Ï·á");
 
 		  try
 		  {
