@@ -133,6 +133,14 @@ label {
   outline: none;
   display: inline;
 }
+.input-tel {
+  width: 100%
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  display: inline;
+}
 
 .line-box {
   position: relative;
@@ -209,21 +217,24 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">PASSWORD</p>
-		    <input type="password" class="input" width=100%>
+		    <br>
+		    <input type="password" class="input" width=100% id=pwd>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
 		    <p class="label-txt">CHECK PASSWORD</p>
-		    <input type="password" class="input" width=100%>
+		    <br>
+		    <input type="password" class="input" width=100% id=pwd1 placeholder="재입력">
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
 		  </label>
 		  <label>
 		    <p class="label-txt">NAME</p>
-		    <input type="text" class="input" width=100%>
+		    <br>
+		    <input type="text" class="input" width=100% id=name>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -251,7 +262,8 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">EMAIL</p>
-		    <input type="text" class="input" width=100%>
+		    <br>
+		    <input type="text" class="input" width=100% id=email>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -259,7 +271,7 @@ button:hover {
 		  <label>
 		    <p class="label-txt">POSTCODE</p>
 		    <br>
-  	        <input type="text" name=post1 size=7 class="input inline" readonly id="post1">-<input type=text id="post2" class="input inline" name=post2 size=7 readonly>
+  	        <input type="text" name=post1 size=7 class="input text-center" readonly id="post1">-<input type=text id="post2" class="input text-center" name=post2 size=7 readonly>
   	      	<input type=button value="우편번호검색" class="btn btn-sm btn-primary" id=postBtn>
   	      	<br>
   	      	<br>
@@ -269,6 +281,7 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">ADDRESS</p>
+		    <br>
 		    <input type="text" class="input" name=addr1 size=55 id=addr1 readonly width=100%>
 		    <div class="line-box">
 		      <div class="line"></div>
@@ -276,7 +289,8 @@ button:hover {
 		  </label>
 		  <label>
 		    <p class="label-txt">DETAILADDRESS</p>
-		    <input type="text" class="input" name=addr2 size=55 class="input-sm">
+		    <br>
+		    <input type="text" class="input" name=addr2 size=55 class="input-sm" width=100%>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -284,10 +298,14 @@ button:hover {
 		  <label>
 		    <p class="label-txt">TEL</p>
 		    <br>
-		    <select name=tel1 class="input">
+		    <select name=tel1 class="input-tel">
   	      		<option>010</option>
+  	      		<option>011</option>
+  	      		<option>017</option>
   	      	</select>
-  	        <input type="text" name=tel2 size=20 class="input" id=tel2>
+  	        <input type="text" name=tel2 class="input" id=tel2 width=100%>
+  	        <br>
+  	        <br>
 		    <div class="line-box">
 		      <div class="line"></div>
 		    </div>
@@ -295,7 +313,7 @@ button:hover {
 		  <label>
 		    <p class="label-txt">PREFERENCE</p>
 		    <br>
-		    <input type="checkbox" name="preference" id="type" class="input">
+		    <input type="checkbox" name="preference" id="type" class="input">Type
 		    <br>
 		    <br>
 		    <div class="line-box">
