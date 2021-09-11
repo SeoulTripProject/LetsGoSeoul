@@ -51,7 +51,7 @@ public class CultureDAO {
 		  try
 		  {
 			  getConnection();
-			  String sql="SELECT no,title,images "
+			  String sql="SELECT no,title,poster "
 					    +"FROM trip_E "
 					    +"WHERE no<=6 "
 					    +"ORDER BY no ASC";
@@ -62,7 +62,7 @@ public class CultureDAO {
 				  ExbitVO vo=new ExbitVO();
 				  vo.setNo(rs.getInt(1));
 				  vo.setTitle(rs.getString(2));
-				  vo.setImages(rs.getString(3));
+				  vo.setPoster(rs.getString(3));
 				  list.add(vo);
 			  }
 			  rs.close();

@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="row">
-                   <c:forEach var="evo" items="${eList }">
+                   <c:forEach var="vo" items="${eList }">
                     <div class="col-4">
                         <div class="single-location mb-30 inline">
                             <div class="location-img inline">
