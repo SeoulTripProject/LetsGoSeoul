@@ -67,16 +67,7 @@ $(function(){
                                                     <li><a href="blog.html">Q&A</a></li>
                                                 </ul>
                                             </li>
-                                            <c:if test="${sessionScope.id==null }"><%--로그인이 안된 상태 --%>
-                                            <li><a href="#">My Page</a>
-                                                <ul class="submenu">
-                                                    <li><a href="../member/login.do">Sing In</a></li>
-                                                    <li><a href="../member/join.do">Register</a></li>
-                                                    <li><a href="blog.html">Search ID</a></li>
-                                                    <li><a href="blog.html">Search PWD</a></li>
-                                                </ul>
-                                            </li>
-                                            </c:if>
+                                            
                                             <c:if test="${sessionScope.id!=null }"> <%--로그인이 된 상태 --%>
                                             <li><a href="#">My Page</a>
                                                 <ul class="submenu">
