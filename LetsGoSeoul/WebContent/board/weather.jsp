@@ -33,12 +33,16 @@ th.tbcon01,th.tbcon02,th.tbcon03{
   </div>
 </div>
 <!--Hero End -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
+<div class="section-top-border">
+  <div class="container">
+     <div class="row">
+       <div class="col-lg-12">
+         <div class="section-tittle text-center mb-80">
       ${data }
-    </div>
-  </div>
+         </div>
+      </div>
+     </div>
+   </div>
 </div>
 </body>
 </html>
