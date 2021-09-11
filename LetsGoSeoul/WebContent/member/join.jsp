@@ -95,6 +95,14 @@ $(function(){
 			return;
 		}
 		
+		// 선호유형
+		let type=$('#type').val();
+		if(type.trim()=="")
+		{
+			$('#type').focus();
+			return;
+		}
+		
 		// 정상수행 
 		$('#joinFrm').submit();
 	})
@@ -313,7 +321,13 @@ button:hover {
 		  <label>
 		    <p class="label-txt">PREFERENCE</p>
 		    <br>
-		    <input type="checkbox" name="preference" id="type" class="input">Type
+		    <input type="checkbox" name="preference" id="type" class="input">&nbsp;호텔&nbsp;&nbsp;&nbsp;
+		    <input type="checkbox" name="preference" id="type" class="input">&nbsp;게스트하우스&nbsp;&nbsp;&nbsp;
+		    <input type="checkbox" name="preference" id="type" class="input">&nbsp;음식&nbsp;&nbsp;&nbsp;
+		    <input type="checkbox" name="preference" id="type" class="input">&nbsp;전시&nbsp;&nbsp;&nbsp;
+		    <input type="checkbox" name="preference" id="type" class="input">&nbsp;자연&nbsp;&nbsp;&nbsp;
+		    <input type="checkbox" name="preference" id="type" class="input">&nbsp;공연&nbsp;&nbsp;&nbsp;
+		    <input type="checkbox" name="preference" id="type" class="input">&nbsp;관광지
 		    <br>
 		    <br>
 		    <div class="line-box">
