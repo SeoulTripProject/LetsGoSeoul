@@ -28,4 +28,11 @@ public class FoodModel {
 		request.setAttribute("main_jsp", "../food/food_list.jsp");
 		return "../main/main.jsp";
 	}
+	
+	@RequestMapping("food/food_list.do")
+	public String food_detail(HttpServletRequest request, HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../food/food_detail.jsp");
+		return "../main/main.jsp";
+	}
 }
