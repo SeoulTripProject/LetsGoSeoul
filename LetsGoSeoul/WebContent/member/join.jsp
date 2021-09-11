@@ -12,7 +12,7 @@
 form {
   width: 60%;
   margin: 300px auto;
-  /* background: #efefef; */
+  background: #efefef; 
   padding: 60px 120px 80px 120px;
   text-align: center;
   -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
