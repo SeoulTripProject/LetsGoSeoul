@@ -13,7 +13,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-9">
                         <div class="hero-cap text-center pt-50 pb-20">
-                            <h2>Restaurant List</h2>
+                            <h2>Restaurant Lis</h2>
                         </div>
                         <!--Hero form -->
                         <form action="#" class="search-box search-box2">
