@@ -1,10 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	// 로그아웃 처리
+	$('#logoutBtn').click(function(){
+		location.href="../member/logout.do";
+	})
+})
+</script>
 </head>
 <body>
 		<div class="header-area header-transparent">
@@ -57,18 +67,41 @@
                                                     <li><a href="blog.html">Q&A</a></li>
                                                 </ul>
                                             </li>
+                                            <c:if test="${sessionScope.id==null }"><%--로그인이 안된 상태 --%>
+                                            <li><a href="#">My Page</a>
+                                                <ul class="submenu">
+                                                    <li><a href="../member/login.do">Sing In</a></li>
+                                                    <li><a href="../member/join.do">Register</a></li>
+                                                    <li><a href="blog.html">Search ID</a></li>
+                                                    <li><a href="blog.html">Search PWD</a></li>
+                                                </ul>
+                                            </li>
+                                            </c:if>
+                                            <c:if test="${sessionScope.id!=null }"> <%--로그인이 된 상태 --%>
                                             <li><a href="#">My Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Unregister</a></li>
                                                     <li><a href="blog.html">WishList</a></li>
                                                 </ul>
                                             </li>
+                                            </c:if>
+                                            <c:if test="${sessionScope.id==null }"> <%-- 로그인이 안된 상태 --%>
                                             <li class="login"><a href="../member/login.do">
                                               <i class="ti-user"></i>Sign in</a>
                                             </li>
                                             <li class="join"><a href="../member/join.do">
                                                 <i class="ti-user"></i>Register</a>
                                             </li>
+                                            </c:if>
+                                            <c:if test="${sessionScope.id!=null }"> <%-- 로그인이 된 상태 --%>
+										      <li class="login">
+										        <i class="ti-user"></i>
+										           ${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반유저" })
+										          	 로그인 중입니다!!
+										          <li class="join">
+										            <input type=button id="logoutBtn" value="logout" class="btn btn-sm btn-danger">
+										       </li>
+									      </c:if>
                                         </ul>
                                     </nav>
                                 </div>

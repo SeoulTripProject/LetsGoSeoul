@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,54 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	// 로그인 처리
+	$('#logBtn').click(function(){
+		let id=$('#log_id').val(); // 사용자가 입력한 값을 읽어 온다
+		if(id.trim()=="")
+		{
+			$('#log_id').focus();
+			return;
+		}
+		let pwd=$('#log_pwd').val();
+		if(pwd.trim()=="")
+		{
+			$('#log_pwd').focus();
+			return;
+		}
+		// 입력된 경우 데이터를 전송
+		$.ajax({
+			type:'post',
+			url:'../member/login_result.do',
+			data:{"id":id, "pwd":pwd},
+			// 결과값 ==> NOID, NOPWD, OK
+			success:function(res)
+			{
+				let result=res.trim();
+				if(result=='NOID') // ID가 없는상태
+				{
+					alert("아이디가 존재하지 않습니다\n다시 입력하세요");
+					$('#log_id').val("");
+					$('#log_pwd').val("");
+					$('#log_id').focus();
+				}
+				else if(result=='NOPWD') // 비밀번호가 틀린 상태
+				{
+					alert("비밀번호가 틀립니다\n다시 입력하세요");
+					$('#log_pwd').val("");
+					$('#log_pwd').focus();
+				}
+				else // 정상수행되어 로그인 된 상태
+				{
+					location.href="../main/main.do";
+				}
+			}
+		});
+	})
+});
+</script>
 <style type="text/css">
 body {
   background: #efefef;
@@ -294,6 +343,7 @@ label:hover:before {
 		<div class="text-center" style="padding:50px 0">
 	<div class="logo">Login</div>
 	<!-- Main Form -->
+
 	<div class="login-form-1">
 		<form id="login-form" class="text-left">
 			<div class="login-form-main-message"></div>
@@ -301,18 +351,18 @@ label:hover:before {
 				<div class="login-group">
 					<div class="form-group">
 						<label for="lg_username" class="sr-only">Username</label>
-						<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">
+						<input type="text" class="form-control" id="log_id" name="id" placeholder="username">
 					</div>
 					<div class="form-group">
 						<label for="lg_password" class="sr-only">Password</label>
-						<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">
+						<input type="password" class="form-control" id="log_pwd" name="pwd" placeholder="password">
 					</div>
 					<div class="form-group login-group-checkbox">
 						<input type="checkbox" id="lg_remember" name="lg_remember">
 						<label for="lg_remember">ID remember</label>
 					</div>
 				</div>
-				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+				<button type="submit" id="logBtn" class="login-button"><i class="fa fa-chevron-right"></i></button>
 			</div>
 			<div class="etc-login-form">
 				<p>forgot your password? <a href="#">click here</a></p>
