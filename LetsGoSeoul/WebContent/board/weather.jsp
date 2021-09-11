@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/2019/animate.css" />
-<!--  	<link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/2019/common.css" /> -->
 <link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/2019/content.css?bust=20210907_1" />
 <link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/2019/layout.css?bust=20210716" />
 <link rel="stylesheet" href="https://korean.visitseoul.net/humanframe/theme/visitseoul/assets/style/content.css?bust=20210806" />
@@ -17,6 +16,8 @@ th.tbcon01,th.tbcon02,th.tbcon03{
 	color:#999;
 	vertical-align:middle;
 }
+
+
 </style>
 </head>
 <body>
@@ -33,16 +34,14 @@ th.tbcon01,th.tbcon02,th.tbcon03{
   </div>
 </div>
 <!--Hero End -->
-<div class="section-top-border">
-  <div class="container">
-     <div class="row">
-       <div class="col-lg-12">
-         <div class="section-tittle text-center mb-80">
-      ${data }
-         </div>
-      </div>
-     </div>
-   </div>
-</div>
+
+	${data }
+
 </body>
 </html>
+
+
+
+
+
+
