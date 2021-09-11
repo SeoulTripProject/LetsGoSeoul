@@ -211,7 +211,6 @@ public class MemberDAO {
 				String admin=rs.getString(3);
 				rs.close();
 				
-				
 				if(db_pwd.equals(pwd))
 				{
 					result=name+"|"+admin;
