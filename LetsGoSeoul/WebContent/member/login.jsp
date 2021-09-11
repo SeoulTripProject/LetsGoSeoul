@@ -139,6 +139,19 @@ a:hover {
   border: 5px solid #efefef;
   border-radius: 50%;
   transition: all ease-in-out 500ms;
+  cursor: pointer;
+}
+.zzzz {
+  margin-top: 2vw;
+  background-color: #DAA521;
+  border: none;
+  width: 15vw;
+  height: 3vw;
+  font-size: 1.5vw;
+  color: #FFFFFF;
+  border-radius: 0.5vw;
+  font-weight: bold;
+  cursor: pointer;
 }
 .login-form-1 .login-button:hover {
   color: #555555;
@@ -362,7 +375,7 @@ label:hover:before {
 						<label for="lg_remember">ID remember</label>
 					</div>
 				</div>
-				<button type="submit" id="logBtn" class="login-button"><i class="fa fa-chevron-right"></i></button>
+				<input type="button" id="logBtn" class="login-button " value="▲">
 			</div>
 			<div class="etc-login-form">
 				<p>forgot your password? <a href="#">click here</a></p>
