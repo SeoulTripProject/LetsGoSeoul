@@ -87,7 +87,7 @@ $(function(){
                                             <c:if test="${sessionScope.id!=null }"> <%-- 로그인이 된 상태 --%>
 										      <li class="login">
 										        <i class="ti-user"></i><a>
-										           ${sessionScope.name } ( ${sessionScope.admin=='y'?"ADMIN":"USER" } ) 
+										           ${sessionScope.name } (${sessionScope.admin=='y'?"ADMIN":"USER" }) 
 										          	 is now logging in!!
 										        </a>
 										        </li>
