@@ -24,12 +24,11 @@
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Quick Link</h4>
+                                    <h4>Community</h4>
                                     <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Listing</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="main/home.jsp">Home</a></li>
+                                        <li><a href="#">Board</a></li>
+                                        <li><a href="#">Contact us</a></li> 
                                     </ul>
                                 </div>
                             </div>
@@ -37,17 +36,19 @@
                         <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Categories</h4>
+                                    <h4>About Seoul</h4>
                                     <ul>
-                                        <li><a href="#">Reasonable Hotel</a></li>
-                                        <li><a href="#">Popular Restaurant</a></li>
-                                        <li><a href="#">Easy Shopping</a></li>
-                                        <li><a href="#">Night Life</a></li>     
+                                        <li><a href="#">Attraction</a></li>
+                                        <li><a href="#">Nature</a></li>
+                                        <li><a href="../culture/culture_main.do">Culture</a></li>
+                                        <li><a href="../stay/stay_main.do">Stay</a></li>
+                                        <li><a href="../food/food_main.do">Restaurants</a></li>
+                                            
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
                                     <h4>Download App</h4>
@@ -57,7 +58,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                </div>
                 <div class="footer-bottom">
@@ -65,18 +66,18 @@
                         <div class="col-xl-9 col-lg-8">
                             <div class="footer-copy-right">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Team 2 <i class="fa fa-heart" aria-hidden="true"></i> <!-- by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4">
                             <!-- Footer Social -->
-                            <div class="footer-social f-right">
+                            <!-- <div class="footer-social f-right">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="#"><i class="fas fa-globe"></i></a>
                                 <a href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                </div>
