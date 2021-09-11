@@ -11,7 +11,7 @@
 <style type="text/css"> 
 form {
   width: 60%;
-  margin: 300px auto;
+  margin: 100px auto;
   background: #efefef; 
   padding: 60px 120px 80px 120px;
   text-align: center;
@@ -81,7 +81,7 @@ button {
 }
 
 button:hover {
-  background: #8BC34A;
+  background: #131154;
   color: #ffffff;
 }
 
@@ -192,7 +192,7 @@ button:hover {
 		    </div>
 		  </label>
 		  
-		  <button type="submit">submit</button>
+		  <button type="submit">JOIN</button>
 		</form>
 		  	      
   	   
