@@ -60,7 +60,7 @@ public class NatureDAO {
 	public void NatureInsert(NatureVO vo) {
 		try {
 			/*
- TNO     NOT NULL NUMBER         
+ TNO     NOT NULL NUMBER      
 NO               NUMBER         
 TITLE   NOT NULL VARCHAR2(1000) 
 POSTER           VARCHAR2(4000) 
