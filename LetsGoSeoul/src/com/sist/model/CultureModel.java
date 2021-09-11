@@ -5,12 +5,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
-
+import com.sist.dao.*;
+import com.sist.vo.*;
+import java.util.*;
 @Controller
 public class CultureModel {
 	@RequestMapping("culture/culture_main.do")
 	public String main_main(HttpServletRequest request,HttpServletResponse response)
 	{
+		CultureDAO dao=CultureDAO.newInstance();
+		List<ExbitVO> eList=dao.exbitData();
+		List<CultureVO> list=dao.playData();
+		request.setAttribute("eList", eList);
+		request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../culture/culture_main.jsp");
 		return "../main/main.jsp";
 	}
