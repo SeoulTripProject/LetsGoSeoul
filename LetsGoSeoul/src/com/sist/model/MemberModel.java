@@ -15,6 +15,7 @@ import com.sist.vo.ZipcodeVO;
 
 @Controller
 public class MemberModel {
+	  
 	  @RequestMapping("member/join.do")
 	  public String member_join(HttpServletRequest request,HttpServletResponse response)
 	  {
@@ -55,7 +56,7 @@ public class MemberModel {
 	  @RequestMapping("member/join_ok.do")
 	  public String member_join_ok(HttpServletRequest request,HttpServletResponse response)
 	  {
-		  System.out.println("È¸¿ø µ¥ÀÌÅÍ Àü¼Û¿Ï·á");
+		  System.out.println("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿Ï·ï¿½");
 
 		  try
 		  {
@@ -93,9 +94,14 @@ public class MemberModel {
 		  return "redirect:../main/main.do";
 
 	  }
-
 	  @RequestMapping("member/login.do")
 	  public String member_login(HttpServletRequest request,HttpServletResponse response)
+	  {
+		  request.setAttribute("main_jsp", "../member/login.jsp");
+		  return "../main/main.jsp";
+	  }
+	  @RequestMapping("member/login_ok.do")
+	  public String member_login_ok(HttpServletRequest request,HttpServletResponse response)
 	  {
 
 		  String id=request.getParameter("id");

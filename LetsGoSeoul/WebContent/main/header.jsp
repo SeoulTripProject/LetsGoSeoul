@@ -63,8 +63,11 @@
                                                     <li><a href="blog.html">WishList</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="login"><a href="../member/join.do">
-                                                <i class="ti-user"></i> Sign in or Register</a>
+                                            <li class="login"><a href="../member/login.do">
+                                              <i class="ti-user"></i>Sign in</a>
+                                            </li>
+                                            <li class="join"><a href="../member/join.do">
+                                                <i class="ti-user"></i>Register</a>
                                             </li>
                                         </ul>
                                     </nav>
