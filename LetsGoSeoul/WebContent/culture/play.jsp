@@ -5,12 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Directory HTML-5 Template </title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="manifest" href="site.webmanifest">
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 </head>
 <body>
 <!-- Hero Start-->
@@ -30,44 +24,7 @@
         <div class="listing-area pt-120 pb-120">
             <div class="container">
                 <div class="row">
-                    <!-- Left content -->
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="row">
-                            <div class="col-12">
-                                    <div class="small-section-tittle2 mb-45">
-                                    <h4>Advanced Filter</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Job Category Listing start -->
-                        <div class="category-listing mb-50">
-                            <!-- single one -->
-                            <div class="single-listing">
-                                <!-- input -->
-                                <div class="input-form">
-                                    <input type="text" placeholder="What are you finding?">
-                                </div>
-                                <!-- Select job items start -->
-                                <div class="select-job-items1">
-                                    <select name="select1">
-                                        <option value="">Choose categories</option>
-                                        <option value="">Exhibition</option>
-                                        <option value="">Play</option>
-                                    </select>
-                                </div>
-                                <!--  Select job items End-->
-                                
-                                
-                                
-                            </div>
-
-                            <div class="single-listing">
-                                
-                                 <a href="#" class="btn list-btn mt-20">Reset</a>
-                            </div>
-                        </div>
-                        <!-- Job Category Listing End -->
-                    </div>
+                    
                     <!-- Right content -->
                     <div class="col-xl-8 col-lg-8 col-md-6">
                         <div class="row">
@@ -229,8 +186,5 @@
     <div id="back-top" >
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
-    
-   
-
 </body>
 </html>

@@ -35,8 +35,8 @@
                                             <li><a href="catagori.html">Nature</a></li>
                                             <li><a href="../culture/culture_main.do">Culture</a>
                                                 <ul class="submenu">
-                                                    <li><a href="blog.html">Exhibition</a></li>
-                                                    <li><a href="blog.html">Play</a></li>
+                                                    <li><a href="../culture/exhibition.do">Exhibition</a></li>
+                                                    <li><a href="../culture/play.do">Play</a></li>
                                                 </ul>
                                             </li><li><a href="../stay/stay_main.do">Stay</a>
                                                 <ul class="submenu">
@@ -63,7 +63,7 @@
                                                     <li><a href="blog.html">WishList</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="login"><a href="#">
+                                            <li class="login"><a href="../member.join.do">
                                                 <i class="ti-user"></i> Sign in or Register</a>
                                             </li>
                                         </ul>
