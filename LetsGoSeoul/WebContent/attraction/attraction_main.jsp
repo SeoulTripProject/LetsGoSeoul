@@ -51,7 +51,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img inline">
-                                <img src="../attraction/landmark.jpg" alt="">
+                                <img src="../attraction/image/landmark.jpg" alt="">
                             </div>
                             <div class="location-details">
                                 <p>Landmark</p>
@@ -62,7 +62,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img inline">
-                                <img src="../attraction/palace.jpg" alt="">
+                                <img src="../attraction/image/palace.jpg" alt="">
                             </div>
                             <div class="location-details">
                                 <p>Palace</p>
@@ -73,7 +73,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img inline">
-                                <img src="../attraction/historic.jpg" alt="">
+                                <img src="../attraction/image/historic.jpg" alt="">
                             </div>
                             <div class="location-details">
                                 <p>Historic Place</p>
@@ -84,7 +84,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img inline">
-                                <img src="../attraction/old.jpg" alt="">
+                                <img src="../attraction/image/old.jpg" alt="">
                             </div>
                             <div class="location-details">
                                 <p>Old Store</p>
@@ -95,7 +95,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30 inline">
                             <div class="location-img">
-                                <img src="../attraction/museum.jpg" alt="">
+                                <img src="../attraction/image/museum.jpg" alt="">
                             </div>
                             <div class="location-details">
                                 <p>Museum</p>
