@@ -43,7 +43,7 @@
 						     <br><sup>${vo.addr2 }</sup>
                         </p>
                         <p class="excert">
-                        	전화 : ${vo.tel }
+                        	전화 : ${vo.tel } 
                         </p>
                         <p class="excert">
                         	음식 종류 : ${vo.rtype }
