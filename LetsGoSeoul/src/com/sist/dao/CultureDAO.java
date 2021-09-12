@@ -76,6 +76,28 @@ public class CultureDAO {
 		  }
 		  return list;
 	  }
+	public int exbitTotalPage()
+	{
+		int total=0;
+		try
+		{
+			getConnection();
+			String sql="SELECT CEIL(COUNT(*)/8.0) FROM trip_E";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			total=rs.getInt(1);
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return total;
+	}
 	public ExbitVO exbitListData(int no)
 	{
 		ExbitVO vo=new ExbitVO();
@@ -103,6 +125,47 @@ public class CultureDAO {
 			disConnection();
 		}
 		return vo;
+	}
+	public List<ExbitVO> exbitData(int page)
+	{
+		List<ExbitVO> list=new ArrayList<ExbitVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,eno,poster,title,period,num "
+					  +"FROM (SELECT no,eno,poster,title,period,rownum as num "
+					  +"FROM (SELECT no,eno,poster,title,period "
+					  +"FROM trip_E ORDER BY no ASC)) "
+					  +"WHERE num BETWEEN ? AND ? "
+					  +"AND eno=1";
+			ps=conn.prepareStatement(sql);
+			int rowSize=8;
+			int start=(rowSize*page)-(rowSize-1);
+			int end=rowSize*page;
+			ps.setInt(1, start);
+			ps.setInt(2, end);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				ExbitVO vo=new ExbitVO();
+				vo.setNo(rs.getInt(1));
+				vo.setEno(rs.getInt(1));
+				vo.setPoster(rs.getString(3));
+				vo.setTitle(rs.getString(4));
+				vo.setPeriod(rs.getString(5));
+				list.add(vo);
+			}
+			rs.close();
+			
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
 	}
 	public ExbitVO exbitDetailData(int no)
 	{

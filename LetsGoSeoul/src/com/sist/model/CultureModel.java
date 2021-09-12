@@ -24,6 +24,16 @@ public class CultureModel {
 	@RequestMapping("culture/exhibition.do")
 	public String culture_exhibition(HttpServletRequest request,HttpServletResponse response)
 	{
+		CultureDAO dao=CultureDAO.newInstance();
+		String page=request.getParameter("page");
+		if(page==null)
+			page="1";
+		int curpage=Integer.parseInt(page);
+		List<ExbitVO> list=dao.exbitData(curpage);
+		int totalpage=dao.exbitTotalPage();
+		request.setAttribute("curpage", curpage);
+		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../culture/exhibition.jsp");
 		return "../main/main.jsp";
 	}
