@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.col-3{
+	display: inline;
+}
+</style>
 </head>
 <body>
 <!-- Hero Start-->
@@ -26,29 +31,42 @@
              <div class="listing-details-area">
                <div class="container">
                  <div class="row">
-	               
-	                 <div class="col-3">
-	                  <c:forEach var="vo" items="${list }">
+	                  <c:forEach var="vo" items="${list }" varStatus="s">
+	                   <c:if test="${s.index%4==0 }">
 	                   <div class="single-listing mb-30">
 	                     <div class="list-img">
-	                       <img src="${vo.poster }">
+	                       <img src="${vo.poster }" style="width360px;height:251px">
 	                          <!-- <span>Open</span> -->
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                     <h3><a href="../stay/hotel.do?no=${no}">${vo.sname }</a></h3>
-	                     <p>${vo.score }</p>
+	                     <h5><a href="../stay/hotel.do?no=${no}">${vo.sname }</a></h5>
 	                     <div class="list-footer">
 	                       <ul>
-	                        <li>+10 278 367 9823</li>
-	                        <li>contact@midnight.com</li>
+	                        <li>평점&nbsp;&nbsp;${vo.score }</li>
 	                       </ul>
 	                     </div>
 	                   </div>
 	                 </div>
+	                 </c:if>
+	                 <c:if test="${s.index%4!=0 }">
+	                   <div class="single-listing mb-30">
+	                     <div class="list-img">
+	                       <img src="${vo.poster }" style="width360px;height:251px">
+	                          <!-- <span>Open</span> -->
+	                     </div>
+	                   <div class="list-caption">
+	                     <span>Open</span>
+	                     <h5><a href="../stay/hotel.do?no=${no}">${vo.sname }</a></h5>
+	                     <div class="list-footer">
+	                       <ul>
+	                        <li>평점&nbsp;&nbsp;${vo.score }</li>
+	                       </ul>
+	                     </div>
+	                   </div>
+	                 </div>
+	                 </c:if>
 	                </c:forEach>
-	               </div>
-	             
                </div>
              </div>
            </div>

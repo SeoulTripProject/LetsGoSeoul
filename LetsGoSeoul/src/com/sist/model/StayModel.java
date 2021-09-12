@@ -40,8 +40,6 @@ public class StayModel {
 		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
-		
-		
 		request.setAttribute("list", list);
 		
 		request.setAttribute("main_jsp","../stay/hotel.jsp");
