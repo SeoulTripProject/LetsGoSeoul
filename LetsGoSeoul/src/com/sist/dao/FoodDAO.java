@@ -83,9 +83,9 @@ public class FoodDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT no, poster, rname, score "
+			String sql="SELECT no, poster, rname, score, rno "
 					+ "FROM trip_R "
-					+ "WHERE no<=6 "
+					+ "WHERE no<=12 "
 					+ "ORDER BY no ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
@@ -96,6 +96,7 @@ public class FoodDAO {
 				vo.setPoster(rs.getString(2));
 				vo.setRname(rs.getString(3));
 				vo.setScore(rs.getDouble(4));
+				vo.setRno(rs.getInt(5));
 				list.add(vo);
 			}
 			rs.close();
@@ -110,4 +111,117 @@ public class FoodDAO {
 		return list;
 	}
 	
+	public List<FoodVO> foodCategoryListData(int rno)
+	{
+		List<FoodVO> list=new ArrayList<FoodVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT no, poster, rname, tel, addr, rtype, score "
+					+ "FROM trip_R "
+					+ "WHERE rno=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, rno);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				FoodVO vo=new FoodVO();
+				vo.setNo(rs.getInt(1));
+				String poster=rs.getString(2); 
+				poster=poster.substring(0, poster.indexOf("^"));
+				poster=poster.replace("#", "&");
+				vo.setPoster(poster);
+				vo.setRname(rs.getString(3));
+				vo.setTel(rs.getString(4));
+				String addr=rs.getString(5);
+				addr=addr.substring(0,addr.lastIndexOf("지"));
+				vo.setAddress(addr);
+				vo.setRtype(rs.getString(6));
+				vo.setScore(rs.getDouble(7));
+				list.add(vo);
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
+	
+/*	public FoodVO foodCookieInfoData(int no)
+	{
+		FoodVO vo=new FoodVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no, rname, poster "
+					+ "FROM trip_R "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setRname(rs.getString(2));
+			String poster=rs.getString(3);
+			poster=poster.substring(0,poster.indexOf("^"));
+			poster=poster.replace("#", "&");
+			vo.setPoster(poster);
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	} */
+	
+	// 맛집 상세보기
+	public FoodVO foodDetailData(int no)
+	{
+		FoodVO vo=new FoodVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no, poster, rname, score, addr, tel, rtype, "
+					+ "price, parking, openHour, menu, good, soso, bad, rno "
+					+ "FROM trip_R "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setPoster(rs.getString(2));
+			vo.setRname(rs.getString(3));
+			vo.setScore(rs.getDouble(4));
+			vo.setAddress(rs.getString(5));
+			vo.setTel(rs.getString(6));
+			vo.setRtype(rs.getString(7));
+			vo.setPrice(rs.getString(8));
+			vo.setParking(rs.getString(9));
+			vo.setOpenHour(rs.getString(10));
+			vo.setMenu(rs.getString(11));
+			vo.setGood(rs.getInt(12));
+			vo.setSoso(rs.getInt(13));
+			vo.setBad(rs.getInt(14));
+			vo.setRno(rs.getInt(15));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
 }

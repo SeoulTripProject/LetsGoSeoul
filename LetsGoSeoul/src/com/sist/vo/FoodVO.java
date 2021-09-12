@@ -21,7 +21,20 @@ public class FoodVO {
 	private int no, rno, good, soso, bad;
 	private double score;
 	private String poster, rname, address, tel, rtype, price, parking, openHour, menu, rtag;
+	private String addr1, addr2;
 	
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
 	public int getNo() {
 		return no;
 	}

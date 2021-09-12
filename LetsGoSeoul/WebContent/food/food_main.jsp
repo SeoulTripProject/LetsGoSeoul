@@ -39,7 +39,7 @@
                             </div>
                             <div class="location-details">
                                 <p>${vo.rname }</p>
-                                <a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
+                                <a href="../food/food_detail.do?no=${vo.no }" class="location-btn"><i class="ti-plus"></i>Detail</a>
                             </div>
                         </div>
                     </div>

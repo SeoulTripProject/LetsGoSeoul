@@ -141,7 +141,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="count mb-35">
-                                    <span>${count } Listings are available</span>
+                                    <span> Listings are available</span>
                                 </div>
                             </div>
                         </div>
@@ -150,6 +150,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6 ">
+                                        <c:forEach var="vo" items="${list }">
                                         <div class="single-listing mb-30">
                                             <div class="list-img">
                                                 <img src="${vo.poster }">
@@ -167,6 +168,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        </c:forEach>
                                     </div>
                                 </div>
                             </div>

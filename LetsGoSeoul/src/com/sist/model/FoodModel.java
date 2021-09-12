@@ -29,9 +29,20 @@ public class FoodModel {
 		return "../main/main.jsp";
 	}
 	
-	@RequestMapping("food/food_list.do")
+	@RequestMapping("food/food_detail.do")
 	public String food_detail(HttpServletRequest request, HttpServletResponse response)
 	{
+		String no=request.getParameter("no");
+		FoodDAO dao=FoodDAO.newInstance();
+		FoodVO vo=dao.foodDetailData(Integer.parseInt(no));
+		String address=vo.getAddress();
+		String addr1=address.substring(0,address.lastIndexOf("지"));
+		String addr2=address.substring(address.lastIndexOf("지"));
+		String temp=address.substring(address.indexOf(" ")+1);
+		temp=temp.substring(0,address.indexOf(" "));
+		vo.setAddr1(addr1);
+		vo.setAddr2(addr2);
+		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../food/food_detail.jsp");
 		return "../main/main.jsp";
 	}
