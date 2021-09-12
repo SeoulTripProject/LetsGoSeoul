@@ -203,7 +203,7 @@ button:hover {
 					<div class="row">
 						<div class="col-xl-12">
 						<div class="hero-cap text-center pt-50">
-								<h2>Sign In</h2>
+								<h2>Register</h2>
 						</div>
 						</div>
 					</div>
