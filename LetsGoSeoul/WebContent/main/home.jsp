@@ -35,7 +35,7 @@
                         <div class="col-xl-8 col-lg-9">
                             <!-- Hero Caption -->
                             <div class="hero__caption">
-                                <span>Explore the city</span>
+                                <span>Welcome to Seoul</span>
                                 <h1>Discover Great Places</h1>
                             </div>
                             <!--Hero form -->
@@ -46,11 +46,12 @@
                                 <div class="select-form">
                                     <div class="select-itms">
                                         <select name="select" id="select1">
-                                            <option value="">All Catagories</option>
-                                            <option value="">Catagories One</option>
-                                            <option value="">Catagories Two</option>
-                                            <option value="">Catagories Three</option>
-                                            <option value="">Catagories Four</option>
+                                            <option value="#">All Categories</option>
+                                            <option value="../attraction/attraction_main.do">Attraction</option>
+                                            <option value="#">Nature</option>
+                                            <option value="../culture/culture_main.do">Culture</option>
+                                            <option value="../stay/stay_main.do">Stay</option>
+                                            <option value="../food/food_main.do">Restaurants</option>
                                         </select>
                                     </div>
                                 </div>

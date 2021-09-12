@@ -33,7 +33,8 @@ public class CultureModel {
 		String no=request.getParameter("no");
 		CultureDAO dao=CultureDAO.newInstance();
 		ExbitVO vo=dao.exbitDetailData(Integer.parseInt(no));
-		
+		request.setAttribute("vo", vo);
+		request.setAttribute("main_jsp", "../culture/exhibition.jsp");
 		return "../main/main.jsp";
 	}
 	@RequestMapping("culture/play.do")

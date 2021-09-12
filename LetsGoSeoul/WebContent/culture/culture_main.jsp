@@ -39,7 +39,7 @@
                             </div>
                             <div class="location-details">
                                 <p>${vo.title }</p>
-                                <a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
+                                <a href="../culture/exhibition_detail.do?no=${vo.no }" class="location-btn"><i class="ti-plus"></i>Location</a>
                             </div>
                         </div>
                     </div>
