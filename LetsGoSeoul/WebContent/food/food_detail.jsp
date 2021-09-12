@@ -63,7 +63,13 @@
                         	영업시간 : ${vo.openHour }
                         </p>
                         </c:if>
-                        <p class="excert"></p>
+                        <c:if test="${vo.menu!='no' }">
+                        <p class="excert">
+                        	메뉴 : <c:forTokens items="${vo.menu }" delims="원" var="m">
+			          				<li>${m }원</li>
+			        			 </c:forTokens>
+                        </p>
+                        </c:if>
                         <p class="excert"></p>
                      </div>
                   </div>
@@ -75,9 +81,9 @@
                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                         </div>
                         <ul class="social-icons">
-                           <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                           <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                           <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                           <li><i class="fa fa-heart"></i></li>
+                           <li><a href="#"><i class="fa fa-thumbs-up"></i></a></li>
+                           <li><a href="#"><i class="fab fa-star"></i></a></li>
                            <li><a href="#"><i class="fab fa-behance"></i></a></li>
                         </ul>
                      </div>
