@@ -191,7 +191,7 @@ public class FoodDAO {
 		{
 			getConnection();
 			String sql="SELECT no, poster, rname, score, addr, tel, rtype, "
-					+ "price, parking, openHour, menu, good, soso, bad, rno "
+					+ "price, parking, openHour, menu, good, soso, bad, rno, rtag "
 					+ "FROM trip_R "
 					+ "WHERE no=?";
 			ps=conn.prepareStatement(sql);
@@ -213,6 +213,7 @@ public class FoodDAO {
 			vo.setSoso(rs.getInt(13));
 			vo.setBad(rs.getInt(14));
 			vo.setRno(rs.getInt(15));
+			vo.setRtag(rs.getString(16));
 			rs.close();
 		}catch(Exception ex)
 		{

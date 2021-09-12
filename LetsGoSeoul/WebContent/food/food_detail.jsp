@@ -75,70 +75,58 @@
                   </div>
                   <div class="navigation-top">
                      <div class="d-sm-flex justify-content-between text-center">
-                        <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
-                           people like this</p>
+                        <p class="like-info"><i class="fa fa-tag">
+                        </i><span class="align-middle">
+                          <c:forTokens var="tag" items="${vo.rtag }" delims="^">
+                          	&nbsp;${tag }&nbsp;
+		   				  </c:forTokens>
+                        </span>
+                        </p>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
-                           <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
-                        </div>
                         <ul class="social-icons">
-                           <li><i class="fa fa-heart"></i></li>
                            <li><a href="#"><i class="fa fa-thumbs-up"></i></a></li>
-                           <li><a href="#"><i class="fab fa-star"></i></a></li>
-                           <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                           <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                           <li><a href="#"><i class="fa fa-check"></i></a></li>
+                           <li><a href="../food/food_main.do"><i class="fa fa-list"></i></a></li>
                         </ul>
+                        </div>
                      </div>
-                     <div class="navigation-area">
+                       <div class="navigation-area">
                         <div class="row">
+                        <c:if test="${(no-1)!=0 }">
                            <div
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
-                                 <a href="#">
+                                 <a href="../food/food_detail.do?no=${vo.no-1 }">
                                     <img class="img-fluid" src="../assets/img/post/preview.png" alt="">
                                  </a>
                               </div>
                               <div class="arrow">
-                                 <a href="#">
+                                 <a href="../food/food_detail.do?no=${vo.no-1 }">
                                     <span class="lnr text-white ti-arrow-left"></span>
                                  </a>
                               </div>
                               <div class="detials">
                                  <p>Prev Post</p>
-                                 <a href="#">
-                                    <h4>Space The Final Frontier</h4>
-                                 </a>
                               </div>
                            </div>
                            <div
                               class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                               <div class="detials">
                                  <p>Next Post</p>
-                                 <a href="#">
-                                    <h4>Telescopes 101</h4>
-                                 </a>
                               </div>
                               <div class="arrow">
-                                 <a href="#">
+                                 <a href="../food/food_detail.do?no=${vo.no+1 }">
                                     <span class="lnr text-white ti-arrow-right"></span>
                                  </a>
                               </div>
                               <div class="thumb">
-                                 <a href="#">
+                                 <a href="../food/food_detail.do?no=${vo.no+1 }">
                                     <img class="img-fluid" src="../assets/img/post/next.png" alt="">
                                  </a>
                               </div>
                            </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="blog-author">
-                     <div class="media align-items-center">
-                        <img src="../assets/img/blog/author.png" alt="">
-                        <div class="media-body">
-                           <a href="#">
-                              <h4>Harvard milan</h4>
-                           </a>
-                           <p>Second divided from form fish beast made. Every of seas all gathered use saying you're, he
-                              our dominion twon Second divided from</p>
+                           </c:if>
                         </div>
                      </div>
                   </div>
