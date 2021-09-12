@@ -24,23 +24,21 @@
 <!--Hero End -->
   <div id="breadcrumb" class="clear"> 
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Culture</a></li>
-        <li><a href="#">Exhibition</a></li>
-        <li><a href="#">List</a></li>
+        <li><a href="../main/home.do">Home</a></li>
+        <li><a href="culture_main.do">Culture</a></li>
+        <li><a href="exhibition.do">List</a></li>
       </ul>
     </div>
 <!-- listing Area Start -->
 <div class="listing-area pt-120 pb-120">
   <div class="container">
     <div class="row">
-    
 <!-- Right content -->
 <div class="col-xl-8 col-lg-8 col-md-6">
   <div class="row">
     <div class="col-lg-12">
       <div class="count mb-35">
-        <span>5432 Listings are available</span>
+        <span> Listings are available</span>
       </div>
     </div>
   </div>
@@ -49,26 +47,27 @@
 <div class="listing-details-area">
   <div class="container">
     <div class="row">
+      <c:forEach var="vo" items="${eList }">
       <div class="col-lg-6 ">
         <div class="single-listing mb-30">
           <div class="list-img">
-            <img src="assets/img/gallery/list1.png" alt="">
+            <img src="${vo.poster }" style="width:275px;height:191px">
 <!-- <span>Open</span> -->
           </div>
-          <div class="list-caption">
-            <span>Open</span>
-            <h3><a href="listing_details.html">Saintmartine</a></h3>
-            <p>700/D, Kings road, Green lane, 85/ London</p>
+<%--           <div class="list-caption">
+            <!-- <span>Open</span> -->
+            <h3><a href="#">${vo.title }</a></h3>
+            <!-- <p>700/D, Kings road, Green lane, 85/ London</p> -->
             <div class="list-footer">
               <ul>
-                <li>+10 278 367 9823</li>
-                <li>contact@midnight.com</li>
+                <li>${vo.period }</li>
+                <!-- <li>contact@midnight.com</li> -->
               </ul>
             </div>
-          </div>
+          </div> --%>
+          </c:forEach>
         </div>
       </div>
-      
     </div>
   </div>                            
 </div>

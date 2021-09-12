@@ -29,6 +29,18 @@ public class StayModel {
 	@RequestMapping("stay/hotel.do")
 	public String stay_hotel(HttpServletRequest request,HttpServletResponse response)
 	{
+		StayDAO dao=StayDAO.newInstance(); 
+		
+		String page=request.getParameter("page");
+		if(page==null)
+			page="1";
+		int curpage=Integer.parseInt(page);
+		List<StayVO> list=dao.HotelData(curpage);
+		int totalpage=dao.HotelTotalPage();
+		
+		request.setAttribute("curpage", curpage);
+		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("list", list);
 		
 		request.setAttribute("main_jsp","../stay/hotel.jsp");
 		return "../main/main.jsp";

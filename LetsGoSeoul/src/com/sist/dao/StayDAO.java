@@ -107,6 +107,73 @@ public class StayDAO {
 		return list;
 	}
 	
+	public int HotelTotalPage()
+	{
+		int total=0;
+		try
+		{
+			getConnection();
+			String sql="SELECT CEIL(COUNT(*)/12.0) FROM trip_S";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			total=rs.getInt(1);
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return total;
+	}
+	
+	// хёез
+		public List<StayVO> HotelData(int page)
+		{
+			List<StayVO> list=new ArrayList<StayVO>();
+			try
+			{
+				getConnection();
+				String sql="SELECT no,sno,poster,sname,score,num "
+						+ "FROM (SELECT no,sno,poster,sname,score,rownum as num "
+						+ "FROM (SELECT no,sno,poster,sname,score "
+						+ "FROM trip_S ORDER BY no ASC)) "
+						+ "WHERE num BETWEEN ? AND ? "
+						+ "AND sno=1";
+				ps=conn.prepareStatement(sql);
+				
+				int rowSize=12;
+				int start=(rowSize*page)-(rowSize-1);
+				int end=rowSize*page;
+				ps.setInt(1, start);
+				ps.setInt(2, end);
+				
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					StayVO vo=new StayVO();
+					vo.setNo(rs.getInt(1));
+					vo.setSno(rs.getInt(2));
+					vo.setPoster(rs.getString(3));
+					vo.setSname(rs.getString(4));
+					vo.setScore(rs.getDouble(5));
+					list.add(vo);
+				}
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return list;
+		}
+	
 	
 
 }
