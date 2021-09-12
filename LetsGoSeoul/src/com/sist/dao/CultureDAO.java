@@ -173,7 +173,7 @@ public class CultureDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT no,images,detail,period,tel,time,day,price,addr,trans,tag "
+			String sql="SELECT no,images,title,detail,period,tel,time,day,price,addr,trans,tag "
 					  +"FROM trip_E "
 					  +"WHERE no=?";
 			ps=conn.prepareStatement(sql);
@@ -182,15 +182,16 @@ public class CultureDAO {
 			rs.next();
 			vo.setNo(rs.getInt(1));
 			vo.setImages(rs.getString(2));
-			vo.setDetail(rs.getString(3));
-			vo.setPeriod(rs.getString(4));
-			vo.setTel(rs.getString(5));
-			vo.setTime(rs.getString(6));
-			vo.setDay(rs.getString(7));
-			vo.setPrice(rs.getString(8));
-			vo.setAddr(rs.getString(9));
-			vo.setTrans(rs.getString(10));
-			vo.setTag(rs.getString(11));
+			vo.setTitle(rs.getString(3));
+			vo.setDetail(rs.getString(4));
+			vo.setPeriod(rs.getString(5));
+			vo.setTel(rs.getString(6));
+			vo.setTime(rs.getString(7));
+			vo.setDay(rs.getString(8));
+			vo.setPrice(rs.getString(9));
+			vo.setAddr(rs.getString(10));
+			vo.setTrans(rs.getString(11));
+			vo.setTag(rs.getString(12));
 			rs.close();
 		}catch(Exception ex)
 		{

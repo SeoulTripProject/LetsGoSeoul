@@ -40,7 +40,7 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                     <h5><a href="../culture/exhibition.do?no=${no}">${vo.title }</a></h5>
+	                     <h5><a href="../culture/exhibition_detail.do?no=${vo.no}">${vo.title }</a></h5>
 	                     <div class="list-footer">
 	                       <ul>
 	                        <li>기간&nbsp;&nbsp;${vo.period }</li>
@@ -57,7 +57,7 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                     <h5><a href="../culture/exhibition.do?no=${no}">${vo.title }</a></h5>
+	                     <h5><a href="../culture/exhibition_detail.do?no=${vo.no}">${vo.title }</a></h5>
 	                     <div class="list-footer">
 	                       <ul>
 	                        <li>기간&nbsp;&nbsp;${vo.period }</li>
