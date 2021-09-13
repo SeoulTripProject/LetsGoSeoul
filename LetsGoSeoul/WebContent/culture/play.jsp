@@ -10,6 +10,9 @@
 .col-3{
 	display: inline;
 }
+.list-caption{
+	width: 275px;
+}
 </style>
 </head>
 <body>

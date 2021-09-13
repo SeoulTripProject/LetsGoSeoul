@@ -11,8 +11,7 @@
 	display: inline;
 }
 .list-caption{
-	padding: 31px 24px 18px 24px;
-	postion:relative;
+	width: 275px;
 }
 </style>
 </head>
@@ -35,7 +34,6 @@
              <div class="listing-details-area">
                <div class="container">
                <div class="row">
-                 <div class="col-lg-6">
 	                  <c:forEach var="vo" items="${list }" varStatus="s">
 	                   <c:if test="${s.index%4==0 }">
 	                   <div class="single-listing mb-30">
@@ -72,7 +70,6 @@
 	                 </div>
 	                 </c:if>
 	                </c:forEach>
-               </div>
                </div>
              </div>
            </div>
