@@ -35,7 +35,7 @@ $(function(){
                                         <ul id="navigation">                                                                                                                                     
                                             <li><a href="../attraction/attraction_main.do">Attractions</a>
                                             	<ul class="submenu">
-                                                    <li><a href="blog.html">Landmark</a></li>
+                                                    <li><a href="../attraction/landmark.do">Landmark</a></li>
                                                     <li><a href="blog.html">Palace</a></li>
                                                     <li><a href="blog.html">historic Place</a></li>
                                                     <li><a href="blog.html">Old Store</a></li>

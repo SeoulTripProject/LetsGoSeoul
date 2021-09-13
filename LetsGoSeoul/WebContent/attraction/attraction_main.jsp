@@ -1,111 +1,78 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="manifest" href="site.webmanifest">
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/slicknav.css">
-<link rel="stylesheet" href="assets/css/flaticon.css">
-<link rel="stylesheet" href="assets/css/animate.min.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
-<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-<link rel="stylesheet" href="assets/css/nice-select.css">
-<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<!-- Hero Start-->
+
         <div class="hero-area2  slider-height2 hero-overly2 d-flex align-items-center ">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center pt-50">
-                            <h2>Attractions</h2>
+                            <h2>Attraction</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--Hero End -->
-        <!-- Popular Locations Start -->
+
         <div class="popular-location section-padding30">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-80">
-                            <span>Most visited places</span>
-                            
+                            <h2>Landmark</h2>
                         </div>
                     </div>
                 </div>
-                <div class="row inline">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img inline">
-                                <img src="../attraction/image/landmark.jpg" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>Landmark</p>
-                                <a href="#" class="location-btn">25 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img inline">
-                                <img src="../attraction/image/palace.jpg" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>Palace</p>
-                                <a href="#" class="location-btn">15 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img inline">
-                                <img src="../attraction/image/historic.jpg" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>Historic Place</p>
-                                <a href="#" class="location-btn">64 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img inline">
-                                <img src="../attraction/image/old.jpg" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>Old Store</p>
-                                <a href="#" class="location-btn">28 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="row">
+                   <c:forEach var="vo" items="${list }">
+                    <div class="col-4">
                         <div class="single-location mb-30 inline">
-                            <div class="location-img">
-                                <img src="../attraction/image/museum.jpg" alt="">
+                            <div class="location-img inline">
+                                <img src="${vo.poster }" style="width:360px;height:286px">
                             </div>
                             <div class="location-details">
-                                <p>Museum</p>
-                                <a href="#" class="location-btn">111 <i class="ti-plus"></i> Location</a>
+                                <p>${vo.title }</p>
+                                <a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
                             </div>
                         </div>
                     </div>
+                  </c:forEach>
                 </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center mb-80">
+                            <h2>Palace</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                   <c:forEach var="gvo" items="${list2 }">
+                    <div class="col-4">
+                        <div class="single-location mb-30 inline">
+                            <div class="location-img inline">
+                                <img src="${gvo.poster }" style="width:360px;height:286px">
+                            </div>
+                            <div class="location-details">
+                                <p>${gvo.sname }</p>
+                                <a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
+                            </div>
+                        </div>
+                    </div>
+                  </c:forEach>
+                </div>
+                
             </div>
         </div>
-        <!-- Popular Locations End -->
+        <div id="back-top" >
+          <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    	</div>
 </body>
 </html>
