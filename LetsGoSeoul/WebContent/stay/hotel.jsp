@@ -41,7 +41,7 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                      <a href="../stay/hotel.do?no=${no}">${vo.sname }</a>
+	                      <a href="../stay/hotel.do?no=${no}"></a>
 	                     <div class="list-footer">
 	                       <ul>
 	                        <li>평점&nbsp;&nbsp;${vo.score }</li>
@@ -60,7 +60,7 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                      <a href="../stay/hotel.do?no=${no}" value="${vo.sname }"></a>
+	                      <a href="../stay/hotel.do?no=${no}"></a>
 	                     <div class="list-footer">
 	                       <ul>
 	                        <li>평점&nbsp;&nbsp;${vo.score }</li>
@@ -83,17 +83,22 @@
                           <div class="single-wrap d-flex justify-content-center">
                               <nav aria-label="Page navigation example">
                                <ul class="pagination justify-content-start">
-                                <c:forEach var="i" begin="1" end="${totalpage }">
-							        <c:if test="${curpage==i }">
-							           <c:set var="ss" value="class=current"/>
-							        </c:if>
-							        <c:if test="${curpage!=i }">
-							           <c:set var="ss" value=""/>
-							        </c:if>
-							        <li ${ss } class="page-item"><a href="../stay/hotel?page=${i }" class="page-link">${i }</a></li>
-							     </c:forEach>
-							     <li class="page-item"><a class="page-link" href="../stay/hotel?page=${i+1 }"><span class="ti-angle-right"></span></a></li>
-							    </ul>
+						          <c:if test="${curpage>BLOCK }">
+						          <li class="page-item"><a href="../stay/hotel.do?page=${startPage-1 }" class="page-link"><span class="ti-angle-left"></span></a></li>
+						          </c:if>
+						            <c:forEach var="i" begin="${startPage }" end="${ endPage}">
+						               <c:if test="${curpage==i }">
+						                 <c:set var="ss" value="class=current"/>
+						               </c:if>
+						               <c:if test="${curpage!=i }">
+						                 <c:set var="ss" value=""/>
+						               </c:if>
+						              <li class="page-item" ${ss }><a class="page-link" href="../stay/hotel.do?page=${i }">${i }</a></li>
+						            </c:forEach>  
+						            <c:if test="${endPage<totalpage }">
+						             <li class="page-item"><a href="../stay/hotel.do?page=${endPage+1 }" class="page-link"><span class="ti-angle-right"></span></a></li>
+						            </c:if>
+						        </ul>
                               </nav>
                           </div>
                       </div>

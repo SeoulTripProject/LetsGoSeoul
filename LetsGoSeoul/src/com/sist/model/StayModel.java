@@ -33,14 +33,26 @@ public class StayModel {
 		
 		String page=request.getParameter("page");
 		if(page==null)
+		{
 			page="1";
+		}
 		int curpage=Integer.parseInt(page);
 		List<StayVO> list=dao.HotelData(curpage);
 		int totalpage=dao.HotelTotalPage();
 		
+		final int BLOCK=5;
+		int startPage=(((curpage-1)/BLOCK)*BLOCK)+1;
+		int endPage=(((curpage-1)/BLOCK)*BLOCK)+BLOCK;
+		
+		if(endPage>totalpage)
+			endPage=totalpage;
+		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
+		request.setAttribute("BLOCK", BLOCK);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
 		
 		request.setAttribute("main_jsp","../stay/hotel.jsp");
 		return "../main/main.jsp";
