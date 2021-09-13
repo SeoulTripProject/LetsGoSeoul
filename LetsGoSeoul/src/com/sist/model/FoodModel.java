@@ -25,6 +25,27 @@ public class FoodModel {
 	@RequestMapping("food/food_list.do")
 	public String food_list(HttpServletRequest request, HttpServletResponse response)
 	{
+		FoodDAO dao=FoodDAO.newInstance();
+		String page=request.getParameter("page");
+		int curpage=Integer.parseInt(page);
+		List<FoodVO> list=dao.foodListData(curpage);
+		if(page==null)
+			page="1";
+		
+		int totalpage=dao.foodTotalPage();
+		
+		final int BLOCK=5;
+		int startPage=(((curpage-1)/BLOCK)*BLOCK)+1;
+		int endPage=(((curpage-1)/BLOCK)*BLOCK)+BLOCK;
+		if(endPage>totalpage)
+			endPage=totalpage;
+		
+		request.setAttribute("curpage", curpage);
+		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("BLOCK", BLOCK);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../food/food_list.jsp");
 		return "../main/main.jsp";
 	}

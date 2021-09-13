@@ -183,6 +183,68 @@ public class FoodDAO {
 		return vo;
 	} */
 	
+	public List<FoodVO> foodListData(int page)
+	{
+		List<FoodVO> list=new ArrayList<FoodVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT no, rname, poster, num "
+					+ "FROM (SELECT no, rname, poster, rownum as num "
+					+ "FROM (SELECT no, rname, poster "
+					+ "FROM trip_R ORDER BY no ASC)) "
+					+ "WHERE num BETWEEN ? AND ?";
+			ps=conn.prepareStatement(sql);
+			int rowSize=12;
+			int start=(rowSize*page)-(rowSize-1);
+			int end=rowSize*page;
+			ps.setInt(1, start);
+			ps.setInt(2, end);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				FoodVO vo=new FoodVO();
+				vo.setNo(rs.getInt(1));
+				vo.setRname(rs.getString(2));
+				String poster=rs.getString(3);
+				vo.setPoster(poster.substring(0,poster.indexOf("^")));
+				list.add(vo);
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
+	
+	public int foodTotalPage()
+	{
+		int total=0;
+		try
+		{
+			getConnection();
+			String sql="SELECT CEIL(COUNT(*)/12.0) FROM trip_R";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			total=rs.getInt(1);
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return total;
+	}
+	
 	// 맛집 상세보기
 	public FoodVO foodDetailData(int no)
 	{
