@@ -33,31 +33,34 @@
                  <div class="row">
 	                  <c:forEach var="vo" items="${list }" varStatus="s">
 	                   <c:if test="${s.index%4==0 }">
-	                   <div class="single-listing mb-30">
+	                   <div class="col-md-3 ">
+                        <div class="single-listing mb-30">
 	                     <div class="list-img">
-	                       <img src="${vo.poster }" style="width360px;height:251px">
+	                       <img src="${vo.poster }" style="width:360px;height:251px">
 	                          <!-- <span>Open</span> -->
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                     <h5><a href="../stay/hotel.do?no=${no}">${vo.sname }</a></h5>
+	                      <a href="../stay/hotel.do?no=${no}">${vo.sname }</a>
 	                     <div class="list-footer">
 	                       <ul>
 	                        <li>평점&nbsp;&nbsp;${vo.score }</li>
 	                       </ul>
 	                     </div>
 	                   </div>
+	                 </div>
 	                 </div>
 	                 </c:if>
 	                 <c:if test="${s.index%4!=0 }">
-	                   <div class="single-listing mb-30">
+	                   <div class="col-md-3 ">
+                        <div class="single-listing mb-30">
 	                     <div class="list-img">
-	                       <img src="${vo.poster }" style="width360px;height:251px">
+	                       <img src="${vo.poster }" style="width:360px;height:251px">
 	                          <!-- <span>Open</span> -->
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                     <h5><a href="../stay/hotel.do?no=${no}">${vo.sname }</a></h5>
+	                      <a href="../stay/hotel.do?no=${no}" value="${vo.sname }"></a>
 	                     <div class="list-footer">
 	                       <ul>
 	                        <li>평점&nbsp;&nbsp;${vo.score }</li>
@@ -65,8 +68,9 @@
 	                     </div>
 	                   </div>
 	                 </div>
-	                 </c:if>
-	                </c:forEach>
+	                </div>
+	               </c:if>
+	              </c:forEach>
                </div>
              </div>
            </div>
