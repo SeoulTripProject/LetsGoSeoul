@@ -32,15 +32,15 @@
 				</div>
 			</div>
 			<div class="row">
-				<c:forEach var="Lvo" items="${Llist }">
+				<c:forEach var="lvo" items="${Llist }">
 					<div class="col-4">
 						<div class="single-location mb-30 inline">
 							<div class="location-img inline">
-								<img src="${Lvo.poster }" style="width: 360px; height: 286px">
+								<img src="${lvo.poster }" style="width: 360px; height: 286px">
 							</div>
 							<div class="location-details">
-								<p>${Lvo.title }</p>
-								<a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
+								<p>${lvo.title }</p>
+								<a href="../attraction/landmark.do" class="location-btn"><i class="ti-plus"></i>바로가기</a>
 							</div>
 						</div>
 					</div>
@@ -63,7 +63,73 @@
 							</div>
 							<div class="location-details">
 								<p>${pvo.title }</p>
-								<a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
+								<a href="../attraction/palace.do" class="location-btn"><i class="ti-plus"></i>바로가기</a>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-tittle text-center mb-80">
+						<h2>Historic Place</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<c:forEach var="hvo" items="${Hlist }">
+					<div class="col-4">
+						<div class="single-location mb-30 inline">
+							<div class="location-img inline">
+								<img src="${hvo.poster }" style="width: 360px; height: 286px">
+							</div>
+							<div class="location-details">
+								<p>${hvo.title }</p>
+								<a href="../attraction/historic.do" class="location-btn"><i class="ti-plus"></i>바로가기</a>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-tittle text-center mb-80">
+						<h2>Old Store</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<c:forEach var="ovo" items="${Olist }">
+					<div class="col-4">
+						<div class="single-location mb-30 inline">
+							<div class="location-img inline">
+								<img src="${ovo.poster }" style="width: 360px; height: 286px">
+							</div>
+							<div class="location-details">
+								<p>${ovo.title }</p>
+								<a href="../attraction/old.do" class="location-btn"><i class="ti-plus"></i>바로가기</a>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-tittle text-center mb-80">
+						<h2>Museum</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<c:forEach var="mvo" items="${Mlist }">
+					<div class="col-4">
+						<div class="single-location mb-30 inline">
+							<div class="location-img inline">
+								<img src="${mvo.poster }" style="width: 360px; height: 286px">
+							</div>
+							<div class="location-details">
+								<p>${mvo.title }</p>
+								<a href="../attraction/museum.do" class="location-btn"><i class="ti-plus"></i>바로가기</a>
 							</div>
 						</div>
 					</div>
