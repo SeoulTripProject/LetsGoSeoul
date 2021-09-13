@@ -178,7 +178,7 @@ public class AttraDAO {
 			getConnection();
 			String sql="SELECT tno,poster,title "
 					+ "FROM trip_a "
-					+ "WHERE tno<=6 and no=2 "
+					+ "WHERE 26<=tno and tno<=31 "
 					+ "ORDER BY tno ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
@@ -277,7 +277,7 @@ public class AttraDAO {
 			getConnection();
 			String sql="SELECT tno,poster,title "
 					+ "FROM trip_a "
-					+ "WHERE tno<=6 and no=3 "
+					+ "WHERE 41<=tno and tno<=46  "
 					+ "ORDER BY tno ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
@@ -376,7 +376,7 @@ public class AttraDAO {
 			getConnection();
 			String sql="SELECT tno,poster,title "
 					+ "FROM trip_a "
-					+ "WHERE tno<=6 and no=4 "
+					+ "WHERE 105<=tno and tno<=110 "
 					+ "ORDER BY tno ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
@@ -475,7 +475,7 @@ public class AttraDAO {
 			getConnection();
 			String sql="SELECT tno,poster,title "
 					+ "FROM trip_a "
-					+ "WHERE tno<=6 and no=5 "
+					+ "WHERE 133<=tno and tno<=138 "
 					+ "ORDER BY tno ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
