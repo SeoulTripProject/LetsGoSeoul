@@ -13,7 +13,8 @@ import com.sist.vo.AttraVO;
 
 @Controller
 public class AttraModel {
-	@RequestMapping("attraction/attraction_main.do")
+	// attraction main
+	@RequestMapping("attraction/attraction_main.do") 
 	public String Attra_main(HttpServletRequest request,HttpServletResponse response)
 	{
 		AttraDAO dao=AttraDAO.newInstance(); 
@@ -31,6 +32,8 @@ public class AttraModel {
 		request.setAttribute("main_jsp","../attraction/attraction_main.jsp");
 		return "../main/main.jsp";
 	}
+	
+	// 랜드마크
 	@RequestMapping("attraction/landmark.do")
 	public String AttraLandmark(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -62,7 +65,9 @@ public class AttraModel {
 		request.setAttribute("main_jsp","../attraction/landmark.jsp");
 		return "../main/main.jsp";
 	}
-	@RequestMapping("attraction/landmark.do")
+	
+	//고궁
+	@RequestMapping("attraction/palace.do")
 	public String AttraPalace(HttpServletRequest request,HttpServletResponse response)
 	{
 		AttraDAO dao=AttraDAO.newInstance(); 
@@ -73,8 +78,8 @@ public class AttraModel {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		List<AttraVO> list=dao.LandmarkData(curpage);
-		int totalpage=dao.LandmarkTotalPage();
+		List<AttraVO> list=dao.PalaceData(curpage);
+		int totalpage=dao.PalaceTotalPage();
 		
 		final int BLOCK=5;
 		int startPage=(((curpage-1)/BLOCK)*BLOCK)+1;
@@ -90,10 +95,12 @@ public class AttraModel {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
-		request.setAttribute("main_jsp","../attraction/landmark.jsp");
+		request.setAttribute("main_jsp","../attraction/palace.jsp");
 		return "../main/main.jsp";
 	}
-	@RequestMapping("attraction/landmark.do")
+	
+	// 역사적장소
+	@RequestMapping("attraction/historic.do")
 	public String AttraHistoric(HttpServletRequest request,HttpServletResponse response)
 	{
 		AttraDAO dao=AttraDAO.newInstance(); 
@@ -104,8 +111,8 @@ public class AttraModel {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		List<AttraVO> list=dao.LandmarkData(curpage);
-		int totalpage=dao.LandmarkTotalPage();
+		List<AttraVO> list=dao.HistoricData(curpage);
+		int totalpage=dao.HistoricTotalPage();
 		
 		final int BLOCK=5;
 		int startPage=(((curpage-1)/BLOCK)*BLOCK)+1;
@@ -121,10 +128,13 @@ public class AttraModel {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
-		request.setAttribute("main_jsp","../attraction/landmark.jsp");
+		request.setAttribute("main_jsp","../attraction/historic.jsp");
 		return "../main/main.jsp";
 	}
-	@RequestMapping("attraction/landmark.do")
+	
+	
+	// 오래된 가게
+	@RequestMapping("attraction/old.do")
 	public String AttraOld(HttpServletRequest request,HttpServletResponse response)
 	{
 		AttraDAO dao=AttraDAO.newInstance(); 
@@ -135,8 +145,8 @@ public class AttraModel {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		List<AttraVO> list=dao.LandmarkData(curpage);
-		int totalpage=dao.LandmarkTotalPage();
+		List<AttraVO> list=dao.OldData(curpage);
+		int totalpage=dao.OldTotalPage();
 		
 		final int BLOCK=5;
 		int startPage=(((curpage-1)/BLOCK)*BLOCK)+1;
@@ -152,10 +162,12 @@ public class AttraModel {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
-		request.setAttribute("main_jsp","../attraction/landmark.jsp");
+		request.setAttribute("main_jsp","../attraction/old.jsp");
 		return "../main/main.jsp";
 	}
-	@RequestMapping("attraction/landmark.do")
+	
+	//박물관
+	@RequestMapping("attraction/museum.do")
 	public String AttraMuseum(HttpServletRequest request,HttpServletResponse response)
 	{
 		AttraDAO dao=AttraDAO.newInstance(); 
@@ -166,8 +178,8 @@ public class AttraModel {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		List<AttraVO> list=dao.LandmarkData(curpage);
-		int totalpage=dao.LandmarkTotalPage();
+		List<AttraVO> list=dao.MuseumData(curpage);
+		int totalpage=dao.MuseumTotalPage();
 		
 		final int BLOCK=5;
 		int startPage=(((curpage-1)/BLOCK)*BLOCK)+1;
@@ -183,7 +195,7 @@ public class AttraModel {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
-		request.setAttribute("main_jsp","../attraction/landmark.jsp");
+		request.setAttribute("main_jsp","../attraction/museum.jsp");
 		return "../main/main.jsp";
 	}
 	
