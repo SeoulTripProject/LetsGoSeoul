@@ -36,37 +36,41 @@
                  <div class="row">
 	                  <c:forEach var="vo" items="${list }" varStatus="s">
 	                   <c:if test="${s.index%4==0 }">
+	                   <div class="col-md-3 ">
 	                   <div class="single-listing mb-30">
 	                     <div class="list-img">
-	                       <img src="${vo.poster }" style="width:275px;height:191px">
+	                       <img src="${vo.poster }" style="width:275px;height:291px">
 	                          <!-- <span>Open</span> -->
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                     <h5><a href="../culture/play_detail.do?no=${vo.no}">${vo.title }</a></h5>
+	                     <h6><a href="../culture/play_detail.do?no=${vo.no}">${vo.title }</a></h6>
 	                     <div class="list-footer">
 	                       <ul>
-	                        <li>기간&nbsp;&nbsp;${vo.period }</li>
+	                        <li>${vo.period }</li>
 	                       </ul>
 	                     </div>
 	                   </div>
 	                 </div>
+	                 </div>
 	                 </c:if>
 	                 <c:if test="${s.index%4!=0 }">
+	                 <div class="col-md-3 ">
 	                   <div class="single-listing mb-30">
 	                     <div class="list-img">
-	                       <img src="${vo.poster }" style="width:275px;height:191px">
+	                       <img src="${vo.poster }" style="width:275px;height:291px">
 	                          <!-- <span>Open</span> -->
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                     <h5><a href="../culture/play_detail.do?no=${vo.no}">${vo.title }</a></h5>
+	                     <h6><a href="../culture/play_detail.do?no=${vo.no}">${vo.title }</a></h6>
 	                     <div class="list-footer">
 	                       <ul>
-	                        <li>기간&nbsp;&nbsp;${vo.period }</li>
+	                        <li>${vo.period }</li>
 	                       </ul>
 	                     </div>
 	                   </div>
+	                 </div>
 	                 </div>
 	                 </c:if>
 	                </c:forEach>

@@ -44,9 +44,9 @@ public class BoardDAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT no,subject,name,regdate,hit,num "
-					     +"FROM (SELECT no,subject,name,regdate,hit,rownum as num "
-					     +"FROM (SELECT no,subject,name,regdate,hit "
+			   String sql="SELECT no,subject,name,content,regdate,hit,num "
+					     +"FROM (SELECT no,subject,name,content,regdate,hit,rownum as num "
+					     +"FROM (SELECT no,subject,name,content,regdate,hit "
 					     +"FROM project_freeboard ORDER BY no DESC)) "
 					     +"WHERE num BETWEEN ? AND ?";
 			   ps=conn.prepareStatement(sql);
@@ -63,8 +63,9 @@ public class BoardDAO {
 				   vo.setNo(rs.getInt(1));
 				   vo.setSubject(rs.getString(2));
 				   vo.setName(rs.getString(3));
-				   vo.setRegdate(rs.getDate(4));
-				   vo.setHit(rs.getInt(5));
+				   vo.setContent(rs.getString(4));
+				   vo.setRegdate(rs.getDate(5));
+				   vo.setHit(rs.getInt(6));
 				   list.add(vo);
 			   }
 			   rs.close();
