@@ -36,6 +36,7 @@
                <div class="row">
 	                  <c:forEach var="vo" items="${list }" varStatus="s">
 	                   <c:if test="${s.index%4==0 }">
+	                   <div class="col-md-3 ">
 	                   <div class="single-listing mb-30">
 	                     <div class="list-img">
 	                       <img src="${vo.poster }" style="width:275px;height:191px">
@@ -51,8 +52,10 @@
 	                     </div>
 	                   </div>
 	                 </div>
+	                 </div>
 	                 </c:if>
 	                 <c:if test="${s.index%4!=0 }">
+	                 <div class="col-md-3 ">
 	                   <div class="single-listing mb-30">
 	                     <div class="list-img">
 	                       <img src="${vo.poster }" style="width:275px;height:191px">
@@ -67,6 +70,7 @@
 	                       </ul>
 	                     </div>
 	                   </div>
+	                 </div>
 	                 </div>
 	                 </c:if>
 	                </c:forEach>

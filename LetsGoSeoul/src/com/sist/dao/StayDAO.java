@@ -113,7 +113,8 @@ public class StayDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT CEIL(COUNT(*)/12.0) FROM trip_S";
+			String sql="SELECT CEIL(COUNT(*)/12.0) FROM trip_S "
+					+ "WHERE sno=1";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();

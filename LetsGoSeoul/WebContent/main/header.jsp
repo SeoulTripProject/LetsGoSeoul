@@ -62,7 +62,7 @@ $(function(){
                                             <li><a href="#">Board</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Notice</a></li>
-                                                    <li><a href="blog.html">FreeBoard</a></li>
+                                                    <li><a href="../board/freeboard.do">FreeBoard</a></li>
                                                     <li><a href="../board/weather.do">Weather</a></li>
                                                     <li><a href="blog.html">Q&A</a></li>
                                                 </ul>
