@@ -39,7 +39,7 @@
                             </div>
                             <div class="location-details">
                                 <p>${vo.sname }</p>
-                                <a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
+                                <a href="../stay/hdetail.do?no=${vo.no}" class="location-btn"><i class="ti-plus"></i>Location</a>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="location-details">
                                 <p>${gvo.sname }</p>
-                                <a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
+                                <a href="../stay/gdetail.do?no=${vo.no}" class="location-btn"><i class="ti-plus"></i>Location</a>
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,10 @@
 .col-3{
 	display: inline;
 }
+li{
+	text-align: left;
+	color:green;
+}
 </style>
 </head>
 <body>
@@ -40,8 +44,8 @@
 	                          <!-- <span>Open</span> -->
 	                     </div>
 	                   <div class="list-caption">
-	                     <span>Open</span>
-	                      <a href="../stay/hotel.do?no=${no}"></a>
+	                     <span><a href="../stay/hdetail.do?no=${vo.no}">Open</a></span>
+	                      <a href="../stay/hdetail.do?no=${no}"><h5>${vo.sname }</h5></a>
 	                     <div class="list-footer">
 	                       <ul>
 	                        <li>평점&nbsp;&nbsp;${vo.score }</li>
@@ -59,8 +63,8 @@
 	                          <!-- <span>Open</span> -->
 	                     </div>
 	                   <div class="list-caption">
-	                     <span>Open</span>
-	                      <a href="../stay/hotel.do?no=${no}"></a>
+	                     <span><a href="../stay/hdetail.do?no=${vo.no}">Open</a></span>
+	                      <a href="../stay/hdetail.do?no=${no}"><h5>${vo.sname }</h5></a>
 	                     <div class="list-footer">
 	                       <ul>
 	                        <li>평점&nbsp;&nbsp;${vo.score }</li>

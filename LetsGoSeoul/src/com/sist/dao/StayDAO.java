@@ -174,7 +174,152 @@ public class StayDAO {
 			}
 			return list;
 		}
-	
+		
+		public int GhouseTotalPage()
+		{
+			int total=0;
+			try
+			{
+				getConnection();
+				String sql="SELECT CEIL(COUNT(*)/12.0) FROM trip_S "
+						+ "WHERE sno=2";
+				ps=conn.prepareStatement(sql);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				total=rs.getInt(1);
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return total;
+		}
+		
+		// 게스트하우스
+		public List<StayVO> GhouseData(int page)
+		{
+			List<StayVO> list=new ArrayList<StayVO>();
+			try
+			{
+				getConnection();
+				String sql="SELECT no,sno,poster,sname,num "
+						+ "FROM (SELECT no,sno,poster,sname,rownum as num "
+						+ "FROM (SELECT no,sno,poster,sname "
+						+ "FROM trip_S ORDER BY no ASC)) "
+						+ "WHERE num BETWEEN ? AND ? "
+						+ "AND sno=2";
+
+				ps=conn.prepareStatement(sql);
+				
+				int rowSize=12;
+				int start=(rowSize*page)-(rowSize-1);
+				int end=rowSize*page;
+			
+			    ps.setInt(1, start+387);
+			    ps.setInt(2, end+387);
+			 
+				
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					StayVO vo=new StayVO();
+					vo.setNo(rs.getInt(1));
+					vo.setSno(rs.getInt(2));
+					vo.setPoster(rs.getString(3));
+					vo.setSname(rs.getString(4));
+					list.add(vo);
+				}
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return list;
+		}
+		
+		//호텔 상세보기
+		public StayVO HotelDetailData(int no)
+		{
+			StayVO vo=new StayVO();
+			try
+			{
+				getConnection();
+				String sql="SELECT no,sno,sname,score,poster,images,webLink,addr "
+						+ "FROM trip_S "
+						+ "WHERE no=? AND sno=1";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, no);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				vo.setNo(rs.getInt(1));
+				vo.setSno(rs.getInt(2));
+				vo.setSname(rs.getString(3));
+				vo.setScore(rs.getDouble(4));
+				vo.setPoster(rs.getString(5));
+				vo.setImages(rs.getString(6));
+				vo.setWebLink(rs.getString(7));
+				vo.setAddr(rs.getString(8));
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return vo;
+		}
+		
+		//게하 상세보기
+		public StayVO GhouseDetailData(int no)
+		{
+			StayVO vo=new StayVO();
+			try
+			{
+				getConnection();
+				String sql="SELECT no,sno,sname,time,poster,images,tel,email,"
+						+ "webLink,addr,langu,info,roomInfo,bus "
+						+ "FROM trip_S "
+						+ "WHERE no=? AND sno=2";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, no);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				vo.setNo(rs.getInt(1));
+				vo.setSno(rs.getInt(2));
+				vo.setSname(rs.getString(3));
+				vo.setTime(rs.getString(4));
+				vo.setPoster(rs.getString(5));
+				vo.setImages(rs.getString(6));
+				vo.setTel(rs.getString(7));
+				vo.setEmail(rs.getString(8));
+				vo.setWebLink(rs.getString(9));
+				vo.setAddr(rs.getString(10));
+				vo.setLangu(rs.getString(11));
+				vo.setInfo(rs.getString(12));
+				vo.setRoomInfo(rs.getString(13));
+				vo.setBus(rs.getString(14));
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return vo;
+		}
+
 	
 
 }
