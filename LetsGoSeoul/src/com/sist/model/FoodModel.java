@@ -29,7 +29,7 @@ public class FoodModel {
 		String page=request.getParameter("page");
 		int curpage=Integer.parseInt(page);
 		List<FoodVO> list=dao.foodListData(curpage);
-		if(page==null)
+		if(page==null) 
 			page="1";
 		
 		int totalpage=dao.foodTotalPage();
