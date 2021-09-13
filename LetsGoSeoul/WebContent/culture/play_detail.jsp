@@ -28,7 +28,7 @@
                <div class="col-lg-8 posts-list">
                   <div class="single-post">
                      <div class="feature-img">
-                     	<c:forTokens var="image" items="${vo.images }" delims="^">  
+                     	<c:forTokens var="image" items="${vo.poster }" delims="^">  
 		     			<img class="img-fluid" src="${image }" style="width:250px;heigt:250px">
 		   				</c:forTokens>
                      </div>
@@ -38,39 +38,17 @@
                            <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
                            <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
                         </ul>
-                        <c:if test="${vo.period!='no' }">
                         <p class="excert">
                         	행사기간 : ${vo.period }
                         </p>
-                        </c:if>
                         <c:if test="${vo.tel!='no' }">
                         <p class="excert">
                         	전화번호 : ${vo.tel }
                         </p>
                         </c:if>
-                        <c:if test="${vo.time!='no' }">
-                        <p class="excert">
-                        	이용시간 : ${vo.time }
-                        </p>
-                        </c:if>
-                        <c:if test="${vo.day!='no' }">
-                        <p class="excert">
-                        	운영요일 : ${vo.day }
-                        </p>
-                        </c:if>
-                        <c:if test="${vo.price!='no' }">
-                        <p class="excert">
-                        	이용요금 : ${vo.price }
-                        </p>
-                        </c:if>
                         <c:if test="${vo.addr!='no' }">
                         <p class="excert">
                          	주소 : ${vo.addr }
-                        </p>
-                        </c:if>
-                        <c:if test="${vo.trans!='no' }">
-                        <p class="excert">
-                        	교통정보 : ${vo.trans }
                         </p>
                         </c:if>
                         <p class="excert"></p>
@@ -79,19 +57,13 @@
                   </div>
                   <div class="navigation-top">
                      <div class="d-sm-flex justify-content-between text-center">
-                        <p class="like-info"><i class="fa fa-tag">
-                        </i><span class="align-middle">
-                          <c:forTokens var="tag" items="${vo.tag }" delims="^">
-                          	&nbsp;${tag }&nbsp;
-		   				  </c:forTokens>
-                        </span>
-                        </p>
+
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                         <ul class="social-icons">
                            <li><a href="#"><i class="fa fa-thumbs-up"></i></a></li>
                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
                            <li><a href="#"><i class="fa fa-check"></i></a></li>
-                           <li><a href="../culture/exhibition.do"><i class="fa fa-list"></i></a></li>
+                           <li><a href="../culture/play.do"><i class="fa fa-list"></i></a></li>
                         </ul>
                         </div>
                      </div>

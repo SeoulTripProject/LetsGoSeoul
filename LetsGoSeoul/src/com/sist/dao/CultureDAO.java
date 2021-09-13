@@ -235,6 +235,28 @@ public class CultureDAO {
 		  }
 		  return list;
 	  }
+	public int playTotalPage()
+	{
+		int total=0;
+		try
+		{
+			getConnection();
+			String sql="SELECT CEIL(COUNT(*)/8.0) FROM trip_C";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			total=rs.getInt(1);
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return total;
+	}
 	public CultureVO playListData(int no)
 	{
 		CultureVO vo=new CultureVO();
@@ -260,6 +282,47 @@ public class CultureDAO {
 			disConnection();
 		}
 		return vo;
+	}
+	public List<CultureVO> playData(int page)
+	{
+		List<CultureVO> list=new ArrayList<CultureVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,cno,poster,title,period,num "
+					  +"FROM (SELECT no,cno,poster,title,period,rownum as num "
+					  +"FROM (SELECT no,cno,poster,title,period "
+					  +"FROM trip_C ORDER BY no ASC)) "
+					  +"WHERE num BETWEEN ? AND ? "
+					  +"AND cno=1";
+			ps=conn.prepareStatement(sql);
+			int rowSize=8;
+			int start=(rowSize*page)-(rowSize-1);
+			int end=rowSize*page;
+			ps.setInt(1, start);
+			ps.setInt(2, end);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				CultureVO vo=new CultureVO();
+				vo.setNo(rs.getInt(1));
+				vo.setCno(rs.getInt(1));
+				vo.setPoster(rs.getString(3));
+				vo.setTitle(rs.getString(4));
+				vo.setPeriod(rs.getString(5));
+				list.add(vo);
+			}
+			rs.close();
+			
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
 	}
 	public CultureVO playDetailData(int no)
 	{

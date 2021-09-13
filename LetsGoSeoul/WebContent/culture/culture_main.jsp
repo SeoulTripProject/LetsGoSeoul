@@ -31,15 +31,15 @@
                     </div>
                 </div>
                 <div class="row">
-                   <c:forEach var="vo" items="${eList }">
+                   <c:forEach var="evo" items="${eList }">
                     <div class="col-4">
                         <div class="single-location mb-30 inline">
                             <div class="location-img inline">
-                                <img src="${vo.poster }" style="width:360px;height:286px">
+                                <img src="${evo.poster }" style="width:360px;height:286px">
                             </div>
                             <div class="location-details">
-                                <p>${vo.title }</p>
-                                <a href="../culture/exhibition_detail.do?no=${vo.no }" class="location-btn"><i class="ti-plus"></i>Location</a>
+                                <p>${evo.title }</p>
+                                <a href="../culture/exhibition_detail.do?no=${evo.no }" class="location-btn"><i class="ti-plus"></i>Location</a>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="location-details">
                                 <p>${vo.title }</p>
-                                <a href="#" class="location-btn"><i class="ti-plus"></i>Location</a>
+                                <a href="../culture/play_detail.do?no=${vo.no }" class="location-btn"><i class="ti-plus"></i>Location</a>
                             </div>
                         </div>
                     </div>
