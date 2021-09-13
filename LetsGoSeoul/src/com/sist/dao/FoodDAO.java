@@ -2,9 +2,7 @@ package com.sist.dao;
 import java.util.*;
 import java.sql.*;
 import javax.sql.*;
-
 import com.sist.vo.*;
-
 import javax.naming.*;
 public class FoodDAO {
 	private Connection conn;
@@ -189,9 +187,9 @@ public class FoodDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT no, rname, poster, num "
-					+ "FROM (SELECT no, rname, poster, rownum as num "
-					+ "FROM (SELECT no, rname, poster "
+			String sql="SELECT no, rno, rname, poster, score, addr, num "
+					+ "FROM (SELECT no, rno, rname, poster, score, addr, rownum as num "
+					+ "FROM (SELECT no, rno, rname, poster, score, addr "
 					+ "FROM trip_R ORDER BY no ASC)) "
 					+ "WHERE num BETWEEN ? AND ?";
 			ps=conn.prepareStatement(sql);
@@ -205,9 +203,13 @@ public class FoodDAO {
 			{
 				FoodVO vo=new FoodVO();
 				vo.setNo(rs.getInt(1));
-				vo.setRname(rs.getString(2));
-				String poster=rs.getString(3);
+				vo.setRno(rs.getInt(2));
+				vo.setRname(rs.getString(3));
+				String poster=rs.getString(4);
 				vo.setPoster(poster.substring(0,poster.indexOf("^")));
+				vo.setScore(rs.getDouble(5));
+				String addr=rs.getString(6);
+				vo.setAddress(addr.substring(0, addr.indexOf("지")));
 				list.add(vo);
 			}
 			rs.close();

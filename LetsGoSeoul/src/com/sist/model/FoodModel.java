@@ -1,6 +1,5 @@
 package com.sist.model;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,11 +26,12 @@ public class FoodModel {
 	{
 		FoodDAO dao=FoodDAO.newInstance();
 		String page=request.getParameter("page");
-		int curpage=Integer.parseInt(page);
-		List<FoodVO> list=dao.foodListData(curpage);
+		
 		if(page==null) 
 			page="1";
 		
+		int curpage=Integer.parseInt(page);
+		List<FoodVO> list=dao.foodListData(curpage);
 		int totalpage=dao.foodTotalPage();
 		
 		final int BLOCK=5;

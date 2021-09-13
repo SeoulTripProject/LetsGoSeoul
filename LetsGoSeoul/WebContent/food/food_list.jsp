@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.col-3{
+	display: inline;
+}
+</style>
 </head>
 <body>
         <!-- Hero Start-->
@@ -22,46 +27,56 @@
         </div>
         <!--Hero End -->
         <!-- listing Area Start -->
-        <div class="listing-area pt-120 pb-120">
-            <div class="container">
-                <div class="row">
-                    <!-- Right content -->
-                    <div class="col-xl-9 col-lg-9 col-md-6">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="count mb-35">
-                                    <span> Seoul Restaurants </span>
-                                </div>
-                            </div>
-                        </div>
                         <!-- listing Details Stat-->
-                        <div class="listing-details-area">
+                       <div class="popular-location section-padding30">
+                         <div class="listing-details-area">
                             <div class="container">
                                 <div class="row">
                                   <c:forEach var="vo" items="${list }" varStatus="s">
-                                    <div class="col-lg-6 ">
+                                   <c:if test="${s.index%4==0 }">
+                                    <div class="col-md-3 ">
                                         <div class="single-listing mb-30">
                                             <div class="list-img">
-                                                <img src="${vo.poster }" style="width:360px;height:251px">
+                                                <img src="${vo.poster }" style="width:360px;height:250px">
                                                 <!-- <span>Open</span> -->
                                             </div>
                                             <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="../stay/food_list.do?no=${no}">${vo.sname }</a></h3>
-                                                <p>700/D, Kings road, Green lane, 85/ London</p>
+                                                <span><a href="../food/food_detail.do?no=${vo.no }">Detail</a></span>
+                                                <h3><a href="../stay/food_list.do?no=${no}">${vo.rname }</a></h3>
+                                                <p>${vo.address }</p>
                                                 <div class="list-footer">
                                                     <ul>
-                                                        <li>+10 278 367 9823</li>
-                                                        <li>contact@midnight.com</li>
+                                                        <li>SCORE : ${vo.score }</li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                      </div>
+                                    </c:if>
+                                   <c:if test="${s.index%4!=0 }">
+                                    <div class="col-md-3 ">
+                                        <div class="single-listing mb-30">
+                                            <div class="list-img">
+                                                <img src="${vo.poster }" style="width:360px;height:250px">
+                                                <!-- <span>Open</span> -->
+                                            </div>
+                                            <div class="list-caption">
+                                                <span><a href="../food/food_detail.do?no=${vo.no }">Detail</a></span>
+                                                <h3><a href="../stay/food_list.do?no=${no}">${vo.rname }</a></h3>
+                                                <p>${vo.address }</p>
+                                                <div class="list-footer">
+                                                    <ul>
+                                                        <li>SCORE : ${vo.score }</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </c:if>
                                   </c:forEach>
                                 </div>
-                            </div>
-                        </div>
+                             </div>
+                          </div>
                         <!-- listing Details End -->
                         <!--Pagination Start  -->
                         <div class="pagination-area pt-70 text-center">
@@ -72,7 +87,7 @@
                                             <nav aria-label="Page navigation example">
                                                 <ul class="pagination justify-content-start">
                                                          <c:if test="${curpage>BLOCK }">
-												          <li class="page-item active"><a class="page-link" href="../recipe/list.do?page=${startPage-1 }">&laquo; Previous</a></li>
+												          <li class="page-item"><a class="page-link" href="../food/food_list.do?page=${startPage-1 }"><span class="ti-angle-left"></span></a></li>
 												         </c:if>
 												           <c:forEach var="i" begin="${startPage }" end="${endPage }">
 												           	<c:if test="${curpage==i }">
@@ -81,12 +96,11 @@
 												           	<c:if test="${curpage!=i }">
 													           <c:set var="ss" value=""/>
 												           	</c:if>
-												          	<li class="page-item active" ${ss }><a class="page-link" href="../recipe/list.do?page=${i }">${i }</a></li>
+												          	<li class="page-item" ${ss }><a class="page-link" href="../food/food_list.do?page=${i }">${i }</a></li>
 												           </c:forEach>
 												           <c:if test="${endPage<totalpage }">
-												          <li class="page-item active"><a class="page-link" href="../recipe/list.do?page=${endPage+1 }">Next &raquo;</a></li>
+												          <li class="page-item"><a class="page-link" href="../food/food_list.do?page=${endPage+1 }"><span class="ti-angle-right"></span></a></li>
 												           </c:if>
-                                                <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-right"></span></a></li>
                                                 </ul>
                                             </nav>
                                         </div>
@@ -94,11 +108,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!--Pagination End  -->
                     </div>
-                </div>
-            </div>
-        </div>
+                        <!--Pagination End  -->
         <!-- listing-area Area End -->
+        <div id="back-top" >
+          <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    	</div>
 </body>
 </html>
