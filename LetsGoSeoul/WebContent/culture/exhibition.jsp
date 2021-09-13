@@ -10,6 +10,10 @@
 .col-3{
 	display: inline;
 }
+.list-caption{
+	padding: 31px 24px 18px 24px;
+	postion:relative;
+}
 </style>
 </head>
 <body>
@@ -30,7 +34,8 @@
            <div class="popular-location section-padding30">
              <div class="listing-details-area">
                <div class="container">
-                 <div class="row">
+               <div class="row">
+                 <div class="col-lg-6">
 	                  <c:forEach var="vo" items="${list }" varStatus="s">
 	                   <c:if test="${s.index%4==0 }">
 	                   <div class="single-listing mb-30">
@@ -40,10 +45,10 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                     <h5><a href="../culture/exhibition_detail.do?no=${vo.no}">${vo.title }</a></h5>
+	                     <h6><a href="../culture/exhibition_detail.do?no=${vo.no}">${vo.title }</a></h6>
 	                     <div class="list-footer">
 	                       <ul>
-	                        <li>기간&nbsp;&nbsp;${vo.period }</li>
+	                        <li>기간&nbsp;:&nbsp;${vo.period }</li>
 	                       </ul>
 	                     </div>
 	                   </div>
@@ -57,16 +62,17 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                     <h5><a href="../culture/exhibition_detail.do?no=${vo.no}">${vo.title }</a></h5>
+	                     <h6><a href="../culture/exhibition_detail.do?no=${vo.no}">${vo.title }</a></h6>
 	                     <div class="list-footer">
 	                       <ul>
-	                        <li>기간&nbsp;&nbsp;${vo.period }</li>
+	                        <li>기간&nbsp;:&nbsp;${vo.period }</li>
 	                       </ul>
 	                     </div>
 	                   </div>
 	                 </div>
 	                 </c:if>
 	                </c:forEach>
+               </div>
                </div>
              </div>
            </div>

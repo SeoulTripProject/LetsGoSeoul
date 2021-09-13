@@ -16,7 +16,11 @@ th.tbcon01,th.tbcon02,th.tbcon03{
 	color:#999;
 	vertical-align:middle;
 }
-
+table {
+	width: 1000px;
+    margin-left:auto; 
+    margin-right:auto;
+}
 
 </style>
 </head>
@@ -34,8 +38,14 @@ th.tbcon01,th.tbcon02,th.tbcon03{
   </div>
 </div>
 <!--Hero End -->
-
-	${data }
+<div class="container">
+  <div class="row">
+    <div class="table">
+      ${data }
+    </div>
+  </div>
+</div>
+	
 
 </body>
 </html>
