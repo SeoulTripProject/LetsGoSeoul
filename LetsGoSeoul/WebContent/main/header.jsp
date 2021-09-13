@@ -36,10 +36,10 @@ $(function(){
                                             <li><a href="../attraction/attraction_main.do">Attractions</a>
                                             	<ul class="submenu">
                                                     <li><a href="../attraction/landmark.do">Landmark</a></li>
-                                                    <li><a href="blog.html">Palace</a></li>
-                                                    <li><a href="blog.html">historic Place</a></li>
-                                                    <li><a href="blog.html">Old Store</a></li>
-                                                    <li><a href="blog.html">Museum</a></li>
+                                                    <li><a href="../attraction/palace.do">Palace</a></li>
+                                                    <li><a href="../attraction/historic.do">historic Place</a></li>
+                                                    <li><a href="../attraction/old.do">Old Store</a></li>
+                                                    <li><a href="../attraction/museum.do">Museum</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="catagori.html">Nature</a></li>

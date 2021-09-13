@@ -40,7 +40,7 @@
 							</div>
 							<div class="location-details">
 								<p>${lvo.title }</p>
-								<a href="../attraction/landmark.do" class="location-btn"><i class="ti-plus"></i>바로가기</a>
+								<a href="../attraction/landmark.do" class="location-btn"><i class="ti"></i>바로가기</a>
 							</div>
 						</div>
 					</div>
@@ -69,6 +69,7 @@
 					</div>
 				</c:forEach>
 			</div>
+			<hr>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-tittle text-center mb-80">
@@ -91,6 +92,7 @@
 					</div>
 				</c:forEach>
 			</div>
+			<hr>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-tittle text-center mb-80">
@@ -113,6 +115,7 @@
 					</div>
 				</c:forEach>
 			</div>
+			<hr>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-tittle text-center mb-80">
