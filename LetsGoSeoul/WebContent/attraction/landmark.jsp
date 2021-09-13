@@ -33,21 +33,21 @@
              <div class="listing-details-area">
                <div class="container">
                  <div class="row">
-	                  <c:forEach var="vo" items="${list }" varStatus="s">
+	                  <c:forEach var="lvo" items="${Llist }" varStatus="s">
 	                   <c:if test="${s.index%4==0 }">
 	                   <div class="col-md-3 ">
                         <div class="single-listing mb-30">
 	                     <div class="list-img">
-	                       <img src="${vo.poster }" style="width:360px;height:251px">
+	                       <img src="${lvo.poster }" style="width:360px;height:251px">
 	                          <!-- <span>Open</span> -->
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                      <a href="../attraction/landmark_detail.do?no=${tno}">${vo.title }</a>
+	                      <a href="../attraction/landmark_detail.do?no=${tno}">${lvo.title }</a>
 	                     <div class="list-footer">
 	                       <ul>
 	                         
-						        <li>&nbsp;&nbsp;${vo.intro }</li>
+						        <li>&nbsp;&nbsp;${lvo.intro }</li>
 	                       </ul>
 	                     </div>
 	                   </div>
@@ -58,15 +58,15 @@
 	                   <div class="col-md-3 ">
                         <div class="single-listing mb-30">
 	                     <div class="list-img">
-	                       <img src="${vo.poster }" style="width:360px;height:251px">
+	                       <img src="${lvo.poster }" style="width:360px;height:251px">
 	                          <!-- <span>Open</span> -->
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                      <a href="../attraction/landmark_detail.do?no=${tno}" value="${vo.title }"></a>
+	                      <a href="../attraction/landmark_detail.do?no=${tno}"> "${lvo.title }"</a>
 	                     <div class="list-footer">
 	                       <ul>
-	                        <li>&nbsp;&nbsp;${vo.intro }</li>
+	                        <li>&nbsp;&nbsp;${lvo.intro }</li>
 	                       </ul>
 	                     </div>
 	                   </div>
