@@ -1,114 +1,181 @@
 package com.sist.dao;
-/*
- * Table TRIP_N
-이름      널?       유형             
-------- -------- -------------- 
-TNO     NOT NULL NUMBER         
-TITLE   NOT NULL VARCHAR2(1000) 
-POSTER  NOT NULL VARCHAR2(260)  
-INTRO            VARCHAR2(1000) 
-REV_HIT          NUMBER         
-TYPE    NOT NULL NUMBER 
- */
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-
-import com.sist.vo.NatureVO;
+import java.util.*;
+import java.sql.*;
+import javax.sql.*;
+import javax.naming.*;
+import com.sist.dao.*;
+import com.sist.vo.*;
 
 public class NatureDAO {
 	private Connection conn;
 	private PreparedStatement ps;
-	private final String URL = "jdbc:oracle:thin:@211.238.142.211:1521/XE";
-	private static NatureDAO dao;
+	private static NatureDAO dao; 
 
-	// 드라이버 등록
-	public NatureDAO() {
+	public void getConnection()
+	{
 		try
 		{
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-		} catch (Exception ex) { }
-	}
-
-	// 연결
-	public void getConnection() {
-		try
-		{
-			conn = DriverManager.getConnection(URL, "hr", "happy");
-		} catch (Exception ex) {}
-	}
-
-	// 종료
-	public void disConnection() {
-		try {
-			if (ps != null)
-				ps.close();
-			if (conn != null)
-				conn.close();
-		} catch (Exception ex) { }
-	}
-	
-	//
-	public static NatureDAO newInstance() {
-		if (dao == null) // 없으면 생성하고, 있으면 기존 꺼 사용
-			dao = new NatureDAO();
-		return dao;
-	}
-	
-	// inser함수
-	public void NatureInsert(NatureVO vo) {
-		try {
-			/*
- TNO     NOT NULL NUMBER      
-NO               NUMBER         
-TITLE   NOT NULL VARCHAR2(1000) 
-POSTER           VARCHAR2(4000) 
-IMAGE            VARCHAR2(4000) 
-INTRO            CLOB           
-NTAG             VARCHAR2(1000) 
-CONTENT          CLOB           
-TEL              VARCHAR2(500)        
-WEBSITE          VARCHAR2(1000) 
-TIME             VARCHAR2(1000) 
-HOLIDAY          VARCHAR2(500)  
-OPEN             VARCHAR2(1000) 
-PRICE            VARCHAR2(500)  
-HANDI            VARCHAR2(2000) 
-CAUTION          VARCHAR2(2000) 
-SITE             VARCHAR2(1000) 
-TRAFFIC          VARCHAR2(1000) 
-*/    
-			getConnection();					//	1 2 3 4 5 6 1 1 1 1 1 1 1 1 1 1 1 1 1 
-			String sql = "INSERT INTO trip_n VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; //18개
-			ps = conn.prepareStatement(sql);
-			ps.setInt(1, vo.getTno());
-			ps.setInt(2, vo.getNo());
-			ps.setString(3, vo.getTitle());
-			ps.setString(4, vo.getPoster());
-			ps.setString(5, vo.getImage());
-			ps.setString(6, vo.getIntro());
-			ps.setString(7, vo.getNtag());
-			ps.setString(8, vo.getContent());
-			ps.setString(9, vo.getTel());
-			ps.setString(10, vo.getWebsite());
-			ps.setString(11, vo.getTime());
-			ps.setString(12, vo.getHoliday());
-			ps.setString(13, vo.getOpen());
-			ps.setString(14, vo.getPrice());
-			ps.setString(15, vo.getHandi());
-			ps.setString(16, vo.getCaution());
-			ps.setString(17, vo.getSite());
-			ps.setString(18, vo.getTraffic());
-			// 실행 요청
-			ps.executeUpdate();
-		} catch (Exception ex)
+			Context init=new InitialContext();
+			Context c=(Context)init.lookup("java://comp//env");
+			DataSource ds=(DataSource)c.lookup("jdbc/oracle");
+			conn=ds.getConnection();
+		}catch(Exception ex)
 		{
 			ex.printStackTrace();
-		} finally 
-		{
-			disConnection();
 		}
-
 	}
+
+	public void disConnection()
+	{
+		try
+		{
+			if(ps==null) ps.close();
+			if(conn==null) conn.close();
+		}catch(Exception ex) {}
+	}
+	
+	
+	public static NatureDAO newInstance()
+	{
+		if(dao==null) 
+			dao=new NatureDAO();
+		return dao; 
+	}
+	
+
+		
+		public int NatureTotalPage()
+		{
+			int total=0;
+			try
+			{
+				getConnection();
+				String sql="SELECT CEIL(COUNT(*)/12.0) FROM trip_N";
+				ps=conn.prepareStatement(sql);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				total=rs.getInt(1);
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return total;
+		}
+		
+			public List<NatureVO> NatureData(int page)
+			{
+				List<NatureVO> list=new ArrayList<NatureVO>();
+				try
+				{
+					getConnection();
+					String sql="SELECT no,poster,title,subject,num "
+							+ "FROM (SELECT no,poster,title,subject,rownum as num "
+							+ "FROM (SELECT no,poster,title,subject "
+							+ "FROM trip_N ORDER BY no ASC)) "
+							+ "WHERE num BETWEEN ? AND ?";
+					ps=conn.prepareStatement(sql);
+					
+					int rowSize=12;
+					int start=(rowSize*page)-(rowSize-1);
+					int end=rowSize*page;
+					ps.setInt(1, start);
+					ps.setInt(2, end);
+					
+					ResultSet rs=ps.executeQuery();
+					while(rs.next())
+					{
+						NatureVO vo=new NatureVO();
+						vo.setNo(rs.getInt(1));
+						vo.setPoster(rs.getString(2));
+						vo.setTitle(rs.getString(3));
+						vo.setSubject(rs.getString(4));
+						list.add(vo);
+					}
+					rs.close();
+				}catch(Exception ex)
+				{
+					ex.printStackTrace();
+				}
+				finally
+				{
+					disConnection();
+				}
+				return list;
+			}
+	
+			
+			public NatureVO NatureDetailData(int no)
+			{
+				NatureVO vo=new NatureVO();
+				try
+				{
+					getConnection();
+					String sql="SELECT no,title,subject,poster,images,info,webLink,info2,addr,bus,Ntag "
+							+ "FROM trip_N "
+							+ "WHERE no=?";
+					ps=conn.prepareStatement(sql);
+					ps.setInt(1, no);
+					ResultSet rs=ps.executeQuery();
+					rs.next();
+					vo.setNo(rs.getInt(1));
+					vo.setTitle(rs.getString(2));
+					vo.setSubject(rs.getString(3));
+					vo.setPoster(rs.getString(4));
+					vo.setImages(rs.getString(5));
+					vo.setInfo(rs.getString(6));
+					vo.setWebLink(rs.getString(7));
+					vo.setInfo2(rs.getString(8));
+					vo.setAddr(rs.getString(9));
+					vo.setBus(rs.getString(10));
+					vo.setNtag(rs.getString(11));
+					rs.close();
+				}catch(Exception ex)
+				{
+					ex.printStackTrace();
+				}
+				finally
+				{
+					disConnection();
+				}
+				return vo;
+			}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
