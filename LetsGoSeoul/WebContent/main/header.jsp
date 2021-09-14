@@ -42,7 +42,7 @@ $(function(){
                                                     <li><a href="../attraction/museum.do">Museum</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="catagori.html">Nature</a></li>
+                                            <li><a href="../nature/main.do">Nature</a></li>
                                             <li><a href="../culture/culture_main.do">Culture</a>
                                                 <ul class="submenu">
                                                     <li><a href="../culture/exhibition.do">Exhibition</a></li>
