@@ -12,7 +12,7 @@ import com.sist.vo.*;
 import com.sist.dao.*;
 @Controller
 public class NoticeModel {
-	@RequestMapping("notice/list.do")
+	@RequestMapping("notice/notice_list.do")
 	public String notice_list(HttpServletRequest request,HttpServletResponse response)
 	{
 
@@ -32,12 +32,12 @@ public class NoticeModel {
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
-		request.setAttribute("main_jsp", "../notice/list.jsp");
+		request.setAttribute("main_jsp", "../notice/notice_list.jsp");
 		
 		return "../main/main.jsp";
 	}
 
-	@RequestMapping("notice/detail.do")
+	@RequestMapping("notice/notice_detail.do")
 	public String notice_detail(HttpServletRequest request,HttpServletResponse response)
 	{
 
@@ -48,19 +48,19 @@ public class NoticeModel {
 		NoticeVO vo=dao.noticeDetailDate(Integer.parseInt(no));
 		request.setAttribute("vo", vo);
 		
-		request.setAttribute("main_jsp", "../notice/detail.jsp");
+		request.setAttribute("main_jsp", "../notice/notice_detail.jsp");
 		return "../main/main.jsp";
 	}
 	
-	@RequestMapping("notice/insert.do")
+	@RequestMapping("notice/notice_insert.do")
 	public String notice_insert(HttpServletRequest request,HttpServletResponse response)
 	{
 		
-		request.setAttribute("main_jsp", "../notice/insert.jsp");
+		request.setAttribute("main_jsp", "../notice/notice_insert.jsp");
 		return "../main/main.jsp";
 	}
 	
-	@RequestMapping("notice/insert_ok.do")
+	@RequestMapping("notice/notice_insert_ok.do")
 	public String notice_insert_ok(HttpServletRequest request,HttpServletResponse response)
 	{
 		try
@@ -82,10 +82,10 @@ public class NoticeModel {
 
 		dao.noticeInsert(vo);
 		
-		return "redirect:../notice/list.do";
+		return "redirect:../notice/notice_list.do";
 	}
 	
-	@RequestMapping("notice/delete.do")
+	@RequestMapping("notice/notice_delete.do")
 	public String notice_delete(HttpServletRequest request,HttpServletResponse response)
 	{
 		String no=request.getParameter("no");
@@ -94,10 +94,10 @@ public class NoticeModel {
 
 		dao.noticeDelete(Integer.parseInt(no));
 		
-		return "redirect:../notice/list.do";
+		return "redirect:../notice/notice_list.do";
 	}
 	
-	@RequestMapping("notice/update.do")
+	@RequestMapping("notice/notice_update.do")
 	public String notice_update(HttpServletRequest request,HttpServletResponse response)
 	{
 		String no=request.getParameter("no");
@@ -106,11 +106,11 @@ public class NoticeModel {
 
 		NoticeVO vo=dao.noticeUpdateData(Integer.parseInt(no));
 		request.setAttribute("vo", vo);
-		request.setAttribute("main_jsp", "../notice/update.jsp");
+		request.setAttribute("main_jsp", "../notice/notice_update.jsp");
 		return "../main/main.jsp";
 	}
 	
-	@RequestMapping("notice/update_ok.do")
+	@RequestMapping("notice/notice_update_ok.do")
 	public String notice_update_ok(HttpServletRequest request,HttpServletResponse response)
 	{
 		try
@@ -128,6 +128,6 @@ public class NoticeModel {
 		NoticeDAO dao=NoticeDAO.newInstance();
 
 		dao.noticeUpdate(vo);
-		return "redirect:../notice/detail.do?no="+no;
+		return "redirect:../notice/notice_detail.do?no="+no;
 	}
 }
