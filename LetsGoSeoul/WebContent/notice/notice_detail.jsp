@@ -72,7 +72,7 @@
                               class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                               <div class="detials">
                                  <p>Next Post</p>
-                                 <a href="#">
+                                 <a href="#"> 
                                     <h4>Telescopes 101</h4>
                                  </a>
                               </div>
