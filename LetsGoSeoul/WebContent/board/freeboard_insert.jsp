@@ -9,7 +9,7 @@
 <script type="text/javascript">
 $(function(){
 	$('#insertbtn').click(function(){
-		$('#Frbtn').submit();
+		$('#frbtn').submit();
 	})
 })
 </script>
