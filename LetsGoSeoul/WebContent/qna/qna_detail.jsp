@@ -9,7 +9,7 @@
 </head>
 <body>
 <!--================Blog Area =================-->
-      <section class="blog_area single-post-area section-padding">
+      <section class="blog_area single-post-area section-padding" style="margin-left:25%">
          <div class="container">
             <div class="row">
                <div class="col-lg-8 posts-list">
@@ -17,8 +17,10 @@
                      <div class="blog_details">
                         <h2>${vo.subject }</h2>
                         <ul class="blog-info-link mt-3 mb-4">
-                           <li><a href="#"><i class="fa fa-user"></i>${vo.name }</a></li>
-                           <li><a href="#"><i class="fa fa-comments"></i>${vo.hit }</a></li>
+                          <li><i class="fa fa-check"></i>${vo.no }</li>
+                           <li><i class="fa fa-user"></i>${vo.name }</li>
+                           <li><i class="fa fa-calendar"></i>${vo.regdate }</li>
+                           <li><i class="fa fa-eye"></i>${vo.hit }</li>
                         </ul>
                         <p class="excert">${vo.content }</p>
                      </div>
@@ -49,8 +51,7 @@
                               </div>
                               <div class="detials">
                                  <p>Prev Post</p>
-                                 <a href="../qna/qna_detail?no=(${vo.no }-1)">
-                                    <h4>Space The Final Frontier</h4>
+                                 <a href="../qna/qna_detail?no=${vo.no-1 }">
                                  </a>
                               </div>
                            </div>
@@ -58,8 +59,7 @@
                               class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                               <div class="detials">
                                  <p>Next Post</p>
-                                 <a href="../qna/qna_detail?no=(${vo.no }+1)">
-                                    <h4>Telescopes 101</h4>
+                                 <a href="../qna/qna_detail?no=${vo.no+1 }">
                                  </a>
                               </div>
                               <div class="arrow">

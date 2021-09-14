@@ -30,24 +30,25 @@
 				    
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
-                            <article class="blog_item">
+                            
                             <c:forEach var="vo" items="${list }">
+                              <article class="blog_item">
                                 <div class="blog_details" style="width:1000px;margin-left:10%;margin-right:auto;">             
-                                  
                                     <a class="d-inline-block" href="../qna/qna_detail.do?no=${vo.no }">
                                         <h2>${vo.subject }</h2>
                                     </a>
                                     <ul class="blog-info-link">
+                                        <li><i class="fa fa-check"></i>${vo.no }</li>
                                         <li><i class="fa fa-user"></i>${vo.name }</li>
-                                        <li><i class="fa fa-comments"></i>${vo.regdate }</li>
-                                        <li><i class="fa fa-comments"></i>${vo.hit }</li>
+                                        <li><i class="fa fa-calendar"></i>${vo.regdate }</li>
+                                        <li><i class="fa fa-eye"></i>${vo.hit }</li>
                                     </ul>
                                   
                                 </div>
+                                </article>
                                 </c:forEach>
                                </div>
                             
-                            </article>
                             <nav class="blog-pagination justify-content-center d-flex">
                                 <ul class="pagination">
                                    <c:if test="${curpage>BLOCK }">
