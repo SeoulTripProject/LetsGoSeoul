@@ -31,11 +31,9 @@
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
                             <article class="blog_item">
-
-
-                               <div class="blog_details">
-                                <div class="blog_details" style="width:900px;">
-                                  <c:forEach var="vo" items="${list }">
+                            <c:forEach var="vo" items="${list }">
+                                <div class="blog_details" style="width:900px;">             
+                                  
                                     <a class="d-inline-block" href="../board/freeboard_detail.do?no=${vo.no }">
                                         <h2>${vo.subject }</h2>
                                     </a>
@@ -44,9 +42,11 @@
                                         <li><i class="fa fa-comments"></i>${vo.regdate }</li>
                                         <li><i class="fa fa-comments"></i>${vo.hit }</li>
                                     </ul>
-                                  </c:forEach>
+                                  
                                 </div>
+                                </c:forEach>
                                </div>
+                            
                             </article>
                             <nav class="blog-pagination justify-content-center d-flex">
                                 <ul class="pagination">
