@@ -1,42 +1,9 @@
 package com.sist.vo;
-/*
-이름      널?       유형             (18개)
-------- -------- -------------- 
-TNO     NOT NULL NUMBER         
-NO               NUMBER         
-TITLE   NOT NULL VARCHAR2(1000) 
-POSTER           VARCHAR2(4000) 
-IMAGE            VARCHAR2(4000) 
-INTRO            CLOB           
-NTAG             VARCHAR2(1000) 
-CONTENT          CLOB           
-TEL              VARCHAR2(500)        
-WEBSITE          VARCHAR2(1000) 
-TIME             VARCHAR2(1000) 
-HOLIDAY          VARCHAR2(500)  
-OPEN             VARCHAR2(1000) 
-PRICE            VARCHAR2(500)     
-HANDI            VARCHAR2(2000) 
-CAUTION          VARCHAR2(2000) 
-SITE             VARCHAR2(1000) 
-TRAFFIC          VARCHAR2(1000) 
-*/    
+  
 public class NatureVO {
-	private int tno,no;
-	private String title,poster,image,intro,ntag,content,tel,website,time,holiday,open,price,handi,caution,site,
-					traffic;
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
-	public int getTno() {
-		return tno;
-	}
-	public void setTno(int tno) {
-		this.tno = tno;
-	}
+	private int no;
+	private String title,subject,poster,images,info,tel,webLink,time,info2,link,addr,bus,Ntag;
+	
 	public int getNo() {
 		return no;
 	}
@@ -49,29 +16,29 @@ public class NatureVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
 	public String getPoster() {
 		return poster;
 	}
 	public void setPoster(String poster) {
 		this.poster = poster;
 	}
-	public String getIntro() {
-		return intro;
+	public String getImages() {
+		return images;
 	}
-	public void setIntro(String intro) {
-		this.intro = intro;
+	public void setImages(String images) {
+		this.images = images;
 	}
-	public String getNtag() {
-		return ntag;
+	public String getInfo() {
+		return info;
 	}
-	public void setNtag(String ntag) {
-		this.ntag = ntag;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setInfo(String info) {
+		this.info = info;
 	}
 	public String getTel() {
 		return tel;
@@ -79,11 +46,11 @@ public class NatureVO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getWebsite() {
-		return website;
+	public String getWebLink() {
+		return webLink;
 	}
-	public void setWebsite(String website) {
-		this.website = website;
+	public void setWebLink(String webLink) {
+		this.webLink = webLink;
 	}
 	public String getTime() {
 		return time;
@@ -91,51 +58,38 @@ public class NatureVO {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public String getHoliday() {
-		return holiday;
+	public String getInfo2() {
+		return info2;
 	}
-	public void setHoliday(String holiday) {
-		this.holiday = holiday;
+	public void setInfo2(String info2) {
+		this.info2 = info2;
 	}
-	public String getOpen() {
-		return open;
+	public String getLink() {
+		return link;
 	}
-	public void setOpen(String open) {
-		this.open = open;
+	public void setLink(String link) {
+		this.link = link;
 	}
-	public String getPrice() {
-		return price;
+	public String getAddr() {
+		return addr;
 	}
-	public void setPrice(String price) {
-		this.price = price;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
-	public String getHandi() {
-		return handi;
+	public String getBus() {
+		return bus;
 	}
-	public void setHandi(String handi) {
-		this.handi = handi;
+	public void setBus(String bus) {
+		this.bus = bus;
 	}
-	public String getCaution() {
-		return caution;
+	public String getNtag() {
+		return Ntag;
 	}
-	public void setCaution(String caution) {
-		this.caution = caution;
-	}
-	public String getSite() {
-		return site;
-	}
-	public void setSite(String site) {
-		this.site = site;
-	}
-	public String getTraffic() {
-		return traffic;
-	}
-	public void setTraffic(String traffic) {
-		this.traffic = traffic;
+	public void setNtag(String ntag) {
+		this.Ntag = ntag;
 	}
 	
-	
-	
+
 	
 	
 	

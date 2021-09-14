@@ -6,10 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.hero-area4 {
+  background-image: url(../assets/img/hero/hero2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 105px;
+}
+</style>
 </head>
 <body>
+<!-- Hero Start-->
+        <div class="hero-area4 slider-height2 hero-overly2 d-flex align-items-center">
+        </div>
+<!--Hero End -->
 <!--================Blog Area =================-->
-      <section class="blog_area single-post-area section-padding">
+      <section class="blog_area single-post-area section-padding" style="margin-left:25%">
          <div class="container">
             <div class="row">
                <div class="col-lg-8 posts-list">
