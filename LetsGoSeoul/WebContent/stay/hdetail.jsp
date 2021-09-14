@@ -30,7 +30,7 @@
                   <div class="single-post">
                      <div class="feature-img">
                      	<c:forTokens var="image" items="${vo.images }" delims="^">
-		     			<img class="img-fluid" src="${image }" style="width:250px;heigt:250px">
+		     			<img class="img-fluid" src="${image }" style="width:250px;height:250px">
 		   				</c:forTokens>
                      </div>
                      <div class="blog_details">

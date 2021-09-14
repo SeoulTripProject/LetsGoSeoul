@@ -8,12 +8,12 @@ public class BoardDAO {
 	private Connection conn;
 	   private PreparedStatement ps;
 	   private static BoardDAO dao;
-	   // 공통으로 사용되는 소스를 모아서 따라 관리 (공통모듈) => 관리(AOP:스프링)
+	   // 怨듯넻�쑝濡� �궗�슜�릺�뒗 �냼�뒪瑜� 紐⑥븘�꽌 �뵲�씪 愿�由� (怨듯넻紐⑤뱢) => 愿�由�(AOP:�뒪�봽留�)
 	   public void getConnection()
 	   {
 		      try
 			  {
-				  Context init=new InitialContext(); // 저장된 위치에 접근 
+				  Context init=new InitialContext(); // ���옣�맂 �쐞移섏뿉 �젒洹� 
 				  // JNDI (java naming directory interface)
 				  Context c=(Context)init.lookup("java://comp//env");
 				  DataSource ds=(DataSource)c.lookup("jdbc/oracle");
@@ -31,7 +31,7 @@ public class BoardDAO {
 				  if(conn!=null) conn.close();
 			  }catch(Exception ex) {}
 	   }
-	// 메모리 누수현상을 처리 => 한개의 공간을 이용해서 메모리 관리(싱글턴패턴) = 스프링은 거의 싱글턴 
+	// 硫붾え由� �늻�닔�쁽�긽�쓣 泥섎━ => �븳媛쒖쓽 怨듦컙�쓣 �씠�슜�빐�꽌 硫붾え由� 愿�由�(�떛湲��꽩�뙣�꽩) = �뒪�봽留곸� 嫄곗쓽 �떛湲��꽩 
 	   public static BoardDAO newInstance()
 	   {
 		   if(dao==null)
@@ -79,7 +79,7 @@ public class BoardDAO {
 		   }
 		   return list;
 	   }
-	// 총페이지 
+	// 珥앺럹�씠吏� 
 	   public int freeboardTotalPage()
 	   {
 		   int total=0;
@@ -102,14 +102,14 @@ public class BoardDAO {
 		   }
 		   return total;
 	   }
-	// 상세보기 
+	// �긽�꽭蹂닿린 
 	   public BoardVO freeboardDetailData(int no)
 	   {
 		   BoardVO vo=new BoardVO();
 		   try
 		   {
 			   getConnection();
-			   // 조회수 증가 
+			   // 議고쉶�닔 利앷� 
 			   String sql="UPDATE project_freeboard SET "
 					     +"hit=hit+1 "
 					     +"WHERE no=?";
@@ -117,7 +117,7 @@ public class BoardDAO {
 			   ps.setInt(1, no);
 			   ps.executeUpdate(); 
 			   
-			   // 상세볼 게시물 읽기
+			   // �긽�꽭蹂� 寃뚯떆臾� �씫湲�
 			   sql="SELECT no,name,subject,content,regdate,hit "
 				  +"FROM project_freeboard "
 				  +"WHERE no=?";
@@ -142,14 +142,14 @@ public class BoardDAO {
 		   }
 		   return vo;
 	   }
-	// 수정 
+	// �닔�젙 
 	   public BoardVO freeboardUpdateData(int no)
 	   {
 		   BoardVO vo=new BoardVO();
 		   try
 		   {
 			   getConnection();
-			   // 조회수 증가 
+			   // 議고쉶�닔 利앷� 
 			   String sql="SELECT no,name,subject,content "
 				  +"FROM project_freeboard "
 				  +"WHERE no=?";
@@ -172,14 +172,14 @@ public class BoardDAO {
 		   }
 		   return vo;
 	   }
-	// 실제 수정 
+	// �떎�젣 �닔�젙 
 	   public boolean freeboardUpdate(BoardVO vo)
 	   {
-		   boolean bCheck=false;// 비밀번호 체크 (true/수정,false/다시 입력)
+		   boolean bCheck=false;// 鍮꾨�踰덊샇 泥댄겕 (true/�닔�젙,false/�떎�떆 �엯�젰)
 		   try
 		   {
 			   getConnection();
-			   // 비밀번호 확인 
+			   // 鍮꾨�踰덊샇 �솗�씤 
 			   String sql="SELECT pwd FROM project_freeboard "
 					     +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
@@ -192,7 +192,7 @@ public class BoardDAO {
 			   if(db_pwd.equals(vo.getPwd())) 
 			   {
 				   bCheck=true;
-				   // 실제 수정 
+				   // �떎�젣 �닔�젙 
 				   sql="UPDATE project_freeboard SET "
 					  +"name=?,subject=?,content=? "
 					  +"WHERE no=?";
@@ -217,7 +217,6 @@ public class BoardDAO {
 		   }
 		   return bCheck;
 	   }
-	// 삭제 => 트랜잭션 프로그램 (일괄처리) => SQL 문장 전체가 실행, error가 났을경우에 전체를 취소
 	   public boolean freeboardDelete(int no,String pwd)
 	   {
 		   boolean bCheck=false;
@@ -237,12 +236,11 @@ public class BoardDAO {
 			   if(pwd.equals(db_pwd)) 
 			   {
 				   bCheck=true;//freeboard/list.jsp
-				   // 삭제 한다 
 				   sql="DELETE FROM project_reply "
 					  +"WHERE bno=?";
 				   ps=conn.prepareStatement(sql);
 				   ps.setInt(1, no);
-				   ps.executeUpdate(); // 참조하고 있는 데이터를 먼저 삭제한다
+				   ps.executeUpdate();
 				   
 				   sql="DELETE FROM project_freeboard "
 					  +"WHERE no=?";
@@ -288,7 +286,7 @@ public class BoardDAO {
 			   ps.setString(2, vo.getSubject());
 			   ps.setString(3, vo.getContent());
 			   ps.setString(4, vo.getPwd());
-			   ps.executeUpdate(); //commit이 존재  => autocommit()
+			   ps.executeUpdate(); //commit�씠 議댁옱  => autocommit()
 			   // INSERT , UPDATE ,DELETE
 		   }catch(Exception ex)
 		   {
@@ -308,8 +306,8 @@ public class BoardDAO {
 			   String sql="SELECT no,bno,id,name,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:ss') "
 					     +"FROM project_reply "
 					     +"WHERE bno=? AND type=?";
-			   // bno => 어떤 게시물 ,어떤 맛집
-			   // type => 구분 (맛집,게시판)
+			   // bno => �뼱�뼡 寃뚯떆臾� ,�뼱�뼡 留쏆쭛
+			   // type => 援щ텇 (留쏆쭛,寃뚯떆�뙋)
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, bno);
 			   ps.setInt(2, type);
@@ -336,5 +334,73 @@ public class BoardDAO {
 			   disConnection();
 		   }
 		   return list;
+	   }
+	   
+	// 댓글 쓰기
+	   public void replyInsert(ReplyVO vo)
+	   {
+		   try
+		   {
+			   getConnection();
+			   String sql="INSERT INTO project_reply VALUES("
+			   		+ "pr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
+			   ps=conn.prepareStatement(sql);
+			   ps.setInt(1, vo.getBno());
+			   ps.setInt(2, vo.getType());
+			   ps.setString(3, vo.getId());
+			   ps.setString(4, vo.getName());
+			   ps.setString(5, vo.getMsg());
+			   ps.executeUpdate();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+	   }
+	   // 댓글 수정 
+	   public void replyUpdate(int no,String msg)
+	   {
+		   try
+		   {
+			   getConnection();
+			   String sql="UPDATE project_reply SET "
+			   		+ "msg=? "
+			   		+ "WHERE no=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setString(1, msg);
+			   ps.setInt(2, no);
+			   ps.executeUpdate();
+		   }
+		   catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+	   }
+	   // 댓글 삭제 
+	   public void replyDelete(int no)
+	   {
+		   try
+		   {
+			   getConnection();
+			   String sql="DELETE FROM project_reply WHERE no=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setInt(1, no);
+			   ps.executeUpdate();
+		   }
+		   catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
 	   }
 }
