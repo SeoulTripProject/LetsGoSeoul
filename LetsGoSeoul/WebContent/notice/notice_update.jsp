@@ -26,7 +26,7 @@ $(function(){
 <body>
 <!-- Hero Start-->
    <div class="hero-area5 slider-height2 hero-overly2 d-flex align-items-center">
-   </div>
+   </div> 
 <!--Hero End -->
 <!-- ================ contact section start ================= -->
         <section class="contact-section">
