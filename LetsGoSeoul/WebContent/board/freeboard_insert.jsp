@@ -45,11 +45,8 @@
                             </div>
                             <div class="form-group mt-3">
                                 <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-<<<<<<< HEAD
-                                <button type="submit" class="button button-contactForm boxed-btn" onclick="javascript:history.back()">Back</button>
-=======
                                 <button type="submit" class="button button-contactForm boxed-btn"  onclick="javascript:history.back()">Cancel</button>
->>>>>>> branch 'master' of https://github.com/SeoulTripProject/LetsGoSeoul.git
+
                             </div>
                         </form>
                     </div>
