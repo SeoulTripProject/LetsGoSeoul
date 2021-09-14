@@ -45,6 +45,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                                <button type="submit" class="button button-contactForm boxed-btn"  onclick="javascript:history.back()">Cancel</button>
                             </div>
                         </form>
                     </div>
