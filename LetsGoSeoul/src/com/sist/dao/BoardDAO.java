@@ -224,6 +224,7 @@ public class BoardDAO {
 		   try
 		   {
 			   getConnection();
+			   conn.setAutoCommit(false);
 			   // 비밀번호 체크 
 			   String sql="SELECT pwd FROM project_freeboard "
 					     +"WHERE no=?";
@@ -248,6 +249,7 @@ public class BoardDAO {
 				   ps=conn.prepareStatement(sql);
 				   ps.setInt(1, no);
 				   ps.executeUpdate();
+				   conn.commit();
 			   }
 			   else
 			   {
