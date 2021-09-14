@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#insertbtn').click(function(){
+		$('#Frbtn').submit();
+	})
+})
+</script>
 </head>
 <body>
 <!-- ================ contact section start ================= -->
@@ -17,7 +25,7 @@
                         <h2 class="contact-title">FreeBoard</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="../board/freeboard_insert_ok.do" method="post" id="contactForm" novalidate="novalidate">
+                        <form class="form-contact contact_form" action="../board/freeboard_insert_ok.do" method="post" id="Frbtn" novalidate="novalidate">
                             <div class="row">
                                 
                                     <div class="col-sm-6">
@@ -44,8 +52,8 @@
                                 
                             </div>
                             <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-                                <button type="submit" class="button button-contactForm boxed-btn"  onclick="javascript:history.back()">Cancel</button>
+                                <input type="submit" class="boxed-btn" value="Send" id="insertbtn">
+                                <input type="button" class="boxed-btn"  onclick="javascript:history.back()" value="Cancel">
 
                             </div>
                         </form>
