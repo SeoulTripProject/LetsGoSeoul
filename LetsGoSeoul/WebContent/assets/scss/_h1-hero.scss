@@ -270,6 +270,21 @@
     }
 
 // Start Other Page Hero
+	.hero-area4 {
+	  background-image: url(../img/hero/hero2.jpg);
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	  min-height: 300px;
+	
+	  .hero-cap h2 {
+	    color: #fff;
+	    font-size: 55px;
+	    font-weight: 700;
+	    text-transform: capitalize;
+	    padding-top: 65px;
+	  }
+	}
+
     .hero-area2 {
             background-image: url(../img/hero/hero2.jpg);
             background-size: cover;
