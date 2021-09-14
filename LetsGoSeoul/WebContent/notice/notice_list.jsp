@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="row">
                   <div class="button-group-area mt-40">
-				    <a href="../board/freeboard_insert.do" class="genric-btn primary circle">New</a>
+				    <a href="../notice/notice_insert.do" class="genric-btn primary circle">New</a>
 				    
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
@@ -33,14 +33,13 @@
 
                                 <div class="blog_details">
                                   <c:forEach var="vo" items="${list }">
-                                    <a class="d-inline-block" href="../board/freeboard_detail.do?no=${vo.no }">
+                                    <a class="d-inline-block" href="../notice/notice_detail.do?no=${vo.no }">
                                         <h2>${vo.subject }</h2>
                                     </a>
                                     <p>${vo.content }</p>
                                     <ul class="blog-info-link">
                                         <li><i class="fa fa-user"></i>${vo.name }</li>
                                         <li><i class="fa fa-comments"></i>${vo.regdate }</a></li>
-                                        <li><i class="fa fa-comments"></i>${vo.hit }</a></li>
                                     </ul>
                                   </c:forEach>
                                 </div>
