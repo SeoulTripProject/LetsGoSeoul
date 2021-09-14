@@ -28,8 +28,8 @@
                         <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
                            people like this</p>
                         <div class="button-group-area mt-40">
-                          <a href="#" class="genric-btn primary small">Edit</a>
-                          <a href="#" class="genric-btn primary small">Delete</a>
+                          <a href="../board/freeboard_update.do?no=${vo.no }" class="genric-btn primary small">Edit</a>
+                          <a href="../board/freeboard_delete.do?no=${vo.no }" class="genric-btn primary small">Delete</a>
                           <a href="../board/freeboard.do" class="genric-btn primary small">List</a>
                         </div>
                      </div>
@@ -37,19 +37,19 @@
                         <div class="row">
                            <div
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                              <div class="thumb">
-                                 <a href="#">
-                                    <img class="img-fluid" src="assets/img/post/preview.png" alt="">
-                                 </a>
-                              </div>
                               <div class="arrow">
                                  <a href="#">
                                     <span class="lnr text-white ti-arrow-left"></span>
                                  </a>
                               </div>
+                              <div class="thumb">
+                                 <a href="#">
+                                    <img class="img-fluid" src="assets/img/post/next.png" alt="">
+                                 </a>
+                              </div>
                               <div class="detials">
                                  <p>Prev Post</p>
-                                 <a href="#">
+                                 <a href="../board/freeboard_detail?no=(${vo.no }-1)">
                                     <h4>Space The Final Frontier</h4>
                                  </a>
                               </div>
@@ -58,7 +58,7 @@
                               class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                               <div class="detials">
                                  <p>Next Post</p>
-                                 <a href="#">
+                                 <a href="../board/freeboard_detail?no=(${vo.no }+1)">
                                     <h4>Telescopes 101</h4>
                                  </a>
                               </div>
@@ -77,38 +77,40 @@
                      </div>
                   </div>
                   <div class="comments-area">
-                     <h4>05 Comments</h4>
+                     <h4>Comments</h4>
                      <div class="comment-list">
+                      <c:forEach var="rvo" items="${list }">
                         <div class="single-comment justify-content-between d-flex">
                            <div class="user justify-content-between d-flex">
                               <div class="thumb">
                                  <img src="assets/img/comment/comment_3.png" alt="">
                               </div>
                               <div class="desc">
-                                 <p class="comment">
-                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                 </p>
+                                 <p class="comment">${rvo.msg }</p>
                                  <div class="d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
                                        <h5>
-                                          <a href="#">Emilly Blunt</a>
+                                          <a href="#">${rvo.name }</a>
                                        </h5>
-                                       <p class="date">December 4, 2017 at 3:12 pm </p>
+                                       <p class="date">${rvo.dbday }</p>
                                     </div>
+                                    <c:if test="${sessionScope.id==rvo.id }">
                                     <div class="reply-btn">
                                        <a href="#" class="btn-reply text-uppercase">Edit</a>
                                        <a href="#" class="btn-reply text-uppercase">Delete</a>
                                     </div>
+                                    </c:if>
                                  </div>
                               </div>
                            </div>
                         </div>
+                      </c:forEach>  
                      </div>
                   </div>
                   <div class="comment-form">
                      <h4>Comment</h4>
-                     <form class="form-contact comment_form" action="#" id="commentForm">
+                     <c:if test="${sessionScope.id!=null }">
+                     <form class="form-contact comment_form" method="post" action="../board/freeboard_reply_insert.do" id="commentForm">
                         <div class="row">
                            <div class="col-12">
                               <div class="form-group">
@@ -121,6 +123,7 @@
                            <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Comment</button>
                         </div>
                      </form>
+                     </c:if>
                   </div>
                </div>
          </div>
