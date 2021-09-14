@@ -201,7 +201,7 @@ public class BoardModel {
 
 		  dao.replyInsert(vo);
 		  
-		  return "redirect:../freeboard/detail.do?no="+bno;
+		  return "redirect:../board/freeboard_detail.do?no="+bno;
 
 	  }
 	  
@@ -217,7 +217,7 @@ public class BoardModel {
 
 		  dao.replyDelete(Integer.parseInt(no));
 		  
-		  return "redirect:../freeboard/detail.do?no="+bno;
+		  return "redirect:../board/freeboard_detail.do?no="+bno;
 	  }
 	  
 	  @RequestMapping("board/freeboard_reply_update.do")
@@ -238,7 +238,7 @@ public class BoardModel {
 		  
 		  dao.replyUpdate(Integer.parseInt(no), msg);
 		  
-		  return "redirect:../freeboard/detail.do?no="+bno;
+		  return "redirect:../board/freeboard_detail.do?no="+bno;
 	  }
 	  
 	@RequestMapping("board/weather.do")
