@@ -49,7 +49,7 @@ public class NoticeDAO {
 			  String sql="SELECT no,subject,name,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit,num "
 			  		+ "FROM (SELECT no,subject,name,regdate,hit,rownum as num "
 			  		+ "FROM (SELECT no,subject,name,regdate,hit "
-			  		+ "FROM project_notice ORDER BY no DESC)) "
+			  		+ "FROM trip_notice ORDER BY no DESC)) "
 			  		+ "WHERE num BETWEEN ? AND ?";
 			  ps=conn.prepareStatement(sql);
 			  
@@ -88,7 +88,7 @@ public class NoticeDAO {
 		  try
 		  {
 			  getConnection();
-			  String sql="SELECT CEIL(COUNT(*)/10.0) FROM project_notice";
+			  String sql="SELECT CEIL(COUNT(*)/10.0) FROM trip_notice";
 			  ps=conn.prepareStatement(sql);
 			  ResultSet rs=ps.executeQuery();
 			  rs.next();
@@ -112,7 +112,7 @@ public class NoticeDAO {
 		  try
 		  {
 			  getConnection();
-			  String sql="UPDATE project_notice SET "
+			  String sql="UPDATE trip_notice SET "
 			  		+ "hit=hit+1 "
 			  		+ "WHERE no=?";
 			  ps=conn.prepareStatement(sql);
@@ -120,7 +120,7 @@ public class NoticeDAO {
 			  ps.executeUpdate();
 			  
 			  sql="SELECT no,name,subject,content,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit "
-			  		+ "FROM project_notice "
+			  		+ "FROM trip_notice "
 			  		+ "WHERE no=?";
 			  ps=conn.prepareStatement(sql);
 			  ps.setInt(1, no);
@@ -150,7 +150,7 @@ public class NoticeDAO {
 		  try
 		  {
 			  getConnection();
-			  String sql="INSERT INTO project_notice(no,name,subject,content) VALUES("
+			  String sql="INSERT INTO trip_notice(no,name,subject,content) VALUES("
 			  		+ "pn_no_seq.nextval,?,?,?)";
 			  ps=conn.prepareStatement(sql);
 			  ps.setString(1, vo.getName());
@@ -174,7 +174,7 @@ public class NoticeDAO {
 		  try
 		  {
 			  getConnection();
-			  String sql="SELECT no,subject,content FROM project_notice "
+			  String sql="SELECT no,subject,content FROM trip_notice "
 			  		+ "WHERE no=?";
 			  ps=conn.prepareStatement(sql);
 			  ps.setInt(1, no);
@@ -201,7 +201,7 @@ public class NoticeDAO {
 		  try
 		  {
 			  getConnection();
-			  String sql="DELETE FROM project_notice WHERE no=?";
+			  String sql="DELETE FROM trip_notice WHERE no=?";
 			  ps=conn.prepareStatement(sql);
 			  ps.setInt(1, no);
 			  ps.executeUpdate();
@@ -220,7 +220,7 @@ public class NoticeDAO {
 		  try
 		  {
 			  getConnection();
-			  String sql="UPDATE project_notice SET "
+			  String sql="UPDATE trip_notice SET "
 			  		+ "subject=?,content=? "
 			  		+ "WHERE no=?";
 			  ps=conn.prepareStatement(sql);
