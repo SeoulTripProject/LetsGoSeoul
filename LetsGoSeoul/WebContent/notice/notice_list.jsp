@@ -26,43 +26,42 @@
             <div class="container">
                 <div class="row">
                   <div class="button-group-area mt-40">
-				    <a href="../notice/notice_insert.do" class="genric-btn primary circle">New</a>
-				    
-                    <div class="col-lg-8 mb-5 mb-lg-0">
+                <c:if test="${sessionScope.admin=='y' }">
+				    <a href="../notice/notice_insert.do" class="genric-btn primary circle" style="margin-left:10%">New</a>
+				</c:if>
+                    <div class="col-lg-8 mb-4 mb-lg-0">
                         <div class="blog_left_sidebar">
+                            <c:forEach var="vo" items="${list }">
                             <article class="blog_item">
-
-                                <div class="blog_details">
-                                  <c:forEach var="vo" items="${list }">
+                                <div class="blog_details" style="width:1000px;margin-left:10%;margin-right:auto;"> 
                                     <a class="d-inline-block" href="../notice/notice_detail.do?no=${vo.no }">
-                                        <h2>${vo.subject }</h2>
+                                   <h2>${vo.subject }</h2>
                                     </a>
-                                    <p>${vo.content }</p>
                                     <ul class="blog-info-link">
                                         <li><i class="fa fa-user"></i>${vo.name }</li>
-                                        <li><i class="fa fa-comments"></i>${vo.regdate }</a></li>
+                                        <li><i class="fa fa-comments"></i>${vo.regdate }</li>
+                                        <li><i class="fa fa-comments"></i>${vo.hit }</li>
                                     </ul>
-                                  </c:forEach>
                                 </div>
-                            </article>
+                              </article>
+                             </c:forEach>
                             <nav class="blog-pagination justify-content-center d-flex">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a href="#" class="page-link" aria-label="Previous">
-                                            <i class="ti-angle-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">1</a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a href="#" class="page-link">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link" aria-label="Next">
-                                            <i class="ti-angle-right"></i>
-                                        </a>
-                                    </li>
+                                <ul class="pagination" style="margin-left:30%">
+                                   <c:if test="${curpage>BLOCK }">
+						          <li class="page-item"><a href="../board/freeboard.do?page=${startPage-1 }" class="page-link"><span class="ti-angle-left"></span></a></li>
+						          </c:if>
+						            <c:forEach var="i" begin="${startPage }" end="${ endPage}">
+						               <c:if test="${curpage==i }">
+						                 <c:set var="ss" value="class=current"/>
+						               </c:if>
+						               <c:if test="${curpage!=i }">
+						                 <c:set var="ss" value=""/>
+						               </c:if>
+						              <li class="page-item" ${ss }><a class="page-link" href="../board/freeboard.do?page=${i }">${i }</a></li>
+						            </c:forEach>  
+						            <c:if test="${endPage<totalpage }">
+						             <li class="page-item"><a href="../board/freeboard.do?page=${endPage+1 }" class="page-link"><span class="ti-angle-right"></span></a></li>
+						            </c:if>
                                 </ul>
                             </nav>
                         </div>

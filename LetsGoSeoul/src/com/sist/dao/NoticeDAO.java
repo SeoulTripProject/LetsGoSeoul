@@ -82,7 +82,7 @@ public class NoticeDAO {
 		  return list;
 	  }
 
-	  public int noticetotalPage()
+	  public int noticeTotalPage()
 	  {
 		  int total=0;
 		  try
