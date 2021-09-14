@@ -64,7 +64,7 @@ $(function(){
                                                     <li><a href="../notice/notice_list.do">Notice</a></li>
                                                     <li><a href="../board/freeboard.do">FreeBoard</a></li>
                                                     <li><a href="../board/weather.do">Weather</a></li>
-                                                    <li><a href="blog.html">Q&A</a></li>
+                                                    <li><a href="../qna/qna.do">Q&A</a></li>
                                                 </ul>
                                             </li>
                                             

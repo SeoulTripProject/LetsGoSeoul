@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,11 +43,11 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                      <a href="../attraction/landmark_detail.do?no=${tno}">${lvo.title }</a>
+	                      <a href="../attraction/landmark_detail.do?no=${no}">${lvo.title }</a>
 	                     <div class="list-footer">
 	                       <ul>
 	                         
-						        <li>&nbsp;&nbsp;${lvo.intro }</li>
+						        <li>&nbsp;&nbsp;${lvo.addr }</li>
 	                       </ul>
 	                     </div>
 	                   </div>

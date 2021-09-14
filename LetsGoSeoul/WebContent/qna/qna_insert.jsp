@@ -8,8 +8,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('#insertbtn').click(function(){
-		$('#Frbtn').submit();
+	$('#insertqbtn').click(function(){
+		$('#qabtn').submit();
 	})
 })
 </script>
@@ -22,10 +22,10 @@ $(function(){
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="contact-title">FreeBoard</h2>
+                        <h2 class="contact-title">Q&A</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="../board/freeboard_insert_ok.do" method="post" id="Frbtn" novalidate="novalidate">
+                        <form class="form-contact contact_form" action="../qna/qna_insert_ok.do" method="post" id="qabtn" novalidate="novalidate">
                             <div class="row">
                                 
                                     <div class="col-sm-6">
@@ -52,7 +52,7 @@ $(function(){
                                 
                             </div>
                             <div class="form-group mt-3">
-                                <input type="submit" class="boxed-btn" value="Send" id="insertbtn">
+                                <input type="submit" class="boxed-btn" value="Send" id="insertqbtn">
                                 <input type="button" class="boxed-btn"  onclick="javascript:history.back()" value="Cancel">
 
                             </div>

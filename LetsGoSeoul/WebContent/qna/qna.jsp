@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center pt-50">
-                            <h2>FreeBoard</h2>
+                            <h2>Q&A</h2>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
             <div class="container">
                 <div class="row">
                   <div class="button-group-area mt-40">
-				    <a href="../board/freeboard_insert.do" class="genric-btn primary circle" style="margin-left:10%">New</a>
+				    <a href="../qna/qna_insert.do" class="genric-btn primary circle" style="margin-left:10%">New</a>
 				    
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
@@ -34,7 +34,7 @@
                             <c:forEach var="vo" items="${list }">
                                 <div class="blog_details" style="width:1000px;margin-left:10%;margin-right:auto;">             
                                   
-                                    <a class="d-inline-block" href="../board/freeboard_detail.do?no=${vo.no }">
+                                    <a class="d-inline-block" href="../qna/qna_detail.do?no=${vo.no }">
                                         <h2>${vo.subject }</h2>
                                     </a>
                                     <ul class="blog-info-link">
@@ -51,7 +51,7 @@
                             <nav class="blog-pagination justify-content-center d-flex">
                                 <ul class="pagination">
                                    <c:if test="${curpage>BLOCK }">
-						          <li class="page-item"><a href="../board/freeboard.do?page=${startPage-1 }" class="page-link"><span class="ti-angle-left"></span></a></li>
+						          <li class="page-item"><a href="../qna/qna.do?page=${startPage-1 }" class="page-link"><span class="ti-angle-left"></span></a></li>
 						          </c:if>
 						            <c:forEach var="i" begin="${startPage }" end="${ endPage}">
 						               <c:if test="${curpage==i }">
@@ -60,10 +60,10 @@
 						               <c:if test="${curpage!=i }">
 						                 <c:set var="ss" value=""/>
 						               </c:if>
-						              <li class="page-item" ${ss }><a class="page-link" href="../board/freeboard.do?page=${i }">${i }</a></li>
+						              <li class="page-item" ${ss }><a class="page-link" href="../qna/qna.do?page=${i }">${i }</a></li>
 						            </c:forEach>  
 						            <c:if test="${endPage<totalpage }">
-						             <li class="page-item"><a href="../board/freeboard.do?page=${endPage+1 }" class="page-link"><span class="ti-angle-right"></span></a></li>
+						             <li class="page-item"><a href="../qna/qna.do?page=${endPage+1 }" class="page-link"><span class="ti-angle-right"></span></a></li>
 						            </c:if>
                                     
                                 </ul>

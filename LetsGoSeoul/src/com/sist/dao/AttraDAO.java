@@ -77,16 +77,16 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,poster,title "
+			String sql="SELECT no,poster,title "
 					+ "FROM trip_a "
-					+ "WHERE tno<=6 and no=1 "
-					+ "ORDER BY tno ASC";
+					+ "WHERE no<=6 "
+					+ "ORDER BY no ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
+				vo.setNo(rs.getInt(1));
 				vo.setPoster(rs.getString(2));
 				vo.setTitle(rs.getString(3));
 				list.add(vo);
@@ -109,7 +109,7 @@ public class AttraDAO {
 		{
 			getConnection();
 			String sql="SELECT CEIL(COUNT(*)/8.0) FROM trip_a "
-					+ "WHERE no=1";
+					+ "WHERE ano=1";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
@@ -133,12 +133,12 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,no,poster,title,intro,num "
-					+ "FROM (SELECT tno,no,poster,title,intro,rownum as num "
-					+ "FROM (SELECT tno,no,poster,title,intro "
-					+ "FROM trip_a ORDER BY tno ASC)) "
+			String sql="SELECT no,ano,poster,title,intro,num "
+					+ "FROM (SELECT no,ano,poster,title,intro,rownum as num "
+					+ "FROM (SELECT no,ano,poster,title,intro "
+					+ "FROM trip_a ORDER BY no ASC)) "
 					+ "WHERE num BETWEEN ? AND ? "
-					+ "AND no=1";
+					+ "AND ano=1";
 			ps=conn.prepareStatement(sql);
 
 			int rowSize=8;
@@ -151,8 +151,8 @@ public class AttraDAO {
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
-				vo.setNo(rs.getInt(2));
+				vo.setNo(rs.getInt(1));
+				vo.setAno(rs.getInt(2));
 				vo.setPoster(rs.getString(3));
 				vo.setTitle(rs.getString(4));
 				vo.setIntro(rs.getString(5));
@@ -176,16 +176,16 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,poster,title "
+			String sql="SELECT no,poster,title "
 					+ "FROM trip_a "
-					+ "WHERE 26<=tno and tno<=31 "
-					+ "ORDER BY tno ASC";
+					+ "WHERE 26<=no and no<=31 "
+					+ "ORDER BY no ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
+				vo.setNo(rs.getInt(1));
 				vo.setPoster(rs.getString(2));
 				vo.setTitle(rs.getString(3));
 				list.add(vo);
@@ -208,7 +208,7 @@ public class AttraDAO {
 		{
 			getConnection();
 			String sql="SELECT CEIL(COUNT(*)/8.0) FROM trip_a "
-					+ "WHERE no=2";
+					+ "WHERE ano=2";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
@@ -232,12 +232,12 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,no,poster,title,intro,num "
-					+ "FROM (SELECT tno,no,poster,title,intro,rownum as num "
-					+ "FROM (SELECT tno,no,poster,title,intro "
-					+ "FROM trip_a ORDER BY tno ASC)) "
+			String sql="SELECT no,ano,poster,title,intro,num "
+					+ "FROM (SELECT no,ano,poster,title,intro,rownum as num "
+					+ "FROM (SELECT no,ano,poster,title,intro "
+					+ "FROM trip_a ORDER BY no ASC)) "
 					+ "WHERE num BETWEEN ? AND ? "
-					+ "AND no=2";
+					+ "AND ano=2";
 			ps=conn.prepareStatement(sql);
 
 			int rowSize=8;
@@ -250,8 +250,8 @@ public class AttraDAO {
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
-				vo.setNo(rs.getInt(2));
+				vo.setNo(rs.getInt(1));
+				vo.setAno(rs.getInt(2));
 				vo.setPoster(rs.getString(3));
 				vo.setTitle(rs.getString(4));
 				vo.setIntro(rs.getString(5));
@@ -275,16 +275,16 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,poster,title "
+			String sql="SELECT no,poster,title "
 					+ "FROM trip_a "
-					+ "WHERE 41<=tno and tno<=46  "
-					+ "ORDER BY tno ASC";
+					+ "WHERE 41<=no and no<=46  "
+					+ "ORDER BY no ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
+				vo.setNo(rs.getInt(1));
 				vo.setPoster(rs.getString(2));
 				vo.setTitle(rs.getString(3));
 				list.add(vo);
@@ -307,7 +307,7 @@ public class AttraDAO {
 		{
 			getConnection();
 			String sql="SELECT CEIL(COUNT(*)/8.0) FROM trip_a "
-					+ "WHERE no=3";
+					+ "WHERE ano=3";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
@@ -331,12 +331,12 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,no,poster,title,intro,num "
-					+ "FROM (SELECT tno,no,poster,title,intro,rownum as num "
-					+ "FROM (SELECT tno,no,poster,title,intro "
-					+ "FROM trip_a ORDER BY tno ASC)) "
+			String sql="SELECT no,ano,poster,title,intro,num "
+					+ "FROM (SELECT no,ano,poster,title,intro,rownum as num "
+					+ "FROM (SELECT no,ano,poster,title,intro "
+					+ "FROM trip_a ORDER BY no ASC)) "
 					+ "WHERE num BETWEEN ? AND ? "
-					+ "AND no=3";
+					+ "AND ano=3";
 			ps=conn.prepareStatement(sql);
 
 			int rowSize=8;
@@ -349,8 +349,8 @@ public class AttraDAO {
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
-				vo.setNo(rs.getInt(2));
+				vo.setNo(rs.getInt(1));
+				vo.setAno(rs.getInt(2));
 				vo.setPoster(rs.getString(3));
 				vo.setTitle(rs.getString(4));
 				vo.setIntro(rs.getString(5));
@@ -374,16 +374,16 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,poster,title "
+			String sql="SELECT no,poster,title "
 					+ "FROM trip_a "
-					+ "WHERE 105<=tno and tno<=110 "
-					+ "ORDER BY tno ASC";
+					+ "WHERE 105<=no and no<=110 "
+					+ "ORDER BY no ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
+				vo.setNo(rs.getInt(1));
 				vo.setPoster(rs.getString(2));
 				vo.setTitle(rs.getString(3));
 				list.add(vo);
@@ -406,7 +406,7 @@ public class AttraDAO {
 		{
 			getConnection();
 			String sql="SELECT CEIL(COUNT(*)/8.0) FROM trip_a "
-					+ "WHERE no=4";
+					+ "WHERE ano=4";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
@@ -430,12 +430,12 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,no,poster,title,intro,num "
-					+ "FROM (SELECT tno,no,poster,title,intro,rownum as num "
-					+ "FROM (SELECT tno,no,poster,title,intro "
-					+ "FROM trip_a ORDER BY tno ASC)) "
+			String sql="SELECT no,ano,poster,title,intro,num "
+					+ "FROM (SELECT no,ano,poster,title,intro,rownum as num "
+					+ "FROM (SELECT no,ano,poster,title,intro "
+					+ "FROM trip_a ORDER BY no ASC)) "
 					+ "WHERE num BETWEEN ? AND ? "
-					+ "AND no=4";
+					+ "AND ano=4";
 			ps=conn.prepareStatement(sql);
 
 			int rowSize=8;
@@ -448,8 +448,8 @@ public class AttraDAO {
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
-				vo.setNo(rs.getInt(2));
+				vo.setNo(rs.getInt(1));
+				vo.setAno(rs.getInt(2));
 				vo.setPoster(rs.getString(3));
 				vo.setTitle(rs.getString(4));
 				vo.setIntro(rs.getString(5));
@@ -473,16 +473,16 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,poster,title "
+			String sql="SELECT no,poster,title "
 					+ "FROM trip_a "
-					+ "WHERE 133<=tno and tno<=138 "
-					+ "ORDER BY tno ASC";
+					+ "WHERE 133<=no and ano<=138 "
+					+ "ORDER BY no ASC";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
+				vo.setNo(rs.getInt(1));
 				vo.setPoster(rs.getString(2));
 				vo.setTitle(rs.getString(3));
 				list.add(vo);
@@ -505,7 +505,7 @@ public class AttraDAO {
 		{
 			getConnection();
 			String sql="SELECT CEIL(COUNT(*)/8.0) FROM trip_a "
-					+ "WHERE no=5";
+					+ "WHERE ano=5";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
@@ -529,12 +529,12 @@ public class AttraDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT tno,no,poster,title,intro,num "
-					+ "FROM (SELECT tno,no,poster,title,intro,rownum as num "
-					+ "FROM (SELECT tno,no,poster,title,intro "
-					+ "FROM trip_a ORDER BY tno ASC)) "
+			String sql="SELECT no,ano,poster,title,intro,num "
+					+ "FROM (SELECT no,ano,poster,title,intro,rownum as num "
+					+ "FROM (SELECT no,ano,poster,title,intro "
+					+ "FROM trip_a ORDER BY no ASC)) "
 					+ "WHERE num BETWEEN ? AND ? "
-					+ "AND no=5";
+					+ "AND ano=5";
 			ps=conn.prepareStatement(sql);
 
 			int rowSize=8;
@@ -547,8 +547,8 @@ public class AttraDAO {
 			while(rs.next())
 			{
 				AttraVO vo=new AttraVO();
-				vo.setTno(rs.getInt(1));
-				vo.setNo(rs.getInt(2));
+				vo.setNo(rs.getInt(1));
+				vo.setAno(rs.getInt(2));
 				vo.setPoster(rs.getString(3));
 				vo.setTitle(rs.getString(4));
 				vo.setIntro(rs.getString(5));

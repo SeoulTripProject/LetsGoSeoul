@@ -19,32 +19,21 @@ package com.sist.vo;
 ); 
  */
 public class AttraVO {
-	private int tno,no;
+	private int no,ano;
 	private String title,poster,image,intro,tel,website,time,holiday,open,price,
 	               handi,caution,addr,traffic;
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
-	public String getIntro() {
-		return intro;
-	}
-	public void setIntro(String intro) {
-		this.intro = intro;
-	}
-	public int getTno() {
-		return tno;
-	}
-	public void setTno(int tno) {
-		this.tno = tno;
-	}
+	
 	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	public int getAno() {
+		return ano;
+	}
+	public void setAno(int ano) {
+		this.ano = ano;
 	}
 	public String getTitle() {
 		return title;
@@ -57,6 +46,18 @@ public class AttraVO {
 	}
 	public void setPoster(String poster) {
 		this.poster = poster;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getIntro() {
+		return intro;
+	}
+	public void setIntro(String intro) {
+		this.intro = intro;
 	}
 	public String getTel() {
 		return tel;
