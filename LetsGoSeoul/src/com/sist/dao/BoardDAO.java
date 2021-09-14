@@ -108,7 +108,7 @@ public class BoardDAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="UPDATE project_freeboard SET "
+			   String sql="UPDATE trip_freeboard SET "
 					     +"hit=hit+1 "
 					     +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);

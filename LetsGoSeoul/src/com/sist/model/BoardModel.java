@@ -98,7 +98,7 @@ public class BoardModel {
 		  List<ReplyVO> list=dao.replyListData(Integer.parseInt(no), 1);
 		  request.setAttribute("list", list);
 		  request.setAttribute("vo", vo);
-		  request.setAttribute("main_jsp", "../freeboard/detail.jsp");
+		  request.setAttribute("main_jsp", "../board/freeboard_detail.jsp");
 		  
 		  return "../main/main.jsp";
 	  }
