@@ -25,8 +25,8 @@
         <section class="blog_area section-padding">
             <div class="container">
                 <div class="row">
-                  <div class="button-group-area mt-40" style="margin-left:5%">
-				    <a href="../board/freeboard_insert.do" class="genric-btn primary circle">New</a>
+                  <div class="button-group-area mt-40">
+				    <a href="../notice/notice_insert.do" class="genric-btn primary circle" style="margin-left:10%">New</a>
 				    
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">

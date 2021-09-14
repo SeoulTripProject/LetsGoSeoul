@@ -27,8 +27,10 @@
                      <div class="d-sm-flex justify-content-between text-center">
                         <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
                            people like this</p>
-                        <div class="col-sm-4 text-center my-2 my-sm-0">
-                           <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                        <div class="button-group-area mt-40">
+                          <a href="#" class="genric-btn primary small">Edit</a>
+                          <a href="#" class="genric-btn primary small">Delete</a>
+                          <a href="../board/freeboard.do" class="genric-btn primary small">List</a>
                         </div>
                      </div>
                      <div class="navigation-area">
