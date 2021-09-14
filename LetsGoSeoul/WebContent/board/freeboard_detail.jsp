@@ -97,7 +97,8 @@
                                        <p class="date">December 4, 2017 at 3:12 pm </p>
                                     </div>
                                     <div class="reply-btn">
-                                       <a href="#" class="btn-reply text-uppercase">reply</a>
+                                       <a href="#" class="btn-reply text-uppercase">Edit</a>
+                                       <a href="#" class="btn-reply text-uppercase">Delete</a>
                                     </div>
                                  </div>
                               </div>
