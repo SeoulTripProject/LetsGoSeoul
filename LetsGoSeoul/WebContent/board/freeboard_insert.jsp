@@ -52,8 +52,6 @@ $(function(){
                                 
                             </div>
                             <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-                                <button type="button" class="button button-contactForm boxed-btn"  onclick="javascript:history.back()">Cancel</button>
                                 <input type="submit" class="boxed-btn" value="Send" id="insertbtn">
                                 <input type="button" class="boxed-btn"  onclick="javascript:history.back()" value="Cancel">
 
