@@ -8,12 +8,11 @@ public class BoardDAO {
 	private Connection conn;
 	   private PreparedStatement ps;
 	   private static BoardDAO dao;
-	   // 怨듯넻�쑝濡� �궗�슜�릺�뒗 �냼�뒪瑜� 紐⑥븘�꽌 �뵲�씪 愿�由� (怨듯넻紐⑤뱢) => 愿�由�(AOP:�뒪�봽留�)
 	   public void getConnection()
 	   {
 		      try
 			  {
-				  Context init=new InitialContext(); // ���옣�맂 �쐞移섏뿉 �젒洹� 
+				  Context init=new InitialContext(); 
 				  // JNDI (java naming directory interface)
 				  Context c=(Context)init.lookup("java://comp//env");
 				  DataSource ds=(DataSource)c.lookup("jdbc/oracle");
@@ -31,7 +30,6 @@ public class BoardDAO {
 				  if(conn!=null) conn.close();
 			  }catch(Exception ex) {}
 	   }
-	// 硫붾え由� �늻�닔�쁽�긽�쓣 泥섎━ => �븳媛쒖쓽 怨듦컙�쓣 �씠�슜�빐�꽌 硫붾え由� 愿�由�(�떛湲��꽩�뙣�꽩) = �뒪�봽留곸� 嫄곗쓽 �떛湲��꽩 
 	   public static BoardDAO newInstance()
 	   {
 		   if(dao==null)
@@ -47,7 +45,7 @@ public class BoardDAO {
 			   String sql="SELECT no,subject,name,content,regdate,hit,num "
 					     +"FROM (SELECT no,subject,name,content,regdate,hit,rownum as num "
 					     +"FROM (SELECT no,subject,name,content,regdate,hit "
-					     +"FROM project_freeboard ORDER BY no DESC)) "
+					     +"FROM trip_freeboard ORDER BY no DESC)) "
 					     +"WHERE num BETWEEN ? AND ?";
 			   ps=conn.prepareStatement(sql);
 			   int rowSize=10;
@@ -86,7 +84,7 @@ public class BoardDAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT CEIL(COUNT(*)/10.0) FROM project_freeboard";
+			   String sql="SELECT CEIL(COUNT(*)/10.0) FROM trip_freeboard";
 			   ps=conn.prepareStatement(sql);
 			   ResultSet rs=ps.executeQuery();
 			   rs.next();
@@ -102,24 +100,21 @@ public class BoardDAO {
 		   }
 		   return total;
 	   }
-	// �긽�꽭蹂닿린 
 	   public BoardVO freeboardDetailData(int no)
 	   {
 		   BoardVO vo=new BoardVO();
 		   try
 		   {
 			   getConnection();
-			   // 議고쉶�닔 利앷� 
-			   String sql="UPDATE project_freeboard SET "
+			   String sql="UPDATE trip_freeboard SET "
 					     +"hit=hit+1 "
 					     +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, no);
 			   ps.executeUpdate(); 
 			   
-			   // �긽�꽭蹂� 寃뚯떆臾� �씫湲�
 			   sql="SELECT no,name,subject,content,regdate,hit "
-				  +"FROM project_freeboard "
+				  +"FROM trip_freeboard "
 				  +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, no);
@@ -142,16 +137,14 @@ public class BoardDAO {
 		   }
 		   return vo;
 	   }
-	// �닔�젙 
 	   public BoardVO freeboardUpdateData(int no)
 	   {
 		   BoardVO vo=new BoardVO();
 		   try
 		   {
 			   getConnection();
-			   // 議고쉶�닔 利앷� 
 			   String sql="SELECT no,name,subject,content "
-				  +"FROM project_freeboard "
+				  +"FROM trip_freeboard "
 				  +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, no);
@@ -172,15 +165,13 @@ public class BoardDAO {
 		   }
 		   return vo;
 	   }
-	// �떎�젣 �닔�젙 
 	   public boolean freeboardUpdate(BoardVO vo)
 	   {
-		   boolean bCheck=false;// 鍮꾨�踰덊샇 泥댄겕 (true/�닔�젙,false/�떎�떆 �엯�젰)
+		   boolean bCheck=false;
 		   try
 		   {
 			   getConnection();
-			   // 鍮꾨�踰덊샇 �솗�씤 
-			   String sql="SELECT pwd FROM project_freeboard "
+			   String sql="SELECT pwd FROM trip_freeboard "
 					     +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, vo.getNo());
@@ -192,8 +183,7 @@ public class BoardDAO {
 			   if(db_pwd.equals(vo.getPwd())) 
 			   {
 				   bCheck=true;
-				   // �떎�젣 �닔�젙 
-				   sql="UPDATE project_freeboard SET "
+				   sql="UPDATE trip_freeboard SET "
 					  +"name=?,subject=?,content=? "
 					  +"WHERE no=?";
 				   ps=conn.prepareStatement(sql);
@@ -225,7 +215,7 @@ public class BoardDAO {
 			   getConnection();
 			   conn.setAutoCommit(false);
 			   // 비밀번호 체크 
-			   String sql="SELECT pwd FROM project_freeboard "
+			   String sql="SELECT pwd FROM trip_freeboard "
 					     +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, no);
@@ -236,13 +226,13 @@ public class BoardDAO {
 			   if(pwd.equals(db_pwd)) 
 			   {
 				   bCheck=true;//freeboard/list.jsp
-				   sql="DELETE FROM project_reply "
+				   sql="DELETE FROM trip_reply "
 					  +"WHERE bno=?";
 				   ps=conn.prepareStatement(sql);
 				   ps.setInt(1, no);
 				   ps.executeUpdate();
 				   
-				   sql="DELETE FROM project_freeboard "
+				   sql="DELETE FROM trip_freeboard "
 					  +"WHERE no=?";
 				   ps=conn.prepareStatement(sql);
 				   ps.setInt(1, no);
@@ -279,7 +269,7 @@ public class BoardDAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="INSERT INTO project_freeboard(no,name,subject,content,pwd) "
+			   String sql="INSERT INTO trip_freeboard(no,name,subject,content,pwd) "
 					     +"VALUES(pf_no_seq.nextval,?,?,?,?)";
 			   ps=conn.prepareStatement(sql);
 			   ps.setString(1, vo.getName());
@@ -304,10 +294,8 @@ public class BoardDAO {
 		   {
 			   getConnection();
 			   String sql="SELECT no,bno,id,name,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:ss') "
-					     +"FROM project_reply "
+					     +"FROM trip_reply "
 					     +"WHERE bno=? AND type=?";
-			   // bno => �뼱�뼡 寃뚯떆臾� ,�뼱�뼡 留쏆쭛
-			   // type => 援щ텇 (留쏆쭛,寃뚯떆�뙋)
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, bno);
 			   ps.setInt(2, type);
@@ -342,7 +330,7 @@ public class BoardDAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="INSERT INTO project_reply VALUES("
+			   String sql="INSERT INTO trip_reply VALUES("
 			   		+ "pr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, vo.getBno());
@@ -366,7 +354,7 @@ public class BoardDAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="UPDATE project_reply SET "
+			   String sql="UPDATE trip_reply SET "
 			   		+ "msg=? "
 			   		+ "WHERE no=?";
 			   ps=conn.prepareStatement(sql);
@@ -389,7 +377,7 @@ public class BoardDAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="DELETE FROM project_reply WHERE no=?";
+			   String sql="DELETE FROM trip_reply WHERE no=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, no);
 			   ps.executeUpdate();
