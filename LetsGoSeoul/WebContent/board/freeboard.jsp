@@ -31,7 +31,7 @@
                         <div class="blog_left_sidebar">
                             <article class="blog_item">
 
-                                <div class="blog_details">
+                                 <div class="blog_details">
                                   <c:forEach var="vo" items="${list }">
                                     <a class="d-inline-block" href="../board/freeboard_detail.do?no=${vo.no }">
                                         <h2>${vo.subject }</h2>
@@ -39,9 +39,10 @@
                                     <p>${vo.content }</p>
                                     <ul class="blog-info-link">
                                         <li><i class="fa fa-user"></i>${vo.name }</li>
-                                        <li><i class="fa fa-comments"></i>${vo.regdate }</a></li>
-                                        <li><i class="fa fa-comments"></i>${vo.hit }</a></li>
+                                        <li><i class="fa fa-comments"></i>${vo.regdate }</li>
+                                        <li><i class="fa fa-comments"></i>${vo.hit }</li>
                                     </ul>
+                                   
                                   </c:forEach>
                                 </div>
                             </article>
