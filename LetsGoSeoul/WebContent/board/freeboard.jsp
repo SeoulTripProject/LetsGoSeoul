@@ -25,14 +25,14 @@
         <section class="blog_area section-padding">
             <div class="container">
                 <div class="row">
-                  <div class="button-group-area mt-40">
+                  <div class="button-group-area mt-40" style="margin-left:5%">
 				    <a href="../board/freeboard_insert.do" class="genric-btn primary circle">New</a>
 				    
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
                             <article class="blog_item">
                             <c:forEach var="vo" items="${list }">
-                                <div class="blog_details" style="width:900px;">             
+                                <div class="blog_details" style="width:1000px;margin-left:10%;margin-right:auto;">             
                                   
                                     <a class="d-inline-block" href="../board/freeboard_detail.do?no=${vo.no }">
                                         <h2>${vo.subject }</h2>
