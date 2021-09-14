@@ -45,7 +45,6 @@ public class BoardModel {
 	@RequestMapping("board/freeboard_insert.do")
 	  public String freeboard_insert(HttpServletRequest request,HttpServletResponse response)
 	  {
-		  // �엯�젰李쎈쭔 蹂댁뿬以��떎 
 		  request.setAttribute("main_jsp", "../board/freeboard_insert.jsp");
 		  return "../main/main.jsp";
 	  }
@@ -55,7 +54,6 @@ public class BoardModel {
 	
 		  try
 		  {
-			  
 			  request.setCharacterEncoding("UTF-8");
 		  }catch(Exception ex) {}
 
@@ -75,7 +73,7 @@ public class BoardModel {
 		  BoardDAO dao=BoardDAO.newInstance();
 	
 		  dao.freeboardInsert(vo);
-		  return "redirect:../board/freeboard.do";// 泥섎━�썑�뿉 => 紐⑸줉�쓣 蹂댁뿬以��떎 
+		  return "redirect:../board/freeboard.do";
 	  }
 
 	  @RequestMapping("board/freeboard_detail.do")
@@ -165,7 +163,7 @@ public class BoardModel {
 		  return "../board/freeboard_delok.jsp";// list.jsp , history.back()
 	  }
 	  
-	  @RequestMapping("freeboard/reply_insert.do")
+	  @RequestMapping("board/freeboard_reply_insert.do")
 	  public String reply_insert(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  try
@@ -198,7 +196,7 @@ public class BoardModel {
 
 	  }
 	  
-	  @RequestMapping("freeboard/reply_delete.do")
+	  @RequestMapping("board/freeboard_reply_delete.do")
 	  public String reply_delete(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  //요청 데이터 받기
@@ -213,7 +211,7 @@ public class BoardModel {
 		  return "redirect:../freeboard/detail.do?no="+bno;
 	  }
 	  
-	  @RequestMapping("freeboard/reply_update.do")
+	  @RequestMapping("board/freeboard_reply_update.do")
 	  public String reply_update(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  

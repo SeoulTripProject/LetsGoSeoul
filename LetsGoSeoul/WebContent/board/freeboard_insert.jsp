@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                        <textarea class="form-control w-100" name="content" id="content" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Content'" placeholder=" Enter Message"></textarea>
                                     </div>
                                 </div>
                                 
@@ -45,7 +45,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-                                <button type="submit" class="button button-contactForm boxed-btn"  onclick="javascript:history.back()">Cancel</button>
+                                <button type="button" class="button button-contactForm boxed-btn"  onclick="javascript:history.back()">Cancel</button>
 
                             </div>
                         </form>
