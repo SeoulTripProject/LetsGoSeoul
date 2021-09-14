@@ -48,7 +48,7 @@
                            <li><i class="fa fa-calendar"></i>${vo.dbday }</li>
                            <li><i class="fa fa-eye"></i>${vo.hit }</li>
                         </ul>
-                        <p class="excert">${vo.content }</p>
+                        <p class="excert" style="white-space: pre-wrap;">${vo.content }</p>
                      </div>
                   </div>
                   <div class="navigation-top">
