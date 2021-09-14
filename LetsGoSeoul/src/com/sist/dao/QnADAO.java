@@ -108,7 +108,7 @@ public class QnADAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="UPDATE project_qna SET "
+			   String sql="UPDATE trip_qna SET "
 					     +"hit=hit+1 "
 					     +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
@@ -275,7 +275,7 @@ public class QnADAO {
 		   {
 			   getConnection();
 			   String sql="INSERT INTO trip_qna(no,name,subject,content,pwd) "
-					     +"VALUES(tf_no_seq.nextval,?,?,?,?)";
+					     +"VALUES(tq_no_seq.nextval,?,?,?,?)";
 			   ps=conn.prepareStatement(sql);
 			   ps.setString(1, vo.getName());
 			   ps.setString(2, vo.getSubject());
@@ -336,7 +336,7 @@ public class QnADAO {
 		   {
 			   getConnection();
 			   String sql="INSERT INTO trip_reply VALUES("
-			   		+ "tr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
+			   		+ "tq_no_seq.nextval,?,?,?,?,?,SYSDATE)";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, vo.getBno());
 			   ps.setInt(2, vo.getType());

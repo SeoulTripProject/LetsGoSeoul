@@ -96,8 +96,8 @@
                                     </div>
                                     <c:if test="${sessionScope.id==rvo.id }">
                                     <div class="reply-btn">
-                                       <a href="#" class="btn-reply text-uppercase">Edit</a>
-                                       <a href="#" class="btn-reply text-uppercase">Delete</a>
+                                       <a href="../qna/qna_ok" class="btn-reply text-uppercase">Edit</a>
+                                       <a href="" class="btn-reply text-uppercase">Delete</a>
                                     </div>
                                     </c:if>
                                  </div>
@@ -126,6 +126,7 @@
                      </c:if>
                   </div>
                </div>
+             </div>
          </div>
       </section>
       <!--================ Blog Area end =================-->
