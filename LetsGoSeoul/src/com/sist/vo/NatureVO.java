@@ -86,7 +86,7 @@ public class NatureVO {
 		return Ntag;
 	}
 	public void setNtag(String ntag) {
-		Ntag = ntag;
+		this.Ntag = ntag;
 	}
 	
 

@@ -14,7 +14,7 @@
                <div class="row">
                   <div class="col-xl-12">
                      <div class="hero-cap text-center pt-50">
-                           <h2>Guest House Details</h2>
+                           <h2>Nature Details</h2>
                      </div>
                   </div>
                </div>
@@ -48,27 +48,37 @@
                         	예약 : ${vo.webLink }
                         </p>
                         </c:if> --%>
+                        
                         <p class="excert">
                         	상세정보 : ${vo.info } 
                         </p>
+                        <c:if test="${vo.info2!=null}">
                         <p class="excert">
                         	이건 꼭! : ${vo.info2 } 
                         </p>
+                        </c:if>
+                        <c:if test="${vo.addr!=null}">
                         <p class="excert">
 				                        주소 : ${vo.addr }
                         </p>
+                        </c:if>
+                        <c:if test="${vo.bus!=null}">
                         <p class="excert">
                         	교통편 : ${vo.bus } 
                         </p>
-                        <p class="excert">
-                        	 ${vo.Ntag } 
-                        </p>
-
+                        </c:if>
                         <p class="excert"></p>
                      </div>
                   </div>
                   <div class="navigation-top">
                      <div class="d-sm-flex justify-content-between text-center">
+                      <p class="like-info"><i class="fa fa-tag">
+                        </i><span class="align-middle">
+                          <c:forTokens var="tag" items="${vo.ntag }" delims="^">
+                          	&nbsp;${tag }&nbsp;
+		   				  </c:forTokens>
+                        </span>
+                        </p>
                        <div class="col-sm-4 text-center my-2 my-sm-0">
                         <ul class="social-icons">
                            <li><a href="#"><i class="fa fa-thumbs-up"></i></a></li>
