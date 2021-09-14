@@ -47,26 +47,27 @@
                             </article>
                             <nav class="blog-pagination justify-content-center d-flex">
                                 <ul class="pagination">
-                                    <li class="page-item">
-                                        <a href="#" class="page-link" aria-label="Previous">
-                                            <i class="ti-angle-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">1</a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a href="#" class="page-link">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link" aria-label="Next">
-                                            <i class="ti-angle-right"></i>
-                                        </a>
-                                    </li>
+                                   <c:if test="${curpage>BLOCK }">
+						          <li class="page-item"><a href="../board/freeboard.do?page=${startPage-1 }" class="page-link"><span class="ti-angle-left"></span></a></li>
+						          </c:if>
+						            <c:forEach var="i" begin="${startPage }" end="${ endPage}">
+						               <c:if test="${curpage==i }">
+						                 <c:set var="ss" value="class=current"/>
+						               </c:if>
+						               <c:if test="${curpage!=i }">
+						                 <c:set var="ss" value=""/>
+						               </c:if>
+						              <li class="page-item" ${ss }><a class="page-link" href="../board/freeboard.do?page=${i }">${i }</a></li>
+						            </c:forEach>  
+						            <c:if test="${endPage<totalpage }">
+						             <li class="page-item"><a href="../board/freeboard.do?page=${endPage+1 }" class="page-link"><span class="ti-angle-right"></span></a></li>
+						            </c:if>
+                                    
                                 </ul>
                             </nav>
                         </div>
                     </div>
+                    
 <!--                     <div class="col-lg-4">
                         <div class="blog_right_sidebar">
                             <aside class="single_sidebar_widget search_widget">
