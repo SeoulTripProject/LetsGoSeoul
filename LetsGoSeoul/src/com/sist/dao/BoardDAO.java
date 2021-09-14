@@ -8,12 +8,12 @@ public class BoardDAO {
 	private Connection conn;
 	   private PreparedStatement ps;
 	   private static BoardDAO dao;
+
 	   public void getConnection()
 	   {
 		      try
 			  {
 				  Context init=new InitialContext(); 
-				  // JNDI (java naming directory interface)
 				  Context c=(Context)init.lookup("java://comp//env");
 				  DataSource ds=(DataSource)c.lookup("jdbc/oracle");
 				  conn=ds.getConnection();
@@ -30,6 +30,7 @@ public class BoardDAO {
 				  if(conn!=null) conn.close();
 			  }catch(Exception ex) {}
 	   }
+
 	   public static BoardDAO newInstance()
 	   {
 		   if(dao==null)
@@ -77,7 +78,7 @@ public class BoardDAO {
 		   }
 		   return list;
 	   }
-	// 珥앺럹�씠吏� 
+
 	   public int freeboardTotalPage()
 	   {
 		   int total=0;
@@ -100,19 +101,20 @@ public class BoardDAO {
 		   }
 		   return total;
 	   }
+
 	   public BoardVO freeboardDetailData(int no)
 	   {
 		   BoardVO vo=new BoardVO();
 		   try
 		   {
 			   getConnection();
-			   String sql="UPDATE trip_freeboard SET "
+			   String sql="UPDATE project_freeboard SET "
 					     +"hit=hit+1 "
 					     +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, no);
 			   ps.executeUpdate(); 
-			   
+
 			   sql="SELECT no,name,subject,content,regdate,hit "
 				  +"FROM trip_freeboard "
 				  +"WHERE no=?";
@@ -137,12 +139,14 @@ public class BoardDAO {
 		   }
 		   return vo;
 	   }
+
 	   public BoardVO freeboardUpdateData(int no)
 	   {
 		   BoardVO vo=new BoardVO();
 		   try
 		   {
 			   getConnection();
+
 			   String sql="SELECT no,name,subject,content "
 				  +"FROM trip_freeboard "
 				  +"WHERE no=?";
@@ -165,6 +169,7 @@ public class BoardDAO {
 		   }
 		   return vo;
 	   }
+
 	   public boolean freeboardUpdate(BoardVO vo)
 	   {
 		   boolean bCheck=false;
@@ -241,7 +246,7 @@ public class BoardDAO {
 			   }
 			   else
 			   {
-				   bCheck=false;// history.back()
+				   bCheck=false;
 			   }
 		   }catch(Exception ex)
 		   {
@@ -276,8 +281,8 @@ public class BoardDAO {
 			   ps.setString(2, vo.getSubject());
 			   ps.setString(3, vo.getContent());
 			   ps.setString(4, vo.getPwd());
-			   ps.executeUpdate(); //commit�씠 議댁옱  => autocommit()
-			   // INSERT , UPDATE ,DELETE
+			   ps.executeUpdate(); 
+
 		   }catch(Exception ex)
 		   {
 			   ex.printStackTrace();
@@ -324,7 +329,7 @@ public class BoardDAO {
 		   return list;
 	   }
 	   
-	// 댓글 쓰기
+
 	   public void replyInsert(ReplyVO vo)
 	   {
 		   try
@@ -348,7 +353,7 @@ public class BoardDAO {
 			   disConnection();
 		   }
 	   }
-	   // 댓글 수정 
+
 	   public void replyUpdate(int no,String msg)
 	   {
 		   try
@@ -371,7 +376,7 @@ public class BoardDAO {
 			   disConnection();
 		   }
 	   }
-	   // 댓글 삭제 
+
 	   public void replyDelete(int no)
 	   {
 		   try

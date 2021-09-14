@@ -7,13 +7,13 @@ import com.sist.vo.*;
 public class NoticeDAO {
 	private Connection conn;
 	private PreparedStatement ps;
-	private static NoticeDAO dao; // 싱글턴 패턴 (static:메모리 공간을 한개만 사용이 가능) => 재사용 
+	private static NoticeDAO dao; 
 	 
 	  public void getConnection()
 	  {
 		  try
 		  {
-			  Context init=new InitialContext(); // 저장된 위치에 접근 
+			  Context init=new InitialContext(); 
 			  Context c=(Context)init.lookup("java://comp//env");
 			  DataSource ds=(DataSource)c.lookup("jdbc/oracle");
 			  conn=ds.getConnection();
@@ -22,7 +22,7 @@ public class NoticeDAO {
 			  ex.printStackTrace();
 		  }
 	  }
-	  // 사용후 반환 -> 다른사람이 재사용이 가능하게 만든다 
+
 	  public void disConnection()
 	  {
 		  try
@@ -39,7 +39,7 @@ public class NoticeDAO {
 		  return dao;
 	  }
 	  
-	  //공지사항 목록 출력
+
 	  public List<NoticeVO> noticeListDate(int page)
 	  {
 		  List<NoticeVO> list=new ArrayList<NoticeVO>();
@@ -81,7 +81,7 @@ public class NoticeDAO {
 		  }
 		  return list;
 	  }
-	  //총페이지
+
 	  public int noticetotalPage()
 	  {
 		  int total=0;
@@ -105,7 +105,7 @@ public class NoticeDAO {
 		  return total;
 	  }
 	  
-	  //상세보기
+
 	  public NoticeVO noticeDetailDate(int no)
 	  {
 		  NoticeVO vo=new NoticeVO();
@@ -144,7 +144,7 @@ public class NoticeDAO {
 		  return vo;
 	  }
 	  
-	  //공지사항 추가
+
 	  public void noticeInsert(NoticeVO vo)
 	  {
 		  try
@@ -167,7 +167,7 @@ public class NoticeDAO {
 		  }
 	  }
 	  
-	  //공지사항 수정
+
 	  public NoticeVO noticeUpdateData(int no)
 	  {
 		  NoticeVO vo=new NoticeVO();
@@ -195,7 +195,7 @@ public class NoticeDAO {
 		  return vo;
 	  }
 	  
-	  //공지사항 삭제
+
 	  public void noticeDelete(int no)
 	  {
 		  try
