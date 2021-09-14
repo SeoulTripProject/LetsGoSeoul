@@ -275,7 +275,7 @@ public class BoardDAO {
 		   {
 			   getConnection();
 			   String sql="INSERT INTO trip_freeboard(no,name,subject,content,pwd) "
-					     +"VALUES(pf_no_seq.nextval,?,?,?,?)";
+					     +"VALUES(tf_no_seq.nextval,?,?,?,?)";
 			   ps=conn.prepareStatement(sql);
 			   ps.setString(1, vo.getName());
 			   ps.setString(2, vo.getSubject());
@@ -336,7 +336,7 @@ public class BoardDAO {
 		   {
 			   getConnection();
 			   String sql="INSERT INTO trip_reply VALUES("
-			   		+ "pr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
+			   		+ "tr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, vo.getBno());
 			   ps.setInt(2, vo.getType());
