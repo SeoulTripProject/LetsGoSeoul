@@ -46,7 +46,7 @@ $(function(){
                                 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="password" id="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter password'" placeholder="password">
+                                        <input class="form-control valid" name="pwd" id="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter password'" placeholder="password">
                                     </div>
                                 </div>
                                 
