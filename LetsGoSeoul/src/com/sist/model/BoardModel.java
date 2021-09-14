@@ -35,7 +35,7 @@ public class BoardModel {
 		  List<BoardVO> list=dao.freeboardListData(curpage);
 		  int totalpage=dao.freeboardTotalPage();
 
-		  request.setAttribute("curpage", curpage);// �쁽�옱 �럹�씠吏�
+		  request.setAttribute("curpage", curpage);
 		  request.setAttribute("totalpage", totalpage);
 		  request.setAttribute("list", list);
 
@@ -45,7 +45,7 @@ public class BoardModel {
 	@RequestMapping("board/freeboard_insert.do")
 	  public String freeboard_insert(HttpServletRequest request,HttpServletResponse response)
 	  {
-		  // �엯�젰李쎈쭔 蹂댁뿬以��떎 
+		  
 		  request.setAttribute("main_jsp", "../board/freeboard_insert.jsp");
 		  return "../main/main.jsp";
 	  }
@@ -75,7 +75,7 @@ public class BoardModel {
 		  BoardDAO dao=BoardDAO.newInstance();
 	
 		  dao.freeboardInsert(vo);
-		  return "redirect:../board/freeboard.do";// 泥섎━�썑�뿉 => 紐⑸줉�쓣 蹂댁뿬以��떎 
+		  return "redirect:../board/freeboard.do";
 	  }
 
 	  @RequestMapping("board/freeboard_detail.do")
@@ -173,7 +173,7 @@ public class BoardModel {
 			  request.setCharacterEncoding("UTF-8");
 		  }catch(Exception ex) {}
 		  
-		  //사용자가 보내준 값을 받는다
+
 		  String bno=request.getParameter("bno");
 		  String type=request.getParameter("type");
 		  String msg=request.getParameter("msg");
@@ -182,16 +182,16 @@ public class BoardModel {
 		  String id=(String)session.getAttribute("id");
 		  String name=(String)session.getAttribute("name");
 		  
-		  //묶어서 DAO전송
+
 		  ReplyVO vo=new ReplyVO();
 		  vo.setBno(Integer.parseInt(bno));
 		  vo.setId(id);
 		  vo.setName(name);
 		  vo.setType(Integer.parseInt(type));
 		  vo.setMsg(msg);
-		  //이동 댓글이 올라간다
+
 		  BoardDAO dao=BoardDAO.newInstance();
-		  //댓글 추가 메소드
+
 		  dao.replyInsert(vo);
 		  
 		  return "redirect:../freeboard/detail.do?no="+bno;
@@ -201,13 +201,13 @@ public class BoardModel {
 	  @RequestMapping("freeboard/reply_delete.do")
 	  public String reply_delete(HttpServletRequest request,HttpServletResponse response)
 	  {
-		  //요청 데이터 받기
-		  String no=request.getParameter("no"); // 댓글번호 (삭제 목적)
-		  String bno=request.getParameter("bno");// 게시물 번호(해당 페이지로 이동)
+
+		  String no=request.getParameter("no"); 
+		  String bno=request.getParameter("bno");
 		  
-		  //DAO
+
 		  BoardDAO dao=BoardDAO.newInstance();
-		  //삭제 메소드 호출
+
 		  dao.replyDelete(Integer.parseInt(no));
 		  
 		  return "redirect:../freeboard/detail.do?no="+bno;

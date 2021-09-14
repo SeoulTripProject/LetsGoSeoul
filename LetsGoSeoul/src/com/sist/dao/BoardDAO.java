@@ -8,13 +8,13 @@ public class BoardDAO {
 	private Connection conn;
 	   private PreparedStatement ps;
 	   private static BoardDAO dao;
-	   // 怨듯넻�쑝濡� �궗�슜�릺�뒗 �냼�뒪瑜� 紐⑥븘�꽌 �뵲�씪 愿�由� (怨듯넻紐⑤뱢) => 愿�由�(AOP:�뒪�봽留�)
+
 	   public void getConnection()
 	   {
 		      try
 			  {
-				  Context init=new InitialContext(); // ���옣�맂 �쐞移섏뿉 �젒洹� 
-				  // JNDI (java naming directory interface)
+				  Context init=new InitialContext(); 
+
 				  Context c=(Context)init.lookup("java://comp//env");
 				  DataSource ds=(DataSource)c.lookup("jdbc/oracle");
 				  conn=ds.getConnection();
@@ -31,7 +31,7 @@ public class BoardDAO {
 				  if(conn!=null) conn.close();
 			  }catch(Exception ex) {}
 	   }
-	// 硫붾え由� �늻�닔�쁽�긽�쓣 泥섎━ => �븳媛쒖쓽 怨듦컙�쓣 �씠�슜�빐�꽌 硫붾え由� 愿�由�(�떛湲��꽩�뙣�꽩) = �뒪�봽留곸� 嫄곗쓽 �떛湲��꽩 
+
 	   public static BoardDAO newInstance()
 	   {
 		   if(dao==null)
@@ -79,7 +79,7 @@ public class BoardDAO {
 		   }
 		   return list;
 	   }
-	// 珥앺럹�씠吏� 
+
 	   public int freeboardTotalPage()
 	   {
 		   int total=0;
@@ -102,14 +102,14 @@ public class BoardDAO {
 		   }
 		   return total;
 	   }
-	// �긽�꽭蹂닿린 
+
 	   public BoardVO freeboardDetailData(int no)
 	   {
 		   BoardVO vo=new BoardVO();
 		   try
 		   {
 			   getConnection();
-			   // 議고쉶�닔 利앷� 
+
 			   String sql="UPDATE project_freeboard SET "
 					     +"hit=hit+1 "
 					     +"WHERE no=?";
@@ -117,7 +117,7 @@ public class BoardDAO {
 			   ps.setInt(1, no);
 			   ps.executeUpdate(); 
 			   
-			   // �긽�꽭蹂� 寃뚯떆臾� �씫湲�
+
 			   sql="SELECT no,name,subject,content,regdate,hit "
 				  +"FROM project_freeboard "
 				  +"WHERE no=?";
@@ -142,14 +142,14 @@ public class BoardDAO {
 		   }
 		   return vo;
 	   }
-	// �닔�젙 
+
 	   public BoardVO freeboardUpdateData(int no)
 	   {
 		   BoardVO vo=new BoardVO();
 		   try
 		   {
 			   getConnection();
-			   // 議고쉶�닔 利앷� 
+
 			   String sql="SELECT no,name,subject,content "
 				  +"FROM project_freeboard "
 				  +"WHERE no=?";
@@ -172,14 +172,14 @@ public class BoardDAO {
 		   }
 		   return vo;
 	   }
-	// �떎�젣 �닔�젙 
+
 	   public boolean freeboardUpdate(BoardVO vo)
 	   {
-		   boolean bCheck=false;// 鍮꾨�踰덊샇 泥댄겕 (true/�닔�젙,false/�떎�떆 �엯�젰)
+		   boolean bCheck=false;
 		   try
 		   {
 			   getConnection();
-			   // 鍮꾨�踰덊샇 �솗�씤 
+
 			   String sql="SELECT pwd FROM project_freeboard "
 					     +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
@@ -192,7 +192,7 @@ public class BoardDAO {
 			   if(db_pwd.equals(vo.getPwd())) 
 			   {
 				   bCheck=true;
-				   // �떎�젣 �닔�젙 
+
 				   sql="UPDATE project_freeboard SET "
 					  +"name=?,subject=?,content=? "
 					  +"WHERE no=?";
@@ -224,7 +224,7 @@ public class BoardDAO {
 		   {
 			   getConnection();
 			   conn.setAutoCommit(false);
-			   // 비밀번호 체크 
+
 			   String sql="SELECT pwd FROM project_freeboard "
 					     +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
@@ -235,7 +235,7 @@ public class BoardDAO {
 			   rs.close();
 			   if(pwd.equals(db_pwd)) 
 			   {
-				   bCheck=true;//freeboard/list.jsp
+				   bCheck=true;
 				   sql="DELETE FROM project_reply "
 					  +"WHERE bno=?";
 				   ps=conn.prepareStatement(sql);
@@ -251,7 +251,7 @@ public class BoardDAO {
 			   }
 			   else
 			   {
-				   bCheck=false;// history.back()
+				   bCheck=false;
 			   }
 		   }catch(Exception ex)
 		   {
@@ -286,8 +286,8 @@ public class BoardDAO {
 			   ps.setString(2, vo.getSubject());
 			   ps.setString(3, vo.getContent());
 			   ps.setString(4, vo.getPwd());
-			   ps.executeUpdate(); //commit�씠 議댁옱  => autocommit()
-			   // INSERT , UPDATE ,DELETE
+			   ps.executeUpdate(); 
+
 		   }catch(Exception ex)
 		   {
 			   ex.printStackTrace();
@@ -306,8 +306,7 @@ public class BoardDAO {
 			   String sql="SELECT no,bno,id,name,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:ss') "
 					     +"FROM project_reply "
 					     +"WHERE bno=? AND type=?";
-			   // bno => �뼱�뼡 寃뚯떆臾� ,�뼱�뼡 留쏆쭛
-			   // type => 援щ텇 (留쏆쭛,寃뚯떆�뙋)
+			   
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, bno);
 			   ps.setInt(2, type);
@@ -336,7 +335,7 @@ public class BoardDAO {
 		   return list;
 	   }
 	   
-	// 댓글 쓰기
+
 	   public void replyInsert(ReplyVO vo)
 	   {
 		   try
@@ -360,7 +359,7 @@ public class BoardDAO {
 			   disConnection();
 		   }
 	   }
-	   // 댓글 수정 
+
 	   public void replyUpdate(int no,String msg)
 	   {
 		   try
@@ -383,7 +382,7 @@ public class BoardDAO {
 			   disConnection();
 		   }
 	   }
-	   // 댓글 삭제 
+
 	   public void replyDelete(int no)
 	   {
 		   try
