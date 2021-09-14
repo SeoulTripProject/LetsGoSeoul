@@ -38,9 +38,10 @@
                                    <h2>${vo.subject }</h2>
                                     </a>
                                     <ul class="blog-info-link">
+                                    	<li><i class="fa fa-check"></i>${vo.no }</li>
                                         <li><i class="fa fa-user"></i>${vo.name }</li>
-                                        <li><i class="fa fa-comments"></i>${vo.regdate }</li>
-                                        <li><i class="fa fa-comments"></i>${vo.hit }</li>
+                                        <li><i class="fa fa-calendar"></i>${vo.dbday }</li>
+                                        <li><i class="fa fa-eye"></i>${vo.hit }</li>
                                     </ul>
                                 </div>
                               </article>
@@ -48,7 +49,7 @@
                             <nav class="blog-pagination justify-content-center d-flex">
                                 <ul class="pagination" style="margin-left:30%">
                                    <c:if test="${curpage>BLOCK }">
-						          <li class="page-item"><a href="../board/freeboard.do?page=${startPage-1 }" class="page-link"><span class="ti-angle-left"></span></a></li>
+						          <li class="page-item"><a href="../notice/notice_list.do?page=${startPage-1 }" class="page-link"><span class="ti-angle-left"></span></a></li>
 						          </c:if>
 						            <c:forEach var="i" begin="${startPage }" end="${ endPage}">
 						               <c:if test="${curpage==i }">
@@ -57,10 +58,10 @@
 						               <c:if test="${curpage!=i }">
 						                 <c:set var="ss" value=""/>
 						               </c:if>
-						              <li class="page-item" ${ss }><a class="page-link" href="../board/freeboard.do?page=${i }">${i }</a></li>
+						              <li class="page-item" ${ss }><a class="page-link" href="../notice/notice_list.do?page=${i }">${i }</a></li>
 						            </c:forEach>  
 						            <c:if test="${endPage<totalpage }">
-						             <li class="page-item"><a href="../board/freeboard.do?page=${endPage+1 }" class="page-link"><span class="ti-angle-right"></span></a></li>
+						             <li class="page-item"><a href="../notice/notice_list.do?page=${endPage+1 }" class="page-link"><span class="ti-angle-right"></span></a></li>
 						            </c:if>
                                 </ul>
                             </nav>

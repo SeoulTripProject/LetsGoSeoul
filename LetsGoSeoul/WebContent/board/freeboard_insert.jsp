@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +14,22 @@ $(function(){
 	})
 })
 </script>
+<style type="text/css">
+.hero-area4 {
+  background-image: url(../assets/img/hero/hero2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 105px;
+}
+</style>
 </head>
 <body>
+<!-- Hero Start-->
+        <div class="hero-area4 slider-height2 hero-overly2 d-flex align-items-center">
+        </div>
+<!--Hero End -->
 <!-- ================ contact section start ================= -->
-        <section class="contact-section">
+        <section class="contact-section" style="margin-left:25%">
             <div class="container">
                 <div class="d-none d-sm-block mb-5 pb-4">   
                 </div>

@@ -1,20 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.hero-area5 {
+  background-image: url(../assets/img/hero/hero2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 128px;
+}
+</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#insertbtn').click(function(){
-		$('#Frbtn').submit();
+		$('#frbtn').submit();
 	})
 })
 </script>
 </head>
 <body>
+<!-- Hero Start-->
+
+   <div class="hero-area5 slider-height2 hero-overly2 d-flex align-items-center">
+   </div>
+
+<!--Hero End -->
 <!-- ================ contact section start ================= -->
         <section class="contact-section">
             <div class="container">
@@ -25,7 +40,7 @@ $(function(){
                         <h2 class="contact-title">Notice</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="../board/notice_insert_ok.do" method="post" id="Frbtn" novalidate="novalidate">
+                        <form class="form-contact contact_form" action="../notice/notice_insert_ok.do" method="post" id="Frbtn" novalidate="novalidate">
                             <div class="row">
                                 
                                     <div class="col-sm-6">
@@ -43,13 +58,6 @@ $(function(){
                                         <textarea class="form-control w-100" name="content" id="content" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Content'" placeholder=" Enter Message"></textarea>
                                     </div>
                                 </div>
-                                
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="pwd" id="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter password'" placeholder="password">
-                                    </div>
-                                </div>
-                                
                             </div>
                             <div class="form-group mt-3">
                                 <input type="submit" class="boxed-btn" value="Send" id="insertbtn">
