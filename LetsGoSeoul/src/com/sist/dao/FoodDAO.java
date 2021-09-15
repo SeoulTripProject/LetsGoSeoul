@@ -8,7 +8,7 @@ public class FoodDAO {
 	private Connection conn;
 	private PreparedStatement ps;
 	private static FoodDAO dao;
-	
+	 
 	public void getConnection()
 	{
 		try
