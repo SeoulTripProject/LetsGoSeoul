@@ -96,10 +96,12 @@ public class StayModel {
 	public String hotel_detail(HttpServletRequest request,HttpServletResponse response)
 	{
 		String no=request.getParameter("no");
+		String bno=request.getParameter("bno");
 
 		StayDAO dao=StayDAO.newInstance();
 		StayVO vo=dao.HotelDetailData(Integer.parseInt(no));
-		
+		BoardDAO bdao=BoardDAO.newInstance();
+		List<ReplyVO> list=bdao.replyListData(Integer.parseInt(bno), 2);
 		/*
 		 * String addr=vo.getAddr();
 		 * addr=addr.substring(addr.indexOf(" "),addr.lastIndexOf("("));
@@ -111,6 +113,7 @@ public class StayModel {
 		 * request.setAttribute("addr", addr);
 		 */
 		request.setAttribute("vo", vo);
+		request.setAttribute("list", "list");
 		
 		request.setAttribute("main_jsp", "../stay/hdetail.jsp");
 		return "../main/main.jsp";

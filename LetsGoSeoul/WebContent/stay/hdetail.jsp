@@ -122,11 +122,26 @@
                                     <c:if test="${sessionScope.id==rvo.id }">
                                     <div class="reply-btn">
                                        <a href="#" class="btn-reply text-uppercase">Edit</a>
-                                       <a href="#" class="btn-reply text-uppercase">Delete</a>
+                                       <a href="../stay/hdetail_reply_delete.do?no=${rvo.no }&bno=${vo.no}" class="btn-reply text-uppercase">Delete</a>
                                     </div>
                                     </c:if>
                                  </div>
                               </div>
+                              <form class="form-contact comment_form" method="post" action="../stay/hdetail_reply_update.do" id="u${rvo.no }" style="display:none">
+                                <div class="row">
+                                  <div class="col-12">
+                                    <div class="form-group">
+                                      <textarea class="form-control w-100" name="msg" id="msg" cols="30" rows="9"
+                                       placeholder="Write Comment">${rvo.msg }</textarea>
+                                      <input type=hidden value="${vo.no }" name="bno">
+                                      <input type=hidden value="${rvo.no }" name="no">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <button type="submit" class="button button-contactForm btn_1 boxed-btn">Edit</button>
+                                </div>
+                              </form>
                            </div>
                         </div>
                       </c:forEach>  
@@ -139,13 +154,15 @@
                         <div class="row">
                            <div class="col-12">
                               <div class="form-group">
-                                 <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                 <textarea class="form-control w-100" name="msg" id="msg" cols="30" rows="9"
                                     placeholder="Write Comment"></textarea>
+                                 <input type=hidden value="${vo.no }" name="bno">
+	                             <input type=hidden value="2" name="type">
                               </div>
                            </div>
                         </div>
                         <div class="form-group">
-                           <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Comment</button>
+                           <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send</button>
                         </div>
                      </form>
                      </c:if>
