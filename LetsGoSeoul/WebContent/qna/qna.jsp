@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+.JKHover:hover{
+	color: pink;
+}
+</style>
 <body>
 
 <!-- Hero Start-->
@@ -36,7 +41,7 @@
                               <article class="blog_item">
                                 <div class="blog_details" style="width:1000px;margin-left:10%;margin-right:auto;">             
                                     <a class="d-inline-block " href="../qna/qna_detail.do?no=${vo.no }">
-                                        <h2>${vo.subject }</h2>
+                                        <h2 class="JKHover">${vo.subject }</h2>
                                     </a>
                                     <ul class="blog-info-link">
                                         <li><i class="fa fa-check"></i>${vo.no }</li>
