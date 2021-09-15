@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <!-- Hero Start-->
         <div class="hero-area2  slider-height2 hero-overly2 d-flex align-items-center">
             <div class="container">
@@ -22,7 +23,7 @@
         </div>
 <!--Hero End -->
 <!--================Blog Area =================-->
-        <section class="blog_area section-padding">
+        <section class=" section-padding">
             <div class="container">
                 <div class="row">
                   <div class="button-group-area mt-40">
@@ -34,7 +35,7 @@
                             <c:forEach var="vo" items="${list }">
                               <article class="blog_item">
                                 <div class="blog_details" style="width:1000px;margin-left:10%;margin-right:auto;">             
-                                    <a class="d-inline-block" href="../qna/qna_detail.do?no=${vo.no }">
+                                    <a class="d-inline-block " href="../qna/qna_detail.do?no=${vo.no }">
                                         <h2>${vo.subject }</h2>
                                     </a>
                                     <ul class="blog-info-link">

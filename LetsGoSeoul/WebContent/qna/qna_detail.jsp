@@ -9,7 +9,7 @@
 </head>
 <body>
 <!--================Blog Area =================-->
-      <section class="blog_area single-post-area section-padding" style="margin-left:25%">
+      <section class="single-post-area section-padding" style="margin-left:25%">
          <div class="container">
             <div class="row">
                <div class="col-lg-8 posts-list">
@@ -58,6 +58,7 @@
                                     <c:if test="${sessionScope.id==rvo.id }">
                                     <div class="reply-btn">
                                        <a href="../qna/qna_ok" class="btn-reply text-uppercase">Edit</a>
+                                       
                                        <a href="" class="btn-reply text-uppercase">Delete</a>
                                     </div>
                                     </c:if>
