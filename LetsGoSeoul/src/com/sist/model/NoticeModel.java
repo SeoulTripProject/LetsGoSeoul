@@ -46,13 +46,12 @@ public class NoticeModel {
 	public String notice_detail(HttpServletRequest request,HttpServletResponse response)
 	{
 
-		String no=request.getParameter("no");
-
 		NoticeDAO dao=NoticeDAO.newInstance();
-
-		NoticeVO vo=dao.noticeDetailDate(Integer.parseInt(no));
-		request.setAttribute("vo", vo);
 		
+		String no=request.getParameter("no");
+		NoticeVO vo=dao.noticeDetailDate(Integer.parseInt(no));
+		
+		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../notice/notice_detail.jsp");
 		return "../main/main.jsp";
 	}

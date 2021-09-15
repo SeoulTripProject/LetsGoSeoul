@@ -119,8 +119,11 @@ public class NoticeDAO {
 			  ps.setInt(1, no);
 			  ps.executeUpdate();
 			  
-			  sql="SELECT no,name,subject,content,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit "
-			  		+ "FROM trip_notice "
+			  sql="SELECT * "
+			  		+ "FROM (SELECT no,name,subject,content,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit, "
+			  		+ "LAG(no, 1, -1) OVER(ORDER BY no ASC) AS preno, " 
+			  		+ "LEAD(no, 1, -1) OVER(ORDER BY no ASC) AS nextno " 
+			  		+ "FROM trip_notice) "
 			  		+ "WHERE no=?";
 			  ps=conn.prepareStatement(sql);
 			  ps.setInt(1, no);
@@ -132,6 +135,8 @@ public class NoticeDAO {
 			  vo.setContent(rs.getString(4));
 			  vo.setDbday(rs.getString(5));
 			  vo.setHit(rs.getInt(6));
+			  vo.setPreno(rs.getInt(7));
+			  vo.setNextno(rs.getInt(8));
 			  rs.close();
 		  }catch(Exception ex)
 		  {

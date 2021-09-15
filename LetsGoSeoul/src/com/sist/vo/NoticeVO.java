@@ -6,7 +6,20 @@ public class NoticeVO {
 	private int no,hit;
 	private String name,subject,content,dbday;
 	private Date regdate;
+	private int preno, nextno;
 	
+	public int getPreno() {
+		return preno;
+	}
+	public void setPreno(int preno) {
+		this.preno = preno;
+	}
+	public int getNextno() {
+		return nextno;
+	}
+	public void setNextno(int nextno) {
+		this.nextno = nextno;
+	}
 	public int getNo() {
 		return no;
 	}

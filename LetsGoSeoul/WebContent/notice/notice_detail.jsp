@@ -65,16 +65,16 @@
                      </div>
                      <div class="navigation-area">
                         <div class="row">
-                        <c:if test="${(no-1)!=0 }">
+                        <c:if test="${vo.preno!=null}">
                            <div
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
-                                 <a href="../notice/notice_detail.do?no=${vo.no-1 }">
+                                 <a href="../notice/notice_detail.do?no=${vo.preno }">
                                     <img class="img-fluid" src="../assets/img/post/preview.png" alt="">
                                  </a>
                               </div>
                               <div class="arrow">
-                                 <a href="../notice/notice_detail.do?no=${vo.no-1 }">
+                                 <a href="../notice/notice_detail.do?no=${vo.preno }">
                                     <span class="lnr text-white ti-arrow-left"></span>
                                  </a>
                               </div>
@@ -82,23 +82,25 @@
                                  <p>Prev NOTICE</p>
                               </div>
                            </div>
+                         </c:if>
+                         <c:if test="${vo.nextno!=null }">
                            <div
                               class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                               <div class="detials">
                                  <p>Next NOTICE</p>
                               </div>
                               <div class="arrow">
-                                 <a href="../notice/notice_detail.do?no=${vo.no+1 }">
+                                 <a href="../notice/notice_detail.do?no=${vo.nextno }">
                                     <span class="lnr text-white ti-arrow-right"></span>
                                  </a>
                               </div>
                               <div class="thumb">
-                                 <a href="../notice/notice_detail.do?no=${vo.no+1 }">
+                                 <a href="../notice/notice_detail.do?no=${vo.nextno }">
                                     <img class="img-fluid" src="../assets/img/post/next.png" alt="">
                                  </a>
                               </div>
                            </div>
-                           </c:if>
+                         </c:if>
                         </div>
                      </div>
                   </div>
