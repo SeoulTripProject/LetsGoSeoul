@@ -38,9 +38,10 @@
                                         <h2>${vo.subject }</h2>
                                     </a>
                                     <ul class="blog-info-link">
+                                        <li><i class="fa fa-check"></i>${vo.no }</li>
                                         <li><i class="fa fa-user"></i>${vo.name }</li>
-                                        <li><i class="fa fa-comments"></i>${vo.regdate }</li>
-                                        <li><i class="fa fa-comments"></i>${vo.hit }</li>
+                                        <li><i class="fa fa-calendar"></i>${vo.dbday }</li>
+                                        <li><i class="fa fa-eye"></i>${vo.hit }</li>
                                     </ul>
                                   
                                 </div>

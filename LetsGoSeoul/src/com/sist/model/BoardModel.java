@@ -117,7 +117,7 @@ public class BoardModel {
 		  return "../main/main.jsp";
 	  }
 	  @RequestMapping("board/freeboard_upok.do")
-	  public String freeboard_update_ok(HttpServletRequest request,HttpServletResponse response)
+	  public String freeboard_upok(HttpServletRequest request,HttpServletResponse response)
 	  {
 
 		  try
@@ -157,7 +157,7 @@ public class BoardModel {
 		  return "../main/main.jsp"; 
 	  }
 	  @RequestMapping("board/freeboard_delok.do")
-	  public String freeboard_delete_ok(HttpServletRequest request,HttpServletResponse response)
+	  public String freeboard_delok(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  
 		  String pwd=request.getParameter("pwd");

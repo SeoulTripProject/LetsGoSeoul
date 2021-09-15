@@ -43,7 +43,7 @@ public class BoardDAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT no,subject,name,content,regdate,hit,num "
+			   String sql="SELECT no,subject,name,content,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit,num "
 					     +"FROM (SELECT no,subject,name,content,regdate,hit,rownum as num "
 					     +"FROM (SELECT no,subject,name,content,regdate,hit "
 					     +"FROM trip_freeboard ORDER BY no DESC)) "
@@ -63,7 +63,7 @@ public class BoardDAO {
 				   vo.setSubject(rs.getString(2));
 				   vo.setName(rs.getString(3));
 				   vo.setContent(rs.getString(4));
-				   vo.setRegdate(rs.getDate(5));
+				   vo.setDbday(rs.getString(5));
 				   vo.setHit(rs.getInt(6));
 				   list.add(vo);
 			   }
@@ -115,7 +115,7 @@ public class BoardDAO {
 			   ps.setInt(1, no);
 			   ps.executeUpdate(); 
 
-			   sql="SELECT no,name,subject,content,regdate,hit "
+			   sql="SELECT no,name,subject,content,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit "
 				  +"FROM trip_freeboard "
 				  +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
@@ -126,7 +126,7 @@ public class BoardDAO {
 			   vo.setSubject(rs.getString(3));
 			   vo.setName(rs.getString(2));
 			   vo.setContent(rs.getString(4));
-			   vo.setRegdate(rs.getDate(5));
+			   vo.setDbday(rs.getString(5));
 			   vo.setHit(rs.getInt(6));
 			   rs.close();
 		   }catch(Exception ex)
