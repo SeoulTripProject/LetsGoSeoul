@@ -41,12 +41,7 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span><a href="../stay/gdetail.do?no=${vo.no}">Open</a></span>
-	                      <a href="../stay/gdetail.do?no=${vo.no}"></a>
-	                     <div class="list-footer">
-	                       <ul>
-	                        <li>${vo.sname }</li>
-	                       </ul>
-	                     </div>
+	                      <a href="../stay/gdetail.do?no=${vo.no}"><h5>${vo.sname }</h5></a>
 	                   </div>
 	                 </div>
 	                 </div>
@@ -60,12 +55,7 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span><a href="../stay/gdetail.do?no=${vo.no}">Open</a></span>
-	                      <a href="../stay/gdetail.do?no=${vo.no}"></a>
-	                     <div class="list-footer">
-	                       <ul>
-	                        <li>${vo.sname }</li>
-	                       </ul>
-	                     </div>
+	                      <a href="../stay/gdetail.do?no=${vo.no}"><h5>${vo.sname }</h5></a>
 	                   </div>
 	                 </div>
 	                </div>

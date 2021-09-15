@@ -319,6 +319,9 @@ public class StayDAO {
 			}
 			return vo;
 		}
+		
+		//È£ÅÚ ¸®ºä ´ñ±Û
+		
 
 	
 
