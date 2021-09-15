@@ -45,7 +45,7 @@ public class AttraModel {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		List<AttraVO> list=dao.LandmarkData(curpage);
+		List<AttraVO> Llist=dao.LandmarkData(curpage);
 		int totalpage=dao.LandmarkTotalPage();
 		
 		final int BLOCK=5;
@@ -57,7 +57,7 @@ public class AttraModel {
 		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
-		request.setAttribute("list", list);
+		request.setAttribute("Llist", Llist);
 		request.setAttribute("BLOCK", BLOCK);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
@@ -78,7 +78,7 @@ public class AttraModel {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		List<AttraVO> list=dao.PalaceData(curpage);
+		List<AttraVO> Plist=dao.PalaceData(curpage);
 		int totalpage=dao.PalaceTotalPage();
 		
 		final int BLOCK=5;
@@ -90,7 +90,7 @@ public class AttraModel {
 		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
-		request.setAttribute("list", list);
+		request.setAttribute("Plist", Plist);
 		request.setAttribute("BLOCK", BLOCK);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
@@ -111,7 +111,7 @@ public class AttraModel {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		List<AttraVO> list=dao.HistoricData(curpage);
+		List<AttraVO> Hlist=dao.HistoricData(curpage);
 		int totalpage=dao.HistoricTotalPage();
 		
 		final int BLOCK=5;
@@ -123,7 +123,7 @@ public class AttraModel {
 		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
-		request.setAttribute("list", list);
+		request.setAttribute("Hlist", Hlist);
 		request.setAttribute("BLOCK", BLOCK);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
@@ -145,7 +145,7 @@ public class AttraModel {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		List<AttraVO> list=dao.OldData(curpage);
+		List<AttraVO> Olist=dao.OldData(curpage);
 		int totalpage=dao.OldTotalPage();
 		
 		final int BLOCK=5;
@@ -157,7 +157,7 @@ public class AttraModel {
 		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
-		request.setAttribute("list", list);
+		request.setAttribute("Olist", Olist);
 		request.setAttribute("BLOCK", BLOCK);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
@@ -178,7 +178,7 @@ public class AttraModel {
 			page="1";
 		}
 		int curpage=Integer.parseInt(page);
-		List<AttraVO> list=dao.MuseumData(curpage);
+		List<AttraVO> Mlist=dao.MuseumData(curpage);
 		int totalpage=dao.MuseumTotalPage();
 		
 		final int BLOCK=5;
@@ -190,7 +190,7 @@ public class AttraModel {
 		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
-		request.setAttribute("list", list);
+		request.setAttribute("Mlist", Mlist);
 		request.setAttribute("BLOCK", BLOCK);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);

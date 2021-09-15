@@ -43,7 +43,7 @@ public class QnADAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT no,subject,name,content,regdate,hit,num "
+			   String sql="SELECT no,subject,name,content,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit,num "
 					     +"FROM (SELECT no,subject,name,content,regdate,hit,rownum as num "
 					     +"FROM (SELECT no,subject,name,content,regdate,hit "
 					     +"FROM trip_qna ORDER BY no DESC)) "
@@ -63,7 +63,7 @@ public class QnADAO {
 				   vo.setSubject(rs.getString(2));
 				   vo.setName(rs.getString(3));
 				   vo.setContent(rs.getString(4));
-				   vo.setRegdate(rs.getDate(5));
+				   vo.setDbday(rs.getString(5));
 				   vo.setHit(rs.getInt(6));
 				   list.add(vo);
 			   }
@@ -115,7 +115,7 @@ public class QnADAO {
 			   ps.setInt(1, no);
 			   ps.executeUpdate(); 
 
-			   sql="SELECT no,name,subject,content,regdate,hit "
+			   sql="SELECT no,name,subject,content,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit "
 				  +"FROM trip_qna "
 				  +"WHERE no=?";
 			   ps=conn.prepareStatement(sql);
@@ -126,7 +126,7 @@ public class QnADAO {
 			   vo.setSubject(rs.getString(3));
 			   vo.setName(rs.getString(2));
 			   vo.setContent(rs.getString(4));
-			   vo.setRegdate(rs.getDate(5));
+			   vo.setDbday(rs.getString(5));
 			   vo.setHit(rs.getInt(6));
 			   rs.close();
 		   }catch(Exception ex)
@@ -231,7 +231,7 @@ public class QnADAO {
 			   if(pwd.equals(db_pwd)) 
 			   {
 				   bCheck=true;
-				   sql="DELETE FROM trip_reply "
+				   sql="DELETE FROM trip_qQReply "
 					  +"WHERE bno=?";
 				   ps=conn.prepareStatement(sql);
 				   ps.setInt(1, no);
@@ -292,24 +292,24 @@ public class QnADAO {
 			   disConnection();
 		   }
 	   }
-	   public List<ReplyVO> replyListData(int bno,int type)
+	   public List<QReplyVO> QReplyListData(int qno)
 	   {
-		   List<ReplyVO> list=new ArrayList<ReplyVO>();
+		   List<QReplyVO> list=new ArrayList<QReplyVO>();
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT no,bno,id,name,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:ss') "
-					     +"FROM trip_reply "
-					     +"WHERE bno=? AND type=?";
+			   String sql="SELECT no,qno,id,name,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:ss') "
+					     +"FROM trip_QReply "
+					     +"WHERE qno=?";
 			   ps=conn.prepareStatement(sql);
-			   ps.setInt(1, bno);
-			   ps.setInt(2, type);
+			   ps.setInt(1, qno);
+			   
 			   ResultSet rs=ps.executeQuery();
 			   while(rs.next())
 			   {
-				   ReplyVO vo=new ReplyVO();
+				   QReplyVO vo=new QReplyVO();
 				   vo.setNo(rs.getInt(1));
-				   vo.setBno(rs.getInt(2));
+				   vo.setQno(rs.getInt(2));
 				   vo.setId(rs.getString(3));
 				   vo.setName(rs.getString(4));
 				   vo.setMsg(rs.getString(5));
@@ -330,16 +330,16 @@ public class QnADAO {
 	   }
 	   
 
-	   public void replyInsert(ReplyVO vo)
+	   public void QReplyInsert(QReplyVO vo)
 	   {
 		   try
 		   {
 			   getConnection();
-			   String sql="INSERT INTO trip_reply VALUES("
-			   		+ "tq_no_seq.nextval,?,?,?,?,?,SYSDATE)";
+			   String sql="INSERT INTO trip_QReply VALUES("
+			   		+ "tqr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
 			   ps=conn.prepareStatement(sql);
-			   ps.setInt(1, vo.getBno());
-			   ps.setInt(2, vo.getType());
+			   ps.setInt(1, vo.getNo());
+			   ps.setInt(2, vo.getQno());
 			   ps.setString(3, vo.getId());
 			   ps.setString(4, vo.getName());
 			   ps.setString(5, vo.getMsg());
@@ -354,12 +354,12 @@ public class QnADAO {
 		   }
 	   }
 
-	   public void replyUpdate(int no,String msg)
+	   public void QReplyUpdate(int no,String msg)
 	   {
 		   try
 		   {
 			   getConnection();
-			   String sql="UPDATE trip_reply SET "
+			   String sql="UPDATE trip_QReply SET "
 			   		+ "msg=? "
 			   		+ "WHERE no=?";
 			   ps=conn.prepareStatement(sql);
@@ -377,12 +377,12 @@ public class QnADAO {
 		   }
 	   }
 
-	   public void replyDelete(int no)
+	   public void QReplyDelete(int no)
 	   {
 		   try
 		   {
 			   getConnection();
-			   String sql="DELETE FROM trip_reply WHERE no=?";
+			   String sql="DELETE FROM trip_QReply WHERE no=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, no);
 			   ps.executeUpdate();

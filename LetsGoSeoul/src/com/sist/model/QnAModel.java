@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.QnADAO;
+import com.sist.vo.QReplyVO;
 import com.sist.vo.QnAVO;
 import com.sist.vo.ReplyVO;
 
@@ -96,7 +97,7 @@ public class QnAModel {
 
 		  QnAVO vo=dao.qnaDetailData(Integer.parseInt(no));
 
-		  List<ReplyVO> list=dao.replyListData(Integer.parseInt(no), 1);
+		  List<QReplyVO> list=dao.QReplyListData(Integer.parseInt(no));
 		  request.setAttribute("list", list);
 		  request.setAttribute("vo", vo);
 		  request.setAttribute("main_jsp", "../qna/qna_detail.jsp");
@@ -182,8 +183,7 @@ public class QnAModel {
 		  }catch(Exception ex) {}
 		  
 
-		  String bno=request.getParameter("bno");
-		  String type=request.getParameter("type");
+		  String qno=request.getParameter("qno");
 		  String msg=request.getParameter("msg");
 		  
 		  HttpSession session=request.getSession();
@@ -191,18 +191,17 @@ public class QnAModel {
 		  String name=(String)session.getAttribute("name");
 		  
 
-		  ReplyVO vo=new ReplyVO();
-		  vo.setBno(Integer.parseInt(bno));
+		  QReplyVO vo=new QReplyVO();
+		  vo.setQno(Integer.parseInt(qno));
 		  vo.setId(id);
 		  vo.setName(name);
-		  vo.setType(Integer.parseInt(type));
 		  vo.setMsg(msg);
 
 		  QnADAO dao=QnADAO.newInstance();
 
-		  dao.replyInsert(vo);
+		  dao.QReplyInsert(vo);
 		  
-		  return "redirect:../qna/qna_detail.do?no="+bno;
+		  return "redirect:../qna/qna_detail.do?no="+qno;
 
 	  }
 	  
@@ -211,14 +210,14 @@ public class QnAModel {
 	  {
 
 		  String no=request.getParameter("no"); 
-		  String bno=request.getParameter("bno");
+		  String qno=request.getParameter("qno");
 		  
 
 		  QnADAO dao=QnADAO.newInstance();
 
-		  dao.replyDelete(Integer.parseInt(no));
+		  dao.QReplyDelete(Integer.parseInt(no));
 		  
-		  return "redirect:../qna/qna_detail.do?no="+bno;
+		  return "redirect:../qna/qna_detail.do?no="+qno;
 	  }
 	  
 	  @RequestMapping("qna/qna_reply_update.do")
@@ -231,14 +230,14 @@ public class QnAModel {
 		  }catch(Exception ex) {}
 		  
 		  String no=request.getParameter("no");
-		  String bno=request.getParameter("bno");
+		  String qno=request.getParameter("qno");
 		  String msg=request.getParameter("msg");
 		  
 		  
 		  QnADAO dao=QnADAO.newInstance();
 		  
-		  dao.replyUpdate(Integer.parseInt(no), msg);
+		  dao.QReplyUpdate(Integer.parseInt(no), msg);
 		  
-		  return "redirect:../qna/qna_detail.do?no="+bno;
+		  return "redirect:../qna/qna_detail.do?no="+qno;
 	  }
 }

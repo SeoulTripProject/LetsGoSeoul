@@ -12,6 +12,9 @@
 .col-3{
 	display: inline;
 }
+.title{
+	color: black;
+}
 </style>
 </head>
 <body>
@@ -35,24 +38,24 @@
                  <div class="row">
 	                  <c:forEach var="lvo" items="${Llist }" varStatus="s">
 	                   <c:if test="${s.index%4==0 }">
-	                   <div class="col-md-3 ">
-                        <div class="single-listing mb-30">
-	                     <div class="list-img">
-	                       <img src="${lvo.poster }" style="width:360px;height:251px">
-	                          <!-- <span>Open</span> -->
-	                     </div>
-	                   <div class="list-caption">
-	                     <span>Open</span>
-	                      <a href="../attraction/landmark_detail.do?no=${no}">${lvo.title }</a>
-	                     <div class="list-footer">
-	                       <ul>
-	                         
-						        <li>&nbsp;&nbsp;${lvo.addr }</li>
-	                       </ul>
-	                     </div>
-	                   </div>
-	                 </div>
-	                 </div>
+		                   <div class="col-md-3 ">
+	                        <div class="single-listing mb-30">
+		                     <div class="list-img">
+		                       <img src="${lvo.poster }" style="width:360px;height:251px">
+		                          <!-- <span>Open</span> -->
+		                     </div>
+		                   <div class="list-caption">
+		                     <span>Open</span>
+		                      <a class="title" href="../attraction/landmark_detail.do?no=${no}">${lvo.title }</a>
+		                     <div class="list-footer">
+		                       <ul>
+		                         
+							        <li>&nbsp;&nbsp;${lvo.intro }</li>
+		                       </ul>
+		                     </div>
+		                   </div>
+		                 </div>
+		                 </div>
 	                 </c:if>
 	                 <c:if test="${s.index%4!=0 }">
 	                   <div class="col-md-3 ">
@@ -63,7 +66,7 @@
 	                     </div>
 	                   <div class="list-caption">
 	                     <span>Open</span>
-	                      <a href="../attraction/landmark_detail.do?no=${tno}"> "${lvo.title }"</a>
+	                      <a class="title" href="../attraction/landmark_detail.do?no=${tno}"> ${lvo.title }</a>
 	                     <div class="list-footer">
 	                       <ul>
 	                        <li>&nbsp;&nbsp;${lvo.intro }</li>
@@ -93,9 +96,9 @@
 							        <c:if test="${curpage!=i }">
 							           <c:set var="ss" value=""/>
 							        </c:if>
-							        <li ${ss } class="page-item"><a href="../attraction/landmark?page=${i }" class="page-link">${i }</a></li>
+							        <li ${ss } class="page-item"><a href="../attraction/landmark.do?page=${i }" class="page-link">${i }</a></li>
 							     </c:forEach>
-							     <li class="page-item"><a class="page-link" href="../attraction/landmark?page=${i+1 }"><span class="ti-angle-right"></span></a></li>
+							     <li class="page-item"><a class="page-link" href="../attraction/landmark.do?page=${curpage+1 }"><span class="ti-angle-right"></span></a></li>
 							    </ul>
                               </nav>
                           </div>
