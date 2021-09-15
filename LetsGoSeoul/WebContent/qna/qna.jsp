@@ -40,7 +40,7 @@
                                     <ul class="blog-info-link">
                                         <li><i class="fa fa-check"></i>${vo.no }</li>
                                         <li><i class="fa fa-user"></i>${vo.name }</li>
-                                        <li><i class="fa fa-calendar"></i>${vo.regdate }</li>
+                                        <li><i class="fa fa-calendar"></i>${vo.dbday }</li>
                                         <li><i class="fa fa-eye"></i>${vo.hit }</li>
                                     </ul>
                                   

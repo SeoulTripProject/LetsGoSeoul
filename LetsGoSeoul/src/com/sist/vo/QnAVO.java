@@ -12,9 +12,16 @@ import java.util.*;
 
 public class QnAVO {
 	private int no,hit;
-	private String name,subject,content,pwd;
+	private String name,subject,content,pwd,dbday;
 	private Date regdate;
 	
+	
+	public String getDbday() {
+		return dbday;
+	}
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
+	}
 	public String getPwd() {
 		return pwd;
 	}
