@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 let u=0;
 $(function(){
@@ -27,7 +27,7 @@ $(function(){
 		}
 	})
 })
-</script> -->
+</script>
 <style type="text/css">
 .hero-area4 {
   background-image: url(../assets/img/hero/hero2.jpg);
@@ -115,11 +115,12 @@ $(function(){
                      <div class="comment-list">
                       <c:forEach var="rvo" items="${list }">
                         <div class="single-comment justify-content-between d-flex">
-                           <div class="user justify-content-between d-flex">
+                           <div class="user justify-content-between d-flex" style="margin-bottom: 8%">
                               <div class="thumb">
                                  <img src="assets/img/comment/comment_3.png" alt="">
                               </div>
                               <div class="desc">
+                                
                                  <p class="comment">${rvo.msg }</p>
                                  <div class="d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
@@ -130,13 +131,15 @@ $(function(){
                                     </div>
                                     <c:if test="${sessionScope.id==rvo.id }">
                                     <div class="reply-btn">
-                                       <a href="#" class="btn-reply text-uppercase">Edit</a>
+                                       <a href="#" class="btn-reply ubtn text-uppercase" data-no="${rvo.no }">Edit</a>
                                        <a href="../board/freeboard_reply_delete.do?no=${rvo.no }&bno=${vo.no}" class="btn-reply text-uppercase">Delete</a>
                                     </div>
                                     </c:if>
                                  </div>
                               </div>
-                              <form class="form-contact comment_form" method="post" action="../board/freeboard_reply_update.do" id="u${rvo.no }" style="display:none">
+                           </div>
+                        </div>
+                        <form class="form-contact comment_form" method="post" action="../board/freeboard_reply_update.do" id="u${rvo.no }" style="display:none">
                                 <div class="row">
                                   <div class="col-12">
                                     <div class="form-group">
@@ -145,14 +148,12 @@ $(function(){
                                       <input type=hidden value="${vo.no }" name="bno">
                                       <input type=hidden value="${rvo.no }" name="no">
                                     </div>
+                                    <div class="form-group">
+                                      <input type="submit" class="button button-contactForm btn_1 boxed-btn" value="Edit">
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="form-group">
-                                  <button type="submit" class="button button-contactForm btn_1 boxed-btn">Edit</button>
-                                </div>
                               </form>
-                           </div>
-                        </div>
                       </c:forEach>  
                      </div>
                   </div>
