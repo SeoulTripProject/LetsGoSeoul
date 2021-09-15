@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="list-caption">
                                                 <span><a href="../food/food_detail.do?no=${vo.no }">Detail</a></span>
-                                                <h3><a href="../stay/food_list.do?no=${no}">${vo.rname }</a></h3>
+                                                <h3><a href="../food/food_detail.do?no=${vo.no}">${vo.rname }</a></h3>
                                                 <p>${vo.address }</p>
                                                 <div class="list-footer">
                                                     <ul>

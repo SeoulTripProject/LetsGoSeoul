@@ -101,40 +101,42 @@
                      </div>
                        <div class="navigation-area">
                         <div class="row">
-                        <c:if test="${(no-1)!=0 }">
+                        <c:if test="${vo.preno!=null}">
                            <div
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
-                                 <a href="../food/food_detail.do?no=${vo.no-1 }">
+                                 <a href="../food/food_detail.do?no=${vo.preno }">
                                     <img class="img-fluid" src="../assets/img/post/preview.png" alt="">
                                  </a>
                               </div>
                               <div class="arrow">
-                                 <a href="../food/food_detail.do?no=${vo.no-1 }">
+                                 <a href="../food/food_detail.do?no=${vo.preno }">
                                     <span class="lnr text-white ti-arrow-left"></span>
                                  </a>
                               </div>
                               <div class="detials">
-                                 <p>Prev Post</p>
+                                 <p>Prev POST</p>
                               </div>
                            </div>
+                         </c:if>
+                         <c:if test="${vo.nextno!=null }">
                            <div
                               class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                               <div class="detials">
-                                 <p>Next Post</p>
+                                 <p>Next PST</p>
                               </div>
                               <div class="arrow">
-                                 <a href="../food/food_detail.do?no=${vo.no+1 }">
+                                 <a href="../food/food_detail.do?no=${vo.nextno }">
                                     <span class="lnr text-white ti-arrow-right"></span>
                                  </a>
                               </div>
                               <div class="thumb">
-                                 <a href="../food/food_detail.do?no=${vo.no+1 }">
+                                 <a href="../food/food_detail.do?no=${vo.nextno }">
                                     <img class="img-fluid" src="../assets/img/post/next.png" alt="">
                                  </a>
                               </div>
                            </div>
-                           </c:if>
+                         </c:if>
                         </div>
                      </div>
                   </div>
@@ -253,21 +255,46 @@
                </div>
                <div class="col-lg-4">
                   <div class="blog_right_sidebar">
-                     <aside class="single_sidebar_widget search_widget">
-                        <form action="#">
-                           <div class="form-group">
-                              <div class="input-group mb-3">
-                                 <input type="text" class="form-control" placeholder='Search Keyword'
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
-                                 <div class="input-group-append">
-                                    <button class="btns" type="button"><i class="ti-search"></i></button>
-                                 </div>
-                              </div>
-                           </div>
-                           <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                              type="submit">Search</button>
-                        </form>
-                     </aside>
+                    <div id="map" style="width:100%;height:350px;"></div>
+                      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b1f7be3cfeaa44ff7fc1c8ffcc72b6bc&libraries=services"></script>
+						<script>
+						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+							mapOption = {
+							center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+							level: 3 // 지도의 확대 레벨
+							};  
+										
+						// 지도를 생성합니다    
+						var map = new kakao.maps.Map(mapContainer, mapOption); 
+										
+						// 주소-좌표 변환 객체를 생성합니다
+						var geocoder = new kakao.maps.services.Geocoder();
+										
+						// 주소로 좌표를 검색합니다
+						geocoder.addressSearch('${vo.addr1}', function(result, status) {
+										
+						// 정상적으로 검색이 완료됐으면 
+						if (status === kakao.maps.services.Status.OK) {
+										
+						var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+										
+						// 결과값으로 받은 위치를 마커로 표시합니다
+						var marker = new kakao.maps.Marker({
+							map: map,
+							position: coords
+						});
+										
+						// 인포윈도우로 장소에 대한 설명을 표시합니다
+						var infowindow = new kakao.maps.InfoWindow({
+							content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.rname}</div>'
+							});
+							infowindow.open(map, marker);
+										
+						// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+						map.setCenter(coords);
+							} 
+						});    
+						</script>
                      <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Category</h4>
                         <ul class="list cat-list">

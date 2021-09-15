@@ -25,7 +25,7 @@ $(function(){
                             <!-- Logo -->
                             <div class="col-xl-1 col-lg-1 col-md-1">
                                 <div class="logo">
-                                  <a href="../main/main.do"><img src="../assets/img/logo/logo.png" alt=""></a>
+                                  <a href="../main/main.do"><img src="../assets/img/logo/tLogo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-11 col-lg-11 col-md-8">
@@ -57,6 +57,7 @@ $(function(){
                                             <li><a href="../food/food_main.do">Restaurants</a>
                                                 <ul class="submenu">
                                                     <li><a href="../food/food_list.do">Restaurant List</a></li>
+                                                    <li><a href="../food/food_area.do">Explore By Area</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Board</a>

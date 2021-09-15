@@ -22,7 +22,20 @@ public class FoodVO {
 	private double score;
 	private String poster, rname, address, tel, rtype, price, parking, openHour, menu, rtag;
 	private String addr1, addr2;
+	private int preno, nextno;
 	
+	public int getPreno() {
+		return preno;
+	}
+	public void setPreno(int preno) {
+		this.preno = preno;
+	}
+	public int getNextno() {
+		return nextno;
+	}
+	public void setNextno(int nextno) {
+		this.nextno = nextno;
+	}
 	public String getAddr1() {
 		return addr1;
 	}

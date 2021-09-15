@@ -254,10 +254,12 @@ public class FoodDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT no, poster, rname, score, addr, tel, rtype, "
-					+ "price, parking, openHour, menu, good, soso, bad, rno, rtag "
-					+ "FROM trip_R "
-					+ "WHERE no=?";
+			String sql="SELECT * FROM "
+					+ "(SELECT no, poster, rname, score, addr, tel, rtype, "
+					+ "price, parking, openHour, menu, good, soso, bad, rno, rtag, "
+					+ "LAG(no, 1, -1) OVER(ORDER BY no ASC) AS preno, " 
+			  		+ "LEAD(no, 1, -1) OVER(ORDER BY no ASC) AS nextno "
+					+ "FROM trip_R) WHERE no=?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, no);
 			ResultSet rs=ps.executeQuery();
@@ -278,6 +280,8 @@ public class FoodDAO {
 			vo.setBad(rs.getInt(14));
 			vo.setRno(rs.getInt(15));
 			vo.setRtag(rs.getString(16));
+			vo.setPreno(rs.getInt(17));
+			vo.setNextno(rs.getInt(18));
 			rs.close();
 		}catch(Exception ex)
 		{
