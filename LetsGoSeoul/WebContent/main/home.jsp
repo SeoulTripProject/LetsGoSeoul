@@ -23,6 +23,13 @@
             <link rel="stylesheet" href="../../assets/css/slick.css">
             <link rel="stylesheet" href="../../assets/css/nice-select.css">
             <link rel="stylesheet" href="../../assets/css/style.css">
+        <style type="text/css">
+        .slider-area {
+		  background-image: url(../assets/img/hero/namsan.jpg);
+		  background-size: cover;
+		  background-repeat: no-repeat;
+		}
+        </style>
    </head>
 <body>
 <main>

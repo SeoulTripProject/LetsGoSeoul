@@ -10,6 +10,12 @@
 .col-3{
 	display: inline;
 }
+.hero-area3 {
+  background-image: url(../assets/img/hero/river.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
 </style>
 </head>
 <body>
