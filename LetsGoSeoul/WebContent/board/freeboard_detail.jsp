@@ -176,7 +176,7 @@ $(function(){
                      </form>
                      </c:if>
                   </div>
-               </div>
+            </div>
          </div>
       </section>
       <!--================ Blog Area end =================-->
