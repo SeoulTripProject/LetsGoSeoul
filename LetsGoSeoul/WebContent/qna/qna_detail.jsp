@@ -50,8 +50,8 @@
                                  </a>
                               </div>
                               <div class="detials">
-                                 <p>Prev Post</p>
-                                 <a href="../qna/qna_detail?no=${vo.no-1 }">
+                                 <a href="../qna/qna_detail?no=${vo.no-1}">
+                                    <h4>Prev</h4>
                                  </a>
                               </div>
                            </div>
@@ -59,7 +59,7 @@
                               class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                               <div class="detials">
                                  <p>Next Post</p>
-                                 <a href="../qna/qna_detail?no=${vo.no+1 }">
+                                 <a href="../qna/qna_detail?no=${vo.no }">
                                  </a>
                               </div>
                               <div class="arrow">
