@@ -13,6 +13,43 @@
   background-repeat: no-repeat;
   min-height: 500px;
 }
+button{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
 </style>
 </head>
 <body>
@@ -60,11 +97,16 @@
                         <p class="excert">
                         	e-mail : ${vo.email } 
                         </p>
-                        <%-- <c:if test="${vo.webLink!=' ' }">
-                        <p class="excert">
-                        	예약 : ${vo.webLink }
-                        </p>
-                        </c:if> --%>
+                        <c:if test="${vo.webLink!=' ' }">
+                          <div class="text-right">
+                           <button class="text-right" id="rbtn">
+                            <a href="${vo.webLink }">
+                              <span>reservation
+                              </span>
+                            </a>
+                           </button>
+                          </div>
+                        </c:if>
                         <p class="excert">
                         	구사언어 : ${vo.langu } 
                         </p>
@@ -134,118 +176,7 @@
                         </div>
                      </div>
                   </div>
-                  <div class="comments-area">
-                     <h4>05 Comments</h4>
-                     <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                           <div class="user justify-content-between d-flex">
-                              <div class="thumb">
-                                 <img src="../assets/img/comment/comment_1.png" alt="">
-                              </div>
-                              <div class="desc">
-                                 <p class="comment">
-                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                 </p>
-                                 <div class="d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                       <h5>
-                                          <a href="#">Emilly Blunt</a>
-                                       </h5>
-                                       <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    </div>
-                                    <div class="reply-btn">
-                                       <a href="#" class="btn-reply text-uppercase">reply</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                           <div class="user justify-content-between d-flex">
-                              <div class="thumb">
-                                 <img src="../assets/img/comment/comment_2.png" alt="">
-                              </div>
-                              <div class="desc">
-                                 <p class="comment">
-                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                 </p>
-                                 <div class="d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                       <h5>
-                                          <a href="#">Emilly Blunt</a>
-                                       </h5>
-                                       <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    </div>
-                                    <div class="reply-btn">
-                                       <a href="#" class="btn-reply text-uppercase">reply</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                           <div class="user justify-content-between d-flex">
-                              <div class="thumb">
-                                 <img src="../assets/img/comment/comment_3.png" alt="">
-                              </div>
-                              <div class="desc">
-                                 <p class="comment">
-                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                 </p>
-                                 <div class="d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                       <h5>
-                                          <a href="#">Emilly Blunt</a>
-                                       </h5>
-                                       <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    </div>
-                                    <div class="reply-btn">
-                                       <a href="#" class="btn-reply text-uppercase">reply</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="comment-form">
-                     <h4>Leave a Reply</h4>
-                     <form class="form-contact comment_form" action="#" id="commentForm">
-                        <div class="row">
-                           <div class="col-12">
-                              <div class="form-group">
-                                 <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
-                                    placeholder="Write Comment"></textarea>
-                              </div>
-                           </div>
-                           <div class="col-sm-6">
-                              <div class="form-group">
-                                 <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                              </div>
-                           </div>
-                           <div class="col-sm-6">
-                              <div class="form-group">
-                                 <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                              </div>
-                           </div>
-                           <div class="col-12">
-                              <div class="form-group">
-                                 <input class="form-control" name="website" id="website" type="text" placeholder="Website">
-                              </div>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
-                        </div>
-                     </form>
-                  </div>
+                  
                </div>
                <div class="col-lg-4"> 
                 <div id="map" style="width:100%;height:350px;"></div>
@@ -287,7 +218,16 @@
 			              map.setCenter(coords);
 			          } 
 			      });    
-			      </script>  
+			      </script>
+			      <br>
+			      <div class="text-center">
+		           <button class="text-right" id="rbtn">
+		             <a href="../stay/ghouse.do">
+		               <span>List
+		               </span>
+		             </a>
+		           </button>
+		         </div>  
                </div>
             </div>
          </div>

@@ -320,7 +320,41 @@ public class StayDAO {
 			return vo;
 		}
 		
-		//È£ÅÚ ¸®ºä ´ñ±Û
+		public List<FoodVO> seoulFoodListData(String gu)
+	   {
+		  List<FoodVO> list=new ArrayList<FoodVO>();
+		  try
+		  {
+			  getConnection();
+			  String sql="SELECT no,poster,name,rownum "
+			  		+ "FROM (SELECT no,poster,name "
+			  		+ "FROM trip_R WHERE address LIKE '%'||?||'%' ORDER BY no ASC) "
+			  		+ "WHERE rownum<=10";
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, gu);
+			  ResultSet rs=ps.executeQuery();
+			  while(rs.next())
+			  {
+				  FoodVO vo=new FoodVO();
+				  vo.setNo(rs.getInt(1));
+				  String image=rs.getString(2);
+				  image=image.substring(0,image.indexOf("^"));
+				  image=image.replace("#", "&");
+				  vo.setPoster(image);
+				  vo.setRname(rs.getString(3));
+				  list.add(vo);
+			  }
+			  rs.close();
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  disConnection();
+		  }
+		  return list;
+	  }
 		
 
 	
