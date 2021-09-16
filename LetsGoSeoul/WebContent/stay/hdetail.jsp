@@ -13,6 +13,43 @@
   background-repeat: no-repeat;
   min-height: 500px;
 }
+button{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
 </style>
 </head>
 <body>
@@ -50,11 +87,16 @@
                         <p class="excert">
 				                        주소 : ${vo.addr }
                         </p>
-                        <%-- <c:if test="${vo.webLink!=' ' }">
-                        <p class="excert">
-                        	예약 : ${vo.webLink }
-                        </p>
-                        </c:if> --%>
+                        <c:if test="${vo.webLink!=' ' }">
+                          <div class="text-right">
+                           <button class="text-right" id="rbtn">
+                            <a href="${vo.webLink }">
+                              <span>reservation
+                              </span>
+                            </a>
+                           </button>
+                          </div>
+                        </c:if>
                         <p class="excert"></p>
                      </div>
                   </div>
@@ -109,7 +151,7 @@
                      </div>
                   </div>
                   
-                  <div class="comments-area">
+                  <%-- <div class="comments-area">
                      <h4>Comments</h4>
                      <div class="comment-list">
                       <c:forEach var="rvo" items="${list }">
@@ -174,7 +216,7 @@
                         </div>
                      </form>
                      </c:if>
-                  </div>
+                  </div> --%>
               </div>
 	          <div class="col-lg-4"> 
 		      <div id="map" style="width:100%;height:350px;"></div>
@@ -217,7 +259,19 @@
 			          } 
 			      });    
 			      </script>  
+			      <br>
+			     <div class="text-center">
+		           <button class="text-right" id="rbtn">
+		             <a href="../stay/hotel.do">
+		               <span>List
+		               </span>
+		             </a>
+		           </button>
+		         </div>
 		   </div>
+		   
+           
+		   
          </div>
       </section>
       <!--================ Blog Area end =================-->
