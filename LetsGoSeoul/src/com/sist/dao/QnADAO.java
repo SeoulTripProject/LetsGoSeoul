@@ -43,10 +43,10 @@ public class QnADAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT no,subject,name,content,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit,num "
-					     +"FROM (SELECT no,subject,name,content,regdate,hit,rownum as num "
-					     +"FROM (SELECT no,subject,name,content,regdate,hit "
-					     +"FROM trip_qna ORDER BY no DESC)) "
+			   String sql="SELECT no,subject,name,content,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit,group_no,type,num "
+					     +"FROM (SELECT no,subject,name,content,regdate,hit,group_no,type,rownum as num "
+					     +"FROM (SELECT no,subject,name,content,regdate,hitgroup_no,type, "
+					     +"FROM trip_qna ORDER BY group_no DESC)) "
 					     +"WHERE num BETWEEN ? AND ?";
 			   ps=conn.prepareStatement(sql);
 			   int rowSize=10;
@@ -65,6 +65,8 @@ public class QnADAO {
 				   vo.setContent(rs.getString(4));
 				   vo.setDbday(rs.getString(5));
 				   vo.setHit(rs.getInt(6));
+				   vo.setGroup_no(rs.getInt(7));
+				   vo.setType(rs.getInt(8));
 				   list.add(vo);
 			   }
 			   rs.close();
@@ -275,7 +277,7 @@ public class QnADAO {
 		   {
 			   getConnection();
 			   String sql="INSERT INTO trip_qna(no,name,subject,content,pwd) "
-					     +"VALUES(tq_no_seq.nextval,?,?,?,?)";
+					     +"VALUES(tq_no_seq.nextval,?,?,?,?,tq_gno_seq)";
 			   ps=conn.prepareStatement(sql);
 			   ps.setString(1, vo.getName());
 			   ps.setString(2, vo.getSubject());
@@ -292,108 +294,5 @@ public class QnADAO {
 			   disConnection();
 		   }
 	   }
-	   public List<QReplyVO> QReplyListData(int qno)
-	   {
-		   List<QReplyVO> list=new ArrayList<QReplyVO>();
-		   try
-		   {
-			   getConnection();
-			   String sql="SELECT no,qno,id,name,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:ss') "
-					     +"FROM trip_QReply "
-					     +"WHERE qno=?";
-			   ps=conn.prepareStatement(sql);
-			   ps.setInt(1, qno);
-			   
-			   ResultSet rs=ps.executeQuery();
-			   while(rs.next())
-			   {
-				   QReplyVO vo=new QReplyVO();
-				   vo.setNo(rs.getInt(1));
-				   vo.setQno(rs.getInt(2));
-				   vo.setId(rs.getString(3));
-				   vo.setName(rs.getString(4));
-				   vo.setMsg(rs.getString(5));
-				   vo.setDbday(rs.getString(6));
-				   list.add(vo);
-			   }
-			   rs.close();
-			   rs.close();
-		   }catch(Exception ex)
-		   {
-			   ex.printStackTrace();
-		   }
-		   finally
-		   {
-			   disConnection();
-		   }
-		   return list;
-	   }
-	   
-
-	   public void QReplyInsert(QReplyVO vo)
-	   {
-		   try
-		   {
-			   getConnection();
-			   String sql="INSERT INTO trip_QReply VALUES("
-			   		+ "tqr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
-			   ps=conn.prepareStatement(sql);
-			   ps.setInt(1, vo.getNo());
-			   ps.setInt(2, vo.getQno());
-			   ps.setString(3, vo.getId());
-			   ps.setString(4, vo.getName());
-			   ps.setString(5, vo.getMsg());
-			   ps.executeUpdate();
-		   }catch(Exception ex)
-		   {
-			   ex.printStackTrace();
-		   }
-		   finally
-		   {
-			   disConnection();
-		   }
-	   }
-
-	   public void QReplyUpdate(int no,String msg)
-	   {
-		   try
-		   {
-			   getConnection();
-			   String sql="UPDATE trip_QReply SET "
-			   		+ "msg=? "
-			   		+ "WHERE no=?";
-			   ps=conn.prepareStatement(sql);
-			   ps.setString(1, msg);
-			   ps.setInt(2, no);
-			   ps.executeUpdate();
-		   }
-		   catch(Exception ex)
-		   {
-			   ex.printStackTrace();
-		   }
-		   finally
-		   {
-			   disConnection();
-		   }
-	   }
-
-	   public void QReplyDelete(int no)
-	   {
-		   try
-		   {
-			   getConnection();
-			   String sql="DELETE FROM trip_QReply WHERE no=?";
-			   ps=conn.prepareStatement(sql);
-			   ps.setInt(1, no);
-			   ps.executeUpdate();
-		   }
-		   catch(Exception ex)
-		   {
-			   ex.printStackTrace();
-		   }
-		   finally
-		   {
-			   disConnection();
-		   }
-	   }
 }
+	   

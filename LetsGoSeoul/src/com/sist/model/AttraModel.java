@@ -8,7 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.AttraDAO;
+import com.sist.dao.CultureDAO;
+import com.sist.dao.FoodDAO;
 import com.sist.vo.AttraVO;
+import com.sist.vo.ExbitVO;
+import com.sist.vo.FoodVO;
 
 
 @Controller
@@ -65,6 +69,26 @@ public class AttraModel {
 		request.setAttribute("main_jsp","../attraction/landmark.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("attraction/landmark_detail.do")
+	   public String landmark_detail(HttpServletRequest request,HttpServletResponse response)
+	   {
+		   String no=request.getParameter("no");
+		   AttraDAO dao=AttraDAO.newInstance();
+		   AttraVO vo=dao.LandmarkDetailData(Integer.parseInt(no));
+		   String address=vo.getAddr();
+		   String addr1=address.substring(address.indexOf("서"));
+		   // 서울특별시 송파구 백제고분로41길 43-21 SANDONG빌딩
+		   String addr2=addr1.replace("일대"," ");
+		      
+		   // 결과값 보내기
+		   
+		   vo.setAddr2(addr2);
+		   request.setAttribute("vo", vo);
+		   
+		   request.setAttribute("main_jsp","../attraction/landmark_detail.jsp");
+		   return "../main/main.jsp";
+	   }
+	
 	
 	//고궁
 	@RequestMapping("attraction/palace.do")

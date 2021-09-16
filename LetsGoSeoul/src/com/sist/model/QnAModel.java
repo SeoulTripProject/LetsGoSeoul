@@ -72,6 +72,8 @@ public class QnAModel {
 		  String subject=request.getParameter("subject");
 		  String content=request.getParameter("content");
 		  String pwd=request.getParameter("pwd");
+		  String group_no=request.getParameter("group_no");
+		  String type=request.getParameter("type");
 		  
 		  
 		  QnAVO vo=new QnAVO();
@@ -97,8 +99,8 @@ public class QnAModel {
 
 		  QnAVO vo=dao.qnaDetailData(Integer.parseInt(no));
 
-		  List<QReplyVO> list=dao.QReplyListData(Integer.parseInt(no));
-		  request.setAttribute("list", list);
+		  //List<QReplyVO> list=dao.QReplyListData(Integer.parseInt(no));
+		  //request.setAttribute("list", list);
 		  request.setAttribute("vo", vo);
 		  request.setAttribute("main_jsp", "../qna/qna_detail.jsp");
 		  
@@ -174,7 +176,7 @@ public class QnAModel {
 		  return "../qna/qna_delok.jsp";// list.jsp , history.back()
 	  }
 	  
-	  @RequestMapping("qna/qna_reply_insert.do")
+	/*  @RequestMapping("qna/qna_reply_insert.do")
 	  public String reply_insert(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  try
@@ -239,5 +241,5 @@ public class QnAModel {
 		  dao.QReplyUpdate(Integer.parseInt(no), msg);
 		  
 		  return "redirect:../qna/qna_detail.do?no="+qno;
-	  }
+	  }*/
 }

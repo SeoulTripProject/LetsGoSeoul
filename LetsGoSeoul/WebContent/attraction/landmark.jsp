@@ -8,12 +8,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.col-3 {
+.col-3{
 	display: inline;
 }
-
-.title {
-	color: black;
+.list-caption{
+	width: 275px;
 }
 </style>
 </head>
@@ -45,8 +44,8 @@
 										<!-- <span>Open</span> -->
 									</div>
 									<div class="list-caption">
-										<span>Open</span> <a class="title"
-											href="../attraction/landmark_detail.do?no=${no}">${lvo.title }</a>
+										 <a class="title"
+											href="../attraction/landmark_detail.do?no=${lvo.no}">${lvo.title }</a>
 										<div class="list-footer">
 											<ul>
 												<c:out value="${fn:substring(lvo.intro,0,45) }.." />
@@ -64,12 +63,12 @@
 										<!-- <span>Open</span> -->
 									</div>
 									<div class="list-caption">
-										<span>Open</span> <a class="title"
-											href="../attraction/landmark_detail.do?no=${tno}">
+										 <a class="title"
+											href="../attraction/landmark_detail.do?no=${lvo.no}">
 											${lvo.title }</a>
 										<div class="list-footer">
 											<ul>
-												<c:out value="${fn:substring(lvo.intro,0,45) }.." />
+												<c:out value="${fn:substring(lvo.intro,0,45) }..." />
 
 											</ul>
 										</div>

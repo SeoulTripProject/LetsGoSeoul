@@ -9,7 +9,7 @@
 </head>
 <style>
 .JKHover:hover{
-	color: pink;
+	color: #46AAFF;
 }
 </style>
 <body>

@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.sist.vo.AttraVO;
+import com.sist.vo.ExbitVO;
 
 
 
@@ -168,6 +169,63 @@ public class AttraDAO {
 			disConnection();
 		}
 		return list;
+	}
+	/*
+	 *  NO      NOT NULL NUMBER         
+		ANO              NUMBER         
+		TITLE   NOT NULL VARCHAR2(1000) 
+		POSTER           VARCHAR2(1000) 
+		IMAGE            VARCHAR2(4000) 
+		INTRO            VARCHAR2(1000) 
+		TEL              VARCHAR2(1000) 
+		WEBSITE          VARCHAR2(1000) 
+		TIME             VARCHAR2(1000) 
+		HOLIDAY          VARCHAR2(1000) 
+		OPEN             VARCHAR2(1000) 
+		PRICE            VARCHAR2(1000) 
+		HANDI            VARCHAR2(1000) 
+		CAUTION          VARCHAR2(1000) 
+		ADDR             VARCHAR2(1000) 
+		TRAFFIC          VARCHAR2(1000)
+	 */
+	public AttraVO LandmarkDetailData(int no)
+	{
+		AttraVO vo=new AttraVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,title,poster,image,intro,tel,website,time,holiday,open,price,handi,caution,addr,traffic "
+					  +"FROM trip_a "
+					  +"WHERE no=? and ano=1";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setTitle(rs.getString(2));
+			vo.setPoster(rs.getString(3));
+			vo.setImage(rs.getString(4));
+			vo.setIntro(rs.getString(5));
+			vo.setTel(rs.getString(6));
+			vo.setWebsite(rs.getString(7));
+			vo.setTime(rs.getString(8));
+			vo.setHoliday(rs.getString(9));
+			vo.setOpen(rs.getString(10));
+			vo.setPrice(rs.getString(11));
+			vo.setHandi(rs.getString(12));
+			vo.setCaution(rs.getString(13));
+			vo.setAddr(rs.getString(14));
+			vo.setTraffic(rs.getString(15));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
 	}
 	// 고궁 
 	public List<AttraVO> PalaceMainData()
