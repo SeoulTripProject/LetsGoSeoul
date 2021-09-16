@@ -293,4 +293,112 @@ public class FoodDAO {
 		}
 		return vo;
 	}
+	
+	// 댓글
+	public List<ReplyVO> replyListData(int bno, int type)
+	{
+		List<ReplyVO> list=new ArrayList<ReplyVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT no, bno, id, name, msg, TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') "
+					+ "FROM project_reply "
+					+ "WHERE bno=? AND type=? "
+					+ "ORDER BY no DESC"; 
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, bno);
+			ps.setInt(2, type);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				ReplyVO vo=new ReplyVO();
+				vo.setNo(rs.getInt(1));
+				vo.setBno(rs.getInt(2));
+				vo.setId(rs.getString(3));
+				vo.setName(rs.getString(4));
+				vo.setMsg(rs.getString(5));
+				vo.setDbday(rs.getString(6));
+				list.add(vo);
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
+	
+	// 맛집에 대한 댓글 올리기
+	public void foodReplyInsert(ReplyVO vo)
+	{
+		try
+		{
+			getConnection();
+			String sql="INSERT INTO project_reply VALUES("
+					+ "pr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, vo.getBno());
+			ps.setInt(2, vo.getType());
+			ps.setString(3, vo.getId());
+			ps.setString(4, vo.getName());
+			ps.setString(5, vo.getMsg());
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
+	
+	// 맛집 댓글 삭제
+	public void foodReplyDelete(int no)
+	{
+		try
+		{
+			getConnection();
+			String sql="DELETE FROM trip_reply "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
+	
+	// 맛집 댓글 수정
+	public void foodReplyUpdate(int no, String msg)
+	{
+		try
+		{
+			getConnection();
+			String sql="UPDATE project_reply SET "
+					+ "msg=? "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, msg);
+			ps.setInt(2, no);
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
 }
