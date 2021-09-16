@@ -102,16 +102,20 @@ public class StayModel {
 		StayVO vo=dao.HotelDetailData(Integer.parseInt(no));
 		//BoardDAO bdao=BoardDAO.newInstance();
 		//List<ReplyVO> list=bdao.replyListData(Integer.parseInt(bno), 2);
-		/*
-		 * String addr=vo.getAddr();
-		 * addr=addr.substring(addr.indexOf(" "),addr.lastIndexOf("("));
-		 * addr=addr.trim();
-		 * 
-		 * String gu=addr.substring(addr.indexOf(" ")+1);
-		 * gu=gu.substring(0,gu.indexOf(" "));
-		 * 
-		 * request.setAttribute("addr", addr);
-		 */
+		
+		  String addr=vo.getAddr();
+		  addr=addr.substring(addr.indexOf(" "),addr.lastIndexOf("("));
+		  addr=addr.trim();
+		  
+		  String gu=addr.substring(addr.indexOf(" ")+1);
+		  gu=gu.substring(0,gu.indexOf(" "));
+		  
+		  List<FoodVO> fList=dao.seoulFoodListData(gu);
+		  
+		request.setAttribute("fList", fList);
+		  
+		request.setAttribute("addr", addr);
+		 
 		request.setAttribute("vo", vo);
 		//request.setAttribute("list", "list");
 		
