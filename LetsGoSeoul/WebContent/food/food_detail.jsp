@@ -220,7 +220,7 @@ $(function(){
 		                          <input type="hidden" value="${vo.no }" name="bno">
 		              			  <input type="hidden" value="3" name="type">
                               </div>
-                        </div>
+                        </div> 
                         <div class="form-group">
                            <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
                         </div>
