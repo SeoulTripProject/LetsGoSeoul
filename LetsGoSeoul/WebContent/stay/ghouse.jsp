@@ -7,6 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.hero-area2 {
+  background-image: url(../assets/img/hero/river.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
 .col-3{
 	display: inline;
 }

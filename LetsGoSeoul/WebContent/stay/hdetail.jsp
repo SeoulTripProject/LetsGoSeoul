@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.hero-area2 {
+  background-image: url(../assets/img/hero/river.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
+</style>
 </head>
 <body>
 <!-- Hero Start-->
@@ -127,7 +135,7 @@
                                     </c:if>
                                  </div>
                               </div>
-                              <form class="form-contact comment_form" method="post" action="../stay/hdetail_reply_update.do" id="u${rvo.no }" style="display:none">
+                              <form class="form-contact comment_form" method="post" action="../stay/hdetail_reply_update.do" id="${rvo.bno }" style="display:none">
                                 <div class="row">
                                   <div class="col-12">
                                     <div class="form-group">
