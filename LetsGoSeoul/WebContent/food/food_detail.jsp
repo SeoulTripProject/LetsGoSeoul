@@ -18,7 +18,11 @@
 <script type="text/javascript">
 let u=0;
 $(function(){
-	$('.ubutton').click(function(){
+	$('#insertbtn').click(function(){
+		$('#commentForm').submit();
+	})
+	
+	$('.ubtn').click(function(){
 		let no=$(this).attr("data-no");
 		$('.updateForm').hide();
 		if(u==0)
@@ -181,7 +185,7 @@ $(function(){
                                     </div>
                                     <c:if test="${sessionScope.id==fvo.id }">
                                     <div class="reply-btn">
-                                       <a href="#" class="btn-reply text-uppercase" data-no=${fvo.no }>Edit</a>
+                                       <a href="#" class="btn-reply text-uppercase ubtn" data-no=${fvo.no }>Edit</a>
                                        <a href="../freeboard/reply_delete.do?no=${fvo.no }&bno=${vo.no}" class="btn-reply text-uppercase">Delete</a>
                                     </div>
                                     </c:if>
@@ -207,22 +211,24 @@ $(function(){
 					     </div>
 					  </div>
 	              </form>
-                     </c:forEach>
-                  </div>
+                </c:forEach>
+               </div>
                   <div class="comment-form">
-                     <h4>Leave a Reply</h4>
+                     <h4>Leave a Comment</h4>
                    <c:if test="${sessionScope.id!=null }">
        				<form class="form-contact comment_form" id="commentForm" method="post" action="../freeboard/reply_insert.do">
                         <div class="row">
+                          <div class="col-12">
                               <div class="form-group">
                                  <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
                                     placeholder="Write Comment"></textarea>
 		                          <input type="hidden" value="${vo.no }" name="bno">
 		              			  <input type="hidden" value="3" name="type">
                               </div>
+                            </div>
                         </div> 
                         <div class="form-group">
-                           <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
+                           <button type="submit" class="button button-contactForm btn_1 boxed-btn" id="insertbtn">Send Message</button>
                         </div>
                        </form>
                     </c:if>
@@ -376,41 +382,6 @@ $(function(){
                            </li>
                            <li>
                               <a href="#">illustration</a>
-                           </li>
-                        </ul>
-                     </aside>
-                     <aside class="single_sidebar_widget instagram_feeds">
-                        <h4 class="widget_title">Instagram Feeds</h4>
-                        <ul class="instagram_row flex-wrap">
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_5.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_6.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_7.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_8.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_9.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_10.png" alt="">
-                              </a>
                            </li>
                         </ul>
                      </aside>

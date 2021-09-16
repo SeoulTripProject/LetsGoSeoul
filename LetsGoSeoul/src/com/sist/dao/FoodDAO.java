@@ -401,4 +401,37 @@ public class FoodDAO {
 			disConnection();
 		}
 	}
+	
+	public ArrayList<FoodVO> locationData(String address)
+	{
+		ArrayList<FoodVO> list=new ArrayList<FoodVO>();
+		try
+		{
+			getConnection();
+			
+			String sql="SELECT no, poster, rname "
+					+ "FROM trip_R "
+					+ "WHERE addr LIKE '%'||?||'%'";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, address);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				FoodVO vo=new FoodVO();
+				vo.setNo(rs.getInt(1));
+				vo.setPoster(rs.getString(2));
+				vo.setRname(rs.getString(3));
+				list.add(vo);
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
 }

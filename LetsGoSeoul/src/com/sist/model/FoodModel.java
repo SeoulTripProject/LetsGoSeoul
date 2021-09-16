@@ -77,7 +77,7 @@ public class FoodModel {
 			request.setCharacterEncoding("UTF-8");
 		}catch(Exception ex) {}
 		
-		String bno=request.getParameter("bno");
+//		String bno=request.getParameter("bno");
 		String msg=request.getParameter("msg");
 		
 		HttpSession session=request.getSession();
@@ -85,7 +85,7 @@ public class FoodModel {
 		String name=(String)session.getAttribute("name");
 		
 		ReplyVO vo=new ReplyVO();
-		vo.setBno(Integer.parseInt(bno));
+//		vo.setBno(Integer.parseInt(bno));
 		vo.setId(id);
 		vo.setName(name);
 		vo.setMsg(msg);
@@ -94,7 +94,7 @@ public class FoodModel {
 		
 		dao.foodReplyInsert(vo);
 		
-		return "redirect:../food/detail.do?no="+bno;
+		return "redirect:../food/food_detail.do";
 	}
 	
 	@RequestMapping("food/reply_delete.do")
@@ -107,7 +107,7 @@ public class FoodModel {
 		
 		dao.foodReplyDelete(Integer.parseInt(no));
 		
-		return "redirect:../food/detail.do?no="+bno; 
+		return "redirect:../food/food_detail.do?no="+bno; 
 	}
 	
 	@RequestMapping("food/reply_update.do")
@@ -126,6 +126,31 @@ public class FoodModel {
 		
 		dao.foodReplyUpdate(Integer.parseInt(no), msg);
 		
-		return "redirect:../food/detail.do?no="+bno; 
+		return "redirect:../food/food_detail.do?no="+bno; 
 	}
+	
+	@RequestMapping("food/food_area.do")
+	public String food_area(HttpServletRequest request, HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../food/food_area.jsp");
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("food/location_result.do")
+	public String location_result(HttpServletRequest request, HttpServletResponse response)
+	{
+		String no=request.getParameter("no");
+		FoodDAO dao=FoodDAO.newInstance();
+		FoodVO vo=dao.foodDetailData(Integer.parseInt(no));
+		request.setAttribute("vo", vo);
+	    String[] guList_1 = { "전체", "강서구", "양천구", "구로구", "마포구", "영등포구", "금천구",
+		    "은평구", "서대문구", "동작구", "관악구", "종로구", "중구", "용산구", "서초구", "강북구",
+		    "성북구", "도봉구", "동대문구", "성동구", "강남구", "노원구", "중랑구", "광진구", "송파구",
+		    "강동구" };
+	    ArrayList<FoodVO> list=dao.locationData(guList_1[Integer.parseInt(no)]);
+	    request.setAttribute("list", list);
+		
+		return "redirect:../food/food_area.do";
+	}
+	
 }
