@@ -170,12 +170,13 @@ $(function(){
                      <h4>Comments</h4>
                      <div class="comment-list">
                      <c:forEach var="fvo" items="${list }">
+                       <pre></pre>
+                       <pre></pre>
+                       <pre></pre>
                         <div class="single-comment justify-content-between d-flex">
                            <div class="user justify-content-between d-flex">
                               <div class="desc">
-                                 <p class="comment" style="white-space: pre-wrap;">
-     								${fvo.msg }
-                                 </p>
+                                 <p class="comment" style="white-space: pre-wrap;">${fvo.msg }</p>
                                  <div class="d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
                                        <h5>
