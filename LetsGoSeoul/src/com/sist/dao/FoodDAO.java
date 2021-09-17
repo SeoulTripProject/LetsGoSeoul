@@ -302,7 +302,7 @@ public class FoodDAO {
 		{
 			getConnection();
 			String sql="SELECT no, bno, id, name, msg, TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') "
-					+ "FROM project_reply "
+					+ "FROM trip_reply "
 					+ "WHERE bno=? AND type=? "
 					+ "ORDER BY no DESC"; 
 			ps=conn.prepareStatement(sql);
@@ -338,7 +338,7 @@ public class FoodDAO {
 		try
 		{
 			getConnection();
-			String sql="INSERT INTO project_reply VALUES("
+			String sql="INSERT INTO trip_reply VALUES("
 					+ "pr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, vo.getBno());
@@ -385,7 +385,7 @@ public class FoodDAO {
 		try
 		{
 			getConnection();
-			String sql="UPDATE project_reply SET "
+			String sql="UPDATE trip_reply SET "
 					+ "msg=? "
 					+ "WHERE no=?";
 			ps=conn.prepareStatement(sql);

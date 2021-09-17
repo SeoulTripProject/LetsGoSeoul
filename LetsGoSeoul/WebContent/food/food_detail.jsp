@@ -168,8 +168,8 @@ $(function(){
                   </div>
                   <div class="comments-area">
                      <h4>Comments</h4>
-                     <c:forEach var="fvo" items="${list }">
                      <div class="comment-list">
+                     <c:forEach var="fvo" items="${list }">
                         <div class="single-comment justify-content-between d-flex">
                            <div class="user justify-content-between d-flex">
                               <div class="desc">
@@ -186,17 +186,15 @@ $(function(){
                                     <c:if test="${sessionScope.id==fvo.id }">
                                     <div class="reply-btn">
                                        <a href="#" class="btn-reply text-uppercase ubtn" data-no=${fvo.no }>Edit</a>
-                                       <a href="../freeboard/reply_delete.do?no=${fvo.no }&bno=${vo.no}" class="btn-reply text-uppercase">Delete</a>
+                                       <a href="../food/reply_delete.do?no=${fvo.no }&bno=${vo.no}" class="btn-reply text-uppercase">Delete</a>
                                     </div>
                                     </c:if>
                                  </div>
                               </div>
                            </div>
                         </div>
-                      </div>
-                   <form method="post" action="../freeboard/reply_update.do" 
+                   <form method="post" action="../food/reply_update.do" 
                		class="updateForm" id="u${fvo.no }" style="display:none">
-               		 <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
                            <div class="user justify-content-between d-flex">
                               <div class="desc">
@@ -209,18 +207,18 @@ $(function(){
 					           </div>
 					        </div>
 					     </div>
-					  </div>
 	              </form>
                 </c:forEach>
+                      </div>
                </div>
                   <div class="comment-form">
                      <h4>Leave a Comment</h4>
                    <c:if test="${sessionScope.id!=null }">
-       				<form class="form-contact comment_form" id="commentForm" method="post" action="../freeboard/reply_insert.do">
+       				<form class="form-contact comment_form" id="commentForm" method="post" action="../food/reply_insert.do">
                         <div class="row">
                           <div class="col-12">
                               <div class="form-group">
-                                 <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                 <textarea class="form-control w-100" name="msg" id="comment" cols="30" rows="9"
                                     placeholder="Write Comment"></textarea>
 		                          <input type="hidden" value="${vo.no }" name="bno">
 		              			  <input type="hidden" value="3" name="type">

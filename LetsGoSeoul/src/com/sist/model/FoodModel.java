@@ -64,6 +64,12 @@ public class FoodModel {
 		temp=temp.substring(0,address.indexOf(" "));
 		vo.setAddr1(addr1);
 		vo.setAddr2(addr2);
+		
+		String type=request.getParameter("type");
+		type="3";
+		List<ReplyVO> list=dao.replyListData(Integer.parseInt(no), Integer.parseInt(type));
+		request.setAttribute("list", list);
+		
 		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../food/food_detail.jsp");
 		return "../main/main.jsp";
@@ -77,7 +83,8 @@ public class FoodModel {
 			request.setCharacterEncoding("UTF-8");
 		}catch(Exception ex) {}
 		
-//		String bno=request.getParameter("bno");
+		String bno=request.getParameter("bno");
+		String type=request.getParameter("type");
 		String msg=request.getParameter("msg");
 		
 		HttpSession session=request.getSession();
@@ -85,16 +92,17 @@ public class FoodModel {
 		String name=(String)session.getAttribute("name");
 		
 		ReplyVO vo=new ReplyVO();
-//		vo.setBno(Integer.parseInt(bno));
+		vo.setBno(Integer.parseInt(bno));
 		vo.setId(id);
 		vo.setName(name);
+		vo.setType(Integer.parseInt(type));
 		vo.setMsg(msg);
 		
 		FoodDAO dao=FoodDAO.newInstance();
 		
 		dao.foodReplyInsert(vo);
 		
-		return "redirect:../food/food_detail.do";
+		return "redirect:../food/food_detail.do?no="+bno;
 	}
 	
 	@RequestMapping("food/reply_delete.do")
