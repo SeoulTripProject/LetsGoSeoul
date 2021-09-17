@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-
+<link rel="stylesheet" href="/lib/w3.css">
 <style type="text/css">
 .hero-area2 {
   background-image: url(../assets/img/hero/river.jpg);
@@ -51,54 +50,23 @@ button:hover:before,button:hover:after{
   width:100%;
   transition:800ms ease all;
 }
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-	text-align: center;
-	font-size: 18px;
-	background: #fff;
-	
-	/* Center slide text vertically */
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 </style>
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper -->
 <script>
-  var swiper = new Swiper(".mySwiper", {
-    pagination: {
-      el: ".swiper-pagination",
-      type: "progressbar",
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 2000); 
+}
 </script>
 </head>
 <body>
@@ -199,6 +167,8 @@ button:hover:before,button:hover:after{
                         </div>
                      </div>
                   </div>
+                  
+                  
                   
                   <%-- <div class="comments-area">
                      <h4>Comments</h4>
@@ -319,16 +289,29 @@ button:hover:before,button:hover:after{
 		           <br>
 		           <br>
 		           
-		           <div class="swiper mySwiper">
-				     <div class="swiper-wrapper">
-				        <div class="swiper-slide">Slide 1</div>
-				        <div class="swiper-slide">Slide 2</div>
-				        <div class="swiper-slide">Slide 3</div>
-				     </div>
-				      <div class="swiper-button-next"></div>
-				      <div class="swiper-button-prev"></div>
-				      <div class="swiper-pagination"></div>
-				   </div>
+		           <!-- <div style="height:50px"></div>
+				  <h2 class="sectiontitle">근처 맛집 리스트</h2>
+			    <div class="flexslider carousel basiccarousel btmspace-80">
+			      <ul class="slides">
+			       <c:forEach var="fvo" items="${fList }" varStatus="s">
+			        <li>
+			          <figure><img class="radius-10 btmspace-10" src="${fvo.poster }" style="width:320px;height:185px">
+			            <figcaption><a href="../food/food_detail.do?no=${fvo.no }">${fvo.rname }</a></figcaption>
+			          </figure>
+			        </li>
+			       </c:forEach>
+			      </ul>
+			    </div> -->
+		           <h4>Recommand Food</h4>
+		           <div class="mySlides">
+                     <c:forEach var="fvo" items="${fList }" varStatus="s">
+			           <li>
+			             <figure><img class="radius-10 btmspace-10" src="${fvo.poster }" style="width:90px;height:90px">
+			             <figcaption><a href="../food/food_detail.do?no=${fvo.no }">${fvo.rname }</a></figcaption>
+			             </figure>
+			           </li>
+			         </c:forEach>             
+		           </div>
 		           
 		         </div>
 		   </div>

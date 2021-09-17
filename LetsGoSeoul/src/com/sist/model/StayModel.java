@@ -103,18 +103,24 @@ public class StayModel {
 		//BoardDAO bdao=BoardDAO.newInstance();
 		//List<ReplyVO> list=bdao.replyListData(Integer.parseInt(bno), 2);
 		
-		  String addr=vo.getAddr();
-		  addr=addr.substring(addr.indexOf(" "),addr.lastIndexOf("("));
-		  addr=addr.trim();
+		String addr=vo.getAddr();
+		//ì„œìš¸ ì¤‘êµ¬ ì„ì§€ë¡œ 30
+		addr=addr.substring(addr.indexOf(" "));
+		// ì¤‘êµ¬ ì„ì§€ë¡œ 30
+		addr=addr.trim();
+		//ì¤‘êµ¬ ì„ì§€ë¡œ 30
 		  
-		  String gu=addr.substring(addr.indexOf(" ")+1);
-		  gu=gu.substring(0,gu.indexOf(" "));
+		String gu=addr;
+		//ì¤‘êµ¬ ì„ì§€ë¡œ 30
+		gu=gu.substring(0,gu.indexOf(" "));
+		//ì¤‘êµ¬
+		System.out.println("gu="+gu);
 		  
-		  List<FoodVO> fList=dao.seoulFoodListData(gu);
+		List<FoodVO> fList=dao.seoulFoodListData(gu);
 		  
 		request.setAttribute("fList", fList);
 		  
-		request.setAttribute("addr", addr);
+		//request.setAttribute("addr", addr);
 		 
 		request.setAttribute("vo", vo);
 		//request.setAttribute("list", "list");
@@ -143,17 +149,17 @@ public class StayModel {
 	 * reply_insert(HttpServletRequest request,HttpServletResponse response) { try {
 	 * request.setCharacterEncoding("UTF-8"); }catch(Exception ex) {}
 	 * 
-	 * //»ç¿ëÀÚ°¡ º¸³»ÁØ °ªÀ» ¹Ş´Â´Ù String bno=request.getParameter("bno"); String
+	 * //ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ş´Â´ï¿½ String bno=request.getParameter("bno"); String
 	 * type=request.getParameter("type"); String msg=request.getParameter("msg");
 	 * 
 	 * HttpSession session=request.getSession(); String
 	 * id=(String)session.getAttribute("id"); String
 	 * name=(String)session.getAttribute("name");
 	 * 
-	 * //¹­¾î¼­ DAOÀü¼Û ReplyVO vo=new ReplyVO(); vo.setBno(Integer.parseInt(bno));
+	 * //ï¿½ï¿½ï¿½î¼­ DAOï¿½ï¿½ï¿½ï¿½ ReplyVO vo=new ReplyVO(); vo.setBno(Integer.parseInt(bno));
 	 * vo.setId(id); vo.setName(name); vo.setType(Integer.parseInt(type));
-	 * vo.setMsg(msg); //ÀÌµ¿ ´ñ±ÛÀÌ ¿Ã¶ó°£´Ù BoardDAO dao=BoardDAO.newInstance(); //´ñ±Û Ãß°¡
-	 * ¸Ş¼Òµå dao.replyInsert(vo);
+	 * vo.setMsg(msg); //ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ó°£´ï¿½ BoardDAO dao=BoardDAO.newInstance(); //ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	 * ï¿½Ş¼Òµï¿½ dao.replyInsert(vo);
 	 * 
 	 * return "redirect:../stay/hdetail.do?no="+bno;
 	 * 
@@ -162,11 +168,11 @@ public class StayModel {
 	  
 	/*
 	 * @RequestMapping("fstay/hdetail_reply_delete.do") public String
-	 * reply_delete(HttpServletRequest request,HttpServletResponse response) { //¿äÃ»
-	 * µ¥ÀÌÅÍ ¹Ş±â String no=request.getParameter("no"); // ´ñ±Û¹øÈ£ (»èÁ¦ ¸ñÀû) String
-	 * bno=request.getParameter("bno");// °Ô½Ã¹° ¹øÈ£(ÇØ´ç ÆäÀÌÁö·Î ÀÌµ¿)
+	 * reply_delete(HttpServletRequest request,HttpServletResponse response) { //ï¿½ï¿½Ã»
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ş±ï¿½ String no=request.getParameter("no"); // ï¿½ï¿½Û¹ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) String
+	 * bno=request.getParameter("bno");// ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È£(ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½)
 	 * 
-	 * //DAO BoardDAO dao=BoardDAO.newInstance(); //»èÁ¦ ¸Ş¼Òµå È£Ãâ
+	 * //DAO BoardDAO dao=BoardDAO.newInstance(); //ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼Òµï¿½ È£ï¿½ï¿½
 	 * dao.replyDelete(Integer.parseInt(no));
 	 * 
 	 * return "redirect:../stay/hdetail.do?no="+bno; }
@@ -174,13 +180,13 @@ public class StayModel {
 	  
 	/*
 	 * @RequestMapping("stay/hdetail_reply_update.do") public String
-	 * reply_update(HttpServletRequest request,HttpServletResponse response) { //¿äÃ»
-	 * (ÇÑ±Û) try { request.setCharacterEncoding("UTF-8"); }catch(Exception ex) {}
+	 * reply_update(HttpServletRequest request,HttpServletResponse response) { //ï¿½ï¿½Ã»
+	 * (ï¿½Ñ±ï¿½) try { request.setCharacterEncoding("UTF-8"); }catch(Exception ex) {}
 	 * 
 	 * String no=request.getParameter("no"); String bno=request.getParameter("bno");
 	 * String msg=request.getParameter("msg");
 	 * 
-	 * //DAO BoardDAO dao=BoardDAO.newInstance(); //¼öÁ¤ÇÒ ¸Ş¼Òµå
+	 * //DAO BoardDAO dao=BoardDAO.newInstance(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼Òµï¿½
 	 * dao.replyUpdate(Integer.parseInt(no), msg);
 	 * 
 	 * return "redirect:../stay/hdetail.do?no="+bno; }
