@@ -132,7 +132,7 @@ $(function(){
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
                                  <a href="../food/food_detail.do?no=${vo.preno }">
-                                    <img class="img-fluid" src="../assets/img/post/preview.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/left-arrow.png" style="width:50px;height:50px">
                                  </a>
                               </div>
                               <div class="arrow">
@@ -149,7 +149,7 @@ $(function(){
                            <div
                               class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                               <div class="detials">
-                                 <p>Next PST</p>
+                                 <p>Next POST</p>
                               </div>
                               <div class="arrow">
                                  <a href="../food/food_detail.do?no=${vo.nextno }">
@@ -158,7 +158,7 @@ $(function(){
                               </div>
                               <div class="thumb">
                                  <a href="../food/food_detail.do?no=${vo.nextno }">
-                                    <img class="img-fluid" src="../assets/img/post/next.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/right-arrow.png" style="width:50px;height:50px">
                                  </a>
                               </div>
                            </div>
@@ -274,88 +274,51 @@ $(function(){
 							} 
 						});    
 						</script>
-                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Category</h4>
-                        <ul class="list cat-list">
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Resaurant food</p>
-                                 <p>(37)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Travel news</p>
-                                 <p>(10)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Modern technology</p>
-                                 <p>(03)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Product</p>
-                                 <p>(11)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Inspiration</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Health Care</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                        </ul>
-                     </aside>
                      <aside class="single_sidebar_widget popular_post_widget">
-                        <h3 class="widget_title">Recent Post</h3>
+                        <h3 class="widget_title">Near By</h3>
+                        <c:forEach var="avo" items="${aList}">
                         <div class="media post_item">
-                           <img src="../assets/img/post/post_1.png" alt="post">
+                           <img src="${avo.poster }" alt="post" style="width:90px;height:90px">
                            <div class="media-body">
-                              <a href="blog_details.html">
-                                 <h3>From life was you fish...</h3>
+                              <a href="../attraction/attraction_main.jsp">
+                                 <h3>${avo.title }</h3>
                               </a>
-                              <p>January 12, 2019</p>
                            </div>
                         </div>
+                       </c:forEach>
+                        <c:forEach var="svo" items="${sList}">
                         <div class="media post_item">
-                           <img src="../assets/img/post/post_2.png" alt="post">
+                           <img src="${svo.poster }" alt="post" style="width:90px;height:90px">
                            <div class="media-body">
-                              <a href="blog_details.html">
-                                 <h3>The Amazing Hubble</h3>
+                              <a href="../stay/stay_main.jsp">
+                                 <h3>${svo.sname }</h3>
                               </a>
-                              <p>02 Hours ago</p>
                            </div>
                         </div>
+                       </c:forEach>
+                        <c:forEach var="nvo" items="${nList}">
                         <div class="media post_item">
-                           <img src="../assets/img/post/post_3.png" alt="post">
+                           <img src="${nvo.poster }" alt="post" style="width:90px;height:90px">
                            <div class="media-body">
-                              <a href="blog_details.html">
-                                 <h3>Astronomy Or Astrology</h3>
+                              <a href="../nature/detail.do?no="${nvo.no }>
+                                 <h3>${nvo.title }</h3>
                               </a>
-                              <p>03 Hours ago</p>
                            </div>
                         </div>
+                       </c:forEach>
+                        <c:forEach var="evo" items="${eList}">
                         <div class="media post_item">
-                           <img src="../assets/img/post/post_4.png" alt="post">
+                           <img src="${evo.poster }" alt="post" style="width:90px;height:90px">
                            <div class="media-body">
-                              <a href="blog_details.html">
-                                 <h3>Asteroids telescope</h3>
+                              <a href="../culture/exhibition_detail.do?no="${evo.no }>
+                                 <h3>${evo.title }</h3>
                               </a>
-                              <p>01 Hours ago</p>
                            </div>
                         </div>
+                       </c:forEach>
                      </aside>
                      <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title">Tag Clouds</h4>
+                        <h4 class="widget_title">Recommend By Tags</h4>
                         <ul class="list">
                            <li>
                               <a href="#">project</a>
@@ -383,16 +346,18 @@ $(function(){
                            </li>
                         </ul>
                      </aside>
-                     <aside class="single_sidebar_widget newsletter_widget">
-                        <h4 class="widget_title">Newsletter</h4>
-                        <form action="#">
-                           <div class="form-group">
-                              <input type="email" class="form-control" onfocus="this.placeholder = ''"
-                                 onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
-                           </div>
-                           <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                              type="submit">Subscribe</button>
-                        </form>
+                     <aside class="single_sidebar_widget instagram_feeds">
+                        <h4 class="widget_title">Recently viewed</h4>
+                        <ul class="instagram_row flex-wrap">
+                          <c:forEach var="cvo" items="${fList }">
+                           <li>
+                              <a href="#">
+                                 <img class="img-fluid" src="${cvo.poster }" 
+                                 style="width:90px;height:90px" title="${cvo.rname }">
+                              </a>
+                           </li>
+                          </c:forEach>
+                        </ul>
                      </aside>
                   </div>
                </div>
