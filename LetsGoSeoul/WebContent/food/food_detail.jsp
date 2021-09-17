@@ -173,7 +173,7 @@ $(function(){
                         <div class="single-comment justify-content-between d-flex">
                            <div class="user justify-content-between d-flex">
                               <div class="desc">
-                                 <p class="comment">
+                                 <p class="comment" style="white-space: pre-wrap;">
      								${fvo.msg }
                                  </p>
                                  <div class="d-flex justify-content-between">
@@ -195,14 +195,13 @@ $(function(){
                         </div>
                    <form method="post" action="../food/reply_update.do" 
                		class="updateForm" id="u${fvo.no }" style="display:none">
-                        <div class="single-comment justify-content-between d-flex">
-                           <div class="user justify-content-between d-flex">
-                              <div class="desc">
+                             <div class="row">
+                                <div class="col-12">
+                                  <div class="form-group">
+                                  <textarea class="form-control w-100" name="msg" id="comment" cols="30" rows="9"
+                                  placeholder="Write Comment">${fvo.msg }</textarea>
 			               		  <input type="hidden" value="${vo.no }" name="bno">
 					              <input type="hidden" value="${fvo.no }" name="no">
-					              <p class="comment">
-     								${fvo.msg }
-                                  </p>
 					              <button type="submit" class="button button-contactForm btn_1 boxed-btn">Change Edit</button>
 					           </div>
 					        </div>
