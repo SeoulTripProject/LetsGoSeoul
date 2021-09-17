@@ -6,6 +6,51 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.hero-area2 {
+  background-image: url(../assets/img/hero/river.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
+button{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+</style>
 </head>
 <body>
 <!-- Hero Start-->
@@ -241,178 +286,71 @@
                   </div>
                </div>
                <div class="col-lg-4">
-                  <div class="blog_right_sidebar">
-                     <aside class="single_sidebar_widget search_widget">
-                        <form action="#">
-                           <div class="form-group">
-                              <div class="input-group mb-3">
-                                 <input type="text" class="form-control" placeholder='Search Keyword'
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
-                                 <div class="input-group-append">
-                                    <button class="btns" type="button"><i class="ti-search"></i></button>
-                                 </div>
-                              </div>
-                           </div>
-                           <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                              type="submit">Search</button>
-                        </form>
-                     </aside>
-                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Category</h4>
-                        <ul class="list cat-list">
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Resaurant food</p>
-                                 <p>(37)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Travel news</p>
-                                 <p>(10)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Modern technology</p>
-                                 <p>(03)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Product</p>
-                                 <p>(11)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Inspiration</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Health Care</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                        </ul>
-                     </aside>
-                     <aside class="single_sidebar_widget popular_post_widget">
-                        <h3 class="widget_title">Recent Post</h3>
-                        <div class="media post_item">
-                           <img src="../assets/img/post/post_1.png" alt="post">
-                           <div class="media-body">
-                              <a href="blog_details.html">
-                                 <h3>From life was you fish...</h3>
-                              </a>
-                              <p>January 12, 2019</p>
-                           </div>
-                        </div>
-                        <div class="media post_item">
-                           <img src="../assets/img/post/post_2.png" alt="post">
-                           <div class="media-body">
-                              <a href="blog_details.html">
-                                 <h3>The Amazing Hubble</h3>
-                              </a>
-                              <p>02 Hours ago</p>
-                           </div>
-                        </div>
-                        <div class="media post_item">
-                           <img src="../assets/img/post/post_3.png" alt="post">
-                           <div class="media-body">
-                              <a href="blog_details.html">
-                                 <h3>Astronomy Or Astrology</h3>
-                              </a>
-                              <p>03 Hours ago</p>
-                           </div>
-                        </div>
-                        <div class="media post_item">
-                           <img src="../assets/img/post/post_4.png" alt="post">
-                           <div class="media-body">
-                              <a href="blog_details.html">
-                                 <h3>Asteroids telescope</h3>
-                              </a>
-                              <p>01 Hours ago</p>
-                           </div>
-                        </div>
-                     </aside>
-                     <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title">Tag Clouds</h4>
-                        <ul class="list">
-                           <li>
-                              <a href="#">project</a>
-                           </li>
-                           <li>
-                              <a href="#">love</a>
-                           </li>
-                           <li>
-                              <a href="#">technology</a>
-                           </li>
-                           <li>
-                              <a href="#">travel</a>
-                           </li>
-                           <li>
-                              <a href="#">restaurant</a>
-                           </li>
-                           <li>
-                              <a href="#">life style</a>
-                           </li>
-                           <li>
-                              <a href="#">design</a>
-                           </li>
-                           <li>
-                              <a href="#">illustration</a>
-                           </li>
-                        </ul>
-                     </aside>
-                     <aside class="single_sidebar_widget instagram_feeds">
-                        <h4 class="widget_title">Instagram Feeds</h4>
-                        <ul class="instagram_row flex-wrap">
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_5.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_6.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_7.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_8.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_9.png" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="../assets/img/post/post_10.png" alt="">
-                              </a>
-                           </li>
-                        </ul>
-                     </aside>
-                     <aside class="single_sidebar_widget newsletter_widget">
-                        <h4 class="widget_title">Newsletter</h4>
-                        <form action="#">
-                           <div class="form-group">
-                              <input type="email" class="form-control" onfocus="this.placeholder = ''"
-                                 onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
-                           </div>
-                           <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                              type="submit">Subscribe</button>
-                        </form>
-                     </aside>
-                  </div>
+                 <div id="map" style="width:100%;height:350px;"></div>
+			      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f327ff259f684cbacea42ee49e7f9326&libraries=services"></script>
+			      <script>
+			      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			          mapOption = {
+			              center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			              level: 3 // 지도의 확대 레벨
+			          };  
+			      
+			      // 지도를 생성합니다    
+			      var map = new kakao.maps.Map(mapContainer, mapOption); 
+			      
+			      // 주소-좌표 변환 객체를 생성합니다
+			      var geocoder = new kakao.maps.services.Geocoder();
+			      
+			      // 주소로 좌표를 검색합니다
+			      geocoder.addressSearch('${vo.addr}', function(result, status) {
+			      
+			          // 정상적으로 검색이 완료됐으면 
+			           if (status === kakao.maps.services.Status.OK) {
+			      
+			              var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+			      
+			              // 결과값으로 받은 위치를 마커로 표시합니다
+			              var marker = new kakao.maps.Marker({
+			                  map: map,
+			                  position: coords
+			              });
+			      
+			              // 인포윈도우로 장소에 대한 설명을 표시합니다
+			              var infowindow = new kakao.maps.InfoWindow({
+			                  content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.sname}</div>'
+			              });
+			              infowindow.open(map, marker);
+			      
+			              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			              map.setCenter(coords);
+			          } 
+			      });    
+			      </script>
+			      <br>
+			      <div class="text-center">
+		           <button class="text-right" id="rbtn">
+		             <a href="../nature/main.do">
+		               <span>List
+		               </span>
+		             </a>
+		           </button>
+		         </div>
+		         
+		         <h4 class="text-center">Recommand Food</h4>
+		             <c:forEach var="fvo" items="${fList }" varStatus="s">
+		               <div style="width:90px; height:90px; border:1px solid white; float:left;">
+                         <a href="../food/food_detail.do?no=${fvo.no }">
+                           <img src="${fvo.poster }" style="width:90px;height:90px" title="${fvo.rname }">
+                         </a>
+		               </div>
+		             </c:forEach>
+		            <br> 
+		            <br>
+		            <br>
+		            <br>
+		            <div style="height:130px"></div>
+		            
+                  
                </div>
             </div>
          </div>
@@ -420,3 +358,14 @@
       <!--================ Blog Area end =================-->
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

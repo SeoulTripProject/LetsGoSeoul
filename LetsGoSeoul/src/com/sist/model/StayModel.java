@@ -138,6 +138,29 @@ public class StayModel {
 
 		StayDAO dao=StayDAO.newInstance();
 		StayVO vo=dao.GhouseDetailData(Integer.parseInt(no));
+		
+		String addr=vo.getAddr();
+		//서울 중구 을지로 30
+		addr=addr.substring(addr.indexOf(" "));
+		// 중구 을지로 30
+		addr=addr.trim();
+		//중구 을지로 30
+		  
+		String gu=addr;
+		//중구 을지로 30
+		gu=gu.substring(0,gu.indexOf(" "));
+		//중구
+		System.out.println("gu="+gu);
+		  
+		List<FoodVO> fList=dao.seoulFoodListData(gu);
+		List<NatureVO> nList=dao.natureListData(gu);
+		
+		request.setAttribute("fList", fList);
+		request.setAttribute("nList", nList);
+		
+		//request.setAttribute("addr", addr);
+		 
+		//request.setAttribute("list", "list");
 
 		request.setAttribute("vo", vo);
 		

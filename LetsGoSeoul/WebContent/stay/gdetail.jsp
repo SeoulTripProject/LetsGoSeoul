@@ -227,7 +227,30 @@ button:hover:before,button:hover:after{
 		               </span>
 		             </a>
 		           </button>
-		         </div>  
+		         </div>
+		         
+		         <h4 class="text-center">Recommand Food</h4>
+		             <c:forEach var="fvo" items="${fList }" varStatus="s">
+		               <div style="width:90px; height:90px; border:1px solid white; float:left;">
+                         <a href="../food/food_detail.do?no=${fvo.no }">
+                           <img src="${fvo.poster }" style="width:90px;height:90px" title="${fvo.rname }">
+                         </a>
+		               </div>
+		             </c:forEach>
+		            <br> 
+		            <br>
+		            <br>
+		            <br>
+		            <div style="height:130px"></div>
+		            <h4 class="text-center">Recommand Nature</h4>
+		             <c:forEach var="nvo" items="${nList }" varStatus="s">
+		               <div style="width:90px; height:90px; border:1px solid white; float:left;">
+                         <a href="../nature/detail.do?no=${nvo.no }">
+                           <img src="${nvo.poster }" style="width:90px;height:90px" title="${nvo.title }">
+                         </a>
+		               </div>
+		             </c:forEach>
+		           
                </div>
             </div>
          </div>
@@ -235,3 +258,12 @@ button:hover:before,button:hover:after{
       <!--================ Blog Area end =================-->
 </body>
 </html>
+
+
+
+
+
+
+
+
+
