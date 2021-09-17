@@ -329,7 +329,7 @@ public class StayDAO {
 			  String sql="SELECT no,poster,rname,rownum "
 			  		+ "FROM (SELECT no,poster,rname "
 			  		+ "FROM trip_R WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
-			  		+ "WHERE rownum<=10";
+			  		+ "WHERE rownum<=8";
 			  ps=conn.prepareStatement(sql);
 			  ps.setString(1, gu);
 			  ResultSet rs=ps.executeQuery();
@@ -342,6 +342,39 @@ public class StayDAO {
 				  image=image.replace("#", "&");
 				  vo.setPoster(image);
 				  vo.setRname(rs.getString(3));
+				  list.add(vo);
+			  }
+			  rs.close();
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  disConnection();
+		  }
+		  return list;
+	  }
+		
+		public List<NatureVO> natureListData(String gu)
+		{
+		  List<NatureVO> list=new ArrayList<NatureVO>();
+		  try
+		  {
+			  getConnection();
+			  String sql="SELECT no,poster,title,rownum "
+			  		+ "FROM (SELECT no,poster,title "
+			  		+ "FROM trip_N WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+			  		+ "WHERE rownum<=8";
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, gu);
+			  ResultSet rs=ps.executeQuery();
+			  while(rs.next())
+			  {
+				  NatureVO vo=new NatureVO();
+				  vo.setNo(rs.getInt(1));
+				  vo.setPoster(rs.getString(2));
+				  vo.setTitle(rs.getString(3));
 				  list.add(vo);
 			  }
 			  rs.close();

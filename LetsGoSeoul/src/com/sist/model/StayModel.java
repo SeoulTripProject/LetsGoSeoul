@@ -117,9 +117,11 @@ public class StayModel {
 		System.out.println("gu="+gu);
 		  
 		List<FoodVO> fList=dao.seoulFoodListData(gu);
-		  
+		List<NatureVO> nList=dao.natureListData(gu);
+		
 		request.setAttribute("fList", fList);
-		  
+		request.setAttribute("nList", nList);
+		
 		//request.setAttribute("addr", addr);
 		 
 		request.setAttribute("vo", vo);

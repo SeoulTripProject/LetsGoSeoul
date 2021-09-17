@@ -6,7 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/lib/w3.css">
+
+<!-- CSS here -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="assets/css/slicknav.css">
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/css/themify-icons.css">
+        <link rel="stylesheet" href="assets/css/themify-icons.css">
+        <link rel="stylesheet" href="assets/css/slick.css">
+        <link rel="stylesheet" href="assets/css/nice-select.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
 <style type="text/css">
 .hero-area2 {
   background-image: url(../assets/img/hero/river.jpg);
@@ -52,22 +65,6 @@ button:hover:before,button:hover:after{
 }
 
 </style>
-<script>
-var slideIndex = 0;
-carousel();
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none"; 
-    }
-    slideIndex++;
-    if (slideIndex > x.length) {slideIndex = 1} 
-    x[slideIndex-1].style.display = "block"; 
-    setTimeout(carousel, 2000); 
-}
-</script>
 </head>
 <body>
 <!-- Hero Start-->
@@ -288,6 +285,7 @@ function carousel() {
 		           </button>
 		           <br>
 		           <br>
+		           </div>
 		           
 		           <!-- <div style="height:50px"></div>
 				  <h2 class="sectiontitle">근처 맛집 리스트</h2>
@@ -302,23 +300,33 @@ function carousel() {
 			       </c:forEach>
 			      </ul>
 			    </div> -->
-		           <h4>Recommand Food</h4>
-		           <div class="mySlides">
-                     <c:forEach var="fvo" items="${fList }" varStatus="s">
-			           <li>
-			             <figure><img class="radius-10 btmspace-10" src="${fvo.poster }" style="width:90px;height:90px">
-			             <figcaption><a href="../food/food_detail.do?no=${fvo.no }">${fvo.rname }</a></figcaption>
-			             </figure>
-			           </li>
-			         </c:forEach>             
-		           </div>
-		           
-		         </div>
+		           <h4 class="text-center">Recommand Food</h4>
+		             <c:forEach var="fvo" items="${fList }" varStatus="s">
+		               <div style="width:90px; height:90px; border:1px solid white; float:left;">
+                         <a href="../food/food_detail.do?no=${fvo.no }">
+                           <img src="${fvo.poster }" style="width:90px;height:90px" title="${fvo.rname }">
+                         </a>
+		               </div>
+		             </c:forEach>
+		            <br> 
+		            <br>
+		            <br>
+		            <br>
+		            <div style="height:120px"></div>
+		            <h4 class="text-center">Recommand Nature</h4>
+		             <c:forEach var="nvo" items="${nList }" varStatus="s">
+		               <div style="width:90px; height:90px; border:1px solid white; float:left;">
+                         <a href="../nature/detail.do?no=${nvo.no }">
+                           <img src="${nvo.poster }" style="width:90px;height:90px" title="${nvo.title }">
+                         </a>
+		               </div>
+		             </c:forEach>
 		   </div>
 
          </div>
       </section>
       <!--================ Blog Area end =================-->
+      
 </body>
 </html>
 
