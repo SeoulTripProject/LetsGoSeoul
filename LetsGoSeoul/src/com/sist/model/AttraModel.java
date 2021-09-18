@@ -90,7 +90,7 @@ public class AttraModel {
 	   }
 	
 	
-	//고궁
+	///////////////////////////////////////////////////////////////////////고궁
 	@RequestMapping("attraction/palace.do")
 	public String AttraPalace(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -122,8 +122,27 @@ public class AttraModel {
 		request.setAttribute("main_jsp","../attraction/palace.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("attraction/palace_detail.do")
+	   public String palace_detail(HttpServletRequest request,HttpServletResponse response)
+	   {
+		   String no=request.getParameter("no");
+		   AttraDAO dao=AttraDAO.newInstance();
+		   AttraVO vo=dao.PalaceDetailData(Integer.parseInt(no));
+		   String address=vo.getAddr();
+		   String addr1=address.substring(address.indexOf("서"));
+		   // 서울특별시 송파구 백제고분로41길 43-21 SANDONG빌딩
+		   String addr2=addr1.replace("일대"," ");
+		      
+		   // 결과값 보내기
+		   
+		   vo.setAddr2(addr2);
+		   request.setAttribute("vo", vo);
+		   
+		   request.setAttribute("main_jsp","../attraction/palace_detail.jsp");
+		   return "../main/main.jsp";
+	   }
 	
-	// 역사적장소
+	/////////////////////////////////////////////// 역사적장소//////////////////////////////////////////////////////////////////
 	@RequestMapping("attraction/historic.do")
 	public String AttraHistoric(HttpServletRequest request,HttpServletResponse response)
 	{

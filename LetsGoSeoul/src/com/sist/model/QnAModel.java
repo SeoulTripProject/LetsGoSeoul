@@ -1,4 +1,4 @@
-package com.sist.model;
+/*package com.sist.model;
 
 import java.util.List;
 
@@ -9,9 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.QnADAO;
-import com.sist.vo.QReplyVO;
 import com.sist.vo.QnAVO;
-import com.sist.vo.ReplyVO;
 
 @Controller
 public class QnAModel {
@@ -241,5 +239,5 @@ public class QnAModel {
 		  dao.QReplyUpdate(Integer.parseInt(no), msg);
 		  
 		  return "redirect:../qna/qna_detail.do?no="+qno;
-	  }*/
-}
+	  }
+}*/

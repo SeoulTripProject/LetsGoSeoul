@@ -188,7 +188,7 @@ public class AttraDAO {
 		ADDR             VARCHAR2(1000) 
 		TRAFFIC          VARCHAR2(1000)
 	 */
-	public AttraVO LandmarkDetailData(int no)
+	public AttraVO LandmarkDetailData(int no) // 상세보기
 	{
 		AttraVO vo=new AttraVO();
 		try
@@ -227,7 +227,7 @@ public class AttraDAO {
 		}
 		return vo;
 	}
-	// 고궁 
+	///////////////////////////////////////////////////// 고궁 //////////////////////////////////////////////////////////////////////////
 	public List<AttraVO> PalaceMainData()
 	{
 		List<AttraVO> list=new ArrayList<AttraVO>();
@@ -325,6 +325,45 @@ public class AttraDAO {
 			disConnection();
 		}
 		return list;
+	}
+	public AttraVO PalaceDetailData(int no) // 상세보기
+	{
+		AttraVO vo=new AttraVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,title,poster,image,intro,tel,website,time,holiday,open,price,handi,caution,addr,traffic "
+					  +"FROM trip_a "
+					  +"WHERE no=? and ano=2";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setTitle(rs.getString(2));
+			vo.setPoster(rs.getString(3));
+			vo.setImage(rs.getString(4));
+			vo.setIntro(rs.getString(5));
+			vo.setTel(rs.getString(6));
+			vo.setWebsite(rs.getString(7));
+			vo.setTime(rs.getString(8));
+			vo.setHoliday(rs.getString(9));
+			vo.setOpen(rs.getString(10));
+			vo.setPrice(rs.getString(11));
+			vo.setHandi(rs.getString(12));
+			vo.setCaution(rs.getString(13));
+			vo.setAddr(rs.getString(14));
+			vo.setTraffic(rs.getString(15));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
 	}
 	// 역사적 장소
 	public List<AttraVO> HistoricMainData()
