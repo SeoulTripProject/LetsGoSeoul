@@ -227,7 +227,7 @@ public class AttraDAO {
 		}
 		return vo;
 	}
-	///////////////////////////////////////////////////// 고궁 //////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// 고궁 
 	public List<AttraVO> PalaceMainData()
 	{
 		List<AttraVO> list=new ArrayList<AttraVO>();
@@ -301,8 +301,8 @@ public class AttraDAO {
 			int rowSize=8;
 			int start=(rowSize*page)-(rowSize-1);
 			int end=rowSize*page;
-			ps.setInt(1, start);
-			ps.setInt(2, end);
+			ps.setInt(1, start+25);
+			ps.setInt(2, end+25);
 
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())

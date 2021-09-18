@@ -129,13 +129,13 @@ public class AttraModel {
 		   AttraDAO dao=AttraDAO.newInstance();
 		   AttraVO vo=dao.PalaceDetailData(Integer.parseInt(no));
 		   String address=vo.getAddr();
-		   String addr1=address.substring(address.indexOf("서"));
+		   String addr3=address.substring(address.indexOf("서"));
 		   // 서울특별시 송파구 백제고분로41길 43-21 SANDONG빌딩
-		   String addr2=addr1.replace("일대"," ");
+		   String addr4=addr3.replace("일대"," ");
 		      
 		   // 결과값 보내기
 		   
-		   vo.setAddr2(addr2);
+		   vo.setAddr2(addr4);
 		   request.setAttribute("vo", vo);
 		   
 		   request.setAttribute("main_jsp","../attraction/palace_detail.jsp");

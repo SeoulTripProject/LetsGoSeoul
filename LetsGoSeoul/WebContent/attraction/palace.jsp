@@ -35,8 +35,8 @@
 		<div class="listing-details-area">
 			<div class="container">
 				<div class="row">
-					<c:forEach var="pvo" items="${Plist }" varStatus="n">
-						<c:if test="${n.index%4==0 }">
+					<c:forEach var="pvo" items="${Plist }" varStatus="s">
+						<c:if test="${s.index%4==0 }">
 							<div class="col-md-3 ">
 								<div class="single-listing mb-30">
 									<div class="list-img">
@@ -55,7 +55,7 @@
 								</div>
 							</div>
 						</c:if>
-						<c:if test="${n.index%4!=0 }">
+						<c:if test="${s.index%4!=0 }">
 							<div class="col-md-3 ">
 								<div class="single-listing mb-30">
 									<div class="list-img">
