@@ -8,8 +8,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.col-3 {
+
+.title{
+	color: black;
+}
+.col-3{
 	display: inline;
+}
+.list-caption{
+	width: 275px;
 }
 </style>
 </head>
@@ -41,12 +48,11 @@
 										<!-- <span>Open</span> -->
 									</div>
 									<div class="list-caption">
-										<span>Open</span> <a
-											href="../attraction/museum_detail.do?no=${tno}">${mvo.title }</a>
+										 <a class="title"
+											href="../attraction/museum_detail.do?no=${mvo.no}">${mvo.title }</a>
 										<div class="list-footer">
 											<ul>
-
-												<li>&nbsp;&nbsp;${mvo.intro }</li>
+												<c:out value="${fn:substring(mvo.intro,0,45) }.." />
 											</ul>
 										</div>
 									</div>
@@ -61,12 +67,13 @@
 										<!-- <span>Open</span> -->
 									</div>
 									<div class="list-caption">
-										<span>Open</span> <a
-											href="../attraction/museum_detail.do?no=${tno}">
-											"${mvo.title }"</a>
+										 <a class="title"
+											href="../attraction/museum_detail.do?no=${mvo.no}">
+											${mvo.title }</a>
 										<div class="list-footer">
 											<ul>
-												<li>&nbsp;&nbsp;${mvo.intro }</li>
+												<c:out value="${fn:substring(mvo.intro,0,45) }..." />
+
 											</ul>
 										</div>
 									</div>
@@ -85,21 +92,23 @@
 					<div class="col-xl-12">
 						<div class="single-wrap d-flex justify-content-center">
 							<nav aria-label="Page navigation example">
-								<ul class="pagination justify-content-start">
-									<c:forEach var="i" begin="1" end="${totalpage }">
-										<c:if test="${curpage==i }">
-											<c:set var="ss" value="class=current" />
-										</c:if>
-										<c:if test="${curpage!=i }">
-											<c:set var="ss" value="" />
-										</c:if>
-										<li ${ss } class="page-item"><a
-											href="../attraction/museum?page=${i }" class="page-link">${i }</a></li>
-									</c:forEach>
-									<li class="page-item"><a class="page-link"
-										href="../attraction/museum?page=${i+1 }"><span
-											class="ti-angle-right"></span></a></li>
-								</ul>
+								 <ul class="pagination justify-content-start">
+						          <c:if test="${curpage>BLOCK }">
+						          <li class="page-item"><a href="../attraction/museum.do?page=${startPage-1 }" class="page-link"><span class="ti-angle-left"></span></a></li>
+						          </c:if>
+						            <c:forEach var="i" begin="${startPage }" end="${ endPage}">
+						               <c:if test="${curpage==i }">
+						                 <c:set var="ss" value="class=current"/>
+						               </c:if>
+						               <c:if test="${curpage!=i }">
+						                 <c:set var="ss" value=""/>
+						               </c:if>
+						              <li class="page-item" ${ss }><a class="page-link" href="../attraction/museum.do?page=${i }">${i }</a></li>
+						            </c:forEach>  
+						            <c:if test="${endPage<totalpage }">
+						             <li class="page-item"><a href="../attraction/museum.do?page=${endPage+1 }" class="page-link"><span class="ti-angle-right"></span></a></li>
+						            </c:if>
+						        </ul>
 							</nav>
 						</div>
 					</div>

@@ -8,6 +8,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
+.title{
+	color: black;
+}
 .col-3{
 	display: inline;
 }
@@ -64,7 +68,7 @@
 									</div>
 									<div class="list-caption">
 										 <a class="title"
-											href="../attraction/Palace_detail.do?no=${pvo.no}">
+											href="../attraction/palace_detail.do?no=${pvo.no}">
 											${pvo.title }</a>
 										<div class="list-footer">
 											<ul>
