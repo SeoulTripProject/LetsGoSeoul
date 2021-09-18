@@ -144,6 +144,44 @@ public class NatureDAO {
 				}
 				return vo;
 			}
+			
+			public List<FoodVO> seoulFoodListData(String gu)
+			{
+			  List<FoodVO> list=new ArrayList<FoodVO>();
+			  try
+			  {
+				  getConnection();
+				  String sql="SELECT no,poster,rname,rownum "
+				  		+ "FROM (SELECT no,poster,rname "
+				  		+ "FROM trip_R WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+				  		+ "WHERE rownum<=8";
+				  ps=conn.prepareStatement(sql);
+				  ps.setString(1, gu);
+				  ResultSet rs=ps.executeQuery();
+				  while(rs.next())
+				  {
+					  FoodVO vo=new FoodVO();
+					  vo.setNo(rs.getInt(1));
+					  String image=rs.getString(2);
+					  image=image.substring(0,image.indexOf("^"));
+					  image=image.replace("#", "&");
+					  vo.setPoster(image);
+					  vo.setRname(rs.getString(3));
+					  list.add(vo);
+				  }
+				  rs.close();
+			  }catch(Exception ex)
+			  {
+				  ex.printStackTrace();
+			  }
+			  finally
+			  {
+				  disConnection();
+			  }
+			  return list;
+		  }
+			
+			
 	
 	
 }

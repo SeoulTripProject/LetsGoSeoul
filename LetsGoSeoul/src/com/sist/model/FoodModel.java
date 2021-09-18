@@ -1,5 +1,6 @@
 package com.sist.model;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -57,6 +58,7 @@ public class FoodModel {
 		String no=request.getParameter("no");
 		FoodDAO dao=FoodDAO.newInstance();
 		FoodVO vo=dao.foodDetailData(Integer.parseInt(no));
+		
 		String address=vo.getAddress();
 		String addr1=address.substring(0,address.lastIndexOf("지"));
 		String addr2=address.substring(address.lastIndexOf("지"));
@@ -64,9 +66,41 @@ public class FoodModel {
 		temp=temp.substring(0,address.indexOf(" "));
 		vo.setAddr1(addr1);
 		vo.setAddr2(addr2);
+		
+		// 근처 추천
+		List<AttraVO> aList=dao.LocationData(temp);
+		request.setAttribute("aList", aList);
+		List<StayVO> sList=dao.HotelData(temp);
+		request.setAttribute("sList", sList);
+		List<NatureVO> nList=dao.NatureData(temp);
+		request.setAttribute("nList", nList);
+		List<ExbitVO> eList=dao.ExbitData(temp);
+		request.setAttribute("eList", eList);
+		
+		// 댓글
+		String type=request.getParameter("type");
+		type="3";
+		List<ReplyVO> list=dao.replyListData(Integer.parseInt(no), Integer.parseInt(type));
+		request.setAttribute("list", list);
+		
 		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../food/food_detail.jsp");
 		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("food/food_detail_before.do")
+	public String food_detail_before(HttpServletRequest request, HttpServletResponse response)
+	{
+		String no=request.getParameter("no");
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		Cookie cookie=new Cookie(id+"f"+no, no);
+		
+		cookie.setMaxAge(60*60*24);  
+		cookie.setPath("/");
+		response.addCookie(cookie);
+		
+		return "redirect:../food/food_detail.do?no="+no; 
 	}
 	
 	@RequestMapping("food/reply_insert.do") 
@@ -77,7 +111,8 @@ public class FoodModel {
 			request.setCharacterEncoding("UTF-8");
 		}catch(Exception ex) {}
 		
-//		String bno=request.getParameter("bno");
+		String bno=request.getParameter("bno");
+		String type=request.getParameter("type");
 		String msg=request.getParameter("msg");
 		
 		HttpSession session=request.getSession();
@@ -85,16 +120,17 @@ public class FoodModel {
 		String name=(String)session.getAttribute("name");
 		
 		ReplyVO vo=new ReplyVO();
-//		vo.setBno(Integer.parseInt(bno));
+		vo.setBno(Integer.parseInt(bno));
 		vo.setId(id);
 		vo.setName(name);
+		vo.setType(Integer.parseInt(type));
 		vo.setMsg(msg);
 		
 		FoodDAO dao=FoodDAO.newInstance();
 		
 		dao.foodReplyInsert(vo);
 		
-		return "redirect:../food/food_detail.do";
+		return "redirect:../food/food_detail.do?no="+bno;
 	}
 	
 	@RequestMapping("food/reply_delete.do")
