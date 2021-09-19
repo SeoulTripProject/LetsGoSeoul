@@ -189,4 +189,81 @@ public class FoodModel {
 		return "redirect:../food/food_area.do";
 	}
 	
+	@RequestMapping("food/food_recommend.do")
+	public String food_recommend(HttpServletRequest request, HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../food/food_recommend.jsp");
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("food/sub_menu.do")
+	public String sub_menu(HttpServletRequest request, HttpServletResponse response)
+	{
+		// Ajax
+		String[] menu1={"#휴식", "#퇴근길", "#휴가", "#여행", "#술집", "#이자카야", "#2020망고플레이트인기맛집",
+						"#채식메뉴", "#강남", "#일식", "#홍대", "#상수", "#연남동", "#한강", "#시청", "#이태원", "#송리단길", "#가로수길",
+		        		"#거리" , "#고백"
+						};
+		String[] menu2={"#외로움", "#기분전환", "#슬픔" ,"#이별","#지침","#설렘",
+				             "#위로", "#스트레스","#짜증", "#그리움" ,"#우울" ,
+				             "#불안","#기쁨"
+						};
+		String[] menu3={"#신나는","#따뜻한", "#편안한", "#부드러운",  "#달콤한",
+				        "#시원한"
+						};
+		String[] menu4={"#봄", "#여름", "#가을", "#겨울", "#맑은날", "#추운날", "#흐린날", 
+				              "#비오는날", "#더운날", "#안개낀날", "#눈오는날"};
+		
+		String no=request.getParameter("no");
+		List<String> list=new ArrayList<String>();
+		
+		if(no.equals("1"))
+		{
+			list.clear();
+			for(String m:menu1)
+			{
+				list.add(m);
+			}
+		}
+		else if(no.equals("2"))
+		{
+			list.clear();
+			for(String m:menu2)
+			{
+				list.add(m);
+			}
+		}
+		else if(no.equals("3"))
+		{
+			list.clear();
+			for(String m:menu3)
+			{
+				list.add(m);
+			}
+		}
+		else if(no.equals("4"))
+		{
+			list.clear();
+			for(String m:menu4)
+			{
+				list.add(m);
+			}
+		}
+		
+		request.setAttribute("list", list);
+		return "../food/sub_menu.jsp";
+	}	
+	
+	@RequestMapping("food/recommend_result.do")
+	public String recommend_result(HttpServletRequest request, HttpServletResponse response)
+	{
+		String menu=request.getParameter("menu");
+		FoodDAO dao=FoodDAO.newInstance();
+		int a=(int)(Math.random()*30)+1;
+		List<FoodVO> list=dao.foodCategoryListData(a);
+		request.setAttribute("list", list);
+		request.setAttribute("menu", menu);
+		return "../food/food_result.jsp";
+	}
+	
 }

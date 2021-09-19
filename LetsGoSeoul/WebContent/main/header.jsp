@@ -58,6 +58,7 @@ $(function(){
                                                 <ul class="submenu">
                                                     <li><a href="../food/food_list.do">Restaurant List</a></li>
                                                     <li><a href="../food/food_area.do">Explore By Area</a></li>
+                                                    <li><a href="../food/food_recommend.do">Recommendation</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Board</a>

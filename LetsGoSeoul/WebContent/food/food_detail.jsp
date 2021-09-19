@@ -69,8 +69,9 @@ $(function(){
                      <div class="blog_details">
                         <h2>${vo.rname }&nbsp;<span style="color:orange">${vo.score }</span></h2>
                         <ul class="blog-info-link mt-3 mb-4">
-                           <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                           <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                           <li><a href="#"><i class="fa fa-thumbs-up"></i> Good ${vo.good }</a></li>
+                           <li><a href="#"><i class="fa fa-minus"></i> Soso ${vo.soso }</a></li>
+                           <li><a href="#"><i class="fa fa-thumbs-down"></i> Bad ${vo.bad }</a></li>
                         </ul>
                         <p class="excert">
 				                        주소 : ${vo.addr1 }
@@ -316,35 +317,6 @@ $(function(){
                            </div>
                         </div>
                        </c:forEach>
-                     </aside>
-                     <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title">Recommend By Tags</h4>
-                        <ul class="list">
-                           <li>
-                              <a href="#">project</a>
-                           </li>
-                           <li>
-                              <a href="#">love</a>
-                           </li>
-                           <li>
-                              <a href="#">technology</a>
-                           </li>
-                           <li>
-                              <a href="#">travel</a>
-                           </li>
-                           <li>
-                              <a href="#">restaurant</a>
-                           </li>
-                           <li>
-                              <a href="#">life style</a>
-                           </li>
-                           <li>
-                              <a href="#">design</a>
-                           </li>
-                           <li>
-                              <a href="#">illustration</a>
-                           </li>
-                        </ul>
                      </aside>
                      <aside class="single_sidebar_widget instagram_feeds">
                         <h4 class="widget_title">Recently viewed</h4>
