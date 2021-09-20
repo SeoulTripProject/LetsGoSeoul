@@ -254,7 +254,7 @@ public class FoodModel {
 		return "../food/sub_menu.jsp";
 	}	
 	
-	@RequestMapping("food/recommend_result.do")
+	@RequestMapping("food/food_result.do")
 	public String recommend_result(HttpServletRequest request, HttpServletResponse response)
 	{
 		String menu=request.getParameter("menu");

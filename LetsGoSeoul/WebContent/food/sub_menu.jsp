@@ -13,7 +13,7 @@ $(function(){
 		let menu=$(this).text();
 		$.ajax({
 			type: 'post',
-			url: '../food/recommend_result.do',
+			url: '../food/food_result.do',
 			data: {"menu":menu},
 			success: function(result)
 			{

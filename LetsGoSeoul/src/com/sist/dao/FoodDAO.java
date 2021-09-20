@@ -536,7 +536,7 @@ public class FoodDAO {
 	}
 	
 	// 지역별 지도 출력용 
-	public ArrayList<FoodVO> locationData(String address)
+	public ArrayList<FoodVO> locationData(String addr)
 	{
 		ArrayList<FoodVO> list=new ArrayList<FoodVO>();
 		try
@@ -547,13 +547,14 @@ public class FoodDAO {
 					+ "FROM trip_R "
 					+ "WHERE addr LIKE '%'||?||'%'";
 			ps=conn.prepareStatement(sql);
-			ps.setString(1, address);
+			ps.setString(1, addr);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
 				FoodVO vo=new FoodVO();
 				vo.setNo(rs.getInt(1));
-				vo.setPoster(rs.getString(2));
+				String poster=rs.getString(2);
+				vo.setPoster(poster.substring(0,poster.indexOf("^")));
 				vo.setRname(rs.getString(3));
 				list.add(vo);
 			}

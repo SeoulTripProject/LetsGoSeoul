@@ -24,7 +24,7 @@
                         <div class="single-location mb-30 inline">
              				<c:if test="${s.index%4==0 }">
 	                            <div class="location-img inline">
-	                                <img src="${vo.poster }" style="width:360px;height:286px">
+	                                <img src="${vo.poster }" style="width:250px;height:176px;">
 	                            </div>
 	                            <div class="location-details">
 	                                <p>${vo.rname }</p>
@@ -33,7 +33,7 @@
              				</c:if>
              				<c:if test="${s.index%4!=0 }">
 	                            <div class="location-img inline">
-	                                <img src="${vo.poster }" style="width:360px;height:286px">
+	                                <img src="${vo.poster }" style="width:250px;height:176px;">
 	                            </div>
 	                            <div class="location-details">
 	                                <p>${vo.rname }</p>
