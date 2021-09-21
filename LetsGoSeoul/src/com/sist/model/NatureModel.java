@@ -50,11 +50,7 @@ public class NatureModel {
 		NatureVO vo=dao.NatureDetailData(Integer.parseInt(no));
 		
 		String addr=vo.getAddr();
-		//03187 서울 종로구 무교로 37 (서린동)
-		addr=addr.substring(addr.indexOf(" "));
-		// 중구 을지로 30
-		addr=addr.trim();
-		//중구 을지로 30
+		//서울 종로구 무교로 37 (서린동)
 		addr=addr.substring(addr.indexOf(" "));
 		addr=addr.trim();
 		//종로구 무교로 37 (서린동)

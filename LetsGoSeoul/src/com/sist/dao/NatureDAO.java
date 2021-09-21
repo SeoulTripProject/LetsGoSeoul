@@ -130,7 +130,10 @@ public class NatureDAO {
 					vo.setInfo(rs.getString(6));
 					vo.setWebLink(rs.getString(7));
 					vo.setInfo2(rs.getString(8));
-					vo.setAddr(rs.getString(9));
+					String addr=rs.getString(9);
+					addr=addr.substring(addr.indexOf(" "));
+					addr=addr.trim();
+					vo.setAddr(addr);
 					vo.setBus(rs.getString(10));
 					vo.setNtag(rs.getString(11));
 					rs.close();
