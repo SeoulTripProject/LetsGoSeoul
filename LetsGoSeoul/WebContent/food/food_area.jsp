@@ -22,12 +22,12 @@ $(function(){
 	$('.images').click(function(){
 		let no=$(this).attr("data-value");
 		$.ajax({
-			type:'GET',
-			url:'../food/location_result.do',
+			type:'get',
+			url:'../food/location_result.jsp',
 			data:{"no":no},
-			success:function(res)
+			success:function(result)
 			{
-				$('.print').html(res); 
+				$('.print').html(result); 
 			}
 		})
 	})
@@ -61,46 +61,26 @@ $(function(){
                     </div>
                 </div>
 				<div class="section-top-border">
-					<h3 class="mb-30">Definition</h3>
+					<h3 class="mb-30">Area of Seoul</h3>
 					<div class="row">
 						<div class="col-md-4">
 							<div class="single-defination">
 				   				<div id="a">
 				    				<img id="seoul_1" src="../food/map/1111.png">
-									    <%
-									       for(int i=1;i<=25;i++)
-									       {
-									     %>
-									         <img id="gu<%=i %>" src="../food/map/gu_<%=i%>_off.png" 
-									          onmouseover="this.src='../food/map/gu_<%=i%>_on.png'" 
-									          onmouseout="this.src='../food/map/gu_<%=i%>_off.png'" class="images"
-									          data-value="<%=i %>"
+				    					<c:forEach var="i" begin="1" end="25">
+									         <img id="gu${i }" src="../food/map/gu_${i }_off.png" 
+									          onmouseover="this.src='../food/map/gu_${i }_on.png'" 
+									          onmouseout="this.src='../food/map/gu_${i }_off.png'" class="images"
+									          data-value="${i }"
 									         >
-									     <%
-									       }
-									     %>
+				    					</c:forEach>
 				            	</div>
 				      		 </div>
 				  		</div>
-				  		<div class="row print">
-				  		</div>
-        				<c:if test="${vo.no!=0 }">
-							<div class="col-md-4">
-								<div class="single-defination">
-									<h4 class="mb-30" style="margin-left: 30%">Gu</h4>
-			                         <c:forEach var="vo" items="${list }">
-			                            <div class="location-img">
-			                                <img src="${vo.poster }" alt="">
-			                            </div>
-			                            <div class="location-details">
-			                                <p>${vo.rname }</p>
-			                                <a href="#" class="location-btn">65 <i class="ti-plus"></i> Location</a>
-			                            </div>
-			                          </c:forEach>
-								</div>
-							</div> 
-      					</c:if>
-					</div> 
+				  		  <div class="row print">
+				  		  
+						  </div> 
+				  </div>
                  </div>
             </div>
         </div>
