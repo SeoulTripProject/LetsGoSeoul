@@ -7,6 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.hero-area2 {
+  background-image: url(../assets/img/hero/river.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
 .col-3{
 	display: inline;
 }
@@ -18,7 +24,7 @@ li{
 </head>
 <body>
 <!-- Hero Start-->
-        <div class="hero-area3 hero-overly2 d-flex align-items-center ">
+        <div class="hero-area2 hero-overly2 d-flex align-items-center ">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-9">

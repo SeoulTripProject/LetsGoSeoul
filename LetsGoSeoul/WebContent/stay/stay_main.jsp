@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center mb-80">
-                            <h2>GuestHouse</h2>
+                            <h2>Guest House</h2>
                         </div>
                     </div>
                 </div>

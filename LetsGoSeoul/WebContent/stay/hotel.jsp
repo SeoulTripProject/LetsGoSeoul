@@ -23,7 +23,7 @@ li{
 </head>
 <body>
 <!-- Hero Start-->
-        <div class="hero-area3 hero-overly2 d-flex align-items-center ">
+        <div class="hero-area2 hero-overly2 d-flex align-items-center ">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-9">
