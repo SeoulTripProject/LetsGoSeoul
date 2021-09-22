@@ -20,13 +20,13 @@ public class ExbitVO {
 	private int eno,no;
 	private String title,poster,detail,period,tel,time,day,price,addr,trans,tag,images;
 	private int preno, nextno;
-	private String gu;
+	private String addr1;
 	
-	public String getGu() {
-		return gu;
+	public String getAddr1() {
+		return addr1;
 	}
-	public void setGu(String gu) {
-		this.gu = gu;
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
 	}
 	public int getPreno() {
 		return preno;

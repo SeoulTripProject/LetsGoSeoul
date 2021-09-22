@@ -31,9 +31,21 @@ public class CultureModel {
 		int curpage=Integer.parseInt(page);
 		List<ExbitVO> list=dao.exbitData(curpage);
 		int totalpage=dao.exbitTotalPage();
+		
+		final int BLOCK=2;
+		int startPage=(((curpage-1)/BLOCK)*BLOCK)+1;
+		int endPage=(((curpage-1)/BLOCK)*BLOCK)+BLOCK;
+		
+		if(endPage>totalpage)
+			endPage=totalpage;
+		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
+		request.setAttribute("BLOCK", BLOCK);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		
 		request.setAttribute("main_jsp", "../culture/exhibition.jsp");
 		return "../main/main.jsp";
 	}
@@ -45,12 +57,12 @@ public class CultureModel {
 		ExbitVO vo=dao.exbitDetailData(Integer.parseInt(no));
 		
 		String addr=vo.getAddr();
-		addr=addr.substring(addr.indexOf(" "));
-		addr=addr.trim();
+		String addr1=addr.substring(addr.indexOf(" "));
+		addr1=addr1.trim();
+		vo.setAddr1(addr1);
+		System.out.println("addr1="+addr1);
 		
-		System.out.println("addr="+addr);
-		
-		String gu=addr;
+		String gu=addr1;
 		gu=gu.substring(gu.indexOf(" "));
 		gu=gu.trim();
 		System.out.println("gu="+gu);
@@ -75,9 +87,21 @@ public class CultureModel {
 		int curpage=Integer.parseInt(page);
 		List<CultureVO> list=dao.playData(curpage);
 		int totalpage=dao.exbitTotalPage();
+		
+		final int BLOCK=2;
+		int startPage=(((curpage-1)/BLOCK)*BLOCK)+1;
+		int endPage=(((curpage-1)/BLOCK)*BLOCK)+BLOCK;
+		
+		if(endPage>totalpage)
+			endPage=totalpage;
+		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
+		request.setAttribute("BLOCK", BLOCK);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		
 		request.setAttribute("main_jsp", "../culture/play.jsp");
 		return "../main/main.jsp";
 	}
