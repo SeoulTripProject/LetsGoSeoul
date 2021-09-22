@@ -6,20 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<!-- CSS here -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/slicknav.css">
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/slick.css">
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
 <style type="text/css">
 .hero-area2 {
   background-image: url(../assets/img/hero/river.jpg);
@@ -121,7 +107,7 @@ button:hover:before,button:hover:after{
                            <li><a href="#"><i class="fa fa-thumbs-up"></i></a></li>
                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
                            <li><a href="#"><i class="fa fa-check"></i></a></li>
-                           <li><a href="../stay/stay_main.do"><i class="fa fa-list"></i></a></li>
+                           <li><a href="../stay/hotel.do"><i class="fa fa-list"></i></a></li>
                         </ul>
                        </div>
                      </div>
@@ -132,7 +118,7 @@ button:hover:before,button:hover:after{
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
                                  <a href="../stay/hdetail.do?no=${vo.no-1 }">
-                                    <img class="img-fluid" src="../assets/img/post/preview.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/left-arrow.png" alt="">
                                  </a>
                               </div>
                               <div class="arrow">
@@ -156,7 +142,7 @@ button:hover:before,button:hover:after{
                               </div>
                               <div class="thumb">
                                  <a href="../stay/hdetail.do?no=${vo.no+1 }">
-                                    <img class="img-fluid" src="../assets/img/post/next.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/right-arrow.png" alt="">
                                  </a>
                               </div>
                            </div>

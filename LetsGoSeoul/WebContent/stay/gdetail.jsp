@@ -133,7 +133,7 @@ button:hover:before,button:hover:after{
                            <li><a href="#"><i class="fa fa-thumbs-up"></i></a></li>
                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
                            <li><a href="#"><i class="fa fa-check"></i></a></li>
-                           <li><a href="../stay/stay_main.do"><i class="fa fa-list"></i></a></li>
+                           <li><a href="../stay/ghouse.do"><i class="fa fa-list"></i></a></li>
                         </ul>
                        </div>
                      </div>
@@ -144,7 +144,7 @@ button:hover:before,button:hover:after{
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
                                  <a href="../stay/gdetail.do?no=${vo.no-1 }">
-                                    <img class="img-fluid" src="../assets/img/post/preview.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/left-arrow.png" alt="">
                                  </a>
                               </div>
                               <div class="arrow">
@@ -168,7 +168,7 @@ button:hover:before,button:hover:after{
                               </div>
                               <div class="thumb">
                                  <a href="../stay/gdetail.do?no=${vo.no+1 }">
-                                    <img class="img-fluid" src="../assets/img/post/next.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/right-arrow.png" alt="">
                                  </a>
                               </div>
                            </div>
