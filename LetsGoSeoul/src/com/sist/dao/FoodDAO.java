@@ -543,9 +543,11 @@ public class FoodDAO {
 		{
 			getConnection();
 			
-			String sql="SELECT no, poster, rname "
-					+ "FROM trip_R "
-					+ "WHERE addr LIKE '%'||?||'%'";
+			String sql="SELECT no,poster,rname,rownum "
+					+ "FROM (SELECT no,poster,rname,addr "
+					+ "FROM trip_R ORDER BY no ASC) "
+					+ "WHERE addr LIKE '%'||?||'%' "
+					+ "AND rownum<=12";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, addr);
 			ResultSet rs=ps.executeQuery();

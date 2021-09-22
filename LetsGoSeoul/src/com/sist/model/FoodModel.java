@@ -182,11 +182,12 @@ public class FoodModel {
 		    "은평구", "서대문구", "동작구", "관악구", "종로구", "중구", "용산구", "서초구", "강북구",
 		    "성북구", "도봉구", "동대문구", "성동구", "강남구", "노원구", "중랑구", "광진구", "송파구",
 		    "강동구" };
-	    ArrayList<FoodVO> list=dao.locationData(guList_1[Integer.parseInt(no)]);
-	    request.setAttribute("list", list);
 	    
-	    request.setAttribute("main_jsp", "../food/location_result.jsp");
-		return "../main/main.jsp";
+	    ArrayList<FoodVO> list=dao.locationData(guList_1[Integer.parseInt(no)]);
+	    System.out.println(list);
+	    request.setAttribute("list", list);
+
+		return "../food/location_result.jsp";
 	}
 	
 	@RequestMapping("food/food_recommend.do")

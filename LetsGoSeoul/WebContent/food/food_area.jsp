@@ -20,10 +20,10 @@
 $(function(){
 	$('.images').css('cursor','pointer');
 	$('.images').click(function(){
-		let no=$(this).attr("data-value");
+		let no=$(this).attr("data-no");
 		$.ajax({
-			type:'get',
-			url:'../food/location_result.jsp',
+			type:'post',
+			url:'../food/location_result.do',
 			data:{"no":no},
 			success:function(result)
 			{
@@ -60,28 +60,31 @@ $(function(){
                         </div>
                     </div>
                 </div>
-				<div class="section-top-border">
+				<div class="wrapper row3">
+				  <main class="container clear"> 
 					<h3 class="mb-30">Area of Seoul</h3>
 					<div class="row">
-						<div class="col-md-4">
-							<div class="single-defination">
+						<div class="col-md-6">
 				   				<div id="a">
 				    				<img id="seoul_1" src="../food/map/1111.png">
 				    					<c:forEach var="i" begin="1" end="25">
 									         <img id="gu${i }" src="../food/map/gu_${i }_off.png" 
 									          onmouseover="this.src='../food/map/gu_${i }_on.png'" 
 									          onmouseout="this.src='../food/map/gu_${i }_off.png'" class="images"
-									          data-value="${i }"
+									          data-no="${i }"
 									         >
 				    					</c:forEach>
 				            	</div>
 				      		 </div>
-				  		</div>
-				  		  <div class="row print">
+				  		
+				  		 <div class="col-md-6">
+				  		   <div class="print">
 				  		  
-						  </div> 
+						   </div> 
+						 </div>
+					</div>
+					</main>
 				  </div>
-                 </div>
             </div>
         </div>
         <!-- Categories Area End -->
