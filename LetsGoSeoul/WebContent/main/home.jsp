@@ -2,34 +2,62 @@
     pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Seoul Trip</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.ico">
-
-		<!-- CSS here -->
-            <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
-            <link rel="stylesheet" href="../../assets/css/slicknav.css">
-            <link rel="stylesheet" href="../../assets/css/flaticon.css">
-            <link rel="stylesheet" href="../../assets/css/animate.min.css">
-            <link rel="stylesheet" href="../../assets/css/magnific-popup.css">
-            <link rel="stylesheet" href="../../assets/css/fontawesome-all.min.css">
-            <link rel="stylesheet" href="../../assets/css/themify-icons.css">
-            <link rel="stylesheet" href="../../assets/css/slick.css">
-            <link rel="stylesheet" href="../../assets/css/nice-select.css">
-            <link rel="stylesheet" href="../../assets/css/style.css">
-        <style type="text/css">
-        .slider-area {
-		  background-image: url(../assets/img/hero/namsan.jpg);
-		  background-size: cover;
-		  background-repeat: no-repeat;
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Seoul Trip</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="site.webmanifest">
+<link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.ico">
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../../assets/css/slicknav.css">
+<link rel="stylesheet" href="../../assets/css/flaticon.css">
+<link rel="stylesheet" href="../../assets/css/animate.min.css">
+<link rel="stylesheet" href="../../assets/css/magnific-popup.css">
+<link rel="stylesheet" href="../../assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="../../assets/css/themify-icons.css">
+<link rel="stylesheet" href="../../assets/css/slick.css">
+<link rel="stylesheet" href="../../assets/css/nice-select.css">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style type="text/css">
+.slider-area {
+  background-image: url(../assets/img/hero/namsan.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:'../search/result.jsp',
+		type:'post',
+		success:function(res)
+		{
+			$('.print').html(res);
 		}
-        </style>
+	})
+	$('#btn').click(function(){
+		let cfd=$('#cfd').val();
+		if(cfd.trim()=="")
+		{
+			$('#cfd').focus();
+			return;
+		}
+		$.ajax({
+			url:'../search/result.jsp',
+			type:'post',
+			data:{"cfd":cfd},
+			success:function(res)
+			{
+				$('.print').html(res)
+			}
+		})
+	})
+})
+</script>
    </head>
 <body>
 <main>
@@ -48,7 +76,7 @@
                             <!--Hero form -->
                             <form action="#" class="search-box">
                                 <div class="input-form">
-                                    <input type="text" placeholder="What are you looking for?">
+                                    <input type="text" placeholder="What are you looking for?" name=cfd id="cfd">
                                 </div>
                                 <div class="select-form">
                                     <div class="select-itms">
@@ -56,14 +84,15 @@
                                             <option value="#">All Categories</option>
                                             <option value="../attraction/attraction_main.do">Attraction</option>
                                             <option value="#">Nature</option>
-                                            <option value="../culture/culture_main.do">Culture</option>
+                                            <option value="../culture/exhibition.do">Exhibition</option>
+                                            <option value="../culture/play.do">Play</option>
                                             <option value="../stay/stay_main.do">Stay</option>
                                             <option value="../food/food_main.do">Restaurants</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="search-form">
-                                    <a href="#">Search</a>
+                                    <a href="#" class="btn">Search</a>
                                 </div>	
                             </form>	
                         </div>
