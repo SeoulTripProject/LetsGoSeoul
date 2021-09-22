@@ -62,36 +62,24 @@ $(function(){
 <body>
         <!-- Hero Area Start-->
         <div class="slider-area hero-overly">
-            <div class="single-slider hero-overly  slider-height d-flex align-items-center">
+            <div class="single-slider hero-overly  slider-height d-flex align-items-center subscribe-area">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-xl-8 col-lg-9">
+                        <div class="col-xl-6 col-lg-8">
                             <!-- Hero Caption -->
                             <div class="hero__caption">
                                 <span>Welcome to Seoul</span>
                                 <h1>Discover Great Places</h1>
                             </div>
                             <!--Hero form -->
-                            <form action="#" class="search-box">
-                                <div class="input-form">
-                                    <input type="text" placeholder="What are you looking for?">
-                                </div>
-                                <div class="select-form">
-                                    <div class="select-itms">
-                                        <select name="select" id="select1">
-                                            <option value="#">All Categories</option>
-                                            <option value="../attraction/attraction_main.do">Attraction</option>
-                                            <option value="../nature/main.do">Nature</option>
-                                            <option value="../culture/culture_main.do">Culture</option>
-                                            <option value="../stay/stay_main.do">Stay</option>
-                                            <option value="../food/food_main.do">Restaurants</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="search-form">
-                                    <a href="#" class="btn">Search</a>
-                                </div>
-                            </form>
+					        <form action="#" class="search-box input">
+                            <div class="input-form">
+                                <input type="text" placeholder="What are you looking for?" class="input" id="cfd">
+                            </div>
+                            <div class="search-form" id="btn">
+                                <a href="#">Send Now</a>
+                            </div>	
+                            </form>	
                         </div>
                     </div>
                 </div>
