@@ -15,8 +15,8 @@
                             <div class="single-footer-caption mb-50">
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
-                                    <div class="footer-logo">
-                                        <a href="index.html"><img src="../assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <div class="logo">
+                                      <a href="../main/main.do"><img src="../assets/img/logo/tLogo.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -26,8 +26,9 @@
                                 <div class="footer-tittle">
                                     <h4>Community</h4>
                                     <ul>
-                                        <li><a href="main/home.jsp">Home</a></li>
-                                        <li><a href="#">Board</a></li>
+                                        <li><a href="main/home.do">Home</a></li>
+                                        <li><a href="../notice/notice_list.do">Notice</a></li>
+                                        <li><a href="../board/freeboard.do">Board</a></li>
                                         <li><a href="#">Contact us</a></li> 
                                     </ul>
                                 </div>
@@ -38,8 +39,8 @@
                                 <div class="footer-tittle">
                                     <h4>About Seoul</h4>
                                     <ul>
-                                        <li><a href="#">Attraction</a></li>
-                                        <li><a href="#">Nature</a></li>
+                                        <li><a href="../attraction/attraction_main.do">Attraction</a></li>
+                                        <li><a href="../nature/main.do">Nature</a></li>
                                         <li><a href="../culture/culture_main.do">Culture</a></li>
                                         <li><a href="../stay/stay_main.do">Stay</a></li>
                                         <li><a href="../food/food_main.do">Restaurants</a></li>
