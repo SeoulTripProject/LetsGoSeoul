@@ -43,6 +43,24 @@ public class CultureModel {
 		String no=request.getParameter("no");
 		CultureDAO dao=CultureDAO.newInstance();
 		ExbitVO vo=dao.exbitDetailData(Integer.parseInt(no));
+		
+		String addr=vo.getAddr();
+		addr=addr.substring(addr.indexOf(" "));
+		addr=addr.trim();
+		
+		System.out.println("addr="+addr);
+		
+		String gu=addr;
+		gu=gu.substring(gu.indexOf(" "));
+		gu=gu.trim();
+		System.out.println("gu="+gu);
+		
+		gu=gu.substring(0,gu.lastIndexOf("구")+1);
+		System.out.println("gu="+gu);
+		
+		List<FoodVO> fList=dao.seoulFoodListData(gu);
+		request.setAttribute("fList", fList);
+		
 		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../culture/exhibition_detail.jsp");
 		return "../main/main.jsp";
@@ -69,6 +87,24 @@ public class CultureModel {
 		String no=request.getParameter("no");
 		CultureDAO dao=CultureDAO.newInstance();
 		CultureVO vo=dao.playDetailData(Integer.parseInt(no));
+		
+		String addr=vo.getAddr();
+		addr=addr.substring(addr.indexOf(" "));
+		addr=addr.trim();
+		
+		System.out.println("addr="+addr);
+		
+		String gu=addr;
+		gu=gu.substring(gu.indexOf(" "));
+		gu=gu.trim();
+		System.out.println("gu="+gu);
+		
+		gu=gu.substring(0,gu.lastIndexOf("구")+1);
+		System.out.println("gu="+gu);
+		
+		List<FoodVO> fList=dao.seoulFoodListData(gu);
+		request.setAttribute("fList", fList);
+		
 		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../culture/play_detail.jsp");
 		return "../main/main.jsp";

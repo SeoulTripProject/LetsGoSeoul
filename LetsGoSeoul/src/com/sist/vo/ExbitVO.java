@@ -19,7 +19,27 @@ package com.sist.vo;
 public class ExbitVO {
 	private int eno,no;
 	private String title,poster,detail,period,tel,time,day,price,addr,trans,tag,images;
+	private int preno, nextno;
+	private String gu;
 	
+	public String getGu() {
+		return gu;
+	}
+	public void setGu(String gu) {
+		this.gu = gu;
+	}
+	public int getPreno() {
+		return preno;
+	}
+	public void setPreno(int preno) {
+		this.preno = preno;
+	}
+	public int getNextno() {
+		return nextno;
+	}
+	public void setNextno(int nextno) {
+		this.nextno = nextno;
+	}
 	public String getImages() {
 		return images;
 	}

@@ -12,6 +12,20 @@ package com.sist.vo;
 public class CultureVO {
 	private int cno,no;
 	private String title,addr,poster,period,story,tel;
+	private int preno, nextno;
+	
+	public int getPreno() {
+		return preno;
+	}
+	public void setPreno(int preno) {
+		this.preno = preno;
+	}
+	public int getNextno() {
+		return nextno;
+	}
+	public void setNextno(int nextno) {
+		this.nextno = nextno;
+	}
 	public int getCno() {
 		return cno;
 	}

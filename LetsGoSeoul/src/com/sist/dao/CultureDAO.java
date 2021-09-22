@@ -173,9 +173,13 @@ public class CultureDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT no,images,title,detail,period,tel,time,day,price,addr,trans,tag "
-					  +"FROM trip_E "
-					  +"WHERE no=?";
+			String sql="SELECT * FROM "
+					+ "(SELECT no,images,title,detail,period,tel,time,day,price, "
+					+ "addr,trans,tag, "
+					+ "LAG(no, 1, -1) OVER(ORDER BY no ASC) as preno, " 
+			  		+ "LEAD(no, 1, -1) OVER(ORDER BY no ASC) as nextno "
+					+ "FROM trip_E) WHERE no=?";
+			
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, no);
 			ResultSet rs=ps.executeQuery();
@@ -192,6 +196,8 @@ public class CultureDAO {
 			vo.setAddr(rs.getString(10));
 			vo.setTrans(rs.getString(11));
 			vo.setTag(rs.getString(12));
+			vo.setPreno(rs.getInt(13));
+			vo.setNextno(rs.getInt(14));
 			rs.close();
 		}catch(Exception ex)
 		{
@@ -330,9 +336,11 @@ public class CultureDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT no,title,poster,period,story,addr,tel "
-					  +"FROM trip_C "
-					  +"WHERE no=?";
+			String sql="SELECT * FROM "
+					+ "(SELECT no,title,poster,period,story,addr,tel, "
+					+ "LAG(no, 1, -1) OVER(ORDER BY no ASC) as preno, " 
+			  		+ "LEAD(no, 1, -1) OVER(ORDER BY no ASC) as nextno "
+					+ "FROM trip_C) WHERE no=?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, no);
 			ResultSet rs=ps.executeQuery();
@@ -344,6 +352,8 @@ public class CultureDAO {
 			vo.setStory(rs.getString(5));
 			vo.setAddr(rs.getString(6));
 			vo.setTel(rs.getString(7));
+			vo.setPreno(rs.getInt(8));
+			vo.setNextno(rs.getInt(9));
 			rs.close();
 		}catch(Exception ex)
 		{
@@ -398,4 +408,39 @@ public class CultureDAO {
 		}
 		return list;
 	}
+	public List<FoodVO> seoulFoodListData(String gu)
+	{
+	  List<FoodVO> list=new ArrayList<FoodVO>();
+	  try
+	  {
+		  getConnection();
+		  String sql="SELECT no,poster,rname,rownum "
+		  		+ "FROM (SELECT no,poster,rname "
+		  		+ "FROM trip_R WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+		  		+ "WHERE rownum<=8";
+		  ps=conn.prepareStatement(sql);
+		  ps.setString(1, gu);
+		  ResultSet rs=ps.executeQuery();
+		  while(rs.next())
+		  {
+			  FoodVO vo=new FoodVO();
+			  vo.setNo(rs.getInt(1));
+			  String image=rs.getString(2);
+			  image=image.substring(0,image.indexOf("^"));
+			  image=image.replace("#", "&");
+			  vo.setPoster(image);
+			  vo.setRname(rs.getString(3));
+			  list.add(vo);
+		  }
+		  rs.close();
+	  }catch(Exception ex)
+	  {
+		  ex.printStackTrace();
+	  }
+	  finally
+	  {
+		  disConnection();
+	  }
+	  return list;
+  }
 }
