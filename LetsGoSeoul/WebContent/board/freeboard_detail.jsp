@@ -43,7 +43,7 @@ $(function(){
         </div>
 <!--Hero End -->
 <!--================Blog Area =================-->
-      <section class="blog_area single-post-area section-padding" style="margin-left:25%">
+      <section class="blog_area single-post-area section-padding" style="margin-left:25%;">
          <div class="container">
             <div class="row">
                <div class="col-lg-8 posts-list">

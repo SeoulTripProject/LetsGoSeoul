@@ -10,7 +10,17 @@ pageEncoding="UTF-8"%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="site.webmanifest">
 <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.ico">
-
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../../assets/css/slicknav.css">
+<link rel="stylesheet" href="../../assets/css/flaticon.css">
+<link rel="stylesheet" href="../../assets/css/animate.min.css">
+<link rel="stylesheet" href="../../assets/css/magnific-popup.css">
+<link rel="stylesheet" href="../../assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="../../assets/css/themify-icons.css">
+<link rel="stylesheet" href="../../assets/css/slick.css">
+<link rel="stylesheet" href="../../assets/css/nice-select.css">
+<link rel="stylesheet" href="../../assets/css/style.css">
 <style type="text/css">
 .slider-area {
 	background-image: url(../assets/img/hero/namsan.jpg);
@@ -18,6 +28,36 @@ pageEncoding="UTF-8"%>
 	background-repeat: no-repeat;
 }
 </style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:'../search/result.jsp',
+		type:'post',
+		success:function(res)
+		{
+			$('.print').html(res);
+		}
+	})
+	$('#btn').click(function(){
+		let cfd=$('#cfd').val();
+		if(cfd.trim()=="")
+		{
+			$('#cfd').focus();
+			return;
+		}
+		$.ajax({
+			url:'../search/result.jsp',
+			type:'post',
+			data:{"cfd":cfd},
+			success:function(res)
+			{
+				$('.print').html(res)
+			}
+		})
+	})
+})
+</script>
 </head>
 <body>
         <!-- Hero Area Start-->
@@ -49,7 +89,7 @@ pageEncoding="UTF-8"%>
                                     </div>
                                 </div>
                                 <div class="search-form">
-                                    <a href="#">Search</a>
+                                    <a href="#" class="btn">Search</a>
                                 </div>
                             </form>
                         </div>

@@ -355,4 +355,47 @@ public class CultureDAO {
 		}
 		return vo;
 	}
+	public ArrayList<CultureVO> cultureFindData(String cfd)
+	{
+		ArrayList<CultureVO> list=new ArrayList<CultureVO>();
+		try
+		{
+			getConnection();
+			String sql="";
+			
+			if(cfd.equals("all"))
+			{
+				sql="SELECT title,poster,num "
+					+"FROM (SELECT title,poster,rownum as num "
+					+"FROM (SELECT title,poster "
+					+"FROM trip_c ORDER BY no ASC)) "
+					+"WHERE rownum<=28";
+				ps=conn.prepareStatement(sql);
+			}
+			else
+			{
+				sql="SELECT title,poster "
+					+"FROM trip_c "
+					+"WHERE title LIKE '%'||?||'%'";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, cfd);
+			}
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				CultureVO vo=new CultureVO();
+				vo.setTitle(rs.getString(1));
+				vo.setPoster(rs.getString(2));
+				list.add(vo);
+			}
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
 }
