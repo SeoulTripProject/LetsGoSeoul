@@ -553,8 +553,10 @@ public class FoodDAO {
 			{
 				FoodVO vo=new FoodVO();
 				vo.setNo(rs.getInt(1));
-				String poster=rs.getString(2);
-				vo.setPoster(poster.substring(0,poster.indexOf("^")));
+				String poster=rs.getString(2); 
+				poster=poster.substring(0, poster.indexOf("^"));
+				poster=poster.replace("#", "&");
+				vo.setPoster(poster);
 				vo.setRname(rs.getString(3));
 				list.add(vo);
 			}
