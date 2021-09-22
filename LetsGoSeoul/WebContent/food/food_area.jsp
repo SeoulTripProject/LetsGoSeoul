@@ -76,12 +76,9 @@ $(function(){
 				    					</c:forEach>
 				            	</div>
 				      		 </div>
-				  		
-				  		 <div class="col-md-6">
-				  		   <div class="print">
+				  		   <div class="print col-md-6">
 				  		  
 						   </div> 
-						 </div>
 					</div>
 					</main>
 				  </div>

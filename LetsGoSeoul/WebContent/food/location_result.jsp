@@ -21,26 +21,12 @@
 </div> 
 		</c:forEach> --%>
   <c:forEach var="vo" items="${list }" varStatus="s">
-   <c:if test="${s.index%3==0 }">
-    <div style="width:160px;height:160px float:left" class="inline">
-      <td>
-        <img src="${vo.poster }" alt="" style="width:160px;height:150px">
-      </td>
-      <td>
-        <a href="../food/food_detail.do?no=${vo.no }" class="location-btn"><p>${vo.rname }</p></a>
-      </td>
-    </div>
-   </c:if>
-   <c:if test="${s.index%3!=0 }">
-    <div style="width:160px;height:160px; float:left" class="inline">
-      <td style="">
-        <img src="${vo.poster }" alt="" style="width:160px;height:150px">
-      </td>
-      <td>
-        <a href="../food/food_detail.do?no=${vo.no }" class="location-btn"><p>${vo.rname }</p></a>
-      </td>
-    </div>
-   </c:if>
+   <div style="width:120px; height:120px; border:1px solid white; float:left;">
+        <a href="../food/food_detail.do?no=${vo.no }">
+          <img src="${vo.poster }" style="width:100px;height:95px">
+        </a>
+        <p class="text-left">${vo.rname }</p>
+   </div>
   </c:forEach>
 </body>
 </html>
