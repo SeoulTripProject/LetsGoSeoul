@@ -559,7 +559,7 @@ public class FoodDAO {
 				vo.setPoster(poster);
 				vo.setRname(rs.getString(3));
 				list.add(vo);
-			}
+			} 
 			rs.close();
 		}catch(Exception ex)
 		{
