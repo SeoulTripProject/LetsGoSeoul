@@ -188,7 +188,7 @@ public class AttraDAO {
 		ADDR             VARCHAR2(1000) 
 		TRAFFIC          VARCHAR2(1000)
 	 */
-	public AttraVO LandmarkDetailData(int no)
+	public AttraVO LandmarkDetailData(int no) // 상세보기
 	{
 		AttraVO vo=new AttraVO();
 		try
@@ -227,7 +227,7 @@ public class AttraDAO {
 		}
 		return vo;
 	}
-	// 고궁 
+	///////////////////////////////////////////////////// 고궁 
 	public List<AttraVO> PalaceMainData()
 	{
 		List<AttraVO> list=new ArrayList<AttraVO>();
@@ -301,8 +301,8 @@ public class AttraDAO {
 			int rowSize=8;
 			int start=(rowSize*page)-(rowSize-1);
 			int end=rowSize*page;
-			ps.setInt(1, start);
-			ps.setInt(2, end);
+			ps.setInt(1, start+25);
+			ps.setInt(2, end+25);
 
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
@@ -325,6 +325,45 @@ public class AttraDAO {
 			disConnection();
 		}
 		return list;
+	}
+	public AttraVO PalaceDetailData(int no) // 상세보기
+	{
+		AttraVO vo=new AttraVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,title,poster,image,intro,tel,website,time,holiday,open,price,handi,caution,addr,traffic "
+					  +"FROM trip_a "
+					  +"WHERE no=? and ano=2";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setTitle(rs.getString(2));
+			vo.setPoster(rs.getString(3));
+			vo.setImage(rs.getString(4));
+			vo.setIntro(rs.getString(5));
+			vo.setTel(rs.getString(6));
+			vo.setWebsite(rs.getString(7));
+			vo.setTime(rs.getString(8));
+			vo.setHoliday(rs.getString(9));
+			vo.setOpen(rs.getString(10));
+			vo.setPrice(rs.getString(11));
+			vo.setHandi(rs.getString(12));
+			vo.setCaution(rs.getString(13));
+			vo.setAddr(rs.getString(14));
+			vo.setTraffic(rs.getString(15));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
 	}
 	// 역사적 장소
 	public List<AttraVO> HistoricMainData()
@@ -400,8 +439,8 @@ public class AttraDAO {
 			int rowSize=8;
 			int start=(rowSize*page)-(rowSize-1);
 			int end=rowSize*page;
-			ps.setInt(1, start);
-			ps.setInt(2, end);
+			ps.setInt(1, start+40);
+			ps.setInt(2, end+40);
 
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
@@ -425,7 +464,46 @@ public class AttraDAO {
 		}
 		return list;
 	}
-    // 오래된 가게
+	public AttraVO HistoricDetailData(int no) // 상세보기
+	{
+		AttraVO vo=new AttraVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,title,poster,image,intro,tel,website,time,holiday,open,price,handi,caution,addr,traffic "
+					  +"FROM trip_a "
+					  +"WHERE no=? and ano=3";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setTitle(rs.getString(2));
+			vo.setPoster(rs.getString(3));
+			vo.setImage(rs.getString(4));
+			vo.setIntro(rs.getString(5));
+			vo.setTel(rs.getString(6));
+			vo.setWebsite(rs.getString(7));
+			vo.setTime(rs.getString(8));
+			vo.setHoliday(rs.getString(9));
+			vo.setOpen(rs.getString(10));
+			vo.setPrice(rs.getString(11));
+			vo.setHandi(rs.getString(12));
+			vo.setCaution(rs.getString(13));
+			vo.setAddr(rs.getString(14));
+			vo.setTraffic(rs.getString(15));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
+    //////////////////////////// 오래된 가게///////////////////////////////////
 	public List<AttraVO> OldMainData()
 	{
 		List<AttraVO> list=new ArrayList<AttraVO>();
@@ -499,8 +577,8 @@ public class AttraDAO {
 			int rowSize=8;
 			int start=(rowSize*page)-(rowSize-1);
 			int end=rowSize*page;
-			ps.setInt(1, start);
-			ps.setInt(2, end);
+			ps.setInt(1, start+104);
+			ps.setInt(2, end+104);
 
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
@@ -524,7 +602,46 @@ public class AttraDAO {
 		}
 		return list;
 	}
-	// 박물관
+	public AttraVO OldDetailData(int no) // 상세보기
+	{
+		AttraVO vo=new AttraVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,title,poster,image,intro,tel,website,time,holiday,open,price,handi,caution,addr,traffic "
+					  +"FROM trip_a "
+					  +"WHERE no=? and ano=4";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setTitle(rs.getString(2));
+			vo.setPoster(rs.getString(3));
+			vo.setImage(rs.getString(4));
+			vo.setIntro(rs.getString(5));
+			vo.setTel(rs.getString(6));
+			vo.setWebsite(rs.getString(7));
+			vo.setTime(rs.getString(8));
+			vo.setHoliday(rs.getString(9));
+			vo.setOpen(rs.getString(10));
+			vo.setPrice(rs.getString(11));
+			vo.setHandi(rs.getString(12));
+			vo.setCaution(rs.getString(13));
+			vo.setAddr(rs.getString(14));
+			vo.setTraffic(rs.getString(15));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
+	/////////////////////////////// 박물관////////////////////////////
 	public List<AttraVO> MuseumMainData()
 	{
 		List<AttraVO> list=new ArrayList<AttraVO>();
@@ -598,8 +715,8 @@ public class AttraDAO {
 			int rowSize=8;
 			int start=(rowSize*page)-(rowSize-1);
 			int end=rowSize*page;
-			ps.setInt(1, start);
-			ps.setInt(2, end);
+			ps.setInt(1, start+132);
+			ps.setInt(2, end+132);
 
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
@@ -622,6 +739,45 @@ public class AttraDAO {
 			disConnection();
 		}
 		return list;
+	}
+	public AttraVO MuseumDetailData(int no) // 상세보기
+	{
+		AttraVO vo=new AttraVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,title,poster,image,intro,tel,website,time,holiday,open,price,handi,caution,addr,traffic "
+					  +"FROM trip_a "
+					  +"WHERE no=? and ano=5";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setTitle(rs.getString(2));
+			vo.setPoster(rs.getString(3));
+			vo.setImage(rs.getString(4));
+			vo.setIntro(rs.getString(5));
+			vo.setTel(rs.getString(6));
+			vo.setWebsite(rs.getString(7));
+			vo.setTime(rs.getString(8));
+			vo.setHoliday(rs.getString(9));
+			vo.setOpen(rs.getString(10));
+			vo.setPrice(rs.getString(11));
+			vo.setHandi(rs.getString(12));
+			vo.setCaution(rs.getString(13));
+			vo.setAddr(rs.getString(14));
+			vo.setTraffic(rs.getString(15));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
 	}
 	
 }

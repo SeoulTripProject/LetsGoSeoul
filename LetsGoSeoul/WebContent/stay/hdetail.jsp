@@ -6,8 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-
 <style type="text/css">
 .hero-area2 {
   background-image: url(../assets/img/hero/river.jpg);
@@ -51,55 +49,8 @@ button:hover:before,button:hover:after{
   width:100%;
   transition:800ms ease all;
 }
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-	text-align: center;
-	font-size: 18px;
-	background: #fff;
-	
-	/* Center slide text vertically */
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 </style>
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-  var swiper = new Swiper(".mySwiper", {
-    pagination: {
-      el: ".swiper-pagination",
-      type: "progressbar",
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
 </head>
 <body>
 <!-- Hero Start-->
@@ -156,7 +107,7 @@ button:hover:before,button:hover:after{
                            <li><a href="#"><i class="fa fa-thumbs-up"></i></a></li>
                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
                            <li><a href="#"><i class="fa fa-check"></i></a></li>
-                           <li><a href="../stay/stay_main.do"><i class="fa fa-list"></i></a></li>
+                           <li><a href="../stay/hotel.do"><i class="fa fa-list"></i></a></li>
                         </ul>
                        </div>
                      </div>
@@ -167,7 +118,7 @@ button:hover:before,button:hover:after{
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
                                  <a href="../stay/hdetail.do?no=${vo.no-1 }">
-                                    <img class="img-fluid" src="../assets/img/post/preview.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/left-arrow.png" alt="">
                                  </a>
                               </div>
                               <div class="arrow">
@@ -191,7 +142,7 @@ button:hover:before,button:hover:after{
                               </div>
                               <div class="thumb">
                                  <a href="../stay/hdetail.do?no=${vo.no+1 }">
-                                    <img class="img-fluid" src="../assets/img/post/next.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/right-arrow.png" alt="">
                                  </a>
                               </div>
                            </div>
@@ -199,6 +150,8 @@ button:hover:before,button:hover:after{
                         </div>
                      </div>
                   </div>
+                  
+                  
                   
                   <%-- <div class="comments-area">
                      <h4>Comments</h4>
@@ -318,24 +271,48 @@ button:hover:before,button:hover:after{
 		           </button>
 		           <br>
 		           <br>
+		           </div>
 		           
-		           <div class="swiper mySwiper">
-				     <div class="swiper-wrapper">
-				        <div class="swiper-slide">Slide 1</div>
-				        <div class="swiper-slide">Slide 2</div>
-				        <div class="swiper-slide">Slide 3</div>
-				     </div>
-				      <div class="swiper-button-next"></div>
-				      <div class="swiper-button-prev"></div>
-				      <div class="swiper-pagination"></div>
-				   </div>
-		           
-		         </div>
+		           <!-- <div style="height:50px"></div>
+				  <h2 class="sectiontitle">근처 맛집 리스트</h2>
+			    <div class="flexslider carousel basiccarousel btmspace-80">
+			      <ul class="slides">
+			       <c:forEach var="fvo" items="${fList }" varStatus="s">
+			        <li>
+			          <figure><img class="radius-10 btmspace-10" src="${fvo.poster }" style="width:320px;height:185px">
+			            <figcaption><a href="../food/food_detail.do?no=${fvo.no }">${fvo.rname }</a></figcaption>
+			          </figure>
+			        </li>
+			       </c:forEach>
+			      </ul>
+			    </div> -->
+		           <h4 class="text-center">Recommand Food</h4>
+		             <c:forEach var="fvo" items="${fList }" varStatus="s">
+		               <div style="width:90px; height:90px; border:1px solid white; float:left;">
+                         <a href="../food/food_detail.do?no=${fvo.no }">
+                           <img src="${fvo.poster }" style="width:90px;height:90px" title="${fvo.rname }">
+                         </a>
+		               </div>
+		             </c:forEach>
+		            <br> 
+		            <br>
+		            <br>
+		            <br>
+		            <div style="height:120px"></div>
+		            <h4 class="text-center">Recommand Nature</h4>
+		             <c:forEach var="nvo" items="${nList }" varStatus="s">
+		               <div style="width:90px; height:90px; border:1px solid white; float:left;">
+                         <a href="../nature/detail.do?no=${nvo.no }">
+                           <img src="${nvo.poster }" style="width:90px;height:90px" title="${nvo.title }">
+                         </a>
+		               </div>
+		             </c:forEach>
 		   </div>
 
          </div>
       </section>
       <!--================ Blog Area end =================-->
+      
 </body>
 </html>
 

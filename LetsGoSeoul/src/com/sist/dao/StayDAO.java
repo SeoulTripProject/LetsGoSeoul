@@ -33,14 +33,14 @@ public class StayDAO {
 		}catch(Exception ex) {}
 	}
 	
-	//싱글턴
+
 	public static StayDAO newInstance()
 	{
-		if(dao==null) // 미생성시에는
+		if(dao==null) 
 			dao=new StayDAO();
-		return dao; // 이미 만들어진 dao객체를 사용한다
+		return dao; 
 	}
-	// 호텔
+
 	public List<StayVO> stayMainData()
 	{
 		List<StayVO> list=new ArrayList<StayVO>();
@@ -74,7 +74,7 @@ public class StayDAO {
 		return list;
 	}
 	
-	//게스트 하우스
+
 	public List<StayVO> stayMainData2()
 	{
 		List<StayVO> list=new ArrayList<StayVO>();
@@ -131,7 +131,7 @@ public class StayDAO {
 		return total;
 	}
 	
-	// 호텔
+
 		public List<StayVO> HotelData(int page)
 		{
 			List<StayVO> list=new ArrayList<StayVO>();
@@ -199,7 +199,7 @@ public class StayDAO {
 			return total;
 		}
 		
-		// 게스트하우스
+		// 
 		public List<StayVO> GhouseData(int page)
 		{
 			List<StayVO> list=new ArrayList<StayVO>();
@@ -245,7 +245,7 @@ public class StayDAO {
 			return list;
 		}
 		
-		//호텔 상세보기
+
 		public StayVO HotelDetailData(int no)
 		{
 			StayVO vo=new StayVO();
@@ -279,7 +279,7 @@ public class StayDAO {
 			return vo;
 		}
 		
-		//게하 상세보기
+
 		public StayVO GhouseDetailData(int no)
 		{
 			StayVO vo=new StayVO();
@@ -321,15 +321,15 @@ public class StayDAO {
 		}
 		
 		public List<FoodVO> seoulFoodListData(String gu)
-	   {
+		{
 		  List<FoodVO> list=new ArrayList<FoodVO>();
 		  try
 		  {
 			  getConnection();
-			  String sql="SELECT no,poster,name,rownum "
-			  		+ "FROM (SELECT no,poster,name "
-			  		+ "FROM trip_R WHERE address LIKE '%'||?||'%' ORDER BY no ASC) "
-			  		+ "WHERE rownum<=10";
+			  String sql="SELECT no,poster,rname,rownum "
+			  		+ "FROM (SELECT no,poster,rname "
+			  		+ "FROM trip_R WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+			  		+ "WHERE rownum<=8";
 			  ps=conn.prepareStatement(sql);
 			  ps.setString(1, gu);
 			  ResultSet rs=ps.executeQuery();
@@ -342,6 +342,39 @@ public class StayDAO {
 				  image=image.replace("#", "&");
 				  vo.setPoster(image);
 				  vo.setRname(rs.getString(3));
+				  list.add(vo);
+			  }
+			  rs.close();
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  disConnection();
+		  }
+		  return list;
+	  }
+		
+		public List<NatureVO> natureListData(String gu)
+		{
+		  List<NatureVO> list=new ArrayList<NatureVO>();
+		  try
+		  {
+			  getConnection();
+			  String sql="SELECT no,poster,title,rownum "
+			  		+ "FROM (SELECT no,poster,title "
+			  		+ "FROM trip_N WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+			  		+ "WHERE rownum<=8";
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, gu);
+			  ResultSet rs=ps.executeQuery();
+			  while(rs.next())
+			  {
+				  NatureVO vo=new NatureVO();
+				  vo.setNo(rs.getInt(1));
+				  vo.setPoster(rs.getString(2));
+				  vo.setTitle(rs.getString(3));
 				  list.add(vo);
 			  }
 			  rs.close();

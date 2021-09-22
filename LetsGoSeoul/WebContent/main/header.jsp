@@ -58,6 +58,7 @@ $(function(){
                                                 <ul class="submenu">
                                                     <li><a href="../food/food_list.do">Restaurant List</a></li>
                                                     <li><a href="../food/food_area.do">Explore By Area</a></li>
+                                                    <li><a href="../food/food_recommend.do">Recommendation</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Board</a>
@@ -70,12 +71,22 @@ $(function(){
                                             </li>
                                             
                                             <c:if test="${sessionScope.id!=null }"> <%--로그인이 된 상태 --%>
+                                            <c:if test="${admin=='n' }">
                                             <li><a href="#">My Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Unregister</a></li>
                                                     <li><a href="blog.html">WishList</a></li>
                                                 </ul>
                                             </li>
+                                            </c:if>
+                                            <c:if test="${admin=='y' }">
+                                            <li><a href="#">Admin Page</a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">Reservation</a></li>
+                                                    <li><a href="blog.html">WishList</a></li>
+                                                </ul>
+                                            </li>
+                                            </c:if>
                                             </c:if>
                                             <c:if test="${sessionScope.id==null }"> <%-- 로그인이 안된 상태 --%>
                                             <li class="login"><a href="../member/login.do">

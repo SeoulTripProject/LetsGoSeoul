@@ -6,6 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.rebtn').click(function(){
+		let no=$(this).attr("data-no");
+		$.ajax({
+			type: "post",
+			url: '../food/sub_menu.do',
+			data: {"no":no},
+			success: function(result)
+			{
+				$('#menu').html(result);
+			}
+		})
+	})
+})
+</script>
 <style type="text/css">
 .hero-area2 {
   background-image: url(../assets/img/hero/river.jpg);
@@ -13,26 +30,8 @@
   background-repeat: no-repeat;
   min-height: 500px;
 }
+
 </style>
-<link rel="stylesheet" href="../food/food.css">
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-$(function(){
-	$('.images').css('cursor','pointer');
-	$('.images').click(function(){
-		let no=$(this).attr("data-no");
-		$.ajax({
-			type:'post',
-			url:'../food/location_result.do',
-			data:{"no":no},
-			success:function(result)
-			{
-				$('.print').html(result); 
-			}
-		})
-	})
-})
-</script>
 </head>
 <body>
         <!-- Hero Start-->
@@ -41,7 +40,7 @@ $(function(){
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center pt-50">
-                            <h2>Explore By Area</h2>
+                            <h2>Recommended Restaurants</h2>
                         </div>
                     </div>
                 </div>
@@ -55,38 +54,32 @@ $(function(){
                     <div class="col-lg-12">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-80">
-                            <span>Exploring By</span>
-                            <h2>Areas</h2>
+                            <span>Choose one</span>
+                            <h2>Recommendation By Tags</h2>
                         </div>
                     </div>
                 </div>
-				<div class="wrapper row3">
+                <div class="wrapper row3" style="margin-left:30%;margin-right:auto;">
 				  <main class="container clear"> 
-					<h3 class="mb-30">Area of Seoul</h3>
-					<div class="row">
-						<div class="col-md-6">
-				   				<div id="a">
-				    				<img id="seoul_1" src="../food/map/1111.png">
-				    					<c:forEach var="i" begin="1" end="25">
-									         <img id="gu${i }" src="../food/map/gu_${i }_off.png" 
-									          onmouseover="this.src='../food/map/gu_${i }_on.png'" 
-									          onmouseout="this.src='../food/map/gu_${i }_off.png'" class="images"
-									          data-no="${i }"
-									         >
-				    					</c:forEach>
-				            	</div>
-				      		 </div>
-				  		
-				  		 <div class="col-md-6">
-				  		   <div class="print">
-				  		  
-						   </div> 
-						 </div>
-					</div>
-					</main>
+				  <div class="row">
+				    <div class="text-center">
+				     <div class="button-group-area mt-40">
+				          <span class="genric-btn primary radius rebtn" data-no="1">Situations</span>
+				          <span class="genric-btn success radius rebtn" data-no="2">Moods</span>
+				          <span class="genric-btn info radius rebtn" data-no="3">Preferences</span>
+				          <span class="genric-btn warning radius rebtn" data-no="4">Weather</span>
+				    </div>
+				    </div>
+				    <div id="menu">
+				    
+				    </div>
+                    <div id="recommend">
+                        	
+                    </div>
 				  </div>
+				  </main>
+				  </div>  
             </div>
         </div>
-        <!-- Categories Area End -->
 </body>
 </html>

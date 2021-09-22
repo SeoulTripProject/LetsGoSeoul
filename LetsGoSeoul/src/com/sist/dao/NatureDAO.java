@@ -130,7 +130,10 @@ public class NatureDAO {
 					vo.setInfo(rs.getString(6));
 					vo.setWebLink(rs.getString(7));
 					vo.setInfo2(rs.getString(8));
-					vo.setAddr(rs.getString(9));
+					String addr=rs.getString(9);
+					addr=addr.substring(addr.indexOf(" "));
+					addr=addr.trim();
+					vo.setAddr(addr);
 					vo.setBus(rs.getString(10));
 					vo.setNtag(rs.getString(11));
 					rs.close();
@@ -144,6 +147,44 @@ public class NatureDAO {
 				}
 				return vo;
 			}
+			
+			public List<FoodVO> seoulFoodListData(String gu)
+			{
+			  List<FoodVO> list=new ArrayList<FoodVO>();
+			  try
+			  {
+				  getConnection();
+				  String sql="SELECT no,poster,rname,rownum "
+				  		+ "FROM (SELECT no,poster,rname "
+				  		+ "FROM trip_R WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+				  		+ "WHERE rownum<=8";
+				  ps=conn.prepareStatement(sql);
+				  ps.setString(1, gu);
+				  ResultSet rs=ps.executeQuery();
+				  while(rs.next())
+				  {
+					  FoodVO vo=new FoodVO();
+					  vo.setNo(rs.getInt(1));
+					  String image=rs.getString(2);
+					  image=image.substring(0,image.indexOf("^"));
+					  image=image.replace("#", "&");
+					  vo.setPoster(image);
+					  vo.setRname(rs.getString(3));
+					  list.add(vo);
+				  }
+				  rs.close();
+			  }catch(Exception ex)
+			  {
+				  ex.printStackTrace();
+			  }
+			  finally
+			  {
+				  disConnection();
+			  }
+			  return list;
+		  }
+			
+			
 	
 	
 }

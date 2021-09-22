@@ -90,7 +90,7 @@ public class AttraModel {
 	   }
 	
 	
-	//고궁
+	///////////////////////////////////////////////////////////////////////고궁
 	@RequestMapping("attraction/palace.do")
 	public String AttraPalace(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -122,8 +122,27 @@ public class AttraModel {
 		request.setAttribute("main_jsp","../attraction/palace.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("attraction/palace_detail.do")
+	   public String palace_detail(HttpServletRequest request,HttpServletResponse response)
+	   {
+		   String no=request.getParameter("no");
+		   AttraDAO dao=AttraDAO.newInstance();
+		   AttraVO vo=dao.PalaceDetailData(Integer.parseInt(no));
+		   String address=vo.getAddr();
+		   String addr3=address.substring(address.indexOf("서"));
+		   // 서울특별시 송파구 백제고분로41길 43-21 SANDONG빌딩
+		   String addr4=addr3.replace("일대"," ");
+		      
+		   // 결과값 보내기
+		   
+		   vo.setAddr2(addr4);
+		   request.setAttribute("vo", vo);
+		   
+		   request.setAttribute("main_jsp","../attraction/palace_detail.jsp");
+		   return "../main/main.jsp";
+	   }
 	
-	// 역사적장소
+	/////////////////////////////////////////////// 역사적장소//////////////////////////////////////////////////////////////////
 	@RequestMapping("attraction/historic.do")
 	public String AttraHistoric(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -155,9 +174,28 @@ public class AttraModel {
 		request.setAttribute("main_jsp","../attraction/historic.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("attraction/historic_detail.do")
+	   public String historic_detail(HttpServletRequest request,HttpServletResponse response)
+	   {
+		   String no=request.getParameter("no");
+		   AttraDAO dao=AttraDAO.newInstance();
+		   AttraVO vo=dao.HistoricDetailData(Integer.parseInt(no));
+		   String address=vo.getAddr();
+		   String addr5=address.substring(address.indexOf("서"));
+		   // 서울특별시 송파구 백제고분로41길 43-21 SANDONG빌딩
+		   String addr6=addr5.replace("일대"," ");
+		      
+		   // 결과값 보내기
+		   
+		   vo.setAddr2(addr6);
+		   request.setAttribute("vo", vo);
+		   
+		   request.setAttribute("main_jsp","../attraction/historic_detail.jsp");
+		   return "../main/main.jsp";
+	   }
 	
 	
-	// 오래된 가게
+	// ////////////////////////////////오래된 가게///////////////////////////////////
 	@RequestMapping("attraction/old.do")
 	public String AttraOld(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -189,6 +227,25 @@ public class AttraModel {
 		request.setAttribute("main_jsp","../attraction/old.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("attraction/old_detail.do")
+	   public String Old_detail(HttpServletRequest request,HttpServletResponse response)
+	   {
+		   String no=request.getParameter("no");
+		   AttraDAO dao=AttraDAO.newInstance();
+		   AttraVO vo=dao.OldDetailData(Integer.parseInt(no));
+		   String address=vo.getAddr();
+		   String addr7=address.substring(address.indexOf("서"));
+		   // 서울특별시 송파구 백제고분로41길 43-21 SANDONG빌딩
+		   String addr8=addr7.replace("일대"," ");
+		      
+		   // 결과값 보내기
+		   
+		   vo.setAddr2(addr8);
+		   request.setAttribute("vo", vo);
+		   
+		   request.setAttribute("main_jsp","../attraction/old_detail.jsp");
+		   return "../main/main.jsp";
+	   }
 	
 	//박물관
 	@RequestMapping("attraction/museum.do")
@@ -222,5 +279,24 @@ public class AttraModel {
 		request.setAttribute("main_jsp","../attraction/museum.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("attraction/museum_detail.do")
+	   public String Museum_detail(HttpServletRequest request,HttpServletResponse response)
+	   {
+		   String no=request.getParameter("no");
+		   AttraDAO dao=AttraDAO.newInstance();
+		   AttraVO vo=dao.MuseumDetailData(Integer.parseInt(no));
+		   String address=vo.getAddr();
+		   String addr9=address.substring(address.indexOf("서"));
+		   // 서울특별시 송파구 백제고분로41길 43-21 SANDONG빌딩
+		   String addr10=addr9.replace("일대"," ");
+		      
+		   // 결과값 보내기
+		   
+		   vo.setAddr2(addr10);
+		   request.setAttribute("vo", vo);
+		   
+		   request.setAttribute("main_jsp","../attraction/museum_detail.jsp");
+		   return "../main/main.jsp";
+	   }
 	
 }

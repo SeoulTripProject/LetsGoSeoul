@@ -1,4 +1,4 @@
-package com.sist.dao;
+/*package com.sist.dao;
 import java.util.*;
 import java.sql.*;
 import javax.sql.*;
@@ -294,5 +294,5 @@ public class QnADAO {
 			   disConnection();
 		   }
 	   }
-}
+}*/
 	   

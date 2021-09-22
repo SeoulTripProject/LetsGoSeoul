@@ -2,7 +2,7 @@ package com.sist.vo;
   
 public class NatureVO {
 	private int no;
-	private String title,subject,poster,images,info,tel,webLink,time,info2,link,addr,bus,Ntag;
+	private String title,subject,poster,images,info,tel,webLink,time,info2,link,addr,bus,Ntag,addr1;
 	
 	public int getNo() {
 		return no;
@@ -88,6 +88,13 @@ public class NatureVO {
 	public void setNtag(String ntag) {
 		this.Ntag = ntag;
 	}
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+	
 	
 
 	

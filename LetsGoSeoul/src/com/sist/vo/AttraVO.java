@@ -22,8 +22,57 @@ public class AttraVO {
 	private int no,ano;
 	private String title,poster,image,intro,tel,website,time,holiday,open,price,
 	               handi,caution,addr,traffic;
-	private String addr1,addr2;
+	private String addr1,addr2,addr3,addr4,addr5,addr6,addr7,addr8,addr9,addr10;
 	
+	
+	public String getAddr3() {
+		return addr3;
+	}
+	public void setAddr3(String addr3) {
+		this.addr3 = addr3;
+	}
+	public String getAddr4() {
+		return addr4;
+	}
+	public void setAddr4(String addr4) {
+		this.addr4 = addr4;
+	}
+	public String getAddr5() {
+		return addr5;
+	}
+	public void setAddr5(String addr5) {
+		this.addr5 = addr5;
+	}
+	public String getAddr6() {
+		return addr6;
+	}
+	public void setAddr6(String addr6) {
+		this.addr6 = addr6;
+	}
+	public String getAddr7() {
+		return addr7;
+	}
+	public void setAddr7(String addr7) {
+		this.addr7 = addr7;
+	}
+	public String getAddr8() {
+		return addr8;
+	}
+	public void setAddr8(String addr8) {
+		this.addr8 = addr8;
+	}
+	public String getAddr9() {
+		return addr9;
+	}
+	public void setAddr9(String addr9) {
+		this.addr9 = addr9;
+	}
+	public String getAddr10() {
+		return addr10;
+	}
+	public void setAddr10(String addr10) {
+		this.addr10 = addr10;
+	}
 	public String getAddr1() {
 		return addr1;
 	}

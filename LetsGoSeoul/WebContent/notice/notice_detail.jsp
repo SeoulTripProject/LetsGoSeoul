@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 .hero-area5 {
-  background-image: url(../assets/img/hero/namsan.jpg);
+  background-image: url(../assets/img/hero/river.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 128px;

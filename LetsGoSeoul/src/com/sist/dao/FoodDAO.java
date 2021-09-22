@@ -74,7 +74,7 @@ public class FoodDAO {
 		}
 	}
 	
-	//
+	// 메인출력
 	public List<FoodVO> foodMainData()
 	{
 		List<FoodVO> list=new ArrayList<FoodVO>();
@@ -150,7 +150,7 @@ public class FoodDAO {
 		return list;
 	}
 	
-/*	public FoodVO foodCookieInfoData(int no)
+	public FoodVO foodCookieInfoData(int no)
 	{
 		FoodVO vo=new FoodVO();
 		try
@@ -179,7 +179,7 @@ public class FoodDAO {
 			disConnection();
 		}
 		return vo;
-	} */
+	} 
 	
 	public List<FoodVO> foodListData(int page)
 	{
@@ -302,7 +302,7 @@ public class FoodDAO {
 		{
 			getConnection();
 			String sql="SELECT no, bno, id, name, msg, TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') "
-					+ "FROM project_reply "
+					+ "FROM trip_reply "
 					+ "WHERE bno=? AND type=? "
 					+ "ORDER BY no DESC"; 
 			ps=conn.prepareStatement(sql);
@@ -338,7 +338,7 @@ public class FoodDAO {
 		try
 		{
 			getConnection();
-			String sql="INSERT INTO project_reply VALUES("
+			String sql="INSERT INTO trip_reply VALUES("
 					+ "pr_no_seq.nextval,?,?,?,?,?,SYSDATE)";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, vo.getBno());
@@ -385,7 +385,7 @@ public class FoodDAO {
 		try
 		{
 			getConnection();
-			String sql="UPDATE project_reply SET "
+			String sql="UPDATE trip_reply SET "
 					+ "msg=? "
 					+ "WHERE no=?";
 			ps=conn.prepareStatement(sql);
@@ -402,25 +402,26 @@ public class FoodDAO {
 		}
 	}
 	
-	public ArrayList<FoodVO> locationData(String address)
+	// 주변 추천
+	public List<AttraVO> LocationData(String addr)
 	{
-		ArrayList<FoodVO> list=new ArrayList<FoodVO>();
+		List<AttraVO> list=new ArrayList<AttraVO>();
 		try
 		{
 			getConnection();
-			
-			String sql="SELECT no, poster, rname "
-					+ "FROM trip_R "
-					+ "WHERE addr LIKE '%'||?||'%'";
+			String sql="SELECT no, title, poster, rownum "
+					+ "FROM (SELECT no, title, poster "
+					+ "FROM trip_A WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+					+ "WHERE rownum<=2";
 			ps=conn.prepareStatement(sql);
-			ps.setString(1, address);
+			ps.setString(1, addr);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
-				FoodVO vo=new FoodVO();
+				AttraVO vo=new AttraVO();
 				vo.setNo(rs.getInt(1));
-				vo.setPoster(rs.getString(2));
-				vo.setRname(rs.getString(3));
+				vo.setTitle(rs.getString(2));
+				vo.setPoster(rs.getString(3));
 				list.add(vo);
 			}
 			rs.close();
@@ -434,4 +435,143 @@ public class FoodDAO {
 		}
 		return list;
 	}
+	
+	public List<StayVO> HotelData(String addr)
+	{
+		List<StayVO> list=new ArrayList<StayVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT no, sname, poster, rownum "
+					+ "FROM (SELECT no, sname, poster "
+					+ "FROM trip_S WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+					+ "WHERE rownum<=2";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, addr);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				StayVO vo=new StayVO();
+				vo.setNo(rs.getInt(1));
+				vo.setSname(rs.getString(2));
+				vo.setPoster(rs.getString(3));
+				list.add(vo);
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
+	
+	public List<NatureVO> NatureData(String addr)
+	{
+		List<NatureVO> list=new ArrayList<NatureVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT no, title, poster, rownum "
+					+ "FROM (SELECT no, title, poster "
+					+ "FROM trip_N WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+					+ "WHERE rownum<=2";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, addr);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				NatureVO vo=new NatureVO();
+				vo.setNo(rs.getInt(1));
+				vo.setTitle(rs.getString(2));
+				vo.setPoster(rs.getString(3));
+				list.add(vo);
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
+	
+	public List<ExbitVO> ExbitData(String addr)
+	{
+		List<ExbitVO> list=new ArrayList<ExbitVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT no, title, poster, rownum "
+					+ "FROM (SELECT no, title, poster "
+					+ "FROM trip_E WHERE addr LIKE '%'||?||'%' ORDER BY no ASC) "
+					+ "WHERE rownum<=2";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, addr);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				ExbitVO vo=new ExbitVO();
+				vo.setNo(rs.getInt(1));
+				vo.setTitle(rs.getString(2));
+				vo.setPoster(rs.getString(3));
+				list.add(vo);
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
+	
+	// 지역별 지도 출력용 
+	public ArrayList<FoodVO> locationData(String addr)
+	{
+		ArrayList<FoodVO> list=new ArrayList<FoodVO>();
+		try
+		{
+			getConnection();
+			
+			String sql="SELECT no,poster,rname,rownum "
+					+ "FROM (SELECT no,poster,rname,addr "
+					+ "FROM trip_R ORDER BY no ASC) "
+					+ "WHERE addr LIKE '%'||?||'%' "
+					+ "AND rownum<=12";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, addr);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				FoodVO vo=new FoodVO();
+				vo.setNo(rs.getInt(1));
+				String poster=rs.getString(2); 
+				poster=poster.substring(0, poster.indexOf("^"));
+				poster=poster.replace("#", "&");
+				vo.setPoster(poster);
+				vo.setRname(rs.getString(3));
+				list.add(vo);
+			} 
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
+	
 }
