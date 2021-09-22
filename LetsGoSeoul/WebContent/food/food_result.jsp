@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-        <div class="categories-area section-padding30">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -20,8 +19,8 @@
                 </div>
              <div class="row">
                 <c:forEach var="vo" items="${list }" varStatus="s">
-                    <div class="col-4">
-                        <div class="single-location mb-30 inline">
+                    <div class="col-3 inline">
+
              				<c:if test="${s.index%4==0 }">
 	                            <div class="location-img inline">
 	                                <img src="${vo.poster }" style="width:250px;height:176px;">
@@ -40,11 +39,10 @@
 	                                <a href="../food/food_detail.do?no=${vo.no }" class="location-btn"><i class="ti-plus"></i>Detail</a>
 	                            </div>
              				</c:if>
-                        </div>
+
                     </div>
                   </c:forEach>
              </div>
         </div>
-      </div>
 </body>
 </html>

@@ -574,4 +574,57 @@ public class FoodDAO {
 		return list;
 	}
 	
+	// 추천
+		public FoodVO foodrecommandData(int no)
+		{
+			FoodVO vo=new FoodVO();
+			try
+			{
+				getConnection();
+				String sql="SELECT no,poster,rname "
+						+ "FROM trip_R WHERE no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, no);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				vo.setNo(rs.getInt(1));
+				vo.setPoster(rs.getString(2));
+				vo.setRname(rs.getString(3));
+				rs.close();
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return vo;
+		}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

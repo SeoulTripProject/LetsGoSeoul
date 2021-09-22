@@ -250,18 +250,19 @@ public class FoodModel {
 				list.add(m);
 			}
 		}
-		
 		request.setAttribute("list", list);
 		return "../food/sub_menu.jsp";
 	}	
 	
-	@RequestMapping("food/food_result.do")
+	@RequestMapping("food/recommand_result.do")
 	public String recommend_result(HttpServletRequest request, HttpServletResponse response)
 	{
 		String menu=request.getParameter("menu");
+		System.out.println(menu);
 		FoodDAO dao=FoodDAO.newInstance();
 		int a=(int)(Math.random()*30)+1;
-		List<FoodVO> list=dao.foodCategoryListData(a);
+		List<FoodVO> list=(List<FoodVO>) dao.foodDetailData(a);
+		System.out.println(list);
 		request.setAttribute("list", list);
 		request.setAttribute("menu", menu);
 		return "../food/food_result.jsp";
