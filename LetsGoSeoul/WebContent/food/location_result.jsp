@@ -8,17 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+		<c:forEach var="vo" items="${list }">
 <div class="col-md-4">
 	<div class="single-defination">
-		<c:forEach var="vo" items="${list }">
 			 <div class="location-img">
 			       <img src="${vo.poster }" alt="">
 			 </div>
 			 <div class="location-details">
 			 <a href="../food/food_main.jsp?no=${vo.no }" class="location-btn"><p>${vo.rname }</p></a>
 			 </div>
-		</c:forEach>
 	</div>
 </div> 
+		</c:forEach>
 </body>
 </html>
