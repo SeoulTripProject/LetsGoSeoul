@@ -133,7 +133,7 @@ button:hover:before,button:hover:after{
                            <li><a href="#"><i class="fa fa-thumbs-up"></i></a></li>
                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
                            <li><a href="#"><i class="fa fa-check"></i></a></li>
-                           <li><a href="../stay/stay_main.do"><i class="fa fa-list"></i></a></li>
+                           <li><a href="../stay/ghouse.do"><i class="fa fa-list"></i></a></li>
                         </ul>
                        </div>
                      </div>

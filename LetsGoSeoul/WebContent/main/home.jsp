@@ -55,7 +55,7 @@
                                         <select name="select" id="select1">
                                             <option value="#">All Categories</option>
                                             <option value="../attraction/attraction_main.do">Attraction</option>
-                                            <option value="#">Nature</option>
+                                            <option value="../nature/main.do">Nature</option>
                                             <option value="../culture/culture_main.do">Culture</option>
                                             <option value="../stay/stay_main.do">Stay</option>
                                             <option value="../food/food_main.do">Restaurants</option>
@@ -234,9 +234,9 @@
                                 <span class="flaticon-bed"></span>
                             </div>
                             <div class="cat-cap">
-                                <h5><a href="catagori.html">Leving Hotel</a></h5>
-                                <p>Must explain your how this keind denoun pleasure</p>
-                                <a href="catagori.html">View Details</a>
+                                <h5><a href="catagori.html">Leving Stay</a></h5>
+                                <p>We explain everything about Seoul</p>
+                                <a href="../stay/stay_main.do">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -246,9 +246,9 @@
                                 <span class="flaticon-drink"></span>
                             </div>
                             <div class="cat-cap">
-                                <h5><a href="catagori.html">Night Life</a></h5>
-                                <p>Must explain your how this keind denoun pleasure</p>
-                                <a href="catagori.html">View Details</a>
+                                <h5><a href="catagori.html">Attraction</a></h5>
+                                <p>We explain everything about Seoul</p>
+                                <a href="../attraction/attraction_main.do">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -258,9 +258,9 @@
                                 <span class="flaticon-home"></span>
                             </div>
                             <div class="cat-cap">
-                                <h5><a href="catagori.html">Culture Place</a></h5>
-                                <p>Must explain your how this keind denoun pleasure</p>
-                                <a href="catagori.html">View Details</a>
+                                <h5><a href="catagori.html">Culture</a></h5>
+                                <p>We explain everything about Seoul</p>
+                                <a href="../culture/culture_main.do">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -271,8 +271,8 @@
                             </div>
                             <div class="cat-cap">
                                 <h5><a href="catagori.html">Resturent</a></h5>
-                                <p>Must explain your how this keind denoun pleasure</p>
-                                <a href="catagori.html">View Details</a>
+                                <p>We explain everything about Seoul</p>
+                                <a href="../food/food_main.do">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -280,56 +280,15 @@
             </div>
         </div>
         <!-- Categories Area End -->
-         <!-- peoples-visit Start -->
-         <div class="peoples-visit dining-padding-top">
-            <!-- Single Left img -->
-            <div class="single-visit left-img">
-                <div class="container">
-                    <div class="row justify-content-end">
-                        <div class="col-lg-8">
-                            <div class="visit-caption">
-                                <span>We are offering for you</span>
-                                <h3>Every Month, Millions of People 
-                                    visit this site We’ve Built.</h3>
-                                <p>Unlike what its name implies, dry cleaning is not actually a 'dry' process. Clothes are soaked in a different solvent.</p>
-                                <!--Single Visit categories -->
-                                <div class="visit-categories mb-40">
-                                    <div class="visit-location">
-                                        <span class="flaticon-travel"></span>
-                                    </div>
-                                    <div class="visit-cap">
-                                        <h4>Great places in the world</h4>
-                                        <p>Unlike what its name implies, dry cleaning is not actu  process. Clothes soaked differentent.
-                                        </p>
-                                    </div>
-                                </div>
-                                <!--Single Visit categories -->
-                                <div class="visit-categories">
-                                    <div class="visit-location">
-                                        <span class="flaticon-work"></span>
-                                    </div>
-                                    <div class="visit-cap">
-                                        <h4>Biggest category listing</h4>
-                                        <p>Unlike what its name implies, dry cleaning is not actu  process. Clothes soaked differentent.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- peoples-visit End -->
-        <!-- Testimonial Start -->
+        <!-- Youtube -->
         <div class="testimonial-area testimonial-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-80">
-                            <span>Our client testimonials</span>
-                            <h2>What our client say</h2>
+                            <span>Introduce</span>
+                            <h2>YOUTUBE</h2>
                         </div> 
                     </div>
                 </div>
@@ -338,41 +297,17 @@
                         <div class="h1-testimonial-active">
                             <!-- Single Testimonial -->
                             <div class="single-testimonial text-center">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <div class="testimonial-top-cap">
-                                        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis por incididunt ut labore et dolore mas. </p>
-                                    </div>
-                                    <!-- founder -->
-                                    <div class="testimonial-founder d-flex align-items-center justify-content-center mb-30">
-                                        <div class="founder-img">
-                                            <img src="../assets/img/testmonial/Homepage_testi.png" alt="">
-                                        </div>
-                                        <div class="founder-text">
-                                            <span>Oliva jems</span>
-                                            <p>UIX designer</p>
-                                        </div>
-                                    </div>
-                                </div>
+                              <iframe width="850" height="350" src="https://www.youtube.com/embed/OgJJ9vYCvrM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
+                            <!-- OgJJ9vYCvrM -->
                             <!-- Single Testimonial -->
                             <div class="single-testimonial text-center">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <div class="testimonial-top-cap">
-                                        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis por incididunt ut labore et dolore mas. </p>
-                                    </div>
-                                    <!-- founder -->
-                                    <div class="testimonial-founder d-flex align-items-center justify-content-center mb-30">
-                                        <div class="founder-img">
-                                            <img src="../assets/img/testmonial/Homepage_testi.png" alt="">
-                                        </div>
-                                        <div class="founder-text">
-                                            <span>Oliva jems</span>
-                                            <p>UIX designer</p>
-                                        </div>
-                                    </div>
-                                </div>
+                              <iframe width="850" height="350" src="https://www.youtube.com/embed/EK0wlUAbtow" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            
+                            <!-- Single Testimonial -->
+                            <div class="single-testimonial text-center">
+                              <iframe width="850" height="350" src="https://www.youtube.com/embed/1S6p_bc2ViE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -380,30 +315,6 @@
             </div>
         </div>
         <!-- Testimonial End -->
-        <!-- Subscribe Area Start -->
-        <div class="subscribe-area section-bg pt-150 pb-150" data-background="../assets/img/gallery/section_bg04.jpg">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle section-tittle2 text-center mb-40">
-                            <span>Subscribe out newslatter</span>
-                            <h2>Subscribe For Newsletter</h2>
-                        </div> 
-                        <!--Hero form -->
-                        <form action="#" class="search-box">
-                            <div class="input-form">
-                                <input type="text" placeholder="What are you looking for?">
-                            </div>
-                            <div class="search-form">
-                                <a href="#">Send Now</a>
-                            </div>	
-                        </form>	
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Subscribe Area End -->
         <!-- Blog Ara Start -->
         <div class="home-blog-area section-padding30">
             <div class="container">
