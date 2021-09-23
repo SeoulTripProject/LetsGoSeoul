@@ -13,7 +13,7 @@ public class MainModel {
 	@RequestMapping("main/main.do")
 	public String main_main(HttpServletRequest request,HttpServletResponse response)
 	{
-		String result="";
+/*		String result="";
 		int[] com=new int[(int)(Math.random()*6)+5]; 
 		int su=0;
 		boolean bCheck=false;
@@ -41,7 +41,7 @@ public class MainModel {
 			result+=com[i]+",";
 		}
 		result=result.substring(0, result.lastIndexOf(","));
-		request.setAttribute("result", result);
+		request.setAttribute("result", result); */
 		request.setAttribute("main_jsp", "../main/home.jsp");
 		return "../main/main.jsp";
 	}
