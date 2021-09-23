@@ -264,10 +264,12 @@ public class FoodModel {
 		for(int i=0;i<=12;i++)
 		{
 			int a=(int)(Math.random()*100)+1;
-			List list=new ArrayList();
-			List<FoodVO> toList=new ArrayList<FoodVO>();
-			toList(dao.foodrecommandData(a),list);
-			request.setAttribute("toList", toList);
+			//List list=new ArrayList();
+			//List<FoodVO> toList=new ArrayList<FoodVO>();
+			//toList(dao.foodrecommandData(a),list);
+			//request.setAttribute("toList", toList);
+			List<FoodVO> list=dao.foodrecommandData(a);
+			request.setAttribute("list", list);
 		}
 		
 		request.setAttribute("menu", menu);
