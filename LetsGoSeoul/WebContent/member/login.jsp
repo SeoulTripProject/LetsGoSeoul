@@ -337,6 +337,12 @@ label:hover:before {
   font-weight: bold;
 }
 
+.hero-area2 {
+  background-image: url(../assets/img/hero/river.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
 </style>
 </head>
 <body>
