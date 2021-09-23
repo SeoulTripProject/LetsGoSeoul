@@ -124,7 +124,7 @@ public class MemberModel {
 			  result="OK";
 		  }
 		  request.setAttribute("result", result);
-		  return "redirect:../main/main.do";
+		  return "../member/login_result.jsp";
 	  }
 
 	  @RequestMapping("member/logout.do")
