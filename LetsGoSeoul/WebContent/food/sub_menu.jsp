@@ -17,7 +17,7 @@ $(function(){
 			data: {"menu":menu},
 			success: function(result)
 			{
-				$('#recommend').html(result);
+				$('#recommand').html(result);
 			}
 		})
 	})
