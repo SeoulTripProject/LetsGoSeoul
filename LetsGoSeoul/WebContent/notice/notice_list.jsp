@@ -41,7 +41,7 @@
                         <div class="blog_left_sidebar">
                             <c:forEach var="vo" items="${list }">
                             <article class="blog_item">
-                                <div class="blog_details" style="width:1000px;margin-left:10%;margin-right:auto;"> 
+                                <div class="blog_details" style="width:1000px;margin-left:10%;margin-right:auto;box-shadow: 0px 10px 20px 0px rgba(37, 20, 79, 0.2);"> 
                                     <a class="d-inline-block" href="../notice/notice_detail.do?no=${vo.no }">
                                    <h2>${vo.subject }</h2>
                                     </a>

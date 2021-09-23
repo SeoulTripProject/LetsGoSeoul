@@ -53,8 +53,6 @@
                   </div>
                   <div class="navigation-top">
                      <div class="d-sm-flex justify-content-between text-center">
-                        <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
-                           people like this</p>
                         <div class="button-group-area mt-40">
                         <c:if test="${sessionScope.admin=='y' }">
                           <a href="../notice/notice_update.do?no=${vo.no }" class="genric-btn primary small">Edit</a>
@@ -70,7 +68,7 @@
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
                                  <a href="../notice/notice_detail.do?no=${vo.preno }">
-                                    <img class="img-fluid" src="../assets/img/post/preview.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/left-arrow.png" style="width:50px;height:50px">
                                  </a>
                               </div>
                               <div class="arrow">
@@ -96,7 +94,7 @@
                               </div>
                               <div class="thumb">
                                  <a href="../notice/notice_detail.do?no=${vo.nextno }">
-                                    <img class="img-fluid" src="../assets/img/post/next.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/right-arrow.png" style="width:50px;height:50px">
                                  </a>
                               </div>
                            </div>
