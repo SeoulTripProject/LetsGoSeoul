@@ -71,10 +71,10 @@ $(function(){
 				    </div>
 				    </div>
 				    <div id="menu">
-				    
+				      
 				    </div>
                     <div id="recommend">
-                        	
+                       	
                     </div>
 				  </div>
 				  </main>
