@@ -103,66 +103,66 @@ $(function(){
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img">
-                                <img src="../assets/img/gallery/location1.png" alt="">
+                                <img src="../assets/img/gallery/attra.jpg" style="width:360px;height:286px">
                             </div>
                             <div class="location-details">
-                                <p>New York</p>
-                                <a href="#" class="location-btn">65 <i class="ti-plus"></i> Location</a>
+                                <p>Attractions</p>
+                                <a href="../attraction/attraction_main.do" class="location-btn">243 <i class="ti-plus"></i> Location</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img">
-                                <img src="../assets/img/gallery/location2.png" alt="">
+                                <img src="../assets/img/gallery/nature.jpg" style="width:360px;height:286px">
                             </div>
                             <div class="location-details">
-                                <p>Paris</p>
-                                <a href="#" class="location-btn">60 <i class="ti-plus"></i> Location</a>
+                                <p>Nature</p>
+                                <a href="../nature/main.do" class="location-btn">107 <i class="ti-plus"></i> Location</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img">
-                                <img src="../assets/img/gallery/location3.png" alt="">
+                                <img src="../assets/img/gallery/exhibit.jpg" style="width:360px;height:286px">
                             </div>
                             <div class="location-details">
-                                <p>Rome</p>
-                                <a href="#" class="location-btn">50 <i class="ti-plus"></i> Location</a>
+                                <p>Exhibition</p>
+                                <a href="../culture/exhibition.do" class="location-btn">24 <i class="ti-plus"></i> Location</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img">
-                                <img src="../assets/img/gallery/location4.png" alt="">
+                                <img src="../assets/img/gallery/perf.jpg" style="width:360px;height:286px">
                             </div>
                             <div class="location-details">
-                                <p>Italy</p>
-                                <a href="#" class="location-btn">28 <i class="ti-plus"></i> Location</a>
+                                <p>Performances</p>
+                                <a href="../culture/play.do" class="location-btn">28 <i class="ti-plus"></i> Location</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img">
-                                <img src="../assets/img/gallery/location5.png" alt="">
+                                <img src="../assets/img/gallery/stay.jpg" style="width:360px;height:286px">
                             </div>
                             <div class="location-details">
-                                <p>Nepal</p>
-                                <a href="#" class="location-btn">99 <i class="ti-plus"></i> Location</a>
+                                <p>Stay</p>
+                                <a href="../stay/stay_main.do" class="location-btn">582 <i class="ti-plus"></i> Location</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-location mb-30">
                             <div class="location-img">
-                                <img src="../assets/img/gallery/location6.png" alt="">
+                                <img src="../assets/img/gallery/food.jpg" style="width:360px;height:286px">
                             </div>
                             <div class="location-details">
-                                <p>indonesia</p>
-                                <a href="#" class="location-btn">78 <i class="ti-plus"></i> Location</a>
+                                <p>Restaurants</p>
+                                <a href="../food/food_main.do" class="location-btn">5200 <i class="ti-plus"></i> Location</a>
                             </div>
                         </div>
                     </div>
