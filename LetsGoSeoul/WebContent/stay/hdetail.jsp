@@ -118,7 +118,7 @@ button:hover:before,button:hover:after{
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
                                  <a href="../stay/hdetail.do?no=${vo.no-1 }">
-                                    <img class="img-fluid" src="../assets/img/post/left-arrow.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/left-arrow.png" style="width:50px;height:50px">
                                  </a>
                               </div>
                               <div class="arrow">
@@ -142,7 +142,7 @@ button:hover:before,button:hover:after{
                               </div>
                               <div class="thumb">
                                  <a href="../stay/hdetail.do?no=${vo.no+1 }">
-                                    <img class="img-fluid" src="../assets/img/post/right-arrow.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/right-arrow.png" style="width:50px;height:50px">
                                  </a>
                               </div>
                            </div>
