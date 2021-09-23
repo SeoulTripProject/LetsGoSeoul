@@ -140,7 +140,7 @@ button:hover:before,button:hover:after{
                               class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                               <div class="thumb">
                                  <a href="../nature/detail.do?no=${vo.no-1 }">
-                                    <img class="img-fluid" src="../assets/img/post/left-arrow.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/left-arrow.png" style="width:50px;height:50px">
                                  </a>
                               </div>
                               <div class="arrow">
@@ -164,7 +164,7 @@ button:hover:before,button:hover:after{
                               </div>
                               <div class="thumb">
                                  <a href="../nature/detail.do?no=${vo.no+1 }">
-                                    <img class="img-fluid" src="../assets/img/post/right-arrow.png" alt="">
+                                    <img class="img-fluid" src="../assets/img/post/right-arrow.png" style="width:50px;height:50px">
                                  </a>
                               </div>
                            </div>
@@ -172,7 +172,7 @@ button:hover:before,button:hover:after{
                         </div>
                      </div>
                   </div>
-                  <div class="comments-area">
+                  <!-- <div class="comments-area">
                      <h4>05 Comments</h4>
                      <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
@@ -252,8 +252,8 @@ button:hover:before,button:hover:after{
                            </div>
                         </div>
                      </div>
-                  </div>
-                  <div class="comment-form">
+                  </div> -->
+                  <!--  <div class="comment-form">
                      <h4>Leave a Reply</h4>
                      <form class="form-contact comment_form" action="#" id="commentForm">
                         <div class="row">
@@ -283,7 +283,7 @@ button:hover:before,button:hover:after{
                            <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
                         </div>
                      </form>
-                  </div>
+                  </div>-->
                </div>
                <div class="col-lg-4">
                  <div id="map" style="width:100%;height:350px;"></div>
