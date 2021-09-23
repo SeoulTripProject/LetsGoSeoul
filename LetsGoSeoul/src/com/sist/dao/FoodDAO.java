@@ -575,9 +575,9 @@ public class FoodDAO {
 	}
 	
 	// 추천
-		public FoodVO foodrecommandData(int no)
+		public List<FoodVO> foodrecommandData(int no)
 		{
-			FoodVO vo=new FoodVO();
+			List<FoodVO> list=new ArrayList<FoodVO>();
 			try
 			{
 				getConnection();
@@ -586,11 +586,17 @@ public class FoodDAO {
 				ps=conn.prepareStatement(sql);
 				ps.setInt(1, no);
 				ResultSet rs=ps.executeQuery();
-				rs.next();
-				vo.setNo(rs.getInt(1));
-				vo.setPoster(rs.getString(2));
-				vo.setRname(rs.getString(3));
+				while(rs.next())
+				{
+					FoodVO vo=new FoodVO();
+					vo.setNo(rs.getInt(1));
+					vo.setPoster(rs.getString(2));
+					vo.setRname(rs.getString(3));
+					list.add(vo);
+				}
 				rs.close();
+				
+				
 			}catch(Exception ex)
 			{
 				ex.printStackTrace();
@@ -599,7 +605,7 @@ public class FoodDAO {
 			{
 				disConnection();
 			}
-			return vo;
+			return list;
 		}
 	
 }

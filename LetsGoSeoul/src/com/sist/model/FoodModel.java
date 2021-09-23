@@ -260,10 +260,18 @@ public class FoodModel {
 		String menu=request.getParameter("menu");
 		System.out.println(menu);
 		FoodDAO dao=FoodDAO.newInstance();
-		int a=(int)(Math.random()*30)+1;
-		List<FoodVO> list=(List<FoodVO>) dao.foodDetailData(a);
-		System.out.println(list);
-		request.setAttribute("list", list);
+		
+		for(int i=0;i<=12;i++)
+		{
+			int a=(int)(Math.random()*30)+1;
+			
+			List<FoodVO> list=dao.foodrecommandData(a);
+			System.out.println(list);
+			request.setAttribute("list", list);
+		}
+    	
+    	
+		
 		request.setAttribute("menu", menu);
 		return "../food/food_result.jsp";
 	}
