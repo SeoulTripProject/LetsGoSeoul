@@ -17,6 +17,13 @@ import com.sist.vo.FoodVO;
 
 @Controller
 public class AttraModel {
+	@RequestMapping("main/main.do")
+	public String main_main(HttpServletRequest request,HttpServletResponse response)
+	{
+		System.out.println("1");
+		request.setAttribute("main_jsp", "../main/home.jsp");
+		return "../main/main.jsp";
+	}
 	// attraction main
 	@RequestMapping("attraction/attraction_main.do") 
 	public String Attra_main(HttpServletRequest request,HttpServletResponse response)
