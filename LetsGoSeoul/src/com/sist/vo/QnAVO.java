@@ -13,35 +13,9 @@ import java.util.*;
  */
 
 public class QnAVO {
-	private int no,hit,group_no,type;   // type=0 질문, type=1 답변
+	private int no,hit,group_id,group_step,group_tab,root,depth;   
 	private String name,subject,content,pwd,dbday;
 	private Date regdate;
-	
-	
-	public int getGroup_no() {
-		return group_no;
-	}
-	public void setGroup_no(int group_no) {
-		this.group_no = group_no;
-	}
-	public int getType() {
-		return type;
-	}
-	public void setType(int type) {
-		this.type = type;
-	}
-	public String getDbday() {
-		return dbday;
-	}
-	public void setDbday(String dbday) {
-		this.dbday = dbday;
-	}
-	public String getPwd() {
-		return pwd;
-	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
 	public int getNo() {
 		return no;
 	}
@@ -53,6 +27,36 @@ public class QnAVO {
 	}
 	public void setHit(int hit) {
 		this.hit = hit;
+	}
+	public int getGroup_id() {
+		return group_id;
+	}
+	public void setGroup_id(int group_id) {
+		this.group_id = group_id;
+	}
+	public int getGroup_step() {
+		return group_step;
+	}
+	public void setGroup_step(int group_step) {
+		this.group_step = group_step;
+	}
+	public int getGroup_tab() {
+		return group_tab;
+	}
+	public void setGroup_tab(int group_tab) {
+		this.group_tab = group_tab;
+	}
+	public int getRoot() {
+		return root;
+	}
+	public void setRoot(int root) {
+		this.root = root;
+	}
+	public int getDepth() {
+		return depth;
+	}
+	public void setDepth(int depth) {
+		this.depth = depth;
 	}
 	public String getName() {
 		return name;
@@ -71,6 +75,18 @@ public class QnAVO {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getDbday() {
+		return dbday;
+	}
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
 	}
 	public Date getRegdate() {
 		return regdate;
